@@ -1,0 +1,751 @@
+Delivered-To: mennatul@gmx.ualberta.ca
+Received: by 2002:a9d:12d5:0:0:0:0:0 with SMTP id g79csp1597541otg;
+        Fri, 18 Jun 2021 11:38:00 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzTDpWL0Vty7z2cU0PQSPLSyTXLxmr8xCYhcWtNk+UVubdVesOvp/KDSNj/ytaHuc8nZS50
+X-Received: by 2002:a17:902:db06:b029:102:6e01:cecb with SMTP id m6-20020a170902db06b02901026e01cecbmr5988405plx.9.1624041479875;
+        Fri, 18 Jun 2021 11:37:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624041479; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=PoaSDpcymKf+v/T9nRNfxpkx564A0DE4QEd3u9PwaMal10OOxTck1aqOKnv6gdR4ug
+         8c8PJ+o0WtJA9nbQGj5f/bVIvnn/NaBLE1SDAKDIGusB6TvEonwpzF2ptDkZzy42k5b6
+         l29EaBzaSMca918ViI961X50Up7z/IUD290wTuTcx5tjazpYEF5T7Zazzev8A807MH/y
+         wftaaKWWiRoGMi+viumy9sREl7o9C1FyxhmmDG+aT+XJ6eF70Dv2A+YdheNkRhN9T0jG
+         UdC5ukgplyJESSnKFxdfpLixdhVBO9Bm9AMm9dSEo419pUELQ9lPM1AOaDmnmhZm1F4E
+         ylyg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:cc:to:from:dkim-signature
+         :delivered-to;
+        bh=5ty6Kagh0dsAF2y7tybFov3bXFUqW60m6GdpYhbtvK8=;
+        b=aLJ0k8UgsgkbkfUyd4ubqkyiyqQmZkgPwAeLKIOOybpjPvb95LfXZO3DlWxv0UITjH
+         UH9omEhK01g+ZXeFtLrt1wVOnB5MT+jUGHYUGL5z3Wsx97LMBgctNGLjXNEq1DC8mBtd
+         f8LBkxe2WD2SSEUL27vpekWsRqEWtq3NzQ4JrX34MkzvjICWcab/6dMwVvwgpJ2qzlDl
+         1vDQFs1iEd9w0y28P5SP9XOl5zGdt0mvIhdClKZSPstnkEq0PTAhfrXDiId7o1eN274k
+         lyHyyn4T/keHV48lR3yJhNDIJZjOGyl7yA2kKQaJbi1pUDYlGvb1dlos+rmGF8L1X/FD
+         nVhQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@yuoffice.onmicrosoft.com header.s=selector2-yuoffice-onmicrosoft-com header.b=Co3zwz7R;
+       arc=pass (i=1 spf=pass spfdomain=yorku.ca dkim=pass dkdomain=yorku.ca dmarc=pass fromdomain=yorku.ca);
+       spf=pass (google.com: domain of kimmcint@yorku.ca designates 40.107.67.139 as permitted sender) smtp.mailfrom=kimmcint@yorku.ca
+Return-Path: <kimmcint@yorku.ca>
+Received: from mx-05.srv.ualberta.ca (mx-05.srv.ualberta.ca. [129.128.162.15])
+        by mx.google.com with ESMTPS id r70si2138871pfc.102.2021.06.18.11.37.59
+        for <mennatul@gmx.ualberta.ca>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Jun 2021 11:37:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kimmcint@yorku.ca designates 40.107.67.139 as permitted sender) client-ip=40.107.67.139;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@yuoffice.onmicrosoft.com header.s=selector2-yuoffice-onmicrosoft-com header.b=Co3zwz7R;
+       arc=pass (i=1 spf=pass spfdomain=yorku.ca dkim=pass dkdomain=yorku.ca dmarc=pass fromdomain=yorku.ca);
+       spf=pass (google.com: domain of kimmcint@yorku.ca designates 40.107.67.139 as permitted sender) smtp.mailfrom=kimmcint@yorku.ca
+Received: by mx-05.srv.ualberta.ca (Postfix)
+	id 7875D1800940; Fri, 18 Jun 2021 12:37:59 -0600 (MDT)
+Delivered-To: mennatul@ualberta.ca
+Received: from CAN01-TO1-obe.outbound.protection.outlook.com (mail-eopbgr670139.outbound.protection.outlook.com [40.107.67.139])
+	by mx-05.srv.ualberta.ca (Postfix) with ESMTPS id 1B75B18004FF
+	for <mennatul@ualberta.ca>; Fri, 18 Jun 2021 12:37:59 -0600 (MDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Xh1asNShoQxI48Vww4JYgy4DH0sdF30ISgJ9cnUf/Vj8eUsSqIzOuDnCicY7cUPgVxJAj9vr4RkVSH0Co5v08oEgjvyexzkmRZutmBlgnRFhtJxR2VkzCE/CwlOJ6zmp+NGRuTIePNBo03520nGEKxrSJfK8fF67MuiZyXPRUlZeBO84nk+dM0iq/uEF+Ztjk/jDuS2WC92ulJN+3+ThsBcGuM/k6dJg6Q5U1BKwi0gH3jiZ5fhTyGN+ttSdA5AZt3lrCaDd2B9jGdAV/wxFbE1wRjkkN8Z5Yi1YlS1dQeS00MbVhASJox9EMeIt9pVMV1I9zOs2kRVqmZ8XFMGUwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5ty6Kagh0dsAF2y7tybFov3bXFUqW60m6GdpYhbtvK8=;
+ b=hLl3LW0YGG1+y8ZEXfkGOlKqoFEu6cFBfNzn0CDjkVIx6GL9hgbYeo6WAAsQ81mvZHeU3ZKFkjyF+PNxsRJo7NFVWwN53C06JYEaqiHMEKo8RUZdctuyMj1YnlHcW+hRfVLqfwnrPE2ZN+eOj4vcqiW4pWfL+nUH4u27iSSXgjmEVoZfd0Ird4NBDOxVNirqjEF+si102Irm4NWNPI9Z5566HgY9FyoTD8vW90zIV7v4iaHANC+ZMOlFxnLUzM0mO+3uzgXFELkgCAKBMhzeCjCaG7H9BStKIh8yZA3HME7UMhK57zzJ4tN/iAgUYi22rVuyM6b3U93dVsspVaX20Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=yorku.ca; dmarc=pass action=none header.from=yorku.ca;
+ dkim=pass header.d=yorku.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=yuoffice.onmicrosoft.com; s=selector2-yuoffice-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5ty6Kagh0dsAF2y7tybFov3bXFUqW60m6GdpYhbtvK8=;
+ b=Co3zwz7R748ITeeR3qdeCxVgQ06M2G6ZidBlH2goMmJej+j+LNRdq2xL4YAGERW/PJ4l5jj8T5S80YNLVcI7YNeECitIcZuYpIhFmXZSHwk0zIP1DraG4WqPQQ90jcMkqc+UYToDqbMu0Q2WFHGdXDlRH9xRhiSYVpxePpWDLEs=
+Received: from YQXPR01MB4905.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:25::23)
+ by YQXPR01MB5123.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:27::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4242.16; Fri, 18 Jun
+ 2021 18:37:57 +0000
+Received: from YQXPR01MB4905.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::e141:8fa4:2a56:e64b]) by YQXPR01MB4905.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::e141:8fa4:2a56:e64b%5]) with mapi id 15.20.4242.021; Fri, 18 Jun 2021
+ 18:37:57 +0000
+From: Kim McIntyre <kimmcint@yorku.ca>
+To: "mennatul@ualberta.ca" <mennatul@ualberta.ca>
+CC: Rick Wildes <wildes@cse.yorku.ca>, Linda Moradzadeh <lmorad@yorku.ca>,
+	Laurie M Wilcox <lwilcox@yorku.ca>
+Subject: Vision: Science to Applications (VISTA) Postdoctoral Award
+Thread-Topic: Vision: Science to Applications (VISTA) Postdoctoral Award
+Thread-Index: AQHXY6+U2J5CcQ+vn0+c1SG6eLfqjg==
+Date: Fri, 18 Jun 2021 18:37:57 +0000
+Message-ID:
+ <YQXPR01MB49050125906FD086CC09BCC7BE0E9@YQXPR01MB4905.CANPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-CA, en-US
+Content-Language: en-CA
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+authentication-results: ualberta.ca; dkim=none (message not signed)
+ header.d=none;ualberta.ca; dmarc=none action=none header.from=yorku.ca;
+x-originating-ip: [70.53.9.51]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 5ea5d164-8a64-40d4-8703-08d93288313c
+x-ms-traffictypediagnostic: YQXPR01MB5123:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs:
+ <YQXPR01MB512304CD24B03EB359A12121BE0D9@YQXPR01MB5123.CANPRD01.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:7219;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ G4Yl5fdBTIXNMBJMskXSCxkfTbX8vgInB1Lb98+sNfVRgVTinDE3MoNNIdXT3Or+GJo9/FvCeYwENAez7DtI7H34y54bj9KnBxFYSubpyNu1MxmiLyBIEqXsaFqt3dMfJUwufjgLEPbrrYMUqm7x4YDmm3yCaCJQB3vngtpYFwOjLEVgg8NX3GwRAWYedaZlyn20PUe9I7wiWSe/Z75bw9Ilp9PVyqs902BEnyAgVYGox966t5ibTI8DhWJsCxRXEf8vDr6L+lYYWcqe/fdy4Al/JCv6yIQuQtgDi3EWAODjQBC6NVu6kmLyRa+yd94Wv03eosW4Dk4HuZIdjub32TIIwN11DxwZMp3wY11oNKHZYiLvrC2J9cfJmNYP3Q+UPjYaeEboMGXT/ztOqg5Ps2KV3jxqIe593ltx1N7UHIKysSKQ2iXvwC6T85f8iu86i1+uqOlab1olGRTMWr2nRmepbyYVsMHijnOvrPM2RYpt4IPW8Y+wOW0R4IyLTZeZPaJChgjFBvEtx0mtI/bfcHZWumPzrpRyin5NR2T7V5hqqKBWONWTN/J5Ejrq3MBG6nHbQT/weaz1zs2WgwvqplYKmKNZQkjYp82hIwxvQHQBX5wTYMdS+8FxuWJ85OfN5qVYBP7xs/1nP2LPECLIjunnhfmk5Y/oEJia55H2+thAfcQcevYGPI/sz2eFFvj437Q4hWu4Rei5zj000SmQtcnIN/P4l4fqTSePLKyEHks=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YQXPR01MB4905.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(4636009)(346002)(366004)(376002)(39860400002)(136003)(396003)(9686003)(7696005)(38100700002)(54906003)(122000001)(6916009)(76116006)(66946007)(6506007)(26005)(64756008)(186003)(2906002)(66556008)(66446008)(478600001)(91956017)(86362001)(8936002)(166002)(66476007)(786003)(83380400001)(19627405001)(5660300002)(8676002)(99936003)(4326008)(66576008)(316002)(66574015)(33656002)(52536014)(71200400001)(55016002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?gzxzrl71tG1iDMKNIeqqx7mMRFuxLx7Cnt7iqIGWyqNl9CDFcsYqqnhfNv?=
+ =?iso-8859-1?Q?dH7PjI3CWNKlgMh3qgW0cFcSoxFWdVoYnK45lkgw8/+h3nkZyyjImIbT2r?=
+ =?iso-8859-1?Q?DcWQ2pHzgNGtmGWDuwmJsGxsLPBLGq9cmtHYlG8DGCGiBvtAoqJghaQikW?=
+ =?iso-8859-1?Q?tB6wWwdHZ6Lk4LBlpxqUM0XMUql26GMe2v216WhghZCcdypUIPuRClPR5E?=
+ =?iso-8859-1?Q?yA52lpqX3tCIBRSxlpTSOc+dvJpaxrXSDN+Gy6YFzb3tPm2g7CZnC3151P?=
+ =?iso-8859-1?Q?Nq0oGXF1Vttz+3yG9LWhrfkZ2veCZapeysmJ2Dafv05Kdk0n7yw0MyfgLb?=
+ =?iso-8859-1?Q?pXUlzlqXSaTi1djmuL5i6cvsXOX7vQq8xq1CvQNljkOCEZ492c+ilvRMOR?=
+ =?iso-8859-1?Q?r2R6E2i5uzXM03DiEfTOE8J2Vvm8dzrQtv3M2DlkZlgN/+PiyTwOb8aLcT?=
+ =?iso-8859-1?Q?s8vhQpFFqKHLEGlW1UB9n/slCSXWcJ7cB/qIqY1MR3B+PXoB8ozKmfX89a?=
+ =?iso-8859-1?Q?RHoqHi4Yl0dq+3Bi4BtjR+tVgVbozyxP/skJG82hd1QBGJmwlVJdypCT3V?=
+ =?iso-8859-1?Q?xet0AdeInq7658xjuH3irw6OkImMOQkRWrfACC2q403GZvrjd8awfDhpJS?=
+ =?iso-8859-1?Q?mXGJq+xBHn+kxPMBPlKMSvlwsJLUGMpF3SJVy+WenIbhDndMkG+DqJw9/M?=
+ =?iso-8859-1?Q?nngYmnoxU4UXDDjrufiL6iXW0vqI6JLqyuBEjuX5gb7YAKDgAOs3enMiLX?=
+ =?iso-8859-1?Q?ruo29lvMOEWoJwePtjl5uSX4gO8x2wQNAlSfLoO1D5i2b0hKVAJpCUgHmk?=
+ =?iso-8859-1?Q?YJq0zpps1LMClFaHWFGQq9zNRiklckmmRhrq7Y56hIe7kY8BwOE2zgC452?=
+ =?iso-8859-1?Q?nOkNvgzLdq/r2QZRaNFJBKWm8AYVG4xe8UuSxksbnSGC37KRvwzLjSkndA?=
+ =?iso-8859-1?Q?CNkgtmWhIxugoXR90T7hAuSGKwdLV68E/VzCxlX/ieAMP8fnA2ViRPpQSV?=
+ =?iso-8859-1?Q?1/nV/jKInaOT+YQL0ZMDz0iHv/zQetjh81un75ebVffVDQ/Fd097uqDVcC?=
+ =?iso-8859-1?Q?t+fV2txvNx4jKcgy95WI/ZCKOQB7agVV1ARgLhCKz+BkYeQ1qqvkI+8qg6?=
+ =?iso-8859-1?Q?pmMQX0CW8riLHLcGyBXxE9rDj+2Uc1js83d0IsXRJPWJeDaXh58u+iPKjQ?=
+ =?iso-8859-1?Q?yuI5zKPxc/OUkuWcPt0cMHYn2ilAl5yv5IRkH/eP4j3Ec5xlXtZvyxixH+?=
+ =?iso-8859-1?Q?gENHHz+43X4p90aQzBSCs4+0pyLwFSsflOQAl+0ACtxFjle3JxqJ/yEhTj?=
+ =?iso-8859-1?Q?7VEQU00G/5svd4ASJxNZ6omREeNpXU4KGlAEUmouoocVJ+s=3D?=
+Content-Type: multipart/related;
+	boundary="_005_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-OriginatorOrg: yorku.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YQXPR01MB4905.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ea5d164-8a64-40d4-8703-08d93288313c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jun 2021 18:37:57.2069
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 34531318-7011-4fd4-87f0-a43816c49bd0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: L/ydy+1ZHJx5QWOxKz4UtV2cbHUuWAzH8KDi1EvrNmJFyu0NXIWraSxCPgzVyseoHGggKbkLsOvC7Hb2lhLPRg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5123
+
+--_005_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_
+Content-Type: multipart/alternative;
+	boundary="_000_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_"
+
+--_000_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Mennatullah Siam:
+
+
+The VISTA Postdoctoral Fellowship Adjudication committee met to review appl=
+ications submitted for the Spring 2021 VISTA Postdoctoral Fellowship compet=
+ition. We are pleased to inform you that you have been awarded a VISTA Post=
+doctoral Fellowship of $55,000 per year for two years. This award also incl=
+udes an annual research allowance of $7,500 plus $1,000 in networking funds=
+.
+
+
+Please note that this fellowship requires acceptance with a start date no l=
+ater than December 31, 2021. Please communicate your intention to accept or=
+ decline the fellowship by September 1, 2021, to applyvista@yorku.ca<mailto=
+:applyvista@yorku.ca>.
+
+
+A formal letter of offer containing relevant details will follow this e-mai=
+l. If you have any questions about the fellowship or the offer, please don'=
+t hesitate to contact Kim McIntyre, Postdoctoral Services Coordinator, by e=
+-mail at kimmcint@yorku.ca<mailto:kimmcint@yorku.ca>. You may also contact =
+Linda Moradzadeh, Operations Manager in the VISTA Admin Office at applyvist=
+a@yorku.ca<mailto:applyvista@yorku.ca>.
+
+
+Congratulations and best wishes for a successful fellowship!
+
+
+Sincerely,
+ [cid:77f2621d-2ee1-4a84-9b30-6d9b3ff2cf53]
+Laurie M. Wilcox, PhD
+Vision: Science to Applications (VISTA) Training Committee Lead
+Department of Psychology, York University
+
+
+
+Kim McIntyre
+
+(she / her)
+
+Post Doctoral Services Coordinator
+
+Office of the Dean
+
+
+
+T 416-736-2100 ext 22993
+
+kimmcint@yorku.ca<mailto:kimmcint@yorku.ca> | gradstudies.yorku.ca<https://=
+gradstudies.yorku.ca/>
+
+Faculty of Graduate Studies | York University
+
+230 York Lanes
+
+4700 Keele Street Toronto ON, Canada M3J 1P3
+
+[cid:82fa4642-763a-4588-8b80-59b1a5e8a051]
+
+Ranked 27th worldwide for building collaborative partnerships
+
+2021 Times Higher Education Impact Rankings   =AD=AD=AD=AD=AD=AD=AD
+
+We recognize that many Indigenous Nations have longstanding relationships w=
+ith the territories upon which York University campuses are located that pr=
+ecede the establishment of York University. York University acknowledges it=
+s presence on the traditional territory of many Indigenous Nations. The are=
+a known as Tkaronto has been care taken by the Anishinabek Nation, the Haud=
+enosaunee Confederacy, and the Huron-Wendat. It is now home to many First N=
+ation, Inuit and M=E9tis communities. We acknowledge the current treaty hol=
+ders, the Mississaugas of the Credit First Nation. This territory is subjec=
+t of the Dish with One Spoon Wampum Belt Covenant, an agreement to peaceabl=
+y share and care for the Great Lakes region.
+
+This electronic mail (e-mail), including any attachments, is intended only =
+for the recipient(s) to whom it is addressed and may contain information th=
+at is privileged, confidential and/or exempt from disclosure. No waiver of =
+privilege, confidentiality or any other protection is intended by virtue of=
+ its communication by the internet. Any unauthorized use, dissemination or =
+copying is strictly prohibited. If you have received this e-mail in error, =
+or are not named as a recipient, please immediately notify the sender and d=
+estroy all copies of it.
+
+
+
+--_000_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:12p=
+t; color:rgb(0,0,0)">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)">Dear<span>&nbsp;Mennatullah=
+ <span style=3D"background-color:rgb(255,255,255); display:inline!important=
+">
+Siam</span>:</span></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)"><br>
+</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)">The VISTA Postdoctoral Fell=
+owship Adjudication committee met to review applications submitted for the =
+Spring 2021 VISTA Postdoctoral Fellowship competition. We are pleased to in=
+form you that you have been awarded
+ a<span>&nbsp;</span><b>VISTA Postdoctoral Fellowship</b><span>&nbsp;</span=
+>of $55,000 per year for two years. This award also includes an annual rese=
+arch allowance of $7,500 plus $1,000 in networking funds.</span><span lang=
+=3D"EN-US" style=3D"margin:0px; color:rgb(50,49,48)">&nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)"><br>
+</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)">Please note that this fello=
+wship requires acceptance with a start date no later than<span>&nbsp;</span=
+><b>December 31, 2021</b>. Please communicate your intention to accept or d=
+ecline the fellowship by&nbsp;<b>September 1,
+ 2021,&nbsp;</b>to<span>&nbsp;</span></span><span lang=3D"EN-US" style=3D"m=
+argin:0px; color:black"><a href=3D"mailto:applyvista@yorku.ca" style=3D"mar=
+gin:0px"><span lang=3D"EN-CA" style=3D"margin:0px">applyvista@yorku.ca</spa=
+n></a></span><b><span style=3D"margin:0px; color:rgb(50,49,48)">.</span></b=
+><span lang=3D"EN-US" style=3D"margin:0px; color:rgb(50,49,48)">&nbsp;</spa=
+n></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)"><br>
+</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)">A formal letter of offer co=
+ntaining relevant details will follow this e-mail. If you have any question=
+s about the fellowship or the offer, please don't hesitate to contact Kim M=
+cIntyre, Postdoctoral Services Coordinator,
+ by e-mail at<span>&nbsp;</span></span><span lang=3D"EN-US" style=3D"margin=
+:0px; color:black"><a href=3D"mailto:kimmcint@yorku.ca" style=3D"margin:0px=
+"><span lang=3D"EN-CA" style=3D"margin:0px">kimmcint@yorku.ca</span></a></s=
+pan><span style=3D"margin:0px; color:rgb(50,49,48)">.
+ You may also contact Linda Moradzadeh, Operations Manager in the VISTA Adm=
+in Office at<span>&nbsp;</span></span><span lang=3D"EN-US" style=3D"margin:=
+0px; color:black"><a href=3D"mailto:applyvista@yorku.ca" style=3D"margin:0p=
+x"><span lang=3D"EN-CA" style=3D"margin:0px">applyvista@yorku.ca</span></a>=
+</span><span style=3D"margin:0px; color:rgb(50,49,48)">.</span><span lang=
+=3D"EN-US" style=3D"margin:0px; color:rgb(50,49,48)">&nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)"><br>
+</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)">Congratulations and best wi=
+shes for a successful fellowship!&nbsp;</span><span lang=3D"EN-US" style=3D=
+"margin:0px; color:rgb(50,49,48)">&nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)"><br>
+</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:11pt; font-family:Calibri,sans-serif; line-height:12.65pt; bac=
+kground:white">
+<span style=3D"margin:0px; color:rgb(50,49,48)">Sincerely,</span><span lang=
+=3D"EN-US" style=3D"margin:0px; color:rgb(50,49,48)">&nbsp;</span></p>
+<p class=3D"MsoNormal" style=3D"margin-top: 0px; margin-bottom: 0px;margin-=
+top:0px; margin-bottom:0px; margin-top:0px; margin-bottom:0px; background-c=
+olor:rgb(255,255,255); margin:0cm; font-size:11pt; font-family:Calibri,sans=
+-serif">
+<span lang=3D"EN-US" style=3D"margin:0px"></span><span lang=3D"EN-US" style=
+=3D"margin:0px">&nbsp;<img size=3D"0" tabindex=3D"-1" style=3D"margin:0px; =
+max-width:100%; height:auto" data-outlook-trace=3D"F:1|T:1" src=3D"cid:77f2=
+621d-2ee1-4a84-9b30-6d9b3ff2cf53"></span></p>
+<p class=3D"MsoNormal" style=3D"margin-top: 0px; margin-bottom: 0px;margin-=
+top:0px; margin-bottom:0px; margin-top:0px; margin-bottom:0px; background-c=
+olor:rgb(255,255,255); margin:0cm; font-size:11pt; font-family:Calibri,sans=
+-serif">
+<span lang=3D"EN-US" style=3D"margin:0px">Laurie M. Wilcox, PhD&nbsp;</span=
+></p>
+<p class=3D"MsoNormal" style=3D"margin-top: 0px; margin-bottom: 0px;margin-=
+top:0px; margin-bottom:0px; margin-top:0px; margin-bottom:0px; background-c=
+olor:rgb(255,255,255); margin:0cm; font-size:11pt; font-family:Calibri,sans=
+-serif">
+<span lang=3D"EN-US" style=3D"margin:0px">Vision: Science to Applications (=
+VISTA) Training Committee Lead&nbsp;</span></p>
+<p class=3D"MsoNormal" style=3D"margin-top: 0px; margin-bottom: 0px;margin-=
+top:0px; margin-bottom:0px; margin-top:0px; margin-bottom:0px; background-c=
+olor:rgb(255,255,255); margin:0cm; font-size:11pt; font-family:Calibri,sans=
+-serif">
+<span lang=3D"EN-US" style=3D"margin:0px">Department of Psychology, York Un=
+iversity&nbsp;</span></p>
+<br>
+</div>
+<div>
+<div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:12p=
+t; color:rgb(0,0,0)">
+<br>
+</div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div></div>
+<div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif; color:rgb(0,0=
+,0)">
+<div style=3D"color:rgb(32,31,30); text-align:start; background-color:rgb(2=
+55,255,255); font-family:Calibri,sans-serif; margin:0px 0px 13.3333px; line=
+-height:12.65pt">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<b><span lang=3D"EN-US" style=3D"font-family:&quot;IBM Plex Sans&quot;,sans=
+-serif">Kim McIntyre&nbsp;</span></b></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<b><span lang=3D"EN-US" style=3D"font-family:&quot;IBM Plex Sans&quot;,sans=
+-serif">(she / her)&nbsp;</span></b></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<b><span lang=3D"EN-US" style=3D"font-family:&quot;IBM Plex Sans&quot;,sans=
+-serif">Post Doctoral Services Coordinator</span></b><b><span lang=3D"EN-US=
+" style=3D"font-family:&quot;IBM Plex Sans SemiBold&quot;,sans-serif">&nbsp=
+;</span></b></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<b><span lang=3D"EN-US" style=3D"font-family:&quot;IBM Plex Sans&quot;,sans=
+-serif">Office of the Dean</span></b><span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;IBM Plex Sans Medium&quot;,sans-serif">&nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<span style=3D"font-family:&quot;IBM Plex Sans Text&quot;,sans-serif; font-=
+size:8.5pt">&nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<span lang=3D"EN-US" style=3D"font-size:8.5pt; font-family:&quot;IBM Plex S=
+ans Text&quot;,sans-serif">T 416-736-2100 ext 22993 &nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<span lang=3D"EN-US" style=3D"font-size:8.5pt; font-family:&quot;IBM Plex S=
+ans Text&quot;,sans-serif"><a href=3D"mailto:kimmcint@yorku.ca">kimmcint@yo=
+rku.ca</a> |
+</span><span lang=3D"EN-US"><a href=3D"https://gradstudies.yorku.ca/"><span=
+ style=3D"font-size:8.5pt; font-family:&quot;IBM Plex Sans Text&quot;,sans-=
+serif">gradstudies.yorku.ca</span></a></span><span lang=3D"EN-US" style=3D"=
+font-size:8.5pt; font-family:&quot;IBM Plex Sans Text&quot;,sans-serif">&nb=
+sp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:5pt 0cm 0=
+cm; line-height:normal; font-family:Interstate-Regular; color:black">
+<span lang=3D"EN-US" style=3D"font-size:8.5pt; font-family:&quot;IBM Plex S=
+ans Text&quot;,sans-serif">Faculty of Graduate Studies |
+<span style=3D"text-transform:uppercase">York University</span>&nbsp;</span=
+></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<span lang=3D"EN-US" style=3D"font-size:8.5pt; font-family:&quot;IBM Plex S=
+ans Text&quot;,sans-serif">230 York Lanes&nbsp;</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:0cm; line=
+-height:normal; font-family:Interstate-Regular; color:black">
+<span lang=3D"EN-US" style=3D"font-size:8.5pt; font-family:&quot;IBM Plex S=
+ans Text&quot;,sans-serif">4700 Keele Street Toronto ON, Canada M3J 1P3&nbs=
+p;</span></p>
+<div style=3D"font-size:10pt; margin:0px 0cm; line-height:normal; font-fami=
+ly:Interstate-Regular; color:black">
+<img class=3D"EmojiInsert" style=3D"max-width:100%; height:auto" data-outlo=
+ok-trace=3D"F:1|T:1" src=3D"cid:82fa4642-763a-4588-8b80-59b1a5e8a051"><br>
+</div>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin:0cm; line-height:normal; =
+font-family:Interstate-Regular; color:black">
+<b style=3D""><i style=3D""><span lang=3D"EN-US" style=3D"font-size:8.5pt; =
+font-family:&quot;IBM Plex Sans&quot;,sans-serif">Ranked
+<b><i><span lang=3D"EN-US" style=3D"font-size:8.5pt; line-height:107%; font=
+-family:&quot;Arial&quot;,sans-serif; color:black; border:none windowtext 1=
+.0pt; padding:0cm">27<sup>th</sup>&nbsp;worldwide for building collaborativ=
+e partnerships</span></i></b></span><span lang=3D"EN-US" style=3D"font-fami=
+ly:&quot;IBM Plex Sans&quot;,sans-serif"><br>
+<span style=3D"font-size:8.5pt"></span></span></i></b></p>
+<b style=3D""><i style=3D"">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; margin-right:0cm; margin-left:0c=
+m; font-size:12pt; font-family:&quot;Times New Roman&quot;,serif; margin:0c=
+m; background:white">
+<b><i><span style=3D"font-size:8.5pt; font-family:&quot;Arial&quot;,sans-se=
+rif; color:black; border:none windowtext 1.0pt; padding:0cm">2021 Times Hig=
+her Education Impact Rankings</span></i></b><span style=3D"font-family:&quo=
+t;Calibri&quot;,sans-serif; color:#201F1E">&nbsp;</span><b style=3D"font-fa=
+mily:Interstate-Regular; font-size:inherit; font-style:inherit; font-varian=
+t-ligatures:inherit; font-variant-caps:inherit"><i><span lang=3D"EN-US" sty=
+le=3D"font-family:&quot;IBM Plex Sans&quot;,sans-serif"><span style=3D"font=
+-size:8.5pt">&nbsp;
+ =AD=AD=AD=AD=AD=AD=AD</span></span></i></b><b style=3D"font-family:Interst=
+ate-Regular; font-style:inherit; font-variant-ligatures:inherit; font-varia=
+nt-caps:inherit; font-size:10pt"><span lang=3D"EN-US" style=3D"font-family:=
+&quot;IBM Plex Sans&quot;,sans-serif; color:#4FC6E3">&nbsp;</span></b></p>
+</i></b>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px">
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:6pt 0cm 0=
+cm; line-height:normal; font-family:Interstate-Regular; color:black">
+<i><span lang=3D"EN-US" style=3D"font-size:8.0pt; font-family:&quot;IBM Ple=
+x Sans&quot;,sans-serif">We recognize that many Indigenous Nations have lon=
+gstanding relationships with the territories upon which York University cam=
+puses are located that precede the establishment
+ of York University. York University acknowledges its presence on the tradi=
+tional territory of many Indigenous Nations. The area known as Tkaronto has=
+ been care taken by the Anishinabek Nation, the Haudenosaunee Confederacy, =
+and the Huron-Wendat. It is now
+ home to many First Nation, Inuit and M=E9tis communities. We acknowledge t=
+he current treaty holders, the Mississaugas of the&nbsp;Credit First Nation=
+. This territory is subject of the Dish with One Spoon Wampum Belt Covenant=
+, an agreement to peaceably share and care
+ for the Great Lakes region.&nbsp;</span></i></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:10pt; margin:6pt 0cm 0=
+cm; line-height:90%; font-family:Interstate-Regular; color:black">
+<span style=3D"font-size:8.0pt; font-family:&quot;IBM Plex Sans Light&quot;=
+,sans-serif; color:gray">This electronic mail (e-mail), including any attac=
+hments, is intended only for the recipient(s) to whom it is addressed and m=
+ay contain information that is privileged, confidential
+ and/or exempt from disclosure. No waiver of privilege, confidentiality or =
+any other protection is intended by virtue of its communication by the inte=
+rnet. Any unauthorized use, dissemination or copying is strictly prohibited=
+. If you have received this e-mail
+ in error, or are not named as a recipient, please immediately notify the s=
+ender and destroy all copies of it.&nbsp;</span></p>
+<br>
+</div>
+<br>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_--
+
+--_005_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_
+Content-Type: image/png; name="pastedImagebase640.png"
+Content-Description: pastedImagebase640.png
+Content-Disposition: inline; filename="pastedImagebase640.png"; size=5560;
+	creation-date="Thu, 17 Jun 2021 19:32:59 GMT";
+	modification-date="Thu, 17 Jun 2021 19:32:59 GMT"
+Content-ID: <77f2621d-2ee1-4a84-9b30-6d9b3ff2cf53>
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAzCAYAAACJxdp1AAAVf0lEQVR4Xu2bCZjN5RfHP/fe2ffV
+YCxjG2UiW1knuxD9Qyhkp5JKIlpkSZHIUrLvGUy2JBLFWBKyhpihmLHNvq/3zr3/533fe2eGyJSp
+Zqb7ejzl3t99l3O+55zvOef9aUwmkwnruKMEhGg0Go1VOn+TBDT/NfBZAfU3IekvTGsF318QmvUn
+RSOB/xz4ikZs1lmKQgJW8BWFFK1z/CUJWMH3l8Rm/VFRSMAKvqKQonWOvyQBK/j+ktisPyoKCZRg
+8OUCWrMMzLU4kwnxR3xelOW54l6eyd+fOHvJqUuWTPBZQKbRIP7ExSXh5mqPnb0Ok8muSIFXFBb+
+989hQrUKNCXq7CUSfNLSMYJGx/adh5n5/hrWb5yAj68XmDSYyEWj0f39Ov+XV8hrTkkjLHmjRIIP
+GVo17N59kqFDVvDcc48yceIzCLPXaFS3UKOxhOSSp5T/yo5LCPgEoAzkokNn5nlfbN7LJ7MO4mjn
+xNoNg/DycEdxH8X5SsOQ/FXamQZMRpAe3VYeLS09k3Nnr3L51+skJiaTmJCJMTeL9h3r0fCROvKZ
+4s5VSwT4TCLEGjWgVeEldO0eduy8SGBQRVwdshjx8lOlAWu/O4M8t8mAyWSDVitQqCMqKpqvtvxA
+VrYeO1sdNR+oio+vG87ODqSmJpOenkyz5o+i1QraYSzWEaBEgC+XXJG/okHL2rXf8s3XJxk56mnm
+f/oN7056mgoVy5RK8GE0gSYXNDYSSJs37ef4iQjq1qlOm7YN8PB0veO5jUbLbRwr+IoAGIrjha7f
+w7qQH1iw5GVmT9tK0xYP0PnJhiLAlKgSQ6EFYhLA0xEbm8SsGRspU9aVIcO64OLsKMEo6IXMcgVA
+JeUQIFXiMJkM8rfF+UrYP+L5RPYpywCF5mIi3GgU1zEDa9PmQ8yds5PQDaPYvu0oPx+/wsy5gySv
+kYlGoTX67zwotynOIjeav9u46GSOH4nEP8CFWrWroBGyMmkxaYxo0BERcYOPP9pCk2bV6de/nZnL
+Ce4n5hDgE1m/eNaGkyfOcf16DB07tTBzX/HMfUpG0k6xhjmRo+iqCP8M+IxGNFphqWbLvIf+pdXK
+mpVIHDRs3vIjixbvYemSYZy9cIP5C7azZP4LeHm6Kh5u5oL/DqzutqoJS/i73fvEx6Vy5ufL7D90
+gl8vXSMl3ovE1Gts2/4Wjvb2mKS8dFy5HMvMj9bQ+7nHadz4wbyFVIlFoELAOQet1p6EpFQa1X2B
+Mr7O7Du8EJ3kiGLcX/IlwW2ZSgK+6GqJ/wD4DGDSkZGeyey5y+n9bGcCqlT+Q5yYTPl1upDPw1j/
+xXHmL3iOY0cus3TZAWbPHUBAZQ9l9SYtGino+7TwvwG5ljqcAF9WVjZ7vj/Flk1h3LiRSI1AP5o0
+rUv7DvWZ/fF20lNTmPrRYOmxhMdLSc3krddX0Lt/ME2bPWTenSgmCx6nvJ4Kvcqox48P4fPPt7Jq
+xZsEt6iDkKFKVO7vYErGKgqpSkLRVRP+dvAZMUkxpaZkEdxiFGNH9+LZPi0LJZEF87dw+NgVJk/u
+z8LFuzj4/TkWLRpCjZr+KtxKwAll3L+FF2pDf/KhguDbuXMP48bOI7hZC0a+3pWqVSvI2Y789Auj
+R33Cpk2T8fHxMYNLy6QJq/DwdObVkd2VkSE4nI3kdgkJSezb8xNt2jfGzc2d5ct3s2rFt6wNHUdZ
+Py8JEPkTCZg/uenbHledE0viojopRcUj/wHwCYjkSmt+5fX5uDi68MGU55SALP7KJCCqWmUWaX06
+bxsR5yJ5rHVtwvYex9U9gNFj2uLp7owJvZzPJCxSyvjPS1jVwBT/2vbV96Qm63m27+NmTmXxLn9+
+3ttVbTGSrKwsxF9PT4+8R9LS03lp2CIGDmlDy1Z1MGGQ3G3H9mN8teUn5i16XpqXySgSDwu31fHr
+xUheHz2VxYsnc/7iDV56aSkrlr5EvXqBip+ZQ/KdetyqdijOLlyC0kBePdAMNBVExHNa5fW0cPHi
+dca/uYR3Jw7gwaBKtxxTcnrxrNRF4T3j3w4+eQyTQWZi3+z8kQmTQghZOYZqNSre0SQNhlwmT9rA
+mrWn6dM9EIx6uvd+jIfrBZqBUfiXevLaT0LYt8UfEZaUckxsWL+LnGwdvfu1UeZgTmLuz2fc/dey
+/YeOGdNW4OXnzYD+HVU7UGMkPS2H54fNZMzYXtR9uMYtHl58L2mG2dPHxafwRMcJvDSyA/16Py7b
+igIslu6OZZ2COxEyMYlSjFalgGIyMwRvDaky0xbf2HDq1HmefmoWrVvXZ9bcfjjJbDt/GI0C8GoI
+R1BYZ/APgC/fVQurmzZ1A19vOsLAwe0IrOWPk5MtmVnZGAwaoi6n80XoV9jb29D92c7Uf9ibwJpV
+zKBTZQcRTwp6yDur2MJN7pbtKe4kuKhKhCzESMYqM8cpeuiJREIoX6vTsSl0H1cvx2LjYsvxo6dY
+sny8XPCTuetIS9Pz5lsiOoBQrNZsOEZjLlrpAVXi1qvne5Tz92f2rEEgwSI+VUna3eUizni3jNWE
+3piDSW/Ezl4BLHTjXj6Z8SXderTmtVFP3CGBUYmPZck/Y7f/APgE8ZU2kWeRe/f8ws7tRzCix8bW
+GWdnHekpBjat/4HnX2nJyFHd8wSo4CAsWggs13xpwOYeZRux4N2FrDiU6hioYo7wggXqZAruRZzE
+CI+jstiLFyNZtmQHtetX5dXhaxk0sAnTPhpKfEIigwZOZ86cUQQE+OY54PDzkUREXOKJzq1Um02r
+ZcaHmzhw6CQh69/Gyd4eo0mP1tx6C9t/gtXL9zJgYFuaB9f+HQ5PHL9AmbLupKRmMGfuDuwd3LC1
+dSApMRUXG0diY6/wytjO7NhyinXr97J8xSiaNBXZtkgehcssmMUIymQi/Jcr+Pp64eWTTyvuZb6F
+BJ/wFGbyqgpWtynGhFFY9G3NfLEp4dQVNxP/NaHVWjK1/K2dPBHJnFnr6d4jmM5dGud9oUJjwbUU
+FPNvrJg9VZ7ZmR2XbEsp979924+U9/ehbr3q5rny6gYSDOZYIZ9NSkpn48bvaNGyPtWr+d8DfAXm
+sdQizO/5yvPKrNWypLleKeNlLh+8v45sA9yMi+baNT3TP+hFrQcCmD5tE5FXo/n00xfzeNiNm9E8
+89QH9OnXgmHDu8kJd2w/zNixq/ny6/FUqeQnM1shk9SUDMa+sYyQdWF4utuzOmQszZoFqUiBhsgr
+cUwYv5ITx8KZMK0fK5fvwdHWgUcerYWvnwuVK/uw+7szfP3tOYymXLR6PStXvsxDQf7SsxpNGrMX
+VppVrllhMWT114TtOcOcz0bh4KD6z/ca9wSf4k3Ce4mFhbLUxDdvRnP8pwiib6SQlJQqG94CWNkZ
+eoKCqtK6YxAODo5y0yq1EJmaApOwfjEEv1v8aRiHDp9k+MuP07hpkPz8/Nlf8fRywa+capsJTyXX
+lzLUoNdnoteDo6O4u6cjPOIyYd8fY9Dg/6HT6STpFp+fOxPO453GsnjpO3Ro1yCPe+bkZJKUmI6P
+r4f0oIIPnvv5MuPGrebQ0V948cWOTJ6kwt7dhwC4MixL778wN2neGreC7/dcoVFzH5o1rsWBH24w
+d1Zvbt6IoXffmcyb9zIPPqAy4fTMZJ7530IeDfZn/Pg+8rO01DSe6DyJvv3bMnSQSJAUbUhMTGNo
+/9lcuBSJdxl3Ppw+gEaPBClZoOX0qUsM6LOQunXL8cFHA9j65TFCNhxgz+7xkn+KcerkeUaODCHD
+YIuPq45ZswcSWLOc+VKD8HAiybM4EEtkUCDcd+AcSz/byScLXsDN7VZOeDcZFgJ8AjwGtBp7Ocfl
+32LZuesQUVciqRZQgQdqVcPbxx0nJ3vS0rK4cS2BrzYeJyMjkzcn9qByFT/pYWQOpFiuHKdP/cai
+edsICKjEsOHtcfNw5OSpiyyct4uzp3+jWYuH6N7jEapX98XD3TvP28bcTGRgv7mMHNOFdu3qk52t
+p3fPGVyJusTBQ3Owt3cWREmGpvkLtzF12pccPToVPx8fuW5WViY9ukyh5kOVmDFrmPQIJ3+KYsxr
+cxk0vBOxCanEXE1gytQB9wCfSepdKtdsTAmJaURejiEnJ4eEhEQc7F1Jz0wnKTkRLfZ8s/1Hzl2M
+oW+/Ngwd0IZhQz/l8fYP81z/9sya9RU/HQ1nTcjr5pAPLz4/h8w0B5Z9/oIyPExMmrKWc79cJ2TV
+KHQSM1pSUzPo0W0mjs6wZMkrOLs4Ke9jJmDh4VEMHriQ/kNbM2RAa7779ghjX1vB3GUv0bRRELm5
+etavD2PyuxvwKuuHu5Mrs2c/Tc1aAX9ofBkZBn69GM3+g6c4uP8Cr73WlQaPVL2H3PK/LgT48ksS
+G0N38d3us7Rs15COHerj6up014U2hR5gfchexk3oQ716KmkQ41LENb5YH0b0zWR6PNOCps1ryc+3
+7TjEyOHLeH1UF+Iy0lm36gSuztmEhI6maoDKjNPTU2nb4k3KV6jI8lUjcHNzZl3oPgb3WcLGL1+l
+Q6cGeetEXY1n6NCFnL0Qy+J5/enQsa4EyltvLGfdmgPsDptGtep+iG7DgP4zGTa8LQGVAxjxwjxm
+fjyAho/WvIcQlTcW4Trq2k1WLN1OWnoWOp0WX19vjLlG/MuXpUx5J3INBhYt/JbKVcoxcUI/XJwd
+OHDgNHNnbiN081huxiTQ95n5fPjRQBo0UGfdtHkfH0//mo1bR+Hn6yc/C//lEv97agpLVo6mWWMR
+JYzk5BgZPXoVsbHxrFz9KnY2drft28SOHcd5/dWl9OzzGPEJGZw9fYW33+pKm3Z1iYtLZNigGRw7
+ep033u5GQE1/3psUykvPPwmaHGx1WpwcbfD0cue3i9eJS0wix2DEaNCRm2PEzs6WKoG+tGwRRJky
+nvIWjiUhuhcK7wk+C/FesuBbfjl7kXcm98HT0908ryWZUBYoi5Hif823iL/55gQhnx/i3YndcHXR
+8vmy74mIiKNV2yC69myMna1yz9euxvDyiMWMHtcTDMm8+Pwy9DmOvD+tK127N887w4S31nDw4HG2
+756Gna0tmRk5dHlyGk2aV+e9ib3lc/ocEwf2n2Phgp107dmUNeu+48XBT9KxU21mTN/MmLEreHV0
+N96b2IukhFTWrtvHFxtP8mSnhzl//jL9B7Whfdt6d5Db7QmI+vfhwxd54405dHmyGYMHdsHTy/mW
+3x45fJ61a3fSpHktej6terNiTHx3HTUCK/DkUw15ttdUgoMfZOy4Z6R3yzHk8ESnydSoWpV5nw1C
+oxVUQ8+LQ+Zhb6dl3uJXFPnHhr17TzB8xGJWrBpJzer+pKVmoc/JJikhiYzMNJo2b4jBCGdPX+bc
+mSvYOTjyWKuH8PV2kfpKSUln167jVKtRjrp1AtHrs9l74AJnf75OUnwstrY6yZnt7FUCV6lSOVxd
+HHBycMbDy0EBzjLE9S9ZvipcW6UQ4IM1q79nf9g5PpwxGHcPARgBOlWolJzHXJxUd8jyR0ZmBhPe
+DWXjpqN0bB1I777BNGgkuKAK4RZgT5v0Bb7lPOjbvyWjRnzGtk3h9BrQiOkz+2HQ53Lm7CUWLtzJ
+D/susXX7OHy8vfjhx7PMnbmV8AsJzF8+hJwMHeHnoziw7ygmgy2j3+4mW1pvv7GFWQt78UXobn4+
+dp0OnYI5H3GZnGw97s62fB0WTkD5iox6pRUtW9fC3s6G2JhEkpJSiI5O4EJ4BJ07t8bPz/t3Ccj1
+mzEMGTyPMaOfolWrfMCKd0p+OvIze3afQmNjR7fuwTzayJwtyssAWrp0GoeLpxvuTi6Ur+DNOxOe
+QWfuZev1WUx+Zy1XIxOYOW8IXl7u7N1zlO5PTWDEyK5MmjQ0LxO+eSOO2R+vITomhWy9AW8fT/y8
+fMnOSKbZYw/SQWTIxXTcEXwFb8CePfkbs6btYuaiHri7ecrMSqXb+VfWLUTOmGviamQ0IpW/GR1H
+VFSMDGW2Tlq2bj7BiBFdaNVGJRUFx5QJqwgPj5Mlj7Zt6lPW35316/ZSqVxZsnPSyTBkEFT7Ifbv
+vUDlSk5k52Si0TkTVCeA5CQDifGx5OZmU7mKP1WreBIcXBsbnT1T3lvAls2/8UCdCtjb5jL1g76U
+8fUhKz2blPQMPD1c2Lr9GFtCDxBYvQIaGz3ZmQay0w14l3GjYoAHFSp50qhRHezthcHcWj8LDf2O
+8eM3snLNGPy8XLgUEcWPP54lLj4Rf39vWrepS4OG6rzykoG81aLkFrbnNBER12jT9mGqyFabqgGq
+ywJac09WJWsiYYiLTeHipUiqVi+Pr48nJqOKNBaDF8aSnp6Jm7sjzk4uebXBYoo7ua17gM/E+xPW
+0ahpTdo+Xv+O57h+NQFRh/r110jiYlJISU7H29eNho8GUa9BNVxcVRg6cyaS5Yt3YKvNJaj2A9jZ
+51KxsidNmjVAr8/h6NFzkisFBqrWTUxsEjeuxuDi6khAlbLodLYkxCeTFJ+Im6erelnoDy8TGElO
+TCEq6ia+vmXwKyeelzDIq/FZPG9yUgqnTv6Gs6sN3l6e+JbxkjeDbxl3KPslxKcRuiGMU6fCCahQ
+kXLlPShb1p3GTWrh5m4Jv7mYjBpVh5Vv3amyy61RwlLHFN+IcGoJXaI2qPndxQl1W0b23VRJJy/M
+WcKdqnOqlmXhQuC/AdLfga9gM1yUOIYNE22VBvTq2UJmcTEx8VyKuM7VyCTiY9O4fCWKaoEVqFzZ
+g4fqVKFSpYrY2FrCr+o0WIi5EOyxoxFEX08lLSMBD08H2rYLluWRvCEzNFGSufX6laVFVzBcqzaR
+pUMh3mczopH9SJHtqtshBZ+XpZE8AOa3le78ppt4VnBYCwBu7RwoLIp9ijVUOerWPQtPVgBw4uaN
+dHxCHuo3Go0Rk9EGNHozgBRQVN1OhWc1r2pbKXqjeqfytQ7ZlxV7NDf+xfkEEGVdVcwp1ilB4Lvd
+AnbuOsLqhQepVtWDLAPYOtrg6mhPtRp+VKnqzYO1quDkfCvJvqfL+J2ZWdzKnbsKf9xrKFjsvd0X
+5hdD/9wVgaLublhAc/su/midu8nkTomPhOe/4bzua81CJRzxsUnEx8Ri6+RMufLeOEj+Yx1WCdyf
+BAoBvoKNd4sFi5BiuZl8/3fG7u8I1l+XVAkUAnzi1T0Lr9GoWzbyZoXiHMX/7YmSqprSv+9CgM8i
+hIIcpGRyjNKvzpJ1wj8BvpJ1MOtui78ErOAr/joqtTu0gq/Uqrb4H8wKvuKvo1K7Qyv4Sq1qi//B
+rOAr/joqtTu0gq/Uqrb4H8wKvuKvo1K7Qyv4Sq1qi//BrOAr/joqtTu0gq/Uqrb4H8wKvuKvo1K7
+Qyv4Sq1qi//B/g/5l2Pv49tDCAAAAABJRU5ErkJggg==
+
+--_005_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_
+Content-Type: image/png; name="Outlook-4s2rf05o.png"
+Content-Description: Outlook-4s2rf05o.png
+Content-Disposition: inline; filename="Outlook-4s2rf05o.png"; size=6049;
+	creation-date="Thu, 17 Jun 2021 19:51:55 GMT";
+	modification-date="Thu, 17 Jun 2021 19:51:55 GMT"
+Content-ID: <82fa4642-763a-4588-8b80-59b1a5e8a051>
+Content-Transfer-Encoding: base64
+
+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
+RU5ErkJggg==
+
+--_005_YQXPR01MB49050125906FD086CC09BCC7BE0E9YQXPR01MB4905CANP_--
