@@ -1,0 +1,441 @@
+Received: from YQBPR0101MB5322.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:45::5)
+ by YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM with HTTPS; Tue, 11 Feb 2025
+ 20:52:45 +0000
+Received: from YT2PR01CA0015.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:38::20)
+ by YQBPR0101MB5322.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:45::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.11; Tue, 11 Feb
+ 2025 20:52:43 +0000
+Received: from YT2PEPF000001CD.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:38:cafe::34) by YT2PR01CA0015.outlook.office365.com
+ (2603:10b6:b01:38::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.31 via Frontend Transport; Tue,
+ 11 Feb 2025 20:52:43 +0000
+Authentication-Results: spf=temperror (sender IP is 137.82.146.35)
+ smtp.mailfrom=stat.ubc.ca; dkim=fail (body hash did not verify)
+ header.d=stat.ubc.ca;dmarc=temperror action=none
+ header.from=stat.ubc.ca;compauth=none reason=460
+Received-SPF: TempError (protection.outlook.com: error in processing during
+ lookup of stat.ubc.ca: DNS Timeout)
+Received: from mail.ubc.ca (142.103.203.5) by
+ YT2PEPF000001CD.mail.protection.outlook.com (10.167.241.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8445.10 via Frontend Transport; Tue, 11 Feb 2025 20:52:42 +0000
+Received: from SAM-SRV02AP.ead.ubc.ca (10.19.216.62) by
+ EXCH-SRV01BP.ead.ubc.ca (10.19.216.29) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Tue, 11 Feb 2025 12:52:41 -0800
+Received: from EXCH-SRV06BP.ead.ubc.ca (10.19.216.60) by
+ SAM-SRV02AP.ead.ubc.ca (10.19.216.62) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Tue, 11 Feb 2025 12:52:41 -0800
+Received: from esvaout2.mail-relay.ubc.ca (10.19.170.1) by
+ EXCH-SRV06BP.ead.ubc.ca (10.19.216.60) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Tue, 11 Feb 2025 12:52:41 -0800
+X-CSE-ConnectionGUID: U6FZ729PQmOzoOyNExBlbw==
+X-CSE-MsgGUID: xY0BlS7OTiGngi5Y9MZotg==
+IronPort-SDR: 67abb897_of1uGHBUP25Ub7JtxtTuQw4SdVcH62Wtwa3UsaBtend+hTg
+ vSFYZAsWeZzEX4/MC4CDIaZvU8WgH+pgg8tprpg==
+X-ExtLoop1: 1
+X-SMTPAUTH: FALSE
+X-ThreatScanner-Verdict: Negative
+X-IPAS-Result: =?us-ascii?q?A0ESAgCYt6tndyOSUolaHgEBCxIMgggLgUGCAFpCSIRWi?=
+ =?us-ascii?q?HyHEIFkA5w+gVYUgWoPAQEBAQEBAQEBCTkLBAEBAQEEhDtGAh+Kayc1CA4BA?=
+ =?us-ascii?q?gEDAQEBAQMCAwEBAQEBAQEBDgEBAQQBAQECAQEGAwEBAQECEAFDSYV7DYJiA?=
+ =?us-ascii?q?YJKAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQECg?=
+ =?us-ascii?q?QoBAQEBAyMKEAMBASQUDwMIEQMBAisCAk4IBhODAgGCZAMRr316gTKBAYIMA?=
+ =?us-ascii?q?QEGgmjbHQMGgUiBYoZTGgEqSGoCDoQ6hDxCd4EWgTwODYJoPoQOARIBQQ2DL?=
+ =?us-ascii?q?jqCL4EUgR+Bb4M/iHKOC4NWgSSILVJ1IgMmMywBVRMXCwcFgSlIA4ERI4EjB?=
+ =?us-ascii?q?TRBOQGCDWlJOgINAjWCHnyCKyhCBAWBLYI5hEOES4VaghKBYwMDFhODIXgch?=
+ =?us-ascii?q?HYdQAMLbT03FBueYHUBPIRsbYEQJBknk32SFqEEhCWEb4cplUgEL4FWgi2NB?=
+ =?us-ascii?q?oZOknuXC4FxjgSVVAiCA4NLgWkCNmxwgQVlAYIIATMTPAMZD44hCoMcxxQiN?=
+ =?us-ascii?q?TwCBwEKAQEDCYZIigmBSwEB?=
+IronPort-PHdr: A9a23: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
+IronPort-Data: A9a23:hpDf8qMcHxlYmjHvrR2Yk8FynXyQoLVcMsEvi/4bfWQNrUoi0zQCy
+ zFOCGyFbq2MZ2v0L9h+Po/k8R4D75GDnNNnSwZtpSBmQlt09PbIVI+TRqvS04J+DSFhoGZPt
+ Zh2hgzodZhsJpPkjk7wdOCn9z8kjv3gqoPUUIbsIjp2SRJvVBAvgBdin/9RqoNziLBVOSvU0
+ T/Ji5OZYQTNNwJcaDpOtvrZ8Uo34JwehRtB1rAATaES1LPhvyRIZH4vDfnZB2f1RIBSAtm7S
+ 47rpF1u1jqGl/uFIorNfofTKiXmcJaLVeS9oiM+t5yZv/R3jnFaPpATaaBAMxcH023hc+dZk
+ 72hvbToIesg0zaldO41CnG0GAknVUFKFSOuzdFSfqV/wmWfG0YAzcmCA2kLY6MqpbwmOVhL0
+ u4fDyErQwCpg+iplefTpulE3qzPLeHmOYoevjd70TjFS+ssStbISs0m5/cBh2h21poIRKqAI
+ ZFEAdZsREyojxlnIVoeEpk+tPy0j2W5bjdT7lmczUYyyzGKkVYpjei9aLI5fPSadJ1/mn3Hg
+ V7H0GL2A0wrZfmtziaKpyfEaujnx3qhCN1OT9VU7MVChUaSz2lLUTUTXFq/5+SzgQi1Urpix
+ 1c84Hsj6Kg79kGoCMLhVgH+vXSP+BUVMzZNLwEkwDzT5JiLuVehP20jXDlmefoLpOUyTyN/g
+ zdlgOjVLTBotbSUT1eU+bGVsS6+NEApwYkqOHFsoewtvoCLnW0jsi8jWOqPB4aep7XI9dzY2
+ WGH6Sg3hbgQy9UX3rn94FrMxTmlznQocuLXzl6GNo5GxlonDGJAW2BOwQKChRqnBN/FJmRtR
+ FBex6CjABoyJZ+MjjeRZ+4GAauk4f2IWBWF3gU+RcB7rG3ypi7+FWy13N2YDBszWirjUWKxC
+ HI/RSsLvve/wVPzNv4oPNzZ5zoClPG6fTgaahwkRoAXOMguKFTvENBGeEiRwW33i0kwgOk4N
+ 9+Ra8ewDG0aQa9gyCezTeYUuYLHNQhjrV4/savTlkz9uZLHPS79dFvwGALfBsgj8ri+qRnYm
+ /4HcZbiJ+N3CbymOnG/HE96BQxiEEXX8riv9p0GLLDSflY/cIzjYteIqY4cl0Vet/w9vo/1E
+ ruVAye0EXKm3SabezaZIGtucq3uVptZpHc2d35kd1Wx1nRpJc7l4K4DftFlNfMq5c5y/85SF
+ vMlQsSnBugQazLl/z9GU4LxgrY/fzuWhCWPHRGfXh4BQ7BaSTfkwOTUJjnUyHFWDw6cl9cPn
+ Lm75waKHbsBX1tDCejVWtKOznSwn2ovp8xjbhHIC9IIQkXg29UzGinUk85tDsAoAjfAzwu8y
+ Ay5L0o5p+7MnbIX3Pjno/i1n72xGLBEBnsBOmjV1qm3Pi/k5ViewZdMfeKLXDLFXkbm0f2GS
+ dQO6srjIdsFtlpumKhtIYZBlK4RyYPmmO5H815CAn7OUWWONpphBXu3he90qaxHw+5iizucA
+ 06g1IFTBuSUBZnDDlUUGQsCa9aD39Eynh35z6w8AGf+1R9N0Iu3a2dgFDjSt3UFN5pwCp0v/
+ sk5ss1P6wCftAsjAuzbsg9qrVazPl4yeIR5kKoFAb3bqBshkXBDRp3+NhXYwr+yb/d0D017B
+ QPM2YTjgexHy1vgYkgDMyHH/dBgiKQkvDFIy14/JGq1pOfVu89v4jpv9WUYcwcE6DRGzON5B
+ UZzPWJXO6il3mlllepDbU+WCiBDAxySoHLxwF4vk1T5aRGZZlXQIFIfO8KI2kA48n1dTBdf7
+ rq32Gboahe0XcDTjw8Ze19plOzndvN1rjb9ocGAG9+XOrUDehznib+KSUtSjjW/GuI3pknMh
+ dcyzdZKcaehaBIh+fwqObeVxZE7aU6iJlUbZdpD4alQP2XXWA/q6Ai0M0rrJ/98fa3bw3SZV
+ f5rCNlEDSml9SC0qTseO64ADpl0kNMt5/sAYrnbHnEHgZTOsgtWtI/syQamiF8JW9lOleMPG
+ rHVfR+GEU2SgiJwsE3Jp89mJGG5QIclYCvR4eOLy9gKRqkz6LxUTUIP07WPryq0Nilj9Emqp
+ w/tXfLd4NFj7oVOpLHSNJt/KT+6Ev7NcdiZ0RuSto1OZOzfMM2VuAIyrELmDjtsPrAQeopWk
+ IqRgeHzx2fDmu4HY1nEl6ajFY1Mw8WTXfVWAO3zPnJ1jSuPY+6ywhohqkSTC41Fr8NZ3eajH
+ zCHUcqXccUHfvtk31tXYDh6PzdHLoqvdYbmhye2j8rUOygnyQadce+Wry74X19UZgojGsPYC
+ Datn92M+9oBjoBHJCFcNsFcG5UifWPSA/o3RebQ6wudIHKj2G6Zm73YkhEl1zHHJ1+EHOv+4
+ rPHXhLOTwuzio6Z0OBmt5FOgTNPAEZfmeUQemcvy+xygR2+D08EKr05GrcCAZd2jCfz9c/ZY
+ BfgUWgcMhj+DA90KUjE3NfeXwmhX71Efp+zIzEy5EqbZhunHI7KUvMr6i5k5GwwYTf5iv2uL
+ dYF4HDrIxyt2ddTSP0O4uCgy/JSrh8AKqnkJWim+yA5P/rS7XjmGpCs8MqhmBEry/3wqXg=
+IronPort-HdrOrdr: A9a23:6K+fLaOwl+tFo8BcTqKjsMiBIKoaSvp037BL7TETdfU7SK2lfq
+ yV88jztiWZtN9yYgBDpTnoAsDpKhmwyXcf2+ks1NmZMjXbhA==
+X-Talos-CUID: =?us-ascii?q?9a23=3AicNOiWh+/+XwWuYMMEt5FvxAETJuTyPz/iiKcne?=
+ =?us-ascii?q?BDEF7T5qEb3KA0qdujJ87?=
+X-Talos-MUID: 9a23:/YNZDAqLCjl0Gz39N8cezyFTbO1s2PuJNEEil5oH5vjVEB53JzjI2Q==
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
+   d="scan'208,217";a="115205880"
+X-IronPort-Outbreak-Status: No, level 0, Unknown - Unknown
+Received: from r9e-hajek.stat.ubc.ca (HELO email.stat.ubc.ca) ([137.82.146.35])
+  by esvaout2.mail-relay.ubc.ca with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 12:52:41 -0800
+Received: from [142.103.182.226] (cheetah.stat.ubc.ca [142.103.182.226])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by email.stat.ubc.ca (Postfix) with ESMTPSA id 07231541
+	for <mennatullah.siam@ubc.ca>; Tue, 11 Feb 2025 12:52:41 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 email.stat.ubc.ca 07231541
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=stat.ubc.ca; s=mail;
+	t=1739307161; bh=dTk5y94qKk+juGyEWP/ZTGCzZsGvqUwZZAFuuMV/bkk=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=Nx4lrERHr3j+FfdCi/HwKuaUQiBmpE6WkxVpqrXnYGm9uaBNv9nYfAKVP7sKR4Kzq
+	 klrUbLbGCTFxGFKv11n6KMpDR2c+uUInC77JXPPSPpN+OkIJTvgbujEtVSMw8BRQQf
+	 44wwqBlAtcfZS0laz7t9O9uZ0fLkZvsSfeWpN5M0=
+User-Agent: Microsoft-MacOutlook/16.93.25011917
+Date: Tue, 11 Feb 2025 12:52:40 -0800
+Subject: Re: Inquiry on Stat. Position
+From: UBC Statistics <search@stat.ubc.ca>
+To: "Siam, Mennatullah" <mennatullah.siam@ubc.ca>
+Message-ID: <61CCB745-C2AF-47CC-918F-B034CBBFAF66@stat.ubc.ca>
+Thread-Topic: Inquiry on Stat. Position
+References: <YQBPR0101MB5241CC97F382110D25C6ACDBFBFD2@YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: <YQBPR0101MB5241CC97F382110D25C6ACDBFBFD2@YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM>
+Content-Type: multipart/alternative; boundary="B_3822123160_2779658719"
+Return-Path: search@stat.ubc.ca
+X-OrganizationHeadersPreserved: EXCH-SRV01BP.ead.ubc.ca
+X-MS-Exchange-Organization-ExpirationStartTime: 11 Feb 2025 20:52:42.4477
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: d41cd56b-8769-4357-598c-08dd4ade0770
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[137.82.146.35];domain=r9e-hajek.stat.ubc.ca
+X-MS-Exchange-ExternalOriginalInternetSender: ip=[137.82.146.35];domain=r9e-hajek.stat.ubc.ca
+X-CrossPremisesHeadersPromoted: YT2PEPF000001CD.CANPRD01.PROD.OUTLOOK.COM
+X-CrossPremisesHeadersFiltered: YT2PEPF000001CD.CANPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PEPF000001CD:EE_|YQBPR0101MB5322:EE_|YQBPR0101MB5241:EE_
+X-MS-Exchange-Organization-AuthSource: EXCH-SRV06BP.ead.ubc.ca
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: mail.ubc.ca
+X-MS-Office365-Filtering-Correlation-Id: d41cd56b-8769-4357-598c-08dd4ade0770
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|13003099007|7053199007|3613699012|4076899003|8096899003;
+X-Forefront-Antispam-Report: CIP:142.103.203.5;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:r9e-hajek.stat.ubc.ca;PTR:r9e-hajek.stat.ubc.ca;CAT:NONE;SFS:(13230040)(82310400026)(13003099007)(7053199007)(3613699012)(4076899003)(8096899003);DIR:INB;
+X-MS-Exchange-ABP-GUID: 693f059a-863e-40aa-b40e-ac84f55eddae
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 20:52:42.3070
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d41cd56b-8769-4357-598c-08dd4ade0770
+X-MS-Exchange-CrossTenant-Id: 2fff08c9-91d4-4fc8-bbdd-dd59b7414ddb
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=2fff08c9-91d4-4fc8-bbdd-dd59b7414ddb;Ip=[142.103.203.5];Helo=[mail.ubc.ca]
+X-MS-Exchange-CrossTenant-AuthSource: EXCH-SRV06BP.ead.ubc.ca
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB5322
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.2422983
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8422.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?VW16bG9BbnpSbldJRDc4SXpHS3c2SWJJaEg5bWNXWkV3dXREZ1lIZG5tRWc1?=
+ =?utf-8?B?WlkzaTB3a0dWKzBTWUgyYkx6bWpmUmUwdE5qdk9LeTREakxzNkZRT201RUsy?=
+ =?utf-8?B?dnI3M0lBT0grc3NUTUVlUUhVUXhpSEZKa2VHSFdaU2poNFRnWkY5eFdFSGUz?=
+ =?utf-8?B?Zy85Y1Iramc4emNPOXN3UHp5NGpXMDRiVFJpMmk2VEdwMUtmbnRFUjhiVjNR?=
+ =?utf-8?B?RmFuOU9NUGFmSnZmdmg1TnZ3WThLSGl1RTNIN0N1UDRvVkpUSVVNQUpZSXRs?=
+ =?utf-8?B?Y05PbHY4Y3l5aTFZSElXNDN0YzVZeEp5Rzg5NEJWYWc1Z1YyK3VaaTFmWEFo?=
+ =?utf-8?B?Z1RBRGo5MmIxeHdmN3ZQSnJ6YnpqMkRXZXM5OGFIZzVuRGtGcnp0ekxoVlFG?=
+ =?utf-8?B?SGltMUhSTk4rTW9xZUx1bE1YeEdoVVlLS25VZFNpVGFuUHhZUmlkcTNjWXhJ?=
+ =?utf-8?B?VWJXbkNhWFNtNnA3c2ZkS1JjNDViRi8wY1VTdklDblBuL3VBejhYN3RXU01F?=
+ =?utf-8?B?WFp4YVBBOUEzRHZZKzFYSHgzR1NYM1UzNEc1aTdjS2RKT0lzSnB1ZDZzU2tu?=
+ =?utf-8?B?ZENJSWhkdXNOWnNIRFhMcUVoSjFIS01WMzhPR2ZYWTRuN0xNWEZWOU5maVVP?=
+ =?utf-8?B?VVZhSEFzK1Nnd0h1bDJhcWo0V3VTQktJMzVyN3dJMVJNQUNnMmpBQ3A5TkIv?=
+ =?utf-8?B?ZlFyUEoyelMwZXFTNmEwT0swS0YyR3UwcFdQOFdJQUE4c3AveVZGSnJLa0gr?=
+ =?utf-8?B?MVZNVjBMajZTRlpoTUhSclBnbC9MTlBvTm5iQzJLbG8vZ09vejkrWWVLdHJq?=
+ =?utf-8?B?NmZDUHZhSUdjd0ordUY2NkhIVHZsanBKYnRnZDMrMVRISVV0UEtHeFRHUVl0?=
+ =?utf-8?B?Yi9BWkplT2tQamJRcEFsTXNkNDBaRlp1azQ4ZFF0WlB4RDJEZlFGQklNUnpt?=
+ =?utf-8?B?TlJqcUZaNiticjJzcWgxc254cldiMW1uT0Eva0ZyUEwxM2VTL0t2MnorN2VH?=
+ =?utf-8?B?amowUUtYeW0yNDc2eURmakxEem9CWGZaRmhFd3VXTGYzeTlpb1Y1VnhhSjBi?=
+ =?utf-8?B?MlpYMVZvMXg5cFVFSmkxU0o3bmVyQnp0d2RXNm5PbFZBalFESkZJTVY4UXFt?=
+ =?utf-8?B?VitLTzdZUmhUTU5LZ3ZWU0RYbzQvNURwclBmSGVWL0NvNzMxc0h5cVhhUk04?=
+ =?utf-8?B?YlJSTkxDeXo2eGJQdVFjZktZQm1mNngyR0tjN1RRbGVXc1d0d043cm44ZlFR?=
+ =?utf-8?B?TThzSFptbFhUd3ZvNGczN0dYeCtLUHBadHE2VXpQajRLa0Q4ODRRN2RYak8x?=
+ =?utf-8?B?ZUJOemtpbkord1E5a2NFRVo0TEpOZ0hCSkNGWlJZOVRuSmp6ZXpOZFdZMkFm?=
+ =?utf-8?B?VUM2aGlONzF3Z0FQZTFEQVJ6ZzF2dFRWanZWYzhsWTVweUczUHcwNVJFZXdB?=
+ =?utf-8?B?dk5mNU5vTktDZWxtRmRTc05BQ1RBKzN1enIzV1ZSSXJOVUticDVCSW5EM3BW?=
+ =?utf-8?B?NVBRSlkrWVozSDVxT0paa0I4SWMxUzI2YUJUam5ub1ErV3loQ3pwczZBOU9H?=
+ =?utf-8?B?RU1LSlNnR0cwWUZXY1Uvbi9iTmVrRzhWRjRyVWJFN2h1MVo5bEJoR3lqTVN2?=
+ =?utf-8?B?T09FcnhZZnBHTGkyNHJqUW5neDB2ODNDL1QvdDk3bHBldWtuMTdtY21ZZWJu?=
+ =?utf-8?B?MEs5dEFUV012T1prMTBkeEVuTEVtYjlhZFJUSnRzOEExQXdZU01QL1ZqaXpN?=
+ =?utf-8?B?V0J2VnF0Mm1IV055SksrNktuU2JpM2t1WjBMNnBIMjM0YytVdjh5TTI3N21R?=
+ =?utf-8?B?RmgzY3ZiTHVWd2s0VVVJL1BUa1B0bW40dVM1K0pnb0JuODJnZFpwS1I2ZEpV?=
+ =?utf-8?B?TnZnM3RZQjZQd0pDQWZPVmk5cTRpRjJPZVlaQWNBOHdRdGt4WEpRZUY4VzZR?=
+ =?utf-8?B?WDVRSXlUWXNuYlc1Zm84M3Q1UzA5NjdBOUN5eUtKMmVXMjdWV2I2L0JiVExJ?=
+ =?utf-8?B?akRSMFo3WFN4VzRGV1A0SmVSc2drbmVXZWQxRnpYVDRaSmFFRjZ1aTdpUkpV?=
+ =?utf-8?B?ZXlqaEVvMFQweHVuU3pEM3VBY1N5Tkc3cUNENk41VW8yUkxHQnV5TlRoWUFL?=
+ =?utf-8?B?NFowSFZuM3JQR29QU2xxbWhLNnlEWFhEK3plQTkyR0p4RHRFL05vTnhKVkVr?=
+ =?utf-8?B?MVZPRGhXQUluQUpTWG5UNGlPZXlFQUYxajZMa2lrUmczMGthSklralR2MHQ3?=
+ =?utf-8?B?TEQwTHhxS2hoRzFMRTlTY2VCMzVSajBlQStkK3pGTmpOcEpvVDJ5TzVmWEJv?=
+ =?utf-8?B?eDhDOGY2NDRhVkhPNWUyZ3JyYTFjTHN6NGNJSzBmOXZRWmdveW9XR1c4N01l?=
+ =?utf-8?B?S3dPY2hwSGVqWHZYalZReUsyTURCd1BzYitUazlrcW1nQ3BsOVAwNFVyMWFG?=
+ =?utf-8?B?VFBpYTNmWWFSMlNFbDNtRkhLWm9lVld2Y1Zmb3NmREhtNGdLc21LdmpsZTFJ?=
+ =?utf-8?B?MkJKbVdReXpPS3R5YkFzZzZMejRzajRmWlVJTlhpcHk1RUZzb25iSFk2SHVW?=
+ =?utf-8?B?ZzVjUXA5akxCbXlOSCtvS1dNSzRsV2xNcko3OCtDZWF1Smp6a3lHajBSOTho?=
+ =?utf-8?B?SU13ZUNFdmJXOHRQdzBwdWc4c3B0cmJkYVU5MXN6Q3oyYTFUcEtYZ0lJeVBu?=
+ =?utf-8?B?NG1HZVdlZm1IdHMza3dxdTV2RnpLTHBWSmdONGZQcFlWUmhQbHV2QWpmMURM?=
+ =?utf-8?B?ZUxLUDUxNXdlaHVpVXM5VFk2d1hCZXc3anM3c2ljUGxwOHQ4dGdnNjdUL0I2?=
+ =?utf-8?B?MVo0MjlvVDF1N0dzdGtOemN0RFpzOENKK3RRc0NkRHVLcUhnMDdYNDdSdmJX?=
+ =?utf-8?Q?+4jIOIkZoJ6ePgUKWbdoeNFYXpuXtzYnBJCs0Qho=3D?=
+MIME-Version: 1.0
+
+--B_3822123160_2779658719
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello Mennatullah,
+
+=20
+
+Thank you for your application to UBC Statistics.=20
+
+=20
+
+There was a lot of competition for this position and we=E2=80=99re now interviewi=
+ng shortlisted candidates.=20
+
+=20
+
+We regularly post new job openings on Academic Jobs Online, UBC Career page=
+, and the UBC Statistics website, so please keep an eye on those platforms i=
+f you are interested in future opportunities.
+
+=20
+
+Thank you again for your time and effort in applying.=20
+
+=20
+
+I wish you the best of luck in your job search!
+
+=20
+
+All the best,
+
+=20
+
+Ah Young Kim (She, Her, Hers) on behalf of the Search Committee
+Executive Assistant to the Head and Communications Coordinator
+Faculty of Science | Department of Statistics=20
+The University of British Columbia | Vancouver Campus | Musqueam Traditiona=
+l Territory
+3182 Earth Sciences Building 2207 Main Mall | Vancouver BC | V6T 1Z4 Canada
+ea@stat.ubc.ca | https://stat.ubc.ca
+
+=20
+
+=20
+
+From: "Siam, Mennatullah" <mennatullah.siam@ubc.ca>
+Date: Tuesday, February 11, 2025 at 11:45=E2=80=AFAM
+To: "search@stat.ubc.ca" <search@stat.ubc.ca>
+Subject: Inquiry on Stat. Position
+
+=20
+
+Hello Dr. Natalia Nolde,
+
+=20
+
+      I am an applicant in the position for assistant professor in the Stat=
+istics department in UBC. I am also an affiliate assistant professor, hence =
+why I have the email. I wanted to inquire if the interview process has alrea=
+dy begun and if the position was filled or not yet?
+
+=20
+
+Looking forward to your response,
+
+Best regards,
+
+Mennatullah
+
+
+--B_3822123160_2779658719
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)"><!--=
+[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Malgun Gothic";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:Aptos;
+	panose-1:2 11 0 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"\@Malgun Gothic";}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3D"EN-CA" link=3D"#0563=
+C1" vlink=3D"#954F72" style=3D"word-wrap:break-word"><div class=3D"WordSect=
+ion1"><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&q=
+uot;Calibri&quot;,sans-serif;color:black">Hello Mennatullah,<o:p></o:p></sp=
+an></p><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&=
+quot;Calibri&quot;,sans-serif;color:black"><o:p>&nbsp;</o:p></span></p><p c=
+lass=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibr=
+i&quot;,sans-serif;color:black">Thank you for your application to UBC Stati=
+stics.&nbsp;<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"fon=
+t-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black">&nbsp=
+;<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:11.0=
+pt;font-family:&quot;Calibri&quot;,sans-serif;color:black">There was a lot =
+of competition for this position and we=E2=80=99re now interviewing shortli=
+sted candidates.&nbsp;<o:p></o:p></span></p><p class=3D"MsoNormal"><span st=
+yle=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:bl=
+ack">&nbsp;<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font=
+-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black">We reg=
+ularly post new job openings on Academic Jobs Online, UBC Career page, and =
+the UBC Statistics website, so please keep an eye on those platforms if you=
+ are interested in future opportunities.<o:p></o:p></span></p><p class=3D"M=
+soNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,s=
+ans-serif;color:black">&nbsp;<o:p></o:p></span></p><p class=3D"MsoNormal"><=
+span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;c=
+olor:black">Thank you again for your time and effort in applying.&nbsp;<o:p=
+></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:black">&nbsp;<o:p></o:p></sp=
+an></p><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&=
+quot;Calibri&quot;,sans-serif;color:black">I wish you the best of luck in y=
+our job search!<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"=
+font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"><o:p>&nbsp;</o=
+:p></span></p><div><div><div><div><p class=3D"MsoNormal"><b><span style=3D"=
+font-size:10.0pt;color:#002145">All the best,<o:p></o:p></span></b></p><p c=
+lass=3D"MsoNormal"><b><span style=3D"font-size:5.0pt;color:#002145"><o:p>&n=
+bsp;</o:p></span></b></p><p class=3D"MsoNormal"><b><span style=3D"font-size=
+:10.0pt;color:#002145">Ah Young Kim</span></b><span style=3D"font-size:10.0=
+pt;color:#002145">&nbsp;(<a href=3D"https://equity.ubc.ca/resources/gender-=
+diversity/pronouns/" title=3D"https://equity.ubc.ca/resources/gender-divers=
+ity/pronouns/"><span style=3D"color:#002145">She, Her, Hers</span></a>) on =
+behalf of the Search Committee<br>Executive Assistant to the Head and Commu=
+nications Coordinator<br>Faculty of Science | Department of Statistics&nbsp=
+;<br>The University of British Columbia | Vancouver Campus | Musqueam Tradi=
+tional Territory<br>3182 Earth Sciences Building&nbsp;2207 Main Mall&nbsp;|=
+&nbsp;Vancouver BC&nbsp;|&nbsp;V6T 1Z4 Canada<br><a href=3D"mailto:ea@stat.=
+ubc.ca" title=3D"mailto:ea@stat.ubc.ca"><span style=3D"color:#002145">ea@st=
+at.ubc.ca</span></a>&nbsp;|&nbsp;<a href=3D"https://stat.ubc.ca/" title=3D"=
+https://stat.ubc.ca/"><span style=3D"color:#002145">https://stat.ubc.ca</sp=
+an></a><o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-siz=
+e:5.0pt;color:black"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><sp=
+an style=3D"font-size:11.0pt;color:black"><img border=3D"0" width=3D"301" h=
+eight=3D"40" style=3D"width:3.1354in;height:.4166in" id=3D"Picture_x0020_1"=
+ src=3D"file:////Users/headsec/Library/Containers/com.microsoft.Outlook/Dat=
+a/Library/Caches/Signatures/signature_596242710" alt=3D"signature_596242710=
+"><o:p></o:p></span></p></div></div></div></div><p class=3D"MsoNormal"><spa=
+n style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"><o:=
+p>&nbsp;</o:p></span></p><div style=3D"border:none;border-top:solid #B5C4DF=
+ 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNormal"><b><span style=3D"=
+font-family:&quot;Calibri&quot;,sans-serif;color:black">From: </span></b><s=
+pan style=3D"font-family:&quot;Calibri&quot;,sans-serif;color:black">&quot;=
+Siam, Mennatullah&quot; &lt;mennatullah.siam@ubc.ca&gt;<br><b>Date: </b>Tue=
+sday, February 11, 2025 at 11:45=E2=80=AFAM<br><b>To: </b>&quot;search@stat=
+.ubc.ca&quot; &lt;search@stat.ubc.ca&gt;<br><b>Subject: </b>Inquiry on Stat=
+. Position<o:p></o:p></span></p></div><div><p class=3D"MsoNormal"><o:p>&nbs=
+p;</o:p></p></div><div><p class=3D"MsoNormal"><span style=3D"color:black">H=
+ello Dr. Natalia Nolde,<o:p></o:p></span></p></div><div><p class=3D"MsoNorm=
+al"><span style=3D"color:black"><o:p>&nbsp;</o:p></span></p></div><div><p c=
+lass=3D"MsoNormal"><span style=3D"color:black">&nbsp; &nbsp; &nbsp; I am an=
+ applicant in the position for assistant professor in the Statistics depart=
+ment in UBC. I am also an affiliate assistant professor, hence why I have t=
+he email. I wanted to inquire if the interview process has already begun an=
+d if the position was filled or not yet?<o:p></o:p></span></p></div><div><p=
+ class=3D"MsoNormal"><span style=3D"color:black"><o:p>&nbsp;</o:p></span></=
+p></div><div><p class=3D"MsoNormal"><span style=3D"color:black">Looking for=
+ward to your response,<o:p></o:p></span></p></div><div><p class=3D"MsoNorma=
+l"><span style=3D"color:black">Best regards,<o:p></o:p></span></p></div><di=
+v><p class=3D"MsoNormal"><span style=3D"color:black">Mennatullah<o:p></o:p>=
+</span></p></div></div></body></html>
+
+--B_3822123160_2779658719--
