@@ -1,0 +1,1000 @@
+Delivered-To: mennatul@gmx.ualberta.ca
+Received: by 2002:adf:f6cf:0:b0:472:a00a:a195 with SMTP id y15csp1328245wrp;
+        Sun, 9 Aug 2026 09:59:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AHgh+Ro6e5feNn/6xDMQSQKDVW5sxCnKWeXV2zo8RYvaA3H/zDCK8pwrjAgejlLi7JAke3uHV4briFUOvA==@gmx.ualberta.ca
+X-Received: by 2002:ac8:7d52:0:b0:51c:103:fb56 with SMTP id d75a77b69052e-52d2095b41amr173645361cf.15.1786294776068;
+        Sun, 09 Aug 2026 09:59:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1786294776; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=rfQ25PvWm8rvhSyRaDblaDwZcQ3aBaItLI9mFkP6IGId2h7icGhEcD5++HsRZ62v6K
+         +mtuN9k5mygWBmo3eClLlHoW6Qn5I3EM7GZ/nuci9NMkcoE2Fwn3GktdFbgeLftnv5w0
+         c+xCB70PjfXbmpJuftcaQ7FeNEmLYW/OK4euPO1ARjblITMUijESZiQUYOoILFieH71k
+         B91jOpmC7yvhe9ZDuseTiTkqHZ3JWs04B/Qmd2VIcE7LTQ09NjqsuWCyOIlVWRuaB3VK
+         EzVPeqYNzc9egDjIGUCmF/mxHUsbZId6etgXAzdXc8NTzrs6xr6/Jlh2bd5rbxQiJISS
+         pAlg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:delivered-to;
+        bh=Kpufzn5n94niMc6BIlUFfkjtKqpN2Aw7WK27NamrlPM=;
+        fh=qNxn7/SqWWRILymV57kvjSjHa7mZl19S5lttjWfEba4=;
+        b=qndq4HgN8SC76fyxnpoWWMS2Wd1B5sS56ZrhBVYHHyDuGwbVvgrN2He2PgKU6H1J+z
+         57Dgu9oHBnfPgHajz/gLTpeaXcSp97ZsogmAKwE7e/1ckq6/sZjZ5KB9epPg3ke9OhJf
+         l9BemqX0bZjdS9m5jZwYVTfeU48dOkRbeteNqgthP0eo9FiiuJ3PL3/lbpAks+KUHyG6
+         MnYBou0sKzE6ta64Vq/LinEuS3l5ihtVfsXPNi+PX7VE/JvPQpZ3M39Hvq4hoGc1U78S
+         GznfpINge6ABugIw06S/PzL9JjRv4/dF6omPWm9MHz7RxtaxIfMmQmV7uHc/LuEK8qn2
+         Tp0Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@ualberta.ca header.s=google header.b=b59QfKpI;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of martha.lednicky@gmail.com designates 74.125.224.51 as permitted sender) smtp.mailfrom=martha.lednicky@gmail.com;
+       dara=fail header.i=@gmx.ualberta.ca
+Return-Path: <martha.lednicky@gmail.com>
+Received: from mx-05.srv.ualberta.ca (mx-05.srv.ualberta.ca. [129.128.162.15])
+        by mx.google.com with ESMTPS id d75a77b69052e-52d167fbe70si70041931cf.405.2026.08.09.09.59.35
+        for <mennatul@gmx.ualberta.ca>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Aug 2026 09:59:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of martha.lednicky@gmail.com designates 74.125.224.51 as permitted sender) client-ip=74.125.224.51;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ualberta.ca header.s=google header.b=b59QfKpI;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of martha.lednicky@gmail.com designates 74.125.224.51 as permitted sender) smtp.mailfrom=martha.lednicky@gmail.com;
+       dara=fail header.i=@gmx.ualberta.ca
+Received: by mx-05.srv.ualberta.ca (Postfix)
+	id 7A7FF180125B; Sun,  9 Aug 2026 10:59:34 -0600 (MDT)
+Delivered-To: mennatul@ualberta.ca
+Received: from mail-yx1-f51.google.com (mail-yx1-f51.google.com [74.125.224.51])
+	by mx-05.srv.ualberta.ca (Postfix) with ESMTPS id 3CA5B180162D
+	for <mennatul@ualberta.ca>; Sun,  9 Aug 2026 10:59:34 -0600 (MDT)
+Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-66899fe9077so1787300d50.1
+        for <mennatul@ualberta.ca>; Sun, 09 Aug 2026 09:59:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786294773; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iScrSEbRsz35iS8KnAg1M2A/bkwjPEKFDeDEJaYPfaUh2ljKsn4CkUGFPvmTWHl4ni
+         +bXubSi1L/3Ax54bHs2MkmGMf/g6pfHQGvVtyooWeFYysd2wgvKx0rQl5RoaLv8LxCCN
+         0V66JtSr/Q1uUy9Cgb3wNJ7sf3UJdubPOio44Ferc9DYjbuxDsEaFTf9p5zgcK97sLy9
+         Fz1COWMfyyvQkloTt3vMs2/jKMY/x910j+x15VhpDudp9UzGFuCozOJNBHH8+wiKn6X3
+         r7jZeceAn4qEytnnALFGtijvZMx/jf0waT6jTO2vA7zkIhNtnm9pfjLpJV2Nh5r9ZnVJ
+         3enw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Kpufzn5n94niMc6BIlUFfkjtKqpN2Aw7WK27NamrlPM=;
+        fh=qNxn7/SqWWRILymV57kvjSjHa7mZl19S5lttjWfEba4=;
+        b=lRBB6XqvR0VIKz0kY2GHjAICxf1ez5wTF72pBGPTqXDCutcftLkDiP66WLgUZPQ4Ku
+         SX3zMw0VlEDc0eRNurhUN1k5/cWm/vv/VaByd+zxKJkSkyII1CgMok3PZKklPlooMYh5
+         bBkQBAr6dsQWSoHWGHGjpSkeXKCn5qbVhIIRWiKUHjLV6mfH7Yt6RqsmDeuT+aBaaf/F
+         wiGV/Z2A+wtLlndgUw2jfTUxC9QwTo7WeltbuUJusBko05pGEla/wj1htL+U8ixyiee5
+         BNnxz2nKGMyzM8aVmHqIuQLuz1tGDh5ZM61+Wy4htz0oeojNXwxC6fTy5NaiLYMOM1c7
+         Z8ew==;
+        darn=ualberta.ca
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ualberta.ca; s=google; t=1786294773; x=1786899573; darn=ualberta.ca;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Kpufzn5n94niMc6BIlUFfkjtKqpN2Aw7WK27NamrlPM=;
+        b=b59QfKpIT7uiveDm/J4C4d4f2MHLy8JHiZSFrcPPbciMukBxsMcMFj9VW6HzqvBEW8
+         jn4+gLKrurk5YmKIanvITscCW+itCUp+1PcjLZgs0ahCwM+/tL6qGiGCjMJwv9o6gO9f
+         w+6cgWosIDgP98p9ULgFtzBIymZHDzd3MeWHAmSNgBK+iG+hrncd9WbcHPXg1orQDlNL
+         0a8G7HFcQj01kZNnTUAD9e9SFwbefzurJ6vTDw3c19SLWNLaatoheGhGzCHr4Pg5EM2A
+         ikPRrQbR9jTx6ir+LllX76tWnkHX06GbcenXFG/IIxGQ+5D4JYgpkjlgxODaD2mK40bZ
+         mlsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786294773; x=1786899573;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Kpufzn5n94niMc6BIlUFfkjtKqpN2Aw7WK27NamrlPM=;
+        b=VeBHbVfPt0XSBDV2cyfwcYm15zMiQtZZ2M5MIfXqF/ElQG7GQg9vlOh/uM866Ic1Ny
+         ENsc47meNBg4W8ZH+T6CPZTKbQYwtNA5FCN77O1AaTc/b4Qd8gwV/72QKJ7htoeqy4/H
+         vUd6KWY3yYSpalHM91G1EGMgkFfvWAQfqDbDBT4wwnjPXVu24eCtpZFmDQ5GhfcInkfj
+         3W4XDc7eoT7UwcIaoP2aylPctWwhLjQQzLpf1KhgW1UMlV5zuZAtqbjq9nK96Fqn1nX5
+         dEtafDKTrFxvz2s/sJXO3fJi67T+M8MWvYyd6+iaLljuRQMy2d5r35cPRTa0Q7DcV63p
+         WlMg==
+X-Gm-Message-State: AOJu0YzcNO3LRkiAVXPyIXI7Rz0ahXNZEjTJdI16yHHyxcUqtrmDA3xB
+	Auf69Ovmd6GDbaAzbvQrsDeqWFD7QpDKB50ibSdE87Oi2O0MmBpLkV4ABymyaPIXaqthOi70Isu
+	d+xhWTm8lXI9422aR+FJhXdDrSycDZvByJA==
+X-Gm-Gg: AR+sD10dvdtTWgBQCy4QKDs9Y0oe60JT6fzcvyxTfzeeGsj8SP2x4OWUcTlt0dxr257
+	mMpB6zy2RlNmjoYu8Ji3JxviAZxDKxHjcdUHQL6k4AWEIOHcK7F+q49J3tLqj+C9NfjN2Ct1GlE
+	DnjnFi0fOhGxTUB5G5KqgCziefaj0WK/hlTYKsvb4k5fSO0AF05tD1Jcm9B5fr8gRgVKmJZzYFD
+	kAoWlHf2XCmJR/TVPwge62pcxOg1szRUaj3IhNWt6sGW5/PQ6kC1aSAaEVeISj17cR1pWzZ6bCL
+	bC2sC7bc/arGFgbJ8YfwnWFGxpb2mP5GsLWy5XMgPJSjayl0AZtPYZzLGMfxvvVueUUSpTXSTYt
+	ICJBWkjxKsicdPQ==
+X-Received: by 2002:a05:690e:4252:b0:668:9148:17f8 with SMTP id
+ 956f58d0204a3-66ad7261175mr6604794d50.43.1786294772827; Sun, 09 Aug 2026
+ 09:59:32 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAMxG6qi5jxoE6cFerrNTT2VPpp72Q7fPj01-0n6aANYjcne+CQ@mail.gmail.com>
+ <CAG0xq0i0g3Pd0jA1LtZWr1TQe87=NF-D4T754JcjnFUzf_EGHA@mail.gmail.com>
+ <CAMxG6qhO=+rSPqHg=fjRgF=VWd8onXb1i9=n3Sm2n=1nQ_qb7w@mail.gmail.com>
+ <CAG0xq0hdydb1dxnLpghRu9rmBg0NxJ_DqAK-xVH2SMzvqxDH1g@mail.gmail.com>
+ <CAMxG6qhhmmbWgRzLyGQ54x+Haz8iUC+qpC6h3ksFe0RCB2Q80w@mail.gmail.com>
+ <CAMxG6qg-XW5J-s5VQB7H5XUMAo4w2E_q1ptQ7N1G4MCBFfBYsw@mail.gmail.com>
+ <CAG0xq0gaJrVkX=pK_Re6BtB9JDR+XdR0HqXe7dQ93f=7BOkGRg@mail.gmail.com>
+ <CAMxG6qjMaNHx4JbT=EnjWZFniO=7QEUGokEphV1Y_NVHgQaxXg@mail.gmail.com>
+ <CAG0xq0iOxjQR6jCX7rKwXe3MpvHvUsQWKtxj2rQEOxnsGFCjrw@mail.gmail.com>
+ <CAMxG6qgP0H2K4rzrK8BOn5a5g+mE30ORdq8r-CeDy8NYf2v=UQ@mail.gmail.com> <CAMxG6qjzQ4aYy8gxJAKGQpa0EZymvNs_RUSU8anVwkHGx8baNQ@mail.gmail.com>
+In-Reply-To: <CAMxG6qjzQ4aYy8gxJAKGQpa0EZymvNs_RUSU8anVwkHGx8baNQ@mail.gmail.com>
+From: Martha White <whitem@ualberta.ca>
+Date: Sun, 9 Aug 2026 10:59:21 -0600
+X-Gm-Features: AUfX_mw2QdJFWb-LLDpFYdNwpulNLjMDZoSds8ymVH4zMowSuVmkekJU2sUT0FY
+Message-ID: <CAG0xq0igesFSAjp6TJdp18cbD1BLqsegx5C00-4MMPopO4gZOg@mail.gmail.com>
+Subject: Re: Connecting w/ RLAI and Amii
+To: Mennatullah Siam <mennatul@ualberta.ca>
+Cc: Rich Sutton <rsutton@ualberta.ca>
+Content-Type: multipart/alternative; boundary="000000000000660b670658a029c8"
+
+--000000000000660b670658a029c8
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Mennatullah,
+
+Unfortunately, I do not feel comfortable with using the AI seminar for
+this. I have not raised this with Amii, and this opinion is wholly my own.
+I do wish you best of luck in your future endeavors.
+
+-Martha
+
+On Sat, Aug 8, 2026 at 8:49=E2=80=AFAM Mennatullah Siam <mennatul@ualberta.=
+ca>
+wrote:
+
+> sorry for the typo "I understand its your choice ofc". I am just clearly
+> conveying this is offensive to me if the talk got cancelled because I am
+> talking about sexism I am facing backed with evidence and thats the only
+> reason. Thank you
+>
+> On Sat, Aug 8, 2026 at 5:43=E2=80=AFPM Mennatullah Siam <mennatul@ualbert=
+a.ca>
+> wrote:
+>
+>> Dear Martha,
+>>
+>>    Thanks for your response and no need for title I am indeed an alumnus
+>> from UofA PhD program but we always use first names. I can share the
+>> evidence detailed and clear. I will be more than happy to disseminate th=
+is
+>> one and there is nothing to prevent me from sharing or any disclosure
+>> agreement.
+>>
+>> I need to clarify this is a Whistleblowing effort talking about sexism i=
+n
+>> the field with direct evidence of it. Are you sure you still want to can=
+cel
+>> my talk because I am requesting to discuss a very brief statement talkin=
+g
+>> about sexism with evidence that I can share with you and i can put publi=
+cly
+>> available as well?
+>>
+>> I understand your final choice ofc. But I wanted to confirm i am not jus=
+t
+>> putting some stupid shit that isn't backed with evidence. Also
+>> whistleblowing is different than legal proceedings, both do not cancel o=
+r
+>> contradict each other. The former is the right way to fight back in a
+>> democratic country that appreciates freedom of expression which does
+>> include UofA as a public institution.
+>>
+>> I am looking forward for your response, Thank you.
+>>
+>> On Fri, Aug 7, 2026 at 8:45=E2=80=AFPM Martha White <whitem@ualberta.ca>=
+ wrote:
+>>
+>>> Hi Dr. Mennatullah Siam,
+>>>
+>>> I am very sorry to hear about your difficulties. However, the AI semina=
+r
+>>> is a place to disseminate research. I would not support stating such st=
+rong
+>>> accusations, some of which seem like criminal accusations that belong i=
+n
+>>> courts. It concerns me that this would be brought to the AI seminar. I
+>>> unfortunately can no longer support this AI seminar.
+>>>
+>>> I wish you best of luck on your next steps.
+>>>
+>>> -Martha
+>>>
+>>> On Wed, Aug 5, 2026 at 9:34=E2=80=AFPM Mennatullah Siam <mennatul@ualbe=
+rta.ca>
+>>> wrote:
+>>>
+>>>> Dear Martha White and Rich Sutton,
+>>>>
+>>>>       I am sending a reminder for the talk for September 11th and as w=
+e
+>>>> discussed in a separate thread it is going to only online as I will no=
+t be
+>>>> able to fund my travel to the talk and Amii  can not support my travel
+>>>> either.
+>>>>
+>>>> On another note, thanks @Marth for hosting my talk, and I would like
+>>>> to use the opportunity to send this statement during the talk and I of
+>>>> course have to share this with you beforehand. I am confident you agre=
+e on
+>>>> being against this, and I think all UofA is like that.
+>>>>
+>>>> "I have to share that in the past two years me and multiple women in
+>>>> either my lab or the African community that I founded have been pushed=
+ to
+>>>> unemployment and severely stalked to the extent of bankruptcy, to fall=
+ prey
+>>>> to rape and sexual harassment in various forms. I am actively working
+>>>> against the ones in the Computer Vision and Machine Learning community=
+ that
+>>>> are part of this in any form. I am quite thankful for UofA for support=
+ing
+>>>> me to fight them, and this talk is one of the forms revolting against =
+them."
+>>>>
+>>>> I just would like to share that statement because it is true in every
+>>>> single sense. I would initially be thinking that maybe its just
+>>>> tough competition for my applications, but I am here sharing some of m=
+y
+>>>> rejected applications that made me confirm there are people that are
+>>>> actively stalking my applications and thats it. There has to be clear
+>>>> strong stance against this and I have tried to follow the legal thread=
+ to
+>>>> protect the women in my lab and Ro'ya but its just taking so long.
+>>>> Disseminating this through my talks and presentations will help fight =
+this
+>>>> the right way within the academics.
+>>>>
+>>>> 1- Two positions @ University of Victoria (although they hired Ashery
+>>>> Mbillinyi
+>>>> <https://scholar.google.com/citations?user=3Dw8xN7z8AAAAJ&hl=3Den>who =
+I
+>>>> was guiding when he was a postdoc in Ro'ya), I am very happy for him o=
+fc
+>>>> but they cant universities and search committees cant keep working aga=
+inst
+>>>> women like that even when they have stronger research and teaching pro=
+files.
+>>>> 2- Humboldt Fellowship, experienced researcher application was rejecte=
+d
+>>>> although its a really low-tier award that constitute half of my origin=
+al
+>>>> salary even that was rejected.
+>>>> 3- Multiple research scientist and applied scientist positions in
+>>>> industry and small startups were also rejected.
+>>>>
+>>>> I am being stalked and this is my last trial to prevent my RAPE cause =
+I
+>>>> cant just keep contninuing without any money at ZERO salary. Thank you=
+ for
+>>>> your help and I am really looking forward to meeting you all during my=
+ talk.
+>>>>
+>>>> On Thu, May 14, 2026 at 1:33=E2=80=AFAM Martha White <whitem@ualberta.=
+ca>
+>>>> wrote:
+>>>>
+>>>>> Hi Mennatullah,
+>>>>>
+>>>>> That all looks good. Note that we do host talks in the summer too, bu=
+t
+>>>>> maybe it has already filled up.
+>>>>>
+>>>>> -Martha
+>>>>>
+>>>>> On Tue, May 12, 2026 at 5:05=E2=80=AFAM Mennatullah Siam <mennatul@ua=
+lberta.ca>
+>>>>> wrote:
+>>>>>
+>>>>>> Hello Martha,
+>>>>>>
+>>>>>>       I have submitted for the Amii AI Seminar series with potential
+>>>>>> date at September 11th, 2026. I am aware the series is usually on Fr=
+idays
+>>>>>> thats why, but please let me know if you have any modifications. I a=
+m quite
+>>>>>> flexible. I waited till September because I saw that June to August =
+you
+>>>>>> will not be hosting talks. I am assuming maybe its for hosting new f=
+aculty
+>>>>>> talks.
+>>>>>>
+>>>>>> I am adding here the talk title and abstract, and my bio. Let me kno=
+w
+>>>>>> if you need anything else. I am looking forward to networking with o=
+ther
+>>>>>> Amii researchers who are passionate about advancing the AI field reg=
+ardless
+>>>>>> of their background, political opinions or human rights advocacy. I =
+am
+>>>>>> honestly quite passionate about affordance learning and reasoning th=
+ese
+>>>>>> days, which is a natural extension of my work on segmentation and vi=
+deo
+>>>>>> understanding. I am currently building a large-scale dataset that is=
+ on the
+>>>>>> scale of millions of videos in the wild that relies on foundation mo=
+dels to
+>>>>>> have an understanding of how human observers perceive the world in t=
+erms of
+>>>>>> affordances. From the simple, straightforward affordances,
+>>>>>> e.g., that a knife is a tool to cut with, a street is a walkable are=
+a, to
+>>>>>> observing the same street as a dancing space for a dancing video on
+>>>>>> YouTube or a knife as a tool to carve with on a wooden wall. See you
+>>>>>> in the fall then, and hope I can make it in person. I just found out=
+ that
+>>>>>> Amii had travel bursaries back in 2022 so I also send to the directo=
+r to
+>>>>>> inquire if perhaps they can make an exception to support me, conside=
+ring my
+>>>>>> diversity group and exceptional circumstances.
+>>>>>>
+>>>>>> *Title:* Towards In-the-Wild Robotics with Pixel-Level Video
+>>>>>> Understanding and Multimodal AI
+>>>>>>
+>>>>>> *Abstract:* Multi-modal large language models (MLLMs) have emerged,
+>>>>>> directed towards building general-purpose models and agents that are
+>>>>>> powered with diverse capabilities and can operate within different
+>>>>>> environments. It has been recently equipped with visual grounding an=
+d
+>>>>>> reasoning abilities. Nonetheless, the aforementioned models are stil=
+l
+>>>>>> limited in their understanding of the world in terms of depth, motio=
+n and
+>>>>>> affordances on the pixel level while maintaining their general-purpo=
+se
+>>>>>> nature, which is crucial in various robotics applications. Pixel-lev=
+el
+>>>>>> image and video understanding goal is to make inferences about the
+>>>>>> surrounding world from corresponding image or video data on the
+>>>>>> pixel-level, e.g., segmentation, affordances learning, depth estimat=
+ion,
+>>>>>> flow estimation and pixel-level tracking. Such pixel-level understan=
+ding
+>>>>>> capabilities are still limited in general-purpose agents built using
+>>>>>> multi-modal large language models. This talk focuses on three main b=
+uilding
+>>>>>> blocks for building generalist models that are directed towards in-t=
+he-wild
+>>>>>> robotics. This talk summarizes both my previous research and future
+>>>>>> direction: (i) a responsible AI framework that emphasizes interpreta=
+bility
+>>>>>> and data-efficient learning, (ii) video understanding with emphasis =
+on
+>>>>>> pixel-level, motion understanding and affordances learning and reaso=
+ning,
+>>>>>> and (iii) extending these works to operate in real-world robotics
+>>>>>> applications beyond the lab and operating in unconventional settings=
+.
+>>>>>>
+>>>>>> *Bio:* Dr. Siam started as an assistant professor at Ontario Tech
+>>>>>> University in 2023 leading the Image and Video Understanding (IVU) l=
+ab and
+>>>>>> an affiliate professor at UBC, funded by NSERC among other Canadian
+>>>>>> agencies. Her research interests include pixel-level video understan=
+ding,
+>>>>>> data-efficient learning, interpretability, responsible AI and roboti=
+cs.
+>>>>>> Previously, she was a Postdoctoral researcher at York University,
+>>>>>> 2021-2023, and a Vector Institute researcher (postdoc) affiliate in =
+2022.
+>>>>>> She obtained her PhD in 2021 under Professor Martin Jagersand's
+>>>>>> supervision, working in vision for robotics. Her research was recogn=
+ized
+>>>>>> with the KUKA innovation finalist award in 2018 and in the Black in =
+AI
+>>>>>> Keynote talk at NeurIPS 2022.  Her thesis focused on learning video =
+object
+>>>>>> segmentation with limited labelled data, where she worked on the
+>>>>>> intersection between video object segmentation and few-shot learning=
+ with
+>>>>>> application to both autonomous driving and robot manipulation. As a =
+proud
+>>>>>> Canadian, she has continuously contributed to diversity and inclusio=
+n
+>>>>>> efforts, especially within Canada, through founding the Ro'ya Commun=
+ity for
+>>>>>> Africans in Computer Vision.
+>>>>>> Thank you,
+>>>>>>
+>>>>>> On Sat, Apr 25, 2026 at 9:13=E2=80=AFAM Mennatullah Siam <
+>>>>>> mennatul@ualberta.ca> wrote:
+>>>>>>
+>>>>>>> Thanks for letting me know, no worries I will let you know then wit=
+h
+>>>>>>> the time after I am aware of other funds and I have arranged the da=
+tes. I
+>>>>>>> appreciate your help.
+>>>>>>>
+>>>>>>> On Fri, Apr 24, 2026 at 6:14=E2=80=AFPM Martha White <whitem@ualber=
+ta.ca>
+>>>>>>> wrote:
+>>>>>>>
+>>>>>>>> Unfortunately, Amii's policy is that they do not fund talk travel
+>>>>>>>> for the AI seminar. This would get prohibitively expensive, and th=
+ey would
+>>>>>>>> need a whole process to decide who gets it or not. This is current=
+ly
+>>>>>>>> outside the scope of what they do.
+>>>>>>>>
+>>>>>>>> Sure, you can add me as a host.
+>>>>>>>>
+>>>>>>>> -Martha
+>>>>>>>>
+>>>>>>>> On Thu, Apr 23, 2026 at 10:40=E2=80=AFPM Mennatullah Siam <
+>>>>>>>> mennatul@ualberta.ca> wrote:
+>>>>>>>>
+>>>>>>>>> Hello Martha,
+>>>>>>>>>
+>>>>>>>>>        Thanks for your response. I already did but I am indeed
+>>>>>>>>> trying to reach out to Amii, Vector and Mila support to help impr=
+ove my
+>>>>>>>>> chance of getting a better job.
+>>>>>>>>>
+>>>>>>>>> I will be happy to present but I do prefer in-person. Can I ask
+>>>>>>>>> you then that are the host since I saw the speakers series does r=
+equest
+>>>>>>>>> that. I think I can sign up and add you there as the host and I c=
+an share
+>>>>>>>>> with you the abstract and so on.
+>>>>>>>>>
+>>>>>>>>> If its ok with you I am still looking for funds to support my
+>>>>>>>>> travel since I will prbably go through multiple other cities in C=
+anada. So
+>>>>>>>>> I can confirm the timing exactly maximum by Fall 2026. Thanks for=
+ your kind
+>>>>>>>>> support.
+>>>>>>>>>
+>>>>>>>>> On another note considering its only 3K travel funds I am
+>>>>>>>>> wondering Amii itself can fund it? I will be surprised if Amii do=
+esnt
+>>>>>>>>> provide travel funds to host researchers talks. I am hoping they =
+would want
+>>>>>>>>> to support a female African Robotics researcher and its really a =
+small ask
+>>>>>>>>> from Amii. I understand ofc it will be hard from specific profess=
+ors funds
+>>>>>>>>> thats why I thought to inquire from Amii itself.
+>>>>>>>>>
+>>>>>>>>> Thanks again and even if Amii cant support my travel I can look
+>>>>>>>>> through other UofA resources and get back to you about the timing=
+.
+>>>>>>>>>
+>>>>>>>>> Best Regards,
+>>>>>>>>> Mennatullah Siam, PhD, PEng.
+>>>>>>>>>
+>>>>>>>>> On Thu., Apr. 23, 2026, 8:56 p.m. Martha White, <
+>>>>>>>>> whitem@ualberta.ca> wrote:
+>>>>>>>>>
+>>>>>>>>>> Hi Menna,
+>>>>>>>>>>
+>>>>>>>>>> That sounds like a tough situation. Overall, my advice would be
+>>>>>>>>>> to try to broadly apply to Canadian universities for their hirin=
+g calls. It
+>>>>>>>>>> is better to apply to many, rather than being selective, to prov=
+ide more
+>>>>>>>>>> options.
+>>>>>>>>>>
+>>>>>>>>>> As for the AI seminar, it would be perfectly reasonable to
+>>>>>>>>>> present, but funding for travel is not provided. We do allow som=
+e virtual
+>>>>>>>>>> presentations. Would that be of interest to you?
+>>>>>>>>>>
+>>>>>>>>>> -Martha
+>>>>>>>>>>
+>>>>>>>>>> On Thu, Apr 23, 2026 at 12:24=E2=80=AFAM Mennatullah Siam <
+>>>>>>>>>> mennatul@ualberta.ca> wrote:
+>>>>>>>>>>
+>>>>>>>>>>> Hello Rich Sutton and Martha White,
+>>>>>>>>>>>
+>>>>>>>>>>>           I am Mennatullah Siam
+>>>>>>>>>>> <https://scholar.google.com/citations?user=3DAVPds3kAAAAJ&hl=3D=
+en&oi=3Dao>, I
+>>>>>>>>>>> hope you remember me from back in my PhD @UofA I was working wi=
+th Martin
+>>>>>>>>>>> Jagersand and graduated in 2021. I started as an assistant prof=
+essor at
+>>>>>>>>>>> UOIT in July 2023 and as an affiliate assistant professor at UB=
+C in 2024
+>>>>>>>>>>> where I led research on computer vision, robotics and responsib=
+le AI
+>>>>>>>>>>> (specifically data-efficient learning, interpretability and AI =
+safety). I
+>>>>>>>>>>> have attached my CV for reference as well. I am currently looki=
+ng to
+>>>>>>>>>>> transition to a better faculty position, and I was seeking Amii=
+ support. I
+>>>>>>>>>>> thought to inquire if you can help me connect with Amii to pres=
+ent my
+>>>>>>>>>>> research through the seminar weekly series.
+>>>>>>>>>>>
+>>>>>>>>>>> I have a strong research record, publishing in both top venues
+>>>>>>>>>>> in Computer Vision (CVPR/ICCV/TPAMI/IJCV) and Robotics (ICRA/IR=
+OS) with
+>>>>>>>>>>> h-index 20, and I have acquired multiple good NSERC grants
+>>>>>>>>>>> <https://nserc-crsng.canada.ca/en/awards-database?fiscal_year_f=
+rom=3D2024&fiscal_year_to=3D2024&competition_year_from=3D0&competition_year=
+_to=3D0&person_name=3DSiam&keywords=3D&institution_type=3D0&area_code=3D&su=
+bject_code=3D&department=3D&award_amount_min=3D&award_amount_max=3D&report_=
+type=3D0&op=3DSearch>
+>>>>>>>>>>> and funds to support my research more than $500K for my researc=
+h starting
+>>>>>>>>>>> from my PhD. (Awards) During my PhD I was awarded the KUKA inno=
+vation
+>>>>>>>>>>> finalist award back in 2018. I have also been recognized as an =
+outstanding
+>>>>>>>>>>> reviewer in ICCV 2023, selected for the doctoral consortium in =
+CVPR 2021
+>>>>>>>>>>> and I have been an AC in WACV for the past 3 years 2024-2026 an=
+d an
+>>>>>>>>>>> organizer in CVPR workshops series from 2022-2025, including
+>>>>>>>>>>> PixFoundation <https://sites.google.com/view/pixfoundation> wor=
+kshop.
+>>>>>>>>>>> *I am also a Canadian citizen and a female African, so I am
+>>>>>>>>>>> hoping you would want to support a female Robotics researcher l=
+ike myself.*
+>>>>>>>>>>>
+>>>>>>>>>>> I wanted to present some of my research that I believe is aroun=
+d *the
+>>>>>>>>>>> building blocks for in-the-wild robotics that relies on a stron=
+g foundation
+>>>>>>>>>>> in Computer Vision and Video Understanding*. I also wanted to
+>>>>>>>>>>> come and present in-person of course, as I think it's better fo=
+r direct
+>>>>>>>>>>> communication. I am contacting you both specifically because I =
+am aware of
+>>>>>>>>>>> your high ethics standards, and I am sharing some of what I exp=
+erienced in
+>>>>>>>>>>> my previous appointment at Ontario Tech after I left, transitio=
+ned my
+>>>>>>>>>>> grants to UBC, but then there was a severe adverse impact on at=
+ least 5
+>>>>>>>>>>> individuals in my research lab from under-represented groups, i=
+ncluding
+>>>>>>>>>>> myself. The majority were visiting students and a research scie=
+ntist that
+>>>>>>>>>>> was appointed in my lab. The least issue was that they closed m=
+y grants
+>>>>>>>>>>> without F303 documents,
+>>>>>>>>>>> <https://nserc-crsng.canada.ca/sites/default/files/migrated/_do=
+c/tri-agency/tafag/outstanding_commitments_form_303_e.pdf>
+>>>>>>>>>>> which is actually illegal, and I have all the necessary documen=
+tation for
+>>>>>>>>>>> it. As a good PI, I want to protect my funding agency from cont=
+inuing this
+>>>>>>>>>>> line, and I think the best is to be supported for a better posi=
+tion where I
+>>>>>>>>>>> can restart my grants and resolve the situation. I have also be=
+en now two
+>>>>>>>>>>> years since late 2024, unemployed although I have stayed in Can=
+ada for 10
+>>>>>>>>>>> consecutive years that never happened to me before. Although my=
+ performance
+>>>>>>>>>>> review from the dean, attached, confirms that I either met or e=
+xceeded the
+>>>>>>>>>>> expectations. In fact, in my ECR years as assistant professor, =
+beyond
+>>>>>>>>>>> securing NSERC grants and Alliance international collaborations=
+, I had CVPR
+>>>>>>>>>>> 2024, WACV 2025, JAIR, IJCV 2025, IEEE Remote Sensing Letters 2=
+025, TMLR
+>>>>>>>>>>> 2026 (ICML 2026 presentation) and a Nature Scientific Reports. =
+More
+>>>>>>>>>>> importantly, I ensured the reproducibility of my research throu=
+gh open
+>>>>>>>>>>> sourcing and contributing to the community in various ways.
+>>>>>>>>>>>
+>>>>>>>>>>> This is bad reputation to UofA as well because I am one of thei=
+r
+>>>>>>>>>>> best female PhD graduates and I have always been identified for=
+ that with
+>>>>>>>>>>> hard work and strong work ethics. I am really hoping you can he=
+lp me first
+>>>>>>>>>>> connect with Amii and through your support and Amii I am confid=
+ent it will
+>>>>>>>>>>> improve my chances for assistant professor positions @ UofA or =
+other
+>>>>>>>>>>> Canadian universities. I am looking forward to go back to Canad=
+a my country
+>>>>>>>>>>> and resume my research and I have quite the promising potential=
+ to expand
+>>>>>>>>>>> my research towards being more impactful.
+>>>>>>>>>>>
+>>>>>>>>>>> While I am currently in Egypt, I am confident I will not be abl=
+e
+>>>>>>>>>>> to continue to work safely there, so I have no other choice but=
+ to go back
+>>>>>>>>>>> to Canada or elsewhere for work. I have shared this with Martin=
+ back in
+>>>>>>>>>>> time, but I was unfortunately being hunted down by Muslim Broth=
+erhood and
+>>>>>>>>>>> their extreme ideologies because I was against their authoritar=
+ian regime.
+>>>>>>>>>>> Yet I have always tried to avoid them throughout my career, but=
+ to make
+>>>>>>>>>>> things more complex, I am also against the military authoritari=
+an ruling
+>>>>>>>>>>> and what they did to them in Rabaa massacre, and I was there pe=
+rsonally
+>>>>>>>>>>> just to support the rights of individuals to live and to protes=
+t. Having
+>>>>>>>>>>> experienced these two means it's quite impossible that I mainta=
+in an active
+>>>>>>>>>>> work life in Egypt safely, and I am a Canadian looking for the =
+standard
+>>>>>>>>>>> support that Canadian women would get.
+>>>>>>>>>>>
+>>>>>>>>>>> Thank you and I am looking forward to your response.
+>>>>>>>>>>>
+>>>>>>>>>>> --
+>>>>>>>>>>> Best Regards,
+>>>>>>>>>>> Mennatullah Siam, PhD, PEng.
+>>>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>
+>>>>>>> --
+>>>>>>> Best Regards,
+>>>>>>> Mennatullah Siam, PhD, PEng.
+>>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> --
+>>>>>> Best Regards,
+>>>>>> Mennatullah Siam, PhD, PEng.
+>>>>>>
+>>>>>
+>>>>
+>>>> --
+>>>> Best Regards,
+>>>> Mennatullah Siam, PhD, PEng.
+>>>>
+>>>
+>>
+>> --
+>> Best Regards,
+>> Mennatullah Siam, PhD, PEng.
+>>
+>
+>
+> --
+> Best Regards,
+> Mennatullah Siam, PhD, PEng.
+>
+
+--000000000000660b670658a029c8
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi Mennatullah,<div><br></div><div>Unfortunately, I do not=
+ feel comfortable with using the AI seminar for this. I have not raised thi=
+s with Amii, and this opinion is wholly=C2=A0my own. I do wish you best of =
+luck in your future endeavors.</div><div><br></div><div>-Martha</div></div>=
+<br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=
+=3D"gmail_attr">On Sat, Aug 8, 2026 at 8:49=E2=80=AFAM Mennatullah Siam &lt=
+;<a href=3D"mailto:mennatul@ualberta.ca">mennatul@ualberta.ca</a>&gt; wrote=
+:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.=
+8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"lt=
+r">sorry for the typo &quot;I understand its your choice ofc&quot;. I am ju=
+st clearly conveying this is offensive to me if the talk got cancelled beca=
+use I am talking about sexism I am facing backed with evidence and thats th=
+e only reason. Thank you</div><br><div class=3D"gmail_quote"><div dir=3D"lt=
+r" class=3D"gmail_attr">On Sat, Aug 8, 2026 at 5:43=E2=80=AFPM Mennatullah =
+Siam &lt;<a href=3D"mailto:mennatul@ualberta.ca" target=3D"_blank">mennatul=
+@ualberta.ca</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" styl=
+e=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);paddin=
+g-left:1ex"><div dir=3D"ltr">Dear Martha,<div><br></div><div>=C2=A0 =C2=A0T=
+hanks for your response and no need for title I am indeed an alumnus from U=
+ofA PhD program but we always use first names. I can share the evidence det=
+ailed and clear. I will be more than happy to disseminate this one and ther=
+e is nothing to prevent me from sharing or any disclosure agreement.</div><=
+div><br></div><div>I need to clarify this is a Whistleblowing effort talkin=
+g about sexism in the field with direct evidence of it. Are you sure you st=
+ill want to cancel my talk because I am requesting to discuss a very brief =
+statement talking about sexism with evidence that I can share with you and =
+i can put publicly available as well?</div><div><br></div><div>I understand=
+ your final choice ofc. But I wanted to confirm i am not just putting some =
+stupid shit that isn&#39;t backed with evidence. Also whistleblowing is dif=
+ferent than legal proceedings, both do not cancel or contradict each other.=
+ The former is the right way to fight back in a democratic country that app=
+reciates freedom of expression which does include UofA as a public institut=
+ion.</div><div><br></div><div>I am looking forward for your response, Thank=
+ you.</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"g=
+mail_attr">On Fri, Aug 7, 2026 at 8:45=E2=80=AFPM Martha White &lt;<a href=
+=3D"mailto:whitem@ualberta.ca" target=3D"_blank">whitem@ualberta.ca</a>&gt;=
+ wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px =
+0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=
+=3D"ltr">Hi Dr. Mennatullah Siam,<div><br></div><div>I am very sorry to hea=
+r about your difficulties. However, the AI seminar is a place to disseminat=
+e=C2=A0research. I would not support stating such strong accusations, some =
+of which seem like criminal accusations that belong in courts. It concerns =
+me that this would be brought to the AI seminar. I unfortunately can no lon=
+ger support this AI seminar.=C2=A0</div><div><br></div><div>I wish you best=
+ of luck on your next steps.</div><div><br></div><div>-Martha</div></div><b=
+r><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Wed, =
+Aug 5, 2026 at 9:34=E2=80=AFPM Mennatullah Siam &lt;<a href=3D"mailto:menna=
+tul@ualberta.ca" target=3D"_blank">mennatul@ualberta.ca</a>&gt; wrote:<br><=
+/div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bo=
+rder-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Dea=
+r Martha White and Rich Sutton,<div><br></div><div>=C2=A0 =C2=A0 =C2=A0 I a=
+m sending a reminder for the talk for September 11th and as we discussed in=
+ a separate thread it is going to only online as I will not be able to fund=
+ my travel to the talk and Amii =C2=A0can not support my travel either.</di=
+v><div><br></div><div>On another note, thanks <a class=3D"gmail_plusreply" =
+id=3D"m_-1165201270564835357m_8937277954271115182m_1336151884338036231m_147=
+6298044261706798plusReplyChip-0">@Marth</a>=C2=A0for hosting my talk, and I=
+ would like to use the opportunity to send this statement during the talk a=
+nd I of course have to share this with you beforehand. I am confident you a=
+gree on being against this, and I think all UofA is like that.</div><div><b=
+r></div><div>&quot;I have to share that in the past two years me and multip=
+le women in either my lab or the African community that I founded have been=
+ pushed to unemployment and severely stalked to the extent of bankruptcy,=
+=C2=A0to fall prey to rape and sexual harassment in various forms. I am act=
+ively working against the ones in the Computer Vision and Machine Learning =
+community that are part of this in any form. I am quite thankful for UofA f=
+or supporting me to fight them, and this talk is one of the forms revolting=
+ against them.&quot;</div><div><br></div><div>I just would like to share th=
+at statement because it is true in every single sense. I would initially be=
+ thinking that maybe=C2=A0its=C2=A0just tough=C2=A0competition for my appli=
+cations, but I am here sharing some of my rejected applications that made m=
+e confirm there are people that are actively stalking my applications and t=
+hats=C2=A0it. There has to be clear strong stance against this and I have t=
+ried to follow the legal thread to protect the women in my lab and Ro&#39;y=
+a but its just taking so long. Disseminating this through my talks and pres=
+entations will help fight this the right way within the academics.</div><di=
+v><br></div><div>1- Two positions @ University of Victoria (although they h=
+ired <a href=3D"https://scholar.google.com/citations?user=3Dw8xN7z8AAAAJ&am=
+p;hl=3Den" target=3D"_blank">Ashery Mbillinyi </a>who I was guiding when he=
+ was a postdoc in Ro&#39;ya), I am very happy for him ofc but they cant uni=
+versities and search committees cant keep working against women like that e=
+ven when they have stronger research and teaching profiles.</div><div>2- Hu=
+mboldt Fellowship, experienced researcher application was rejected although=
+ its a really low-tier award that constitute half of my original salary eve=
+n that was rejected.</div><div>3- Multiple research scientist and applied s=
+cientist positions in industry and small startups were also rejected.</div>=
+<div><br></div><div>I am being stalked and this is my last trial to prevent=
+ my RAPE cause I cant just keep contninuing without any money at ZERO salar=
+y. Thank you for your help and I am really looking forward to meeting you a=
+ll during my talk.</div></div><br><div class=3D"gmail_quote"><div dir=3D"lt=
+r" class=3D"gmail_attr">On Thu, May 14, 2026 at 1:33=E2=80=AFAM Martha Whit=
+e &lt;<a href=3D"mailto:whitem@ualberta.ca" target=3D"_blank">whitem@ualber=
+ta.ca</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"ma=
+rgin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:=
+1ex"><div dir=3D"ltr">Hi Mennatullah,<div><br></div><div>That all looks goo=
+d. Note that we do host talks in the summer too, but maybe it has already f=
+illed up.=C2=A0</div><div><br></div><div>-Martha</div></div><br><div class=
+=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, May 12, 2026=
+ at 5:05=E2=80=AFAM Mennatullah Siam &lt;<a href=3D"mailto:mennatul@ualbert=
+a.ca" target=3D"_blank">mennatul@ualberta.ca</a>&gt; wrote:<br></div><block=
+quote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1=
+px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Hello Martha,<=
+div><br></div><div>=C2=A0 =C2=A0 =C2=A0 I have submitted for the Amii AI Se=
+minar series with potential date at September 11th, 2026. I am aware the se=
+ries is usually on Fridays thats why, but please let me know if you have an=
+y modifications. I am quite flexible. I waited till September because I saw=
+ that June to August you will not be hosting talks. I am assuming maybe its=
+ for hosting new faculty talks.</div><div><br></div><div>I am adding here t=
+he talk title and abstract, and my bio. Let me know if you need anything el=
+se. I am looking forward to networking with other Amii researchers who are =
+passionate about advancing the AI field regardless of their background, pol=
+itical opinions or human rights advocacy. I am honestly quite passionate ab=
+out affordance learning and reasoning these days, which is a natural extens=
+ion of my work on segmentation and video understanding. I am currently buil=
+ding a large-scale dataset that is on the scale of millions of videos in th=
+e wild that relies on foundation models to have an understanding of how hum=
+an observers perceive the world in terms of affordances.=C2=A0<font face=3D=
+"Helvetica">From the simple, straightforward affordances, e.g.,=C2=A0that a=
+ knife is a tool to cut with,=C2=A0a street is a walkable area, to observin=
+g the same street as a dancing space for a dancing video on YouTube=C2=A0or=
+ a knife as a </font>tool to<font face=3D"Helvetica"> carve with on a woode=
+n wall. See you in the fall then, and hope I can make it in person. I just =
+found out that Amii had travel bursaries back in 2022 so I also send to the=
+ director to inquire if perhaps they can make an exception to support me, c=
+onsidering my diversity group and exceptional circumstances.</font></div><d=
+iv><br></div><div><b>Title:</b>=C2=A0Towards In-the-Wild Robotics with Pixe=
+l-Level Video Understanding and Multimodal AI</div><div><br></div><div><b>A=
+bstract:</b>=C2=A0Multi-modal large language models (MLLMs) have emerged, d=
+irected towards building general-purpose models and agents that are powered=
+ with diverse capabilities and can operate within different environments. I=
+t has been recently equipped with visual grounding and reasoning abilities.=
+ Nonetheless, the aforementioned models are still limited in their understa=
+nding of the world in terms of depth, motion and affordances on the pixel l=
+evel while maintaining their general-purpose nature, which is crucial in va=
+rious robotics applications. Pixel-level image and video understanding goal=
+ is to make inferences about the surrounding world from corresponding image=
+ or video data on the pixel-level, e.g., segmentation, affordances learning=
+, depth estimation, flow estimation and pixel-level tracking. Such pixel-le=
+vel understanding capabilities are still limited in general-purpose agents =
+built using multi-modal large language models. This talk focuses on three m=
+ain building blocks for building generalist models that are directed toward=
+s in-the-wild robotics. This talk summarizes both my previous research and =
+future direction: (i) a responsible AI framework that emphasizes interpreta=
+bility and data-efficient learning, (ii) video understanding with emphasis =
+on pixel-level, motion understanding and affordances learning and reasoning=
+, and (iii) extending these works to operate in real-world robotics applica=
+tions beyond the lab and operating in unconventional settings.</div><div><b=
+r></div><div><b>Bio:</b>=C2=A0Dr. Siam started as an assistant professor at=
+ Ontario Tech University in 2023 leading the Image and Video Understanding =
+(IVU) lab and an affiliate professor at UBC, funded by NSERC among other Ca=
+nadian agencies. Her research interests include pixel-level video understan=
+ding, data-efficient learning, interpretability, responsible AI and robotic=
+s. Previously, she was a Postdoctoral researcher at York University, 2021-2=
+023, and a Vector Institute researcher (postdoc) affiliate in 2022. She obt=
+ained her PhD in 2021 under Professor Martin Jagersand&#39;s supervision, w=
+orking in vision for robotics. Her research was recognized with the KUKA in=
+novation finalist award in 2018 and in the Black in AI Keynote talk at Neur=
+IPS 2022.=C2=A0 Her thesis focused on learning video object segmentation wi=
+th limited labelled data, where she worked on the intersection between vide=
+o object segmentation and few-shot learning with application to both autono=
+mous driving and robot manipulation. As a proud Canadian, she has continuou=
+sly contributed to diversity and inclusion efforts, especially within Canad=
+a, through founding the Ro&#39;ya Community for Africans in Computer Vision=
+.</div><div>Thank you,</div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">On Sat, Apr 25, 2026 at 9:13=E2=80=AFAM Menna=
+tullah Siam &lt;<a href=3D"mailto:mennatul@ualberta.ca" target=3D"_blank">m=
+ennatul@ualberta.ca</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
+;padding-left:1ex"><div dir=3D"ltr">Thanks for letting me know, no worries =
+I will let you know then with the time after I am aware of other funds and =
+I have=C2=A0arranged the dates. I appreciate your help.</div><br><div class=
+=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Apr 24, 2026=
+ at 6:14=E2=80=AFPM Martha White &lt;<a href=3D"mailto:whitem@ualberta.ca" =
+target=3D"_blank">whitem@ualberta.ca</a>&gt; wrote:<br></div><blockquote cl=
+ass=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid=
+ rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Unfortunately, Amii&#3=
+9;s policy is that they do not fund talk travel for the AI seminar. This wo=
+uld get prohibitively expensive, and they would need a whole process to dec=
+ide who gets it or not. This is currently outside the scope of what they do=
+.=C2=A0<div><br></div><div>Sure, you can add me as a host.</div><div><br></=
+div><div>-Martha</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr"=
+ class=3D"gmail_attr">On Thu, Apr 23, 2026 at 10:40=E2=80=AFPM Mennatullah =
+Siam &lt;<a href=3D"mailto:mennatul@ualberta.ca" target=3D"_blank">mennatul=
+@ualberta.ca</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" styl=
+e=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);paddin=
+g-left:1ex"><div dir=3D"auto"><div>Hello Martha,</div><div dir=3D"auto"><br=
+></div><div dir=3D"auto">=C2=A0 =C2=A0 =C2=A0 =C2=A0Thanks for your respons=
+e. I already did but I am indeed trying to reach out to Amii, Vector and Mi=
+la support to help improve my chance of getting a better job.=C2=A0</div><d=
+iv dir=3D"auto"><br></div><div dir=3D"auto">I will be happy to present but =
+I do prefer in-person. Can I ask you then that are the host since I saw the=
+ speakers series does request that. I think I can sign up and add you there=
+ as the host and I can share with you the abstract and so on.</div><div dir=
+=3D"auto"><br></div><div dir=3D"auto">If its ok with you I am still looking=
+ for funds to support my travel since I will prbably go through multiple ot=
+her cities in Canada. So I can confirm the timing exactly maximum by Fall 2=
+026. Thanks for your kind support.</div><div dir=3D"auto"><br></div><div di=
+r=3D"auto">On another note considering its only 3K travel funds I am wonder=
+ing Amii itself can fund it? I will be surprised if Amii doesnt provide tra=
+vel funds to host researchers talks. I am hoping they would want to support=
+ a female African Robotics researcher and its really a small ask from Amii.=
+ I understand ofc it will be hard from specific professors funds thats why =
+I thought to inquire from Amii itself.</div><div dir=3D"auto"><br></div><di=
+v dir=3D"auto">Thanks again and even if Amii cant support my travel I can l=
+ook through other UofA resources and get back to you about the timing.</div=
+><div><br></div><div><div dir=3D"ltr"><div>Best Regards,<br></div>Mennatull=
+ah Siam, PhD, PEng.<br></div></div></div><br><div class=3D"gmail_quote"><di=
+v dir=3D"ltr" class=3D"gmail_attr">On Thu., Apr. 23, 2026, 8:56 p.m. Martha=
+ White, &lt;<a href=3D"mailto:whitem@ualberta.ca" target=3D"_blank">whitem@=
+ualberta.ca</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding=
+-left:1ex"><div dir=3D"ltr">Hi Menna,<div><br></div><div>That sounds like a=
+ tough situation. Overall, my advice would be to try to broadly apply to Ca=
+nadian universities for their hiring calls. It is better to apply to many, =
+rather than being selective, to provide more options.=C2=A0</div><div><br><=
+/div><div>As for the AI seminar, it would be perfectly reasonable to presen=
+t, but funding for travel is not provided. We do allow some virtual present=
+ations. Would that be of interest to you?</div><div><br></div><div>-Martha<=
+/div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_a=
+ttr">On Thu, Apr 23, 2026 at 12:24=E2=80=AFAM Mennatullah Siam &lt;<a href=
+=3D"mailto:mennatul@ualberta.ca" rel=3D"noreferrer" target=3D"_blank">menna=
+tul@ualberta.ca</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" s=
+tyle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);pad=
+ding-left:1ex"><div dir=3D"ltr"><div>Hello Rich Sutton and Martha White,</d=
+iv><div><br></div><div>=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0<span>=C2=A0</span=
+>I am<span>=C2=A0</span><a href=3D"https://scholar.google.com/citations?use=
+r=3DAVPds3kAAAAJ&amp;hl=3Den&amp;oi=3Dao" rel=3D"noreferrer" target=3D"_bla=
+nk">Mennatullah Siam</a>,=C2=A0I hope you remember me from back in my PhD @=
+UofA I was working with Martin Jagersand and graduated in 2021. I started a=
+s an assistant professor at UOIT in July=C2=A02023 and as an affiliate assi=
+stant professor at UBC in 2024 where I led research on computer vision, rob=
+otics and responsible AI (specifically data-efficient learning, interpretab=
+ility and AI safety). I have attached my CV for reference as well. I am cur=
+rently looking to transition to a better faculty position, and I was seekin=
+g Amii support. I thought to inquire if you can help me connect with Amii t=
+o present my research through the seminar weekly series.=C2=A0</div><div><b=
+r></div><div>I have a strong research record, publishing in both top venues=
+ in Computer Vision (CVPR/ICCV/TPAMI/IJCV) and Robotics (ICRA/IROS) with h-=
+index 20, and I have acquired multiple good NSERC=C2=A0<a href=3D"https://n=
+serc-crsng.canada.ca/en/awards-database?fiscal_year_from=3D2024&amp;fiscal_=
+year_to=3D2024&amp;competition_year_from=3D0&amp;competition_year_to=3D0&am=
+p;person_name=3DSiam&amp;keywords=3D&amp;institution_type=3D0&amp;area_code=
+=3D&amp;subject_code=3D&amp;department=3D&amp;award_amount_min=3D&amp;award=
+_amount_max=3D&amp;report_type=3D0&amp;op=3DSearch" rel=3D"noreferrer" targ=
+et=3D"_blank">grants</a> and funds to support my research more than $500K f=
+or my research starting from my PhD. (Awards) During my PhD I was awarded t=
+he KUKA innovation finalist award back in 2018. I have also been recognized=
+ as an outstanding reviewer in ICCV 2023, selected for the doctoral consort=
+ium in CVPR 2021 and I have been an AC in WACV for the past 3 years 2024-20=
+26 and an organizer in CVPR workshops series from 2022-2025, including<span=
+>=C2=A0</span><a href=3D"https://sites.google.com/view/pixfoundation" rel=
+=3D"noreferrer" target=3D"_blank">PixFoundation</a><span>=C2=A0</span>works=
+hop. <i>I am also a Canadian citizen and a female African, so I am hoping y=
+ou would want to support a female Robotics researcher like myself.</i></div=
+><div><br></div><div>I wanted to present some of my research that I believe=
+ is around <b>the building blocks for in-the-wild robotics that relies on a=
+ strong foundation in Computer Vision and Video Understanding</b>. I also w=
+anted to come and present in-person of course, as I think it&#39;s better f=
+or direct communication. I am contacting you both specifically because I am=
+ aware=C2=A0of your high ethics standards, and I am sharing some of what I =
+experienced in my previous appointment at Ontario Tech after I left, transi=
+tioned my grants to UBC, but then there was a severe adverse impact on at l=
+east 5 individuals in my research lab from under-represented groups, includ=
+ing myself. The majority were visiting students and a research scientist th=
+at was appointed in my lab. The least issue was that they closed my grants =
+without <a href=3D"https://nserc-crsng.canada.ca/sites/default/files/migrat=
+ed/_doc/tri-agency/tafag/outstanding_commitments_form_303_e.pdf" rel=3D"nor=
+eferrer" target=3D"_blank">F303 documents,</a> which is actually illegal, a=
+nd I have all the necessary documentation for it. As a good PI, I want to p=
+rotect my funding agency from continuing this line, and I think the best is=
+ to be supported for a better position where I can restart my grants and re=
+solve the situation. I have also been now two years since late 2024, unempl=
+oyed although I have stayed in Canada for 10 consecutive years that never h=
+appened to me before. Although my performance review from the dean, attache=
+d, confirms that I either met or exceeded the expectations. In fact, in my =
+ECR years as assistant professor, beyond securing NSERC grants and Alliance=
+ international collaborations, I had CVPR 2024, WACV 2025, JAIR, IJCV 2025,=
+ IEEE Remote Sensing Letters 2025, TMLR 2026 (ICML 2026 presentation) and a=
+ Nature Scientific Reports. More importantly, I ensured the reproducibility=
+ of my research through open sourcing and contributing to the community in =
+various ways.=C2=A0</div><div><br></div><div>This is bad reputation to UofA=
+ as well because I am one of their best female PhD graduates and I have alw=
+ays been identified for that with hard work and strong work ethics. I am re=
+ally hoping you can help me first connect with Amii and through your suppor=
+t and Amii I am confident it will improve my chances for assistant professo=
+r positions @ UofA or other Canadian universities. I am looking forward to =
+go back to Canada my country and resume my research and I have quite the pr=
+omising potential to expand my research towards being more impactful.=C2=A0=
+</div><div><br></div><div>While I am currently in Egypt, I am confident I w=
+ill not be able to continue to work safely there, so I have no other choice=
+ but to go back to Canada or elsewhere for work. I have shared this with Ma=
+rtin back in time, but I was unfortunately being hunted down by Muslim Brot=
+herhood and their extreme ideologies because I was against their authoritar=
+ian regime. Yet I have always tried to avoid them throughout my career, but=
+ to make things more complex, I am also against the military authoritarian =
+ruling and what they did to them in Rabaa massacre, and I was there persona=
+lly just to support the rights of individuals to live and to protest. Havin=
+g experienced these two means it&#39;s quite impossible that I maintain an =
+active work life in Egypt safely, and I am a Canadian looking for the stand=
+ard support that Canadian women would get.=C2=A0</div><div><br></div><div>T=
+hank you and I am looking forward to your response.=C2=A0</div><div><br></d=
+iv><span class=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" cl=
+ass=3D"gmail_signature"><div dir=3D"ltr"><div>Best Regards,<br></div>Mennat=
+ullah Siam, PhD, PEng.<br></div></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div>Best Regards,<br></div>Mennatullah Siam, Ph=
+D, PEng.<br></div></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div>Best Regards,<br></div>Mennatullah Siam, Ph=
+D, PEng.<br></div></div>
+</blockquote></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div>Best Regards,<br></div>Mennatullah Siam, Ph=
+D, PEng.<br></div></div>
+</blockquote></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div>Best Regards,<br></div>Mennatullah Siam, Ph=
+D, PEng.<br></div></div>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div>Best Regards,<br></div>Mennatullah Siam, Ph=
+D, PEng.<br></div></div>
+</blockquote></div>
+
+--000000000000660b670658a029c8--
