@@ -1,0 +1,347 @@
+Delivered-To: mennatul@gmx.ualberta.ca
+Received: by 2002:ac0:c8cd:0:b0:38e:2d22:3f08 with SMTP id r13csp1998101imk;
+        Mon, 3 Nov 2025 21:08:49 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCVUpgdl5Hs0XDFHuD9/cUB+EnumgJ2EXadamju5ky2/BnHWyrn7/L03pN+nXklvkkeqjC4ZO2DPNw==@gmx.ualberta.ca
+X-Google-Smtp-Source: AGHT+IHFGGGahX030SrRYqWCgNIOxeUg5SPW54XPYvyUEE7CCBzlGir0JRxzRzy9HJ2N99kwuezr
+X-Received: by 2002:a05:690c:dd3:b0:786:5c6f:d242 with SMTP id 00721157ae682-7865c6fd4bbmr99151607b3.69.1762232929441;
+        Mon, 03 Nov 2025 21:08:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1762232929; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Y2vFrWfZkXfXNlivk4KegM4NSfoiXc7kDvTDY6Rs5nibqq5ktTp+EAiVW0L2Escnfb
+         NNvrmXPqwNoCSTAAEItae53NClGHRmqtpUkR3vgQ0DQvg6ZF6LJfROjowhGOMdVo9czg
+         WJd5FB6bciGm7uIYtDpNSPVsyIzXYNRrBOrZpCMnSlXOiI3BDm/3pin8/cTjneR1h7T2
+         9fogXh+nEe+aDNvptEtiwARRi49ajx4MVgzpr47SOUhWg9jhMaMI3KdOuyyyJtjQJhic
+         lnF5Yd0CAjIV/AzeRQYOcqc26mtLy63ERbeBzVp7j0i0pd4WRxI3iebZkP15h4s23GUq
+         T8JA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:to
+         :from:dkim-signature:delivered-to;
+        bh=txY6PfqmFeIS2aCE5AL4zv+w/q1YHuGgyp3BeNnlizg=;
+        fh=+4G5WEJ3n7LI81ojlabp7KiZM0XVF61wxTj4HW+xhVU=;
+        b=fYf7I1zVWkTAi1vzumUwL2LBhuxvPDbQ2wBnOSRSgf7aqQj0Ta1DHtwGeczY9xKkNY
+         C/+8VauW/0CQ7YgEydPIp0d6uMhI7jrIvGp4CvqdBKI6vJzczI5bWXany6BSZTq02Z9P
+         t8s3KM9ywAwV6cOiUscUidnMMhDNsKa3Y75zavEDOyfMMKzpGeH5bgQTMQ6xb0IliMUQ
+         5jEkPkkQwHAs4qmRvlYEp7KMiTlF/uKr3WpNwui3bCPGTPjZbYHCwDC2/bbO8jDUmheu
+         cGgHqLxHC+zofuwlaaeFB5KzKyExv8NmphCt6TPsOvxtIIycozv175iuksHxaKKfaOw1
+         /ohA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tu-darmstadt.de header.s=s1 header.b=MXHGV8vc;
+       spf=pass (google.com: domain of marcus.rohrbach@tu-darmstadt.de designates 194.95.235.80 as permitted sender) smtp.mailfrom=marcus.rohrbach@tu-darmstadt.de
+Return-Path: <marcus.rohrbach@tu-darmstadt.de>
+Received: from mx-07.srv.ualberta.ca (mx-07.srv.ualberta.ca. [129.128.162.17])
+        by mx.google.com with ESMTPS id 00721157ae682-7864c406e8dsi79715477b3.285.2025.11.03.21.08.48
+        for <mennatul@gmx.ualberta.ca>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Nov 2025 21:08:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of marcus.rohrbach@tu-darmstadt.de designates 194.95.235.80 as permitted sender) client-ip=194.95.235.80;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tu-darmstadt.de header.s=s1 header.b=MXHGV8vc;
+       spf=pass (google.com: domain of marcus.rohrbach@tu-darmstadt.de designates 194.95.235.80 as permitted sender) smtp.mailfrom=marcus.rohrbach@tu-darmstadt.de
+Received: by mx-07.srv.ualberta.ca (Postfix)
+	id 535D31800467; Mon,  3 Nov 2025 22:08:48 -0700 (MST)
+Delivered-To: mennatul@ualberta.ca
+Received: from b2682.mx.srv.dfn.de (b2682.mx.srv.dfn.de [194.95.235.80])
+	by mx-07.srv.ualberta.ca (Postfix) with ESMTPS id D3E441800457
+	for <mennatul@ualberta.ca>; Mon,  3 Nov 2025 22:08:45 -0700 (MST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tu-darmstadt.de;
+	 h=mime-version:content-type:content-type:content-language
+	:accept-language:in-reply-to:references:message-id:date:date
+	:subject:subject:from:from:received; s=s1; t=1762232922; x=
+	1764047323; bh=aIflQM+Hgm5nty7izXoF0lUEBtH9oSTWwobF6PPdfdo=; b=M
+	XHGV8vcvziEJd1Cqec1/QKprf+Iv34L8dIPG6cJyOog3HJqyR1tOB2+U1pMQsx5v
+	o1Zb1B/GGAGUU2YCNDUEbEjQGd2pJlQDKOGQ8cyaRhlO1os6ZJs8wKg//0X+qETm
+	QMt4oM6kCRmqn18hGoovFxHgFhewjn4wswmdd4V9KU=
+Received: from mail-relay230.hrz.tu-darmstadt.de (mail-relay230.hrz.tu-darmstadt.de [IPv6:2001:41b8:83f:1610::230])
+	by b2682.mx.srv.dfn.de (Postfix) with ESMTPS id 1CD163A0163
+	for <mennatul@ualberta.ca>; Tue,  4 Nov 2025 06:08:41 +0100 (CET)
+Received: from TU-EX074.ads.tu-darmstadt.de (tu-ex074.ads.tu-darmstadt.de [IPv6:2001:41b8:815:404::8:74])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "mail.tu-darmstadt.de", Issuer "GEANT TLS RSA 1" (not verified))
+	by mail-relay230.hrz.tu-darmstadt.de (Postfix) with ESMTPS id 4d0xLc4sjxz440P
+	for <mennatul@ualberta.ca>; Tue,  4 Nov 2025 06:08:40 +0100 (CET)
+From: "Rohrbach, Marcus" <marcus.rohrbach@tu-darmstadt.de>
+To: Mennatullah Siam <mennatul@ualberta.ca>
+Subject: AW: Visiting Assistant Professor
+Thread-Topic: Visiting Assistant Professor
+Thread-Index: AQHcSzvpheXoY37mvk69mzakII2MRbTh+fQq
+Date: Tue, 4 Nov 2025 05:08:08 +0000
+Message-ID: <1b12680163694578a799acfc589799f7@tu-darmstadt.de>
+References: <CAMxG6qhA2_KEztUru8zgt6C03_gHbfz2YTP_4TK7X5D-zh90rQ@mail.gmail.com>
+In-Reply-To: <CAMxG6qhA2_KEztUru8zgt6C03_gHbfz2YTP_4TK7X5D-zh90rQ@mail.gmail.com>
+Accept-Language: de-DE, en-US
+Content-Language: de-DE
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-originating-ip: [2001:16b8:b4e4:3900:8948:11c7:9fba:ad21]
+Content-Type: multipart/alternative;
+	boundary="_000_1b12680163694578a799acfc589799f7tudarmstadtde_"
+MIME-Version: 1.0
+X-Header-TUDa: <WQjic6Ki43qXAz5CKIGMdVXAeleAWxj1vQQnM8pwNRrJUTx5TvWSjOAnFhV579Aq3mm5v2yD2ZZt5qVRmxbTlIB9oMvVUGJTQ5.1762232921>
+X-TUDa-Umlauf: 1
+
+--_000_1b12680163694578a799acfc589799f7tudarmstadtde_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Dr. Siam,
+
+
+thank you for reaching out. It would be great to have you give a talk in ou=
+r group to get an understanding if this would be a fit.
+
+While zoom is possible, in person is always better. So if you can travel, I=
+ would be happy to sponsor (i.e. pay for) a research visit.
+
+
+What is the timeline/deadline? I would prefer to do this after CVPR deadlin=
+e in two weeks.
+
+
+Can you say more about the fellowship? What does it cover and how long is i=
+t for?
+
+
+Best, Marcus
+
+________________________________
+Von: Mennatullah Siam <mennatul@ualberta.ca>
+Gesendet: Samstag, 1. November 2025 15:28:50
+An: Rohrbach, Marcus
+Betreff: Visiting Assistant Professor
+
+Hello Prof. Marcus Rohrbach,
+
+       I am Mennatullah Siam<https://scholar.google.com/citations?user=3DAV=
+Pds3kAAAAJ&hl=3Den&oi=3Dao>, I am leading the Image and Video Understanding=
+ lab, previously at Ontario Tech University, Canada, as a tenure-track assi=
+stant professor, where I started back in July 2023. I was also an affiliate=
+ professor with UBC since 2024. I am sending to inquire about the Humboldt =
+fellowship as it has a track for experienced researchers, and I am currentl=
+y looking for a short-term visit while I am applying for Faculty positions.=
+ I would appreciate your support to help me acquire this fellowship to coll=
+aborate with you and your group for a short stay. I can self-nominate for t=
+he fellowship, but I need a letter from the German host institution. I thin=
+k my research and research goals align well with you and your group.
+
+
+ My research is focused on Computer Vision, Robotics/embodied AI, Foundatio=
+n Models and Responsible AI. I regularly publish in top venues in the field=
+, including but not limited to (CVPR/ICCV/TPAMI/IJCV/ICRA/IROS). My current=
+ research statement, which outlines my research and future directions, is p=
+ublicly available on my homepage, here<https://drive.google.com/file/d/1afw=
+Z7MMmcb6jB1hK9us45N5ZB1SQsy1f/view?usp=3Dsharing>. I finished my PhD at the=
+ University of Alberta back in 2021 under the supervision of Prof. Martin J=
+agersand, and I did my postdoc at York University from 2021-2023. I have ac=
+quired funding for my research during my tenure-track appointment, with mor=
+e than $300K and previously in my PhD/postdoc positions, I acquired funding=
+ and awards up to $220K. I have good recognitions in the field. I was part =
+of the team Alberta that won the KUKA innovation finalist award<https://www=
+.youtube.com/watch?v=3DaLcw73dt_Oo>. I was also recognized as an outstandin=
+g reviewer <https://iccv2023.thecvf.com/outstanding.reviewers-118.php> in I=
+CCV'23. I have also given multiple talks, including Black in AI keynote in =
+NeurIPS 2022 and founded the Ro'ya-Computer Vision for Africa community tha=
+t spurred multiple events, summary is included here<https://x.com/RoyaCV4Af=
+rica/status/1807054249777332632>. I also regularly organize workshops in CV=
+PR, including the latest PixFoundation workshop<https://sites.google.com/vi=
+ew/pixfoundation>, of which I was the primary organizer. I have personally =
+also worked on a recent benchmarking effort for the PixFoundation Series<ht=
+tps://msiam.github.io/PixFoundationSeries/>, with a benchmarking and an int=
+erpretability that focuses on when grounding emerges in pixel-level multimo=
+dal large language models<https://arxiv.org/pdf/2502.04192> and their video=
+<https://arxiv.org/pdf/2509.02807> counterparts. I unfortunately had to do =
+the work myself because I am hindered in hiring PhD students at UOIT, which=
+ is the main reason I am currently looking to relocate to a new position.
+
+I am a female African researcher originally from Egypt, and a Canadian too.=
+ I have added my CV<https://msiam.github.io/homepage/docs/CV.pdf> for more =
+details. I also have good teaching experience for Discrete Mathematics, Com=
+puter Vision and probabilistic machine learning for both undergraduate and =
+graduate level courses. I can also contribute to academic service if need b=
+e, in addition to the teaching and research duties. I would really apprecia=
+te all the support in this transitional phase. If there is an opportunity, =
+I can come to TUD as a visiting assistant professor through the Humboldt fe=
+llowship or other means you think are more suitable. It is crucial that I d=
+on't have gaps in my research experience, and I am currently out of UOIT. S=
+uch a research stay can help me bridge this gap and will be a good opportun=
+ity to collaborate with you and your group.
+
+Thank you, and I am looking forward to your response.
+
+--
+Best Regards,
+Mennatullah Siam, PhD, PEng.
+
+--_000_1b12680163694578a799acfc589799f7tudarmstadtde_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<style type=3D"text/css" style=3D"display:none;"><!-- P {margin-top:0;margi=
+n-bottom:0;} --></style>
+<div id=3D"divtagdefaultwrapper" style=3D"font-size:12pt;color:#000000;font=
+-family:Calibri,Helvetica,sans-serif;" dir=3D"ltr">
+<p>Dear Dr.&nbsp;<span>Siam,</span></p>
+<p><span><br>
+</span></p>
+<p><span>thank you for reaching out. It would be great to have you give a t=
+alk in our group to get an understanding if this would be a fit.</span></p>
+<p><span>While zoom is possible, in person is always better. So if you can =
+travel, I would be happy to sponsor (i.e. pay for) a research visit.</span>=
+</p>
+<p><span><br>
+</span></p>
+<p><span>What is the timeline/deadline? I would prefer to do this after CVP=
+R deadline in two weeks.</span></p>
+<p><span><br>
+</span></p>
+<p>Can you say more about the fellowship? What does it cover and how long i=
+s it for?</p>
+<p><span><br>
+</span></p>
+<p><span>Best, Marcus</span></p>
+</div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>Von:</b> Mennatullah Siam &lt;m=
+ennatul@ualberta.ca&gt;<br>
+<b>Gesendet:</b> Samstag, 1. November 2025 15:28:50<br>
+<b>An:</b> Rohrbach, Marcus<br>
+<b>Betreff:</b> Visiting Assistant Professor</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"ltr">
+<div>Hello Prof. Marcus Rohrbach,</div>
+<div><br>
+</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;<span style=3D"font-family:arial,sans-serif=
+">I am</span><span style=3D"font-family:arial,sans-serif">&nbsp;</span><a h=
+ref=3D"https://scholar.google.com/citations?user=3DAVPds3kAAAAJ&amp;hl=3Den=
+&amp;oi=3Dao" target=3D"_blank" style=3D"font-family:arial,sans-serif">Menn=
+atullah
+ Siam</a><span style=3D"font-family:arial,sans-serif">, I am leading the Im=
+age and Video Understanding lab, previously at Ontario Tech University, Can=
+ada, as a tenure-track assistant professor, where I started back in July 20=
+23. I was&nbsp;also an affiliate professor
+ with UBC since 2024. I am sending to inquire about the&nbsp;Humboldt fello=
+wship&nbsp;as it has a track for experienced researchers, and I am currentl=
+y looking for a short-term visit while I am applying for Faculty positions.=
+ I would appreciate your support to help me
+ acquire this&nbsp;fellowship&nbsp;to collaborate with you and your group f=
+or a short stay. I can self-nominate for the&nbsp;fellowship, but I need a =
+letter from the German host institution. I think my research and research g=
+oals align well with you and your group.</span></div>
+<div id=3D"m_8494430152510954416m_-629875877445757313m_-5777374277545239557=
+m_4091332575393859915gmail-:248" style=3D"direction:ltr;margin:8px 0px 0px;=
+padding:0px;overflow-x:hidden">
+<div id=3D"m_8494430152510954416m_-629875877445757313m_-5777374277545239557=
+m_4091332575393859915gmail-:247" style=3D"direction:ltr;font-stretch:normal=
+;line-height:1.5;font-size-adjust:none;font-kerning:auto;font-variant-alter=
+nates:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font=
+-variant-east-asian:normal;font-feature-settings:normal;overflow:auto hidde=
+n">
+<div dir=3D"ltr">
+<div><span style=3D"font-family:arial,sans-serif"><br>
+</span></div>
+<div>
+<p style=3D"margin:0px 0px 12px;font-stretch:normal;line-height:normal;font=
+-size-adjust:none;font-kerning:auto;font-variant-alternates:normal;font-var=
+iant-ligatures:normal;font-variant-numeric:normal;font-variant-east-asian:n=
+ormal;font-feature-settings:normal">
+<font face=3D"arial, sans-serif"><span style=3D"font-kerning:none">&nbsp;</=
+span></font><font face=3D"arial, sans-serif"><span style=3D"font-kerning:no=
+ne">My research is focused on&nbsp;<b>Computer Vision, Robotics/embodied AI=
+, Foundation Models and Responsible AI</b>. I regularly
+ publish in top venues in the field, including but not limited to (CVPR/ICC=
+V/TPAMI/IJCV/ICRA/IROS). My current research statement, which outlines&nbsp=
+;my&nbsp;research and future directions, is publicly available on my homepa=
+ge,&nbsp;<a href=3D"https://drive.google.com/file/d/1afwZ7MMmcb6jB1hK9us45N=
+5ZB1SQsy1f/view?usp=3Dsharing" target=3D"_blank">here</a>.
+ I finished my PhD at the University of Alberta back in 2021 under the supe=
+rvision of Prof. Martin Jagersand, and I did my postdoc at York University =
+from 2021-2023. I have acquired funding for my research during my tenure-tr=
+ack appointment, with more than
+ $300K and previously in my PhD/postdoc positions, I acquired funding and a=
+wards up to $220K. I have good recognitions in the field. I was part of the=
+ team Alberta that won the<a href=3D"https://www.youtube.com/watch?v=3DaLcw=
+73dt_Oo" target=3D"_blank">&nbsp;KUKA innovation
+ finalist award</a>. I was also&nbsp;recognized as an<span class=3D"gmail-A=
+pple-converted-space">&nbsp;</span><a href=3D"https://iccv2023.thecvf.com/o=
+utstanding.reviewers-118.php" target=3D"_blank">outstanding reviewer<span c=
+lass=3D"gmail-Apple-converted-space">&nbsp;</span></a>in
+ ICCV'23. I have also given multiple talks, including Black in AI keynote i=
+n NeurIPS 2022 and founded the Ro'ya-Computer Vision for Africa community t=
+hat spurred multiple events, summary is included&nbsp;<a href=3D"https://x.=
+com/RoyaCV4Africa/status/1807054249777332632" target=3D"_blank">here</a>.
+ I also regularly organize workshops in CVPR, including the latest&nbsp;<a =
+href=3D"https://sites.google.com/view/pixfoundation" target=3D"_blank">PixF=
+oundation workshop</a>, of which I was the primary organizer.&nbsp;</span><=
+/font>I have personally also worked on a recent
+ benchmarking effort for the <a href=3D"https://msiam.github.io/PixFoundati=
+onSeries/">
+PixFoundation Series</a>, with a benchmarking and an interpretability that =
+focuses on when grounding emerges in&nbsp;pixel-level&nbsp;<a href=3D"https=
+://arxiv.org/pdf/2502.04192" target=3D"_blank">multimodal large language mo=
+dels</a>&nbsp;and their&nbsp;<a href=3D"https://arxiv.org/pdf/2509.02807" t=
+arget=3D"_blank">video</a>&nbsp;counterparts.
+ I unfortunately had to do the work myself because I am hindered in hiring =
+PhD students at UOIT, which is the main reason I am currently looking to re=
+locate to a new position.&nbsp;</p>
+<p style=3D"margin:0px 0px 12px;font-stretch:normal;line-height:normal;font=
+-size-adjust:none;font-kerning:auto;font-variant-alternates:normal;font-var=
+iant-ligatures:normal;font-variant-numeric:normal;font-variant-east-asian:n=
+ormal;font-feature-settings:normal">
+<font face=3D"arial, sans-serif"><span style=3D"font-kerning:none">I am a f=
+emale African researcher originally from Egypt, and a Canadian too.&nbsp;</=
+span></font><span style=3D"font-family:arial,sans-serif">I have added my<sp=
+an class=3D"gmail-Apple-converted-space">&nbsp;</span><a href=3D"https://ms=
+iam.github.io/homepage/docs/CV.pdf" target=3D"_blank">CV</a><span class=3D"=
+gmail-Apple-converted-space">&nbsp;</span>for
+ more details. I also have good teaching experience for Discrete Mathematic=
+s, Computer Vision and probabilistic machine learning for both undergraduat=
+e and graduate level courses. I can also contribute to academic&nbsp;servic=
+e if need&nbsp;be, in addition to the&nbsp;teaching
+ and research duties. I would really appreciate all the support in this tra=
+nsitional phase. If there is an&nbsp;opportunity, I can come to TUD as a vi=
+siting&nbsp;assistant professor through the Humboldt fellowship or other me=
+ans you think are more suitable. It is crucial
+ that I don</span>'t<span style=3D"font-family:arial,sans-serif">&nbsp;have=
+ gaps in my research experience</span>,<span style=3D"font-family:arial,san=
+s-serif">&nbsp;and I am currently out of UOIT</span>.<span style=3D"font-fa=
+mily:arial,sans-serif">&nbsp;Such a research stay can
+ help me bridge this gap and will be a good opportunity to collaborate with=
+ you and your group.</span></p>
+<p style=3D"margin:0px 0px 12px;font-stretch:normal;line-height:normal;font=
+-size-adjust:none;font-kerning:auto;font-variant-alternates:normal;font-var=
+iant-ligatures:normal;font-variant-numeric:normal;font-variant-east-asian:n=
+ormal;font-feature-settings:normal">
+<span style=3D"font-family:arial,sans-serif">Thank you, and I am looking fo=
+rward to your response.</span></p>
+</div>
+</div>
+</div>
+</div>
+<div><br>
+</div>
+<span class=3D"gmail_signature_prefix">-- </span><br>
+<div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signatur=
+e">
+<div dir=3D"ltr">
+<div>Best Regards,<br>
+</div>
+Mennatullah Siam, PhD, PEng.<br>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_1b12680163694578a799acfc589799f7tudarmstadtde_--

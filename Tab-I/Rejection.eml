@@ -1,0 +1,968 @@
+Delivered-To: mennatul@gmx.ualberta.ca
+Received: by 2002:a5d:4c8d:0:b0:481:5235:592f with SMTP id z13csp4812022wrs;
+        Thu, 3 Sep 2026 01:17:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AKwUvBxN7fmPxr7VnO0N+KD5Q8r9r57z3DBo4uIOyQ4UOE6yfw9EhPRBjlR2iTAN6kWN3O5PyXYaOnoLPg==@gmx.ualberta.ca
+X-Received: by 2002:a05:6a00:3696:b0:845:e8b5:8c49 with SMTP id d2e1a72fcca58-85ed24e33ebmr16225157b3a.10.1788423434908;
+        Thu, 03 Sep 2026 01:17:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1788423434; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=odDKq6hwcweru8ckOJTyndeo4H+DK3H6eB8HjXYza04dHy25TXK1Wjee0dP2+b2ygM
+         JV34uVcP+18PHEOp0jiADHu5LFsf3LSl0SL1VZd2jQBFR+1mRN+d+VZGO8/dEthsUtc8
+         CBUsplIva/5U2PG+pYIj8pCYWM/qlIvrQ1k94MxU/LzfdiCkXMUvcMd3hVUG0qfPnefD
+         ffSxLL6BRpk+tI18AVffhVwWjSzwd/WfmBu7SV9waM3OaW8etCqSVFYsMfWJ/K0IXy+H
+         VA3Cf4xhlF1yhLj1Ls+onSNPePBLT7xXFIVE8KM7E040ZoA/skMadTkMOV5ELJwcEQ1w
+         oRKA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:content-transfer-encoding:subject:message-id:cc:to
+         :from:date:dkim-signature:delivered-to;
+        bh=kpTSRjsTfHObWY4R+G5AOEqsI5yQdYJIGMDn5I90vtQ=;
+        fh=mZR0RxOcvdBsukAAbdW0WtTD6GKoTWrgJ8f/YDtjztA=;
+        b=rlpZcstmTXpypfkC6z9WjZ9vJqFLRLku3rOkGLwdIGO8k/mGtTnOCnC2WglnmuBAdg
+         St6gdvjhfj36rNlQp7eDRVTqF+d2/etD0UVr+hD2g2Il55LQ/+N/mPlprwrXGSyMMDUT
+         HczLEyNrjfWwvelT9g6qjLcLgpr184ZYoClIhewhsgLOo37otpnTxDGHRhRx16mC0XUB
+         EFOHy6osXro6iYEKk1bWO25uL3s0Oi0Vg2qiiwWRbM7eXPBzCWN66GvHS9c9SJsUdadu
+         uqNG0ZlaOOnpvmLs7toInBG9MSWttOoVjiD3zO3vwzAO1srdG8DDacJnj7Vm1l8lPZ+E
+         oxfQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@avh.de header.s=selector1 header.b=4AIOrz6+;
+       arc=pass (i=1 spf=pass spfdomain=avh.de dkim=pass dkdomain=avh.de dmarc=pass fromdomain=avh.de);
+       spf=pass (google.com: domain of lani-marie.doehring@avh.de designates 52.101.70.121 as permitted sender) smtp.mailfrom=Lani-Marie.Doehring@avh.de
+Return-Path: <Lani-Marie.Doehring@avh.de>
+Received: from mx-08.srv.ualberta.ca ([129.128.162.18])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-85dc12fa4e6si9294584b3a.107.2026.09.03.01.17.13
+        for <mennatul@gmx.ualberta.ca>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 01:17:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lani-marie.doehring@avh.de designates 52.101.70.121 as permitted sender) client-ip=52.101.70.121;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@avh.de header.s=selector1 header.b=4AIOrz6+;
+       arc=pass (i=1 spf=pass spfdomain=avh.de dkim=pass dkdomain=avh.de dmarc=pass fromdomain=avh.de);
+       spf=pass (google.com: domain of lani-marie.doehring@avh.de designates 52.101.70.121 as permitted sender) smtp.mailfrom=Lani-Marie.Doehring@avh.de
+Received: by mx-08.srv.ualberta.ca (Postfix)
+	id 8AD771802508; Thu,  3 Sep 2026 02:17:13 -0600 (MDT)
+Delivered-To: mennatul@ualberta.ca
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11021121.outbound.protection.outlook.com [52.101.70.121])
+	by mx-08.srv.ualberta.ca (Postfix) with ESMTPS id E28A3180143A
+	for <mennatul@ualberta.ca>; Thu,  3 Sep 2026 02:17:10 -0600 (MDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SPXRWjqzaZjqiead5fKpRXajk7y60mMLQhspFdb10EVpVSBRk8iMh3AIJPs5PwplC4HCn53hgAz3FwYmhRKkAAppsO/66XfNwdqzvzjB0dz6GPtWZGILHXvgoIRAIgAUsHYFc+mXzFnyzkuJcqRwYhu9vUIE7zw9HuDeJ8YXakRy7B7NLaQcxruK53/Cho5Qwv53gPgy5aLrTFR7uOR8VdFy76wTRClhwSKixs4vXhBKSFwfjfwUeLJrC+z2HdLdvsRkFIJHbLETwgp7tgXLlTOvf/GmWfGYFNYt0+0Cooc7OzUiOYoa6gxfxRoG5zO0TddQq7/NhGg1Swi61hFDKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kpTSRjsTfHObWY4R+G5AOEqsI5yQdYJIGMDn5I90vtQ=;
+ b=pqAN20S8+EaEmPRa1NCASDGJPjVe3ptSDTJzCRtDknmhNMzO0ozHoq0w5fdeSCay3LEPJv2ZIr+Zh6ZT4ycDroyebpPa7GcWokMDAWkXb96GcA8qKmEYxUKOp37eK/5j/SDlJEpPcm+YL6L2ZEJndXKAcR5p/juZbPv/EPYisWZm5dDKu8xDDbdemZIxws/LI3LxzY+CfeQgZZM7u146AFmjNO2AHvvzeWJByD+Y6QH4opcwHTwZ+NE2xuxAbZoUXVcHbrpw5dik/DmC6zIUW21/yu34YfeQPkDN+4aAw+WHNab+n3WKXjjdpmg9XB8vb7dnj/S/oezNy9IWg1oA7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=avh.de; dmarc=pass action=none header.from=avh.de; dkim=pass
+ header.d=avh.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=avh.de; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kpTSRjsTfHObWY4R+G5AOEqsI5yQdYJIGMDn5I90vtQ=;
+ b=4AIOrz6+ZiQe7HD8c9kx1vg9LZqqsxRl+E94B19Ry2p86eNA5B0NVEWbDYRdzbWvvNzzjufxKOR5BP6m9WeW5+uoxETSZvUFtL/XvLV0iperS8ZHNspXObBlxg01nT9VR+nAHsEGi3dgVR5xzS/Q+PxwjoOGkN2BYp3UuKD9bVc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=avh.de;
+Received: from AS8PR08MB6472.eurprd08.prod.outlook.com (2603:10a6:20b:336::11)
+ by AS8PR08MB9956.eurprd08.prod.outlook.com (2603:10a6:20b:637::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Thu, 3 Sep
+ 2026 08:17:06 +0000
+Received: from AS8PR08MB6472.eurprd08.prod.outlook.com
+ ([fe80::ff2a:e4db:531d:62ea]) by AS8PR08MB6472.eurprd08.prod.outlook.com
+ ([fe80::ff2a:e4db:531d:62ea%4]) with mapi id 15.21.0382.007; Thu, 3 Sep 2026
+ 08:17:06 +0000
+Date: Thu, 3 Sep 2026 10:17:00 +0200 (CEST)
+From: =?UTF-8?Q?D=C3=B6hring=2C_Lani_Marie?= <Lani-Marie.Doehring@avh.de>
+To: "Siam, Mennatullah" <mennatul@ualberta.ca>
+Cc: Marcus Rohrbach <marcus.rohrbach@tu-darmstadt.de>
+Message-ID: <1222000070.66.1788423425636@bnpisa31.humboldt.intern>
+Subject: =?UTF-8?Q?Alexander_von_Humboldt-Stiftung_/_Foundation,_?=
+ =?UTF-8?Q?R=C3=BCckmeldung_zur_Ablehnung_/_Rejection_feedback?=
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: FR3P281CA0163.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a2::9) To AS8PR08MB6472.eurprd08.prod.outlook.com
+ (2603:10a6:20b:336::11)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR08MB6472:EE_|AS8PR08MB9956:EE_
+X-MS-Office365-Filtering-Correlation-Id: 885b64ad-388c-4108-7f48-08df0993bdb7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|23010399003|1800799024|786006|366016|11063799006|10067099003|18002099003|56012099006|8096899003|13003099007;
+X-Microsoft-Antispam-Message-Info:
+	NOAbCmwTpq3iOWQoFAE8VLo8gCGeG+JeCCkekpT5J+gVKrLLiSQIRphEa8Y26orcwgo8TFv0nv6OlIleVsyYck2O/vWixKDsejrj8lKvalIuWOHZ4UqI0qRjamCksv0uPQ7BI4kW/tUyufbYJ8iecDyaBfPNwfwdHMj77i7EGcn+4vbl93T+LJYzUJfpyfa7ssQpJl70TM575CtdAjDecxGUmEzBnEhMzHvQ7s18y91e/kI65GnMHcW6cX5OaaHJ+6CG0/ymsh0qcQVn8cvGUD3DfP2jnKX7VSMSwPvQOitZncdP1X3GgAGvQnm7Ug/4eAyK6PiWJldnC8KudQOzorMVfnq+jOFAnRqGVn9r8YeitUQSXV5W2R0xq4sJuTweRD45CPK6JFGP0Sd51MuWLz8SA7eIW5HEn3+mEy20TkHOhbN5IMs2cW4p+rI/4Tt/1EKn6U3tMQQQg90/MwqmnZDj0Sj089I7FaUAzBWeysGLuRbcqYsdhUM7HJvRQk3Ar/0NwazsPtLLlfnptdR2uv72DbSMg+pU6YqaegmpclF0fno8nMt8mBX6heRCNpMdNNfqWSRwxA785X1XVm2d3UzrsxVBqwtRWTq5ybcVs60=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR08MB6472.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(786006)(366016)(11063799006)(10067099003)(18002099003)(56012099006)(8096899003)(13003099007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Tld1QmlucFMzVHhOamlnR1JRSmJZYmg4VFNhMnZ0WFBPeXZibUVCL0xoaWpi?=
+ =?utf-8?B?aW05QjQxSHhOaXM5QlVpREh1M3lIOGFicTh0RHV1QTdOalNhQ01rYlp1RURv?=
+ =?utf-8?B?QmJubHpNUkxEbmNjQkRsQU9SSlowOGdsOUlHSFpodTAxdTNnb0ExdklsS0Vl?=
+ =?utf-8?B?QkdZYzFyUXBjYVVkVjg0NC9DWGkrNm1LczJOZHdkc1d1eGxWbStyVlY5bkdL?=
+ =?utf-8?B?VkdkdXRSZ3VjWW9Fc1EySi8rbVlWL1E5WnJ0WWd4ZGl6ZFJHQUZoUDltQUkr?=
+ =?utf-8?B?aW9lSllUNlJ4a3BOcVZ3aGJjbE9EYVZKcENRRXpSblFGN3h1RUZyRk5FOTZt?=
+ =?utf-8?B?THlIK2xLeVpMa2Z1QmN2aGxXM0tCRFlwY1EwOGxVclI4eHByclFYZkJnbTJn?=
+ =?utf-8?B?Mm9BVDRhZGpQREpSZUlrUVVjbzhZTXVqRUh6Mk5zYTlCV0JsUDVrMzMvMkhi?=
+ =?utf-8?B?WCs5SU82dWJxUzVvWWRYTVdVRlFmTUM0azNOS2czZ0hIMXBzRTErQzJvcmxa?=
+ =?utf-8?B?SVlDVlFPSTE4VmdmUXpyUFFhSXBEallFemxOK1FGVC9nYzl5TmtoTVh4ZFB1?=
+ =?utf-8?B?Snk4dHJxeTRVR1BQUUlpQWkrQlU5SU5BdHgybnNUNHNVeFk0MHNqRmF3ZDhD?=
+ =?utf-8?B?L3I0SnF6MS9lK3h6akVtUlZvUlMwMEtudTlnWG5hUm1GWGc2TGlLeUxCQVNp?=
+ =?utf-8?B?djZ1aHROQkM4dlNrZGZuV2E0RnpLby9halZ2S1hPOC9TSU01MkhuMzlZeDl2?=
+ =?utf-8?B?Und6YnVweXljL1BXcjF2TWhpOWovdCthZ0ZQdm41K2orVDArSTFKZnZwOG94?=
+ =?utf-8?B?bG83Ull1MTNpd2NRalF5WFdkUlE5TUhBK0ZiQ1FLREw4bDBaLzJER2YwQkgx?=
+ =?utf-8?B?aEhFVHQ4Myt0bm4yVWRKeHVVMXRyZXIrMFV2VStvZHNYT3Uva1RwaGprMjN3?=
+ =?utf-8?B?TkpZbi92TmhKcEpJOENzREZJdWMwNHk4eHQxQXYvRnRoakZaRVlOMENMTzdh?=
+ =?utf-8?B?aTloMHpBVVBMRkxQZUMzV2tXdkhxdDNlVGZIWU1OUmM1VkZ2RmZUcEg5U1dI?=
+ =?utf-8?B?Wkl2TzZsZW9peGJsd2Y1TnNvT1prSHNkcDNTK3RmZWNxNmdnckY3QlhaVkVT?=
+ =?utf-8?B?MUdNR20xeEh3T1lyTGpkT2w3VHE4Z2VqVkhlUWN1VmNpdkFGYTZjTncwZG9I?=
+ =?utf-8?B?dC9QZlMyb3ZVNG9WWlVuTEg5a1lKWm01ZnBpQXBka3ZoelBNZ3A3d01lRDgw?=
+ =?utf-8?B?bWNSNVQ0aXhxRlNvS24yWVNyTjZBeWZWa3lxdnJZTlBGc3JrK1FwVU5kOGtF?=
+ =?utf-8?B?aTdQa3VNQk1QQzk5QUNHVVl5ZHFudk04OGhwVXpWaUFMdCs1QmRFK0NZUmVO?=
+ =?utf-8?B?T1ZBN3E0amNkaXdFa2tCU0trRXovYk5aV3pqZVdmTVEvUndISzltcjZkYW5k?=
+ =?utf-8?B?Q1k1Q0NEN3BpeCs0V3N3aEszUCtHd2RDRzlLaG5aMXIyMmhObjFlenlkWE5r?=
+ =?utf-8?B?UUVneXRPNjVpeDlSdTNpQjFmdFRYUE9ETDNmWlVlY1NXb0VHUkpuZnVUWkQ1?=
+ =?utf-8?B?c0NOUG5EWFFxSlRBMVpIK0EvZWZIZW5ZL3c4SVN1N2g3Q3c0NnpPaldqQ2Vx?=
+ =?utf-8?B?OWpmWWY1MzFVV2s3di9CRjkzQ3UwckJXLzR4c2R6clRTSVcrSVpnK29hQndU?=
+ =?utf-8?B?Z0l4NFg2b29zbjg5K3BQNUxUUWVrK1kwTmluZ3BFOVNpNFZCbng1V3Q0ZzFz?=
+ =?utf-8?B?MUR4OGZhbEZtb0o4MVdZVFRjTFZUaDQwWkdHa0w5RjVjUS9KQXJ0WXpBSThq?=
+ =?utf-8?B?ZEIxVXU3VkFSbnNqSTBsQ245T0xlc1NuclZUZERQZGQvR1djcDE5SlBLbFUy?=
+ =?utf-8?B?Y0MrRVF1STVMNXVmd1g3T3hwMXB3TWdwYWt5bVRNNjY2UWppOUZ6NVlzZDRX?=
+ =?utf-8?B?WXhtbDlTODU5RmdBUTJNWGFTNWEzMG11bkVTaVZIVXFreG5oeExmaGxnaFk5?=
+ =?utf-8?B?U0lVbzlSdVlsOWpESk5wNUU2KzJFWFgzdEl4K3VkRmsxQjhoQjJWekNFU3l5?=
+ =?utf-8?B?QnRSVDlTTEV0dXF3VStNRUt1RzN4VXRZM1MwUjhhZTU5QmRqMnJiL2w4Rkdh?=
+ =?utf-8?B?UUwydVcwNFplc29nd2xjREVaOFFVSWZIQUx4R0F5QkhEa2ZBVDIrczlvSEpH?=
+ =?utf-8?B?S095VG9lUERJa2FzVjcwWk9LOVlMQkQ4UjZTOWdNbFpLbit4cjZjbmpNNU1s?=
+ =?utf-8?B?R1AwYlBvQitKTDFzaHFFWDdPQktDQTNSbWJld2Rqa3JKcitnbkd4VVkxZmdu?=
+ =?utf-8?B?K2dDU0R6L2xHL1ZxMzlYUjZhWlRjMDR0UDhDY3FBdGwrZlEvc1Jvdz09?=
+X-OriginatorOrg: avh.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 885b64ad-388c-4108-7f48-08df0993bdb7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR08MB6472.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 08:17:06.0273
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3a4cfd37-b525-4f43-9a12-564305d0b837
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: R/JPP5iBGG0GJ4y7dtpQQ0RP89aiILLSroRTEbaEPkhrCnlnsyy7Tc7e1l0cIFDpEgSmvfn8XDLWBq8FA20Gzg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9956
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<div>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%=
+;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:bold;font-style:normal;color:#000000;text-align:justify;line-height:100.00=
+%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:bold;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-=
+left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tran=
+sparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">Hum=
+boldt Research Fellowship Programme for Experienced Researchers</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">D=
+ear Dr. Siam</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahom=
+a&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;ma=
+rgin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;=
+background-color:transparent;text-decoration:none;white-space:pre-wrap;line=
+-height:12.07pt;">,</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">Y=
+ou asked to be given feedback on the factors that had led to a rejection by=
+ the selection committee. We</span><span style=3D"font-size:10.00pt;font-fa=
+mily:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;=
+margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;p=
+adding-bottom:0;background-color:transparent;text-decoration:none;white-spa=
+ce:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;=
+font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#=
+000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-ri=
+ght:0;padding-bottom:0;background-color:transparent;text-decoration:none;wh=
+ite-space:pre-wrap;line-height:12.07pt;">are now responding to your request=
+.</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">F=
+unding decisions are taken by an independent, interdisciplinary selection c=
+ommittee; the Humboldt</span><span style=3D"font-size:10.00pt;font-family:&=
+quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin=
+-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding=
+-bottom:0;background-color:transparent;text-decoration:none;white-space:pre=
+-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-f=
+amily:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000=
+;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;=
+padding-bottom:0;background-color:transparent;text-decoration:none;white-sp=
+ace:pre-wrap;line-height:12.07pt;">Foundation itself has no influence on th=
+e decisions. </span><span style=3D"font-size:10.00pt;font-family:&quot;Taho=
+ma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;m=
+argin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0=
+;background-color:transparent;text-decoration:none;white-space:pre-wrap;lin=
+e-height:12.07pt;">In addition to the documents submitted by the</span><spa=
+n style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:nor=
+mal;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-le=
+ft:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:transp=
+arent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;"> </sp=
+an><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-wei=
+ght:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;pad=
+ding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color=
+:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;=
+">applicants</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahom=
+a&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;ma=
+rgin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;=
+background-color:transparent;text-decoration:none;white-space:pre-wrap;line=
+-height:12.07pt;">, their discussions are usually based on independent peer=
+ reviews. In order to approve an</span><span style=3D"font-size:10.00pt;fon=
+t-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000=
+000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right=
+:0;padding-bottom:0;background-color:transparent;text-decoration:none;white=
+-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.0=
+0pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;col=
+or:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;paddin=
+g-right:0;padding-bottom:0;background-color:transparent;text-decoration:non=
+e;white-space:pre-wrap;line-height:12.07pt;">application, the majority of t=
+he members of the selection committee must support the decision.</span><spa=
+n style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:nor=
+mal;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-le=
+ft:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:transp=
+arent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;"> The<=
+/span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-=
+weight:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;=
+padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-co=
+lor:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.07=
+pt;"> </span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot=
+;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-r=
+ight:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backgr=
+ound-color:transparent;text-decoration:none;white-space:pre-wrap;line-heigh=
+t:12.07pt;">procedure is competitive, and the committee is required to choo=
+se the best applicants in the respective</span><span style=3D"font-size:10.=
+00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;co=
+lor:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;paddi=
+ng-right:0;padding-bottom:0;background-color:transparent;text-decoration:no=
+ne;white-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-s=
+ize:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:no=
+rmal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:=
+0;padding-right:0;padding-bottom:0;background-color:transparent;text-decora=
+tion:none;white-space:pre-wrap;line-height:12.07pt;">selection round. Appro=
+val or rejection is therefore also directly influenced by the quality of th=
+e other</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quo=
+t;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-=
+right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backg=
+round-color:transparent;text-decoration:none;white-space:pre-wrap;line-heig=
+ht:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-family:&quot;Tah=
+oma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;=
+margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:=
+0;background-color:transparent;text-decoration:none;white-space:pre-wrap;li=
+ne-height:12.07pt;">candidates.</span><span style=3D"font-size:10.00pt;font=
+-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#0000=
+00;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:=
+0;padding-bottom:0;background-color:transparent;text-decoration:none;white-=
+space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00=
+pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;colo=
+r:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding=
+-right:0;padding-bottom:0;background-color:transparent;text-decoration:none=
+;white-space:pre-wrap;line-height:12.07pt;">Additionally, while we have a b=
+it of freedom to shift funding between the selection rounds,</span><span st=
+yle=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;=
+font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0=
+;padding-top:0;padding-right:0;padding-bottom:0;background-color:transparen=
+t;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;"> </span><=
+span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding=
+-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tra=
+nsparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">we=
+ cannot fully compensate for the variance in the number and quality of appl=
+ications, leading to some</span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;mar=
+gin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padd=
+ing-bottom:0;background-color:transparent;text-decoration:none;white-space:=
+pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;fon=
+t-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000=
+000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right=
+:0;padding-bottom:0;background-color:transparent;text-decoration:none;white=
+-space:pre-wrap;line-height:12.07pt;">selection rounds that are significant=
+ly more competitive than others. Unfortunately, this was </span><span style=
+=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;fon=
+t-style:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;pa=
+dding-top:0;padding-right:0;padding-bottom:0;background-color:transparent;t=
+ext-decoration:none;white-space:pre-wrap;line-height:12.07pt;">=E2=80=93</s=
+pan><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-we=
+ight:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;pa=
+dding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-colo=
+r:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt=
+;"> to some</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma=
+&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;mar=
+gin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;b=
+ackground-color:transparent;text-decoration:none;white-space:pre-wrap;line-=
+height:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-family:&quot=
+;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-lef=
+t:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bot=
+tom:0;background-color:transparent;text-decoration:none;white-space:pre-wra=
+p;line-height:12.07pt;">extent </span><span style=3D"font-size:10.00pt;font=
+-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#0000=
+00;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:=
+0;padding-bottom:0;background-color:transparent;text-decoration:none;white-=
+space:pre-wrap;line-height:12.07pt;">=E2=80=93</span><span style=3D"font-si=
+ze:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:nor=
+mal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0=
+;padding-right:0;padding-bottom:0;background-color:transparent;text-decorat=
+ion:none;white-space:pre-wrap;line-height:12.07pt;"> the case this year.</s=
+pan></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">I=
+n all discussions and evaluations, there was consent that you have a strong=
+ publication record with</span><span style=3D"font-size:10.00pt;font-family=
+:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;marg=
+in-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;paddi=
+ng-bottom:0;background-color:transparent;text-decoration:none;white-space:p=
+re-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;font=
+-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#0000=
+00;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:=
+0;padding-bottom:0;background-color:transparent;text-decoration:none;white-=
+space:pre-wrap;line-height:12.07pt;">articles in top venues. Additionally, =
+the trajectory of your role from first to senior author is clearly visible<=
+/span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-=
+weight:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;=
+padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-co=
+lor:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.07=
+pt;"> </span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot=
+;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-r=
+ight:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backgr=
+ound-color:transparent;text-decoration:none;white-space:pre-wrap;line-heigh=
+t:12.07pt;">and was seen as very promising for a successful academic career=
+. In this respect, your application was</span><span style=3D"font-size:10.0=
+0pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;col=
+or:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;paddin=
+g-right:0;padding-bottom:0;background-color:transparent;text-decoration:non=
+e;white-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-si=
+ze:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:nor=
+mal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0=
+;padding-right:0;padding-bottom:0;background-color:transparent;text-decorat=
+ion:none;white-space:pre-wrap;line-height:12.07pt;">seen as good to very go=
+od, albeit not in the very first group. Please note that we try to limit th=
+e use of</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&qu=
+ot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin=
+-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;back=
+ground-color:transparent;text-decoration:none;white-space:pre-wrap;line-hei=
+ght:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-family:&quot;Ta=
+homa&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0=
+;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom=
+:0;background-color:transparent;text-decoration:none;white-space:pre-wrap;l=
+ine-height:12.07pt;">formal metrics like the h-index when it comes to compa=
+ring applications, among other reasons because</span><span style=3D"font-si=
+ze:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:nor=
+mal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0=
+;padding-right:0;padding-bottom:0;background-color:transparent;text-decorat=
+ion:none;white-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"=
+font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-st=
+yle:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;paddin=
+g-top:0;padding-right:0;padding-bottom:0;background-color:transparent;text-=
+decoration:none;white-space:pre-wrap;line-height:12.07pt;">these metrics do=
+ not translate well between fields of research.</span><span style=3D"font-s=
+ize:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:no=
+rmal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:=
+0;padding-right:0;padding-bottom:0;background-color:transparent;text-decora=
+tion:none;white-space:pre-wrap;line-height:12.07pt;"> </span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">R=
+egarding your research outline, the topic was seen as </span><span style=3D=
+"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-s=
+tyle:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;paddi=
+ng-top:0;padding-right:0;padding-bottom:0;background-color:transparent;text=
+-decoration:none;white-space:pre-wrap;line-height:12.07pt;">well chosen</sp=
+an><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-wei=
+ght:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;pad=
+ding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color=
+:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;=
+"> with interesting and relevant research</span><span style=3D"font-size:10=
+.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;c=
+olor:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padd=
+ing-right:0;padding-bottom:0;background-color:transparent;text-decoration:n=
+one;white-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-=
+size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:n=
+ormal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top=
+:0;padding-right:0;padding-bottom:0;background-color:transparent;text-decor=
+ation:none;white-space:pre-wrap;line-height:12.07pt;">challenges, well suit=
+ed to your own and your host</span><span style=3D"font-size:10.00pt;font-fa=
+mily:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;=
+margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;p=
+adding-bottom:0;background-color:transparent;text-decoration:none;white-spa=
+ce:pre-wrap;line-height:12.07pt;">=E2=80=99</span><span style=3D"font-size:=
+10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal=
+;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;pa=
+dding-right:0;padding-bottom:0;background-color:transparent;text-decoration=
+:none;white-space:pre-wrap;line-height:12.07pt;">s expertise. However, ther=
+e were also comments that</span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;mar=
+gin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padd=
+ing-bottom:0;background-color:transparent;text-decoration:none;white-space:=
+pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;fon=
+t-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000=
+000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right=
+:0;padding-bottom:0;background-color:transparent;text-decoration:none;white=
+-space:pre-wrap;line-height:12.07pt;">there was too little detail regarding=
+ methodology or specific ideas to approach the chosen challenges.</span></p=
+>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">O=
+n the basis of</span><span style=3D"font-size:10.00pt;font-family:&quot;Tah=
+oma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;=
+margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:=
+0;background-color:transparent;text-decoration:none;white-space:pre-wrap;li=
+ne-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-family:&q=
+uot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-=
+left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-=
+bottom:0;background-color:transparent;text-decoration:none;white-space:pre-=
+wrap;line-height:12.07pt;">the overall assessment of your application and t=
+aking </span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot=
+;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-r=
+ight:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backgr=
+ound-color:transparent;text-decoration:none;white-space:pre-wrap;line-heigh=
+t:12.07pt;">these critical comments </span><span style=3D"font-size:10.00pt=
+;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:=
+#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-r=
+ight:0;padding-bottom:0;background-color:transparent;text-decoration:none;w=
+hite-space:pre-wrap;line-height:12.07pt;">into</span><span style=3D"font-si=
+ze:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:nor=
+mal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0=
+;padding-right:0;padding-bottom:0;background-color:transparent;text-decorat=
+ion:none;white-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"=
+font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-st=
+yle:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;paddin=
+g-top:0;padding-right:0;padding-bottom:0;background-color:transparent;text-=
+decoration:none;white-space:pre-wrap;line-height:12.07pt;">account, </span>=
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">t=
+he selection committee voted against granting your application.</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">S=
+hould you be interested in re-applying</span><span style=3D"font-size:10.00=
+pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;colo=
+r:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding=
+-right:0;padding-bottom:0;background-color:transparent;text-decoration:none=
+;white-space:pre-wrap;line-height:12.07pt;"> for a Humboldt Research Fellow=
+ship for Experienced Researchers</span><span style=3D"font-size:10.00pt;fon=
+t-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000=
+000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right=
+:0;padding-bottom:0;background-color:transparent;text-decoration:none;white=
+-space:pre-wrap;line-height:12.07pt;">,</span><span style=3D"font-size:10.0=
+0pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;col=
+or:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;paddin=
+g-right:0;padding-bottom:0;background-color:transparent;text-decoration:non=
+e;white-space:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-si=
+ze:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:nor=
+mal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0=
+;padding-right:0;padding-bottom:0;background-color:transparent;text-decorat=
+ion:none;white-space:pre-wrap;line-height:12.07pt;">please take note of the=
+ following important points:</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:12.00pt;marg=
+in-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weigh=
+t:normal;font-style:normal;color:#000000;text-align:justify;line-height:100=
+.00%;background-color:transparent">
+<span style=3D"font-size:11.00pt;font-family:&quot;Times New Roman&quot;;fo=
+nt-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-right=
+:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background=
+-color:transparent;text-decoration:none;white-space:pre-wrap;line-height:12=
+.65pt;">-</span><span style=3D"font-size:11.00pt;font-family:&quot;Times Ne=
+w Roman&quot;;font-weight:normal;font-style:normal;color:#000000;margin-lef=
+t:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bot=
+tom:0;background-color:transparent;text-decoration:none;white-space:pre-wra=
+p;line-height:12.65pt;">	</span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;mar=
+gin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padd=
+ing-bottom:0;background-color:transparent;text-decoration:none;white-space:=
+pre-wrap;line-height:12.07pt;">A re-application only has an improved chance=
+ of success if it is based upon further significant</span><span style=3D"fo=
+nt-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-styl=
+e:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-=
+top:0;padding-right:0;padding-bottom:0;background-color:transparent;text-de=
+coration:none;white-space:pre-wrap;line-height:12.33pt;"> </span><span styl=
+e=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;fo=
+nt-style:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;p=
+adding-top:0;padding-right:0;padding-bottom:0;background-color:transparent;=
+text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">academic de=
+velopment which, in our experience, usually takes several years. As your ap=
+plication was</span><span style=3D"font-size:10.00pt;font-family:&quot;Taho=
+ma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;m=
+argin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0=
+;background-color:transparent;text-decoration:none;white-space:pre-wrap;lin=
+e-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-family:&qu=
+ot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-l=
+eft:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-b=
+ottom:0;background-color:transparent;text-decoration:none;white-space:pre-w=
+rap;line-height:12.07pt;">rejected unanimously, a re-application for any of=
+ the Research Fellowship </span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;mar=
+gin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padd=
+ing-bottom:0;background-color:transparent;text-decoration:none;white-space:=
+pre-wrap;line-height:12.07pt;">Programmes</span><span style=3D"font-size:10=
+.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;c=
+olor:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padd=
+ing-right:0;padding-bottom:0;background-color:transparent;text-decoration:n=
+one;white-space:pre-wrap;line-height:12.07pt;"> of the</span><span style=3D=
+"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-s=
+tyle:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;paddi=
+ng-top:0;padding-right:0;padding-bottom:0;background-color:transparent;text=
+-decoration:none;white-space:pre-wrap;line-height:12.07pt;"> </span><span s=
+tyle=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal=
+;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-left:=
+0;padding-top:0;padding-right:0;padding-bottom:0;background-color:transpare=
+nt;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">Humboldt=
+-Foundation</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma=
+&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;mar=
+gin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;b=
+ackground-color:transparent;text-decoration:none;white-space:pre-wrap;line-=
+height:12.07pt;"> is only possible </span><span style=3D"font-size:10.00pt;=
+font-family:&quot;Tahoma&quot;;font-weight:bold;font-style:normal;color:#00=
+0000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-righ=
+t:0;padding-bottom:0;background-color:transparent;text-decoration:none;whit=
+e-space:pre-wrap;line-height:12.07pt;">after 18 months</span><span style=3D=
+"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-s=
+tyle:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;paddi=
+ng-top:0;padding-right:0;padding-bottom:0;background-color:transparent;text=
+-decoration:none;white-space:pre-wrap;line-height:12.07pt;">. If you reappl=
+y before </span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&q=
+uot;;font-weight:bold;font-style:normal;color:#000000;margin-left:0;margin-=
+right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backg=
+round-color:transparent;text-decoration:none;white-space:pre-wrap;line-heig=
+ht:12.07pt;">01</span><span style=3D"font-size:10.00pt;font-family:&quot;Ta=
+homa&quot;;font-weight:bold;font-style:normal;color:#000000;margin-left:0;m=
+argin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0=
+;background-color:transparent;text-decoration:none;white-space:pre-wrap;lin=
+e-height:12.07pt;">&nbsp;</span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:bold;font-style:normal;color:#000000;margi=
+n-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;paddin=
+g-bottom:0;background-color:transparent;text-decoration:none;white-space:pr=
+e-wrap;line-height:12.07pt;">February</span><span style=3D"font-size:10.00p=
+t;font-family:&quot;Tahoma&quot;;font-weight:bold;font-style:normal;color:#=
+000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-ri=
+ght:0;padding-bottom:0;background-color:transparent;text-decoration:none;wh=
+ite-space:pre-wrap;line-height:12.07pt;">&nbsp;</span><span style=3D"font-s=
+ize:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:bold;font-style:norm=
+al;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;=
+padding-right:0;padding-bottom:0;background-color:transparent;text-decorati=
+on:none;white-space:pre-wrap;line-height:12.07pt;">2028</span><span style=
+=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;fon=
+t-style:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;pa=
+dding-top:0;padding-right:0;padding-bottom:0;background-color:transparent;t=
+ext-decoration:none;white-space:pre-wrap;line-height:12.07pt;">,</span><spa=
+n style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight:nor=
+mal;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-le=
+ft:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:transp=
+arent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;"> </sp=
+an><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-wei=
+ght:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;pad=
+ding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color=
+:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;=
+">we </span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;=
+;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-ri=
+ght:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backgro=
+und-color:transparent;text-decoration:none;white-space:pre-wrap;line-height=
+:12.07pt;">have to</span><span style=3D"font-size:10.00pt;font-family:&quot=
+;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-lef=
+t:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bot=
+tom:0;background-color:transparent;text-decoration:none;white-space:pre-wra=
+p;line-height:12.07pt;"> reject your application on formal grounds.</span><=
+/p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:11.00pt;font-family:&quot;Times New Roman&quot;;fo=
+nt-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-right=
+:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background=
+-color:transparent;text-decoration:none;white-space:pre-wrap;line-height:12=
+.65pt;">-</span><span style=3D"font-size:11.00pt;font-family:&quot;Times Ne=
+w Roman&quot;;font-weight:normal;font-style:normal;color:#000000;margin-lef=
+t:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bot=
+tom:0;background-color:transparent;text-decoration:none;white-space:pre-wra=
+p;line-height:12.65pt;">	</span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;mar=
+gin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padd=
+ing-bottom:0;background-color:transparent;text-decoration:none;white-space:=
+pre-wrap;line-height:12.07pt;">Furthermore, you must address the points sin=
+gled out by the reviewers (see above) on all accounts.</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">A=
+ll formal criteria must be fulfilled at the time of submitting a re-applica=
+tion. You should consult the</span><span style=3D"font-size:10.00pt;font-fa=
+mily:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;=
+margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;p=
+adding-bottom:0;background-color:transparent;text-decoration:none;white-spa=
+ce:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;=
+font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#=
+000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-ri=
+ght:0;padding-bottom:0;background-color:transparent;text-decoration:none;wh=
+ite-space:pre-wrap;line-height:12.07pt;">Humboldt Foundation website before=
+ re-applying to check whether you are still an eligible candidate. If</span=
+><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weigh=
+t:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddi=
+ng-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:t=
+ransparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">=
+ </span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;fon=
+t-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-right:=
+0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-=
+color:transparent;text-decoration:none;white-space:pre-wrap;line-height:12.=
+07pt;">you have any questions on this matter, please feel free to contact o=
+ur </span><a href=3D"https://www.humboldt-foundation.de/en/apply/advice">Ad=
+visory Service</a>
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">.=
+ They will be</span><span style=3D"font-size:10.00pt;font-family:&quot;Taho=
+ma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;m=
+argin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0=
+;background-color:transparent;text-decoration:none;white-space:pre-wrap;lin=
+e-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;font-family:&qu=
+ot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-l=
+eft:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-b=
+ottom:0;background-color:transparent;text-decoration:none;white-space:pre-w=
+rap;line-height:12.07pt;">happy to assist you.</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">P=
+lease understand that we are unable to provide any further information on t=
+he selection decision beyond</span><span style=3D"font-size:10.00pt;font-fa=
+mily:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;=
+margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;p=
+adding-bottom:0;background-color:transparent;text-decoration:none;white-spa=
+ce:pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;=
+font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#=
+000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-ri=
+ght:0;padding-bottom:0;background-color:transparent;text-decoration:none;wh=
+ite-space:pre-wrap;line-height:12.07pt;">the contents of this mail.</span><=
+/p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">W=
+e are most grateful for the trust you have placed in the Humboldt Foundatio=
+n and should like to wish</span><span style=3D"font-size:10.00pt;font-famil=
+y:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;mar=
+gin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padd=
+ing-bottom:0;background-color:transparent;text-decoration:none;white-space:=
+pre-wrap;line-height:12.07pt;"> </span><span style=3D"font-size:10.00pt;fon=
+t-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000=
+000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right=
+:0;padding-bottom:0;background-color:transparent;text-decoration:none;white=
+-space:pre-wrap;line-height:12.07pt;">you the very best for the continuatio=
+n of your academic work!</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">Y=
+ours sincerely,</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">p=
+p.</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%=
+;background-color:transparent">
+<span style=3D"font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;paddin=
+g-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tr=
+ansparent;text-decoration:none;white-space:pre-wrap;line-height:12.07pt;">L=
+ani Marie D</span><span style=3D"font-size:10.00pt;font-family:&quot;Tahoma=
+&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;mar=
+gin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;b=
+ackground-color:transparent;text-decoration:none;white-space:pre-wrap;line-=
+height:12.07pt;">=C3=B6</span><span style=3D"font-size:10.00pt;font-family:=
+&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margi=
+n-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;paddin=
+g-bottom:0;background-color:transparent;text-decoration:none;white-space:pr=
+e-wrap;line-height:12.07pt;">hring</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+bold;font-style:normal;color:#000000;text-align:left;line-height:100.00%;ba=
+ckground-color:transparent">
+<span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+bold;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-l=
+eft:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:trans=
+parent;text-decoration:none;white-space:pre-wrap;line-height:10.86pt;">Alex=
+ander von Humboldt</span><span style=3D"font-size:9.00pt;font-family:&quot;=
+Tahoma&quot;;font-weight:bold;font-style:normal;color:#000000;margin-left:0=
+;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom=
+:0;background-color:transparent;text-decoration:none;white-space:pre-wrap;l=
+ine-height:10.86pt;"> Foundation</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding=
+-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tra=
+nsparent;text-decoration:none;white-space:pre-wrap;line-height:10.86pt;">De=
+partment Selection</span><span style=3D"font-size:9.00pt;font-family:&quot;=
+Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left=
+:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bott=
+om:0;background-color:transparent;text-decoration:none;white-space:pre-wrap=
+;line-height:10.86pt;"><br></span><span style=3D"font-size:9.00pt;font-fami=
+ly:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;ma=
+rgin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;pad=
+ding-bottom:0;background-color:transparent;text-decoration:none;white-space=
+:pre-wrap;line-height:10.86pt;">Division Physics, Engineering, Mathematics<=
+/span><span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-w=
+eight:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;p=
+adding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-col=
+or:transparent;text-decoration:none;white-space:pre-wrap;line-height:10.86p=
+t;"><br></span><span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quo=
+t;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-=
+right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backg=
+round-color:transparent;text-decoration:none;white-space:pre-wrap;line-heig=
+ht:10.86pt;">Applications Officer</span><span style=3D"font-size:9.00pt;fon=
+t-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000=
+000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right=
+:0;padding-bottom:0;background-color:transparent;text-decoration:none;white=
+-space:pre-wrap;line-height:10.86pt;"><br></span><span style=3D"font-size:9=
+.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;c=
+olor:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padd=
+ing-right:0;padding-bottom:0;background-color:transparent;text-decoration:n=
+one;white-space:pre-wrap;line-height:10.86pt;"><br></span><span style=3D"fo=
+nt-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style=
+:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-t=
+op:0;padding-right:0;padding-bottom:0;background-color:transparent;text-dec=
+oration:none;white-space:pre-wrap;line-height:10.86pt;">Jean-Paul-Str. 12</=
+span><span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-we=
+ight:normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;pa=
+dding-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-colo=
+r:transparent;text-decoration:none;white-space:pre-wrap;line-height:10.86pt=
+;"><br></span><span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot=
+;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;margin-r=
+ight:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;backgr=
+ound-color:transparent;text-decoration:none;white-space:pre-wrap;line-heigh=
+t:10.86pt;">53173 Bonn</span><span style=3D"font-size:9.00pt;font-family:&q=
+uot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-=
+left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-=
+bottom:0;background-color:transparent;text-decoration:none;white-space:pre-=
+wrap;line-height:10.86pt;"><br></span><span style=3D"font-size:9.00pt;font-=
+family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#00000=
+0;margin-left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0=
+;padding-bottom:0;background-color:transparent;text-decoration:none;white-s=
+pace:pre-wrap;line-height:10.86pt;">GERMANY</span><span style=3D"font-size:=
+9.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-style:normal;=
+color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-top:0;pad=
+ding-right:0;padding-bottom:0;background-color:transparent;text-decoration:=
+none;white-space:pre-wrap;line-height:10.86pt;"><br></span><span style=3D"f=
+ont-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;font-styl=
+e:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0;padding-=
+top:0;padding-right:0;padding-bottom:0;background-color:transparent;text-de=
+coration:none;white-space:pre-wrap;line-height:10.86pt;"><br></span><span s=
+tyle=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:normal;=
+font-style:normal;color:#000000;margin-left:0;margin-right:0;padding-left:0=
+;padding-top:0;padding-right:0;padding-bottom:0;background-color:transparen=
+t;text-decoration:none;white-space:pre-wrap;line-height:10.86pt;">Phone: +4=
+9 228 833-638</span><span style=3D"font-size:9.00pt;font-family:&quot;Tahom=
+a&quot;;font-weight:normal;font-style:normal;color:#000000;margin-left:0;ma=
+rgin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-bottom:0;=
+background-color:transparent;text-decoration:none;white-space:pre-wrap;line=
+-height:10.86pt;"><br></span><span style=3D"font-size:9.00pt;font-family:&q=
+uot;Tahoma&quot;;font-weight:normal;font-style:normal;color:#000000;margin-=
+left:0;margin-right:0;padding-left:0;padding-top:0;padding-right:0;padding-=
+bottom:0;background-color:transparent;text-decoration:none;white-space:pre-=
+wrap;line-height:10.86pt;">E-Mail: Lani-Marie.Doehring@avh.de</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+bold;font-style:normal;color:#000000;text-align:left;line-height:100.00%;ba=
+ckground-color:transparent">
+<a href=3D"https://www.humboldt-foundation.de/">www.humboldt-foundation.de<=
+/a>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<br>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<span style=3D"font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;margin-left:0;margin-right:0;padding=
+-left:0;padding-top:0;padding-right:0;padding-bottom:0;background-color:tra=
+nsparent;text-decoration:none;white-space:pre-wrap;line-height:10.86pt;">Fo=
+llow us on LinkedIn</span></p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:9.00pt;font-family:&quot;Tahoma&quot;;font-weight:=
+normal;font-style:normal;color:#000000;text-align:left;line-height:100.00%;=
+background-color:transparent">
+<a href=3D"https://www.linkedin.com/company/alexander-von-humboldt-foundati=
+on/">https://www.linkedin.com/company/alexander-von-humboldt-foundation/</a=
+>
+</p>
+<p style=3D"margin-left:0.00pt;margin-top:0.00pt;margin-bottom:0.00pt;margi=
+n-right:0.00pt;font-size:10.00pt;font-family:&quot;Tahoma&quot;;font-weight=
+:normal;font-style:normal;color:#000000;text-align:justify;line-height:100.=
+00%;background-color:transparent">
+<br>
+</p>
+</div>
+</body>
+</html>
