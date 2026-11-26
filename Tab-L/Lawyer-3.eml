@@ -1,0 +1,470 @@
+Delivered-To: mennatul@gmx.ualberta.ca
+Received: by 2002:a05:6e04:2991:b0:33c:446a:831c with SMTP id cd17csp2001413imd;
+        Mon, 13 Jan 2025 10:32:25 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCW9CGuA9KC5hzlq2an/z7ONfBAYXPeKmJNahbqpIHtLeNcHLAXj30m7nJm2a5Bgp162dCzpnQw7og==@gmx.ualberta.ca
+X-Google-Smtp-Source: AGHT+IEFKpqb5UDlGxCJ02D01RDkw4jtgwUUqgGre4m4ra4sd0B8xQcVHMngYIuWKXdoljlaeSrv
+X-Received: by 2002:a17:90b:56cb:b0:2ee:c04a:4281 with SMTP id 98e67ed59e1d1-2f548f102demr28841300a91.6.1736793145774;
+        Mon, 13 Jan 2025 10:32:25 -0800 (PST)
+Return-Path: <mennatullah.siam@ubc.ca>
+Received: from mx-06.srv.ualberta.ca (mx-06.srv.ualberta.ca. [129.128.162.16])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2f558863fc5si11494218a91.19.2025.01.13.10.32.25
+        for <mennatul@gmx.ualberta.ca>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 10:32:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of mennatullah.siam@ubc.ca designates 142.103.117.137 as permitted sender) client-ip=142.103.117.137;
+Authentication-Results: mx.google.com;
+       dkim=neutral (body hash did not verify) header.i=@nccmcnmc.onmicrosoft.com header.s=selector2-nccmcnmc-onmicrosoft-com header.b=FAaz62o7;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of mennatullah.siam@ubc.ca designates 142.103.117.137 as permitted sender) smtp.mailfrom=mennatullah.siam@ubc.ca
+Received: by mx-06.srv.ualberta.ca (Postfix)
+	id 4034D1806434; Mon, 13 Jan 2025 11:32:25 -0700 (MST)
+Delivered-To: mennatul@ualberta.ca
+Received: from esvaout7.mail-relay.ubc.ca (esvaout7.mail-relay.ubc.ca [142.103.117.137])
+	by mx-06.srv.ualberta.ca (Postfix) with ESMTPS id 1030E1806FC0
+	for <mennatul@ualberta.ca>; Mon, 13 Jan 2025 11:32:25 -0700 (MST)
+X-CSE-ConnectionGUID: pA7Ok4jWQcS9CMHnaymPUQ==
+X-CSE-MsgGUID: 5XfUCMuPTlSVy6Y/C765yw==
+X-ExtLoopCount2: from 10.45.24.97
+X-SMTPAUTH: FALSE
+IronPort-Data: A9a23:3/ax86gLSfokSQapqNKFMh8AX1611xIKZh0ujC45NGQN5FlHY01je
+ htvad38jgY+GdYPz6UGaoiGQcd2uJbV/mIDOANpsykrFTQS8pat6e2xdi/YJzmVItDIUHVp5
+ sAfbsioBM0vRxcwnD/0WlTahSc6jPvgqobUUraeZ3goHFQ8EU/NtDo48wIHqt8w6TSGK17V0
+ T/Ci5W3EEOo3TdyLlUV58qrwP+4lK2t0N+wlgVWicFj5DcypVFMZH4sDfjZw0/Df2VhNrPSq
+ 9DrkevlpDOJp09F5uSNyd4XemVSKlLb0JPnZnB+A8BOiTAbzsA+Pz1S2FPxpi67hh3Q9+2dx
+ umhurSoYFgOPfHOp90WaEhzNgF4NLxDwIL+dC3XXcy7lyUqclP3xul2SkQ/PIle5+x8R2pHn
+ RAaAGlVKEzewbjqhuPkIgVvrp1LwM3DOY4ZvHh80DXdBPZgWpHKRo3X79Qe1z5YasVmRK6PN
+ pNENmYwBPjGS0B/NGo8LY8GoOOTuGihQnpz9wzItLVitgA/yyQ0itABKuH9f9GMQ8xJg0Kwu
+ 2vC9WnjHhhcP9X39Nae2namnuDLkzjwANsdD6GgrqcvjVuP3TRKTRNLEEWhr/a9l0P7VdZYI
+ lBS4Ts1saU37wqqUp/gVRb+q3fsUgMgZue82tYSsGmlopc4KS7AboTYZlatsOAbifI=
+X-Talos-CUID: =?us-ascii?q?9a23=3Abh0/zWg6L1+aMsJQBlnLahqdGjJualSC63SMIXC?=
+ =?us-ascii?q?BAl04Y5i1T1aB/ZtZqp87?=
+X-Talos-MUID: 9a23:cLnVjwoYhLmHf2WBWFUez2xSOvpDxrmWNEQ2r4RYio6vanItKijI2Q==
+Received: from lbpglfsc01gstp01-ents01-f5-vrfglue-float.systems.it.ubc.ca (HELO smtp.mail.ubc.ca) ([10.45.24.97])
+  by esvaout7.mail-relay.ubc.ca with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Jan 2025 10:32:25 -0800
+Received: from EXCH-SRV05AP.ead.ubc.ca (10.7.1.109) by EXCH-SRV03BP.ead.ubc.ca
+ (10.19.216.45) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 13 Jan
+ 2025 10:32:24 -0800
+Received: from EXCH-SRV05AP.ead.ubc.ca (10.7.1.109) by EXCH-SRV05AP.ead.ubc.ca
+ (10.7.1.109) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 13 Jan
+ 2025 10:32:24 -0800
+Received: from EXCH-SRV05AP.ead.ubc.ca ([::1]) by EXCH-SRV05AP.ead.ubc.ca
+ ([fe80::2cd7:f868:d9d7:abab%2]) with Microsoft SMTP Server id 15.01.2507.039;
+ Mon, 13 Jan 2025 10:32:24 -0800
+From: Karine Devost <kdevost@nccm.ca>
+To: "Siam, Mennatullah" <mennatullah.siam@ubc.ca>
+CC: Sarah Adouani <sadouani@nccm.ca>
+Subject: Referrals
+Thread-Topic: Referrals
+Thread-Index: Adtl4ivvVMD7JClhQ6qiWtTJ6bR8fA==
+Date: Mon, 13 Jan 2025 18:32:05 +0000
+Message-ID: <c405a396c3a247bb97c193e577e5a03d@EXCH-SRV05AP.ead.ubc.ca>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-Exchange-Inbox-Rules-Loop: mennatullah.siam@ubc.ca
+X-MS-TNEF-Correlator:
+x-cse-connectionguid: laZTeuheTv2wcM8pxs7UlA==
+x-cse-msgguid: TC5EDrhUQxqHymD+SjxuPQ==
+authentication-results: esvaout4.mail-relay.ubc.ca; spf=Pass
+ smtp.mailfrom=kdevost@nccm.ca; dkim=pass (signature verified)
+ header.i=@nccmcnmc.onmicrosoft.com; dmarc=pass (p=none dis=none) d=nccm.ca
+x-extloop1: 1
+x-smtpauth: FALSE
+x-threatscanner-verdict: Negative
+ironport-hdrordr: A9a23:bhB50a2ELtkq1fWuI0fDLgqjBSxyeYIsimQD101hICG9Lfb0qy
+ n+pp4mPEHP4wr5AEtQ4OxpOMG7MBDhHO1OkPEs1NaZLX/bUQ6TQL2KgrGSpAEIdxeeygc/79
+ YoT0EdMqyXMbESt6+Tj2eF+r0bsbu6GdWT9IPjJgBWPGRXgs9bjztRO0K+KAlbVQNGDZ02GN
+ 63/cxcvQetfnwRc4CSGmQFd/KrnayBqLvWJTo9QzI34giHij2lrJTgFQKD4xsYWzRThZ8/7G
+ n+lRDj7KnLiYDw9vac7R6f031loqqv9jJxPr3DtiHTEESstu+cXvUsZ1RFhkF0nAjg0idorD
+ CGmWZaAy060QKqQojym2qk5+Co6kdS11byjVCfmnftusr/WXYzDNdAn5tQdl/D51Mnp8wU6t
+ M/44u1jeslMfr7plWO2/HYExVx0kakq3srluAey3RZTIsFcbdU6YgS5llcHpsMFD/zrNlPKp
+ gYMOjMoPJNNV+KZXHQuWdihNSqQ3QoBx+DBkwPoNac3TRalG1wi0EY2MsclHEd849Vcegx28
+ 3UdqBz0L1eRM4faqxwQO8HXMusE2TIBQnBNWqDSG6XZJ3v+0i92qIfzI9Fmt1CIqZ4sKfasK
+ 6xL29liQ==
+x-talos-cuid: 9a23:BMboFGi6rYgo4zFWGYKsTV7pLjJudnTv8HrNI0KEFzx2Q5jFUU+Lp55gup87
+x-talos-muid: 9a23:ef9oewYr3hZJjuBTixSxqR14NPpR872OGUUh0q4Eq9S8DHkl
+x-ironport-av: E=Sophos;i="6.12,310,1728975600";
+    d="scan'208,217";a="110284552"
+x-ubc-external: TRUE
+x-ironport-outbreak-status: No, level 0, Unknown - Unknown
+arc-seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iJK09ummhpWd+x26yDGkM29IKra0EYUq1raOI7OC/eKtTXs8BPgLOopmmsI7EwEyhCaALPmvFCsYVwc/uLOhk8CtO7CFgi0odT+E7ah22KUl/1JoA6K1QzK6FqqQZpZyK6ZH/XAvFVvGeoabrweD7UF36o7+sx75nZW+10pFtSJXFiPNtDnj0T1VIO2oEKJsarpiLOn2jpx5wZ9xGQfyY2iStQ7/YILZXmcMnYRCXguVgDdwL5tK5QalwxJY4JoluyjN86IY0QuMWcNpA+HJLTIDkz1BQH1wJbtYfJOR9j70Fzhib3YNMy8rIfFpDFWMd4B8ClA2rGH3PiyVLOJ/ag==
+arc-message-signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lNMPVWXHPVab3xnIurgk+hZMN21mHG8/bhpJARoWR/s=;
+ b=w0mf2xFKtxsRGfAteY0izkWcWKnttPsRz7zoFzoDa3oohqIwNjW1nYLelhRFw+Ls8N1iFV34IVEaLpHgcTqagByr4wPJQkYgbcO2pboI1/auEyjDJuiQ/WWstuEwQy6YAhzfY8QnIE31BqwZ/xQ4C1OURaz/PrwCgxmwxUd7+Mp9UPIg9pDjvdTu2Y/xccKfQ0iwSLWY2/i5NwvpA4BeTBm5pOohxQ2nXoFQn377kF3buO09dUaSBX+xWYVjXL4wZUGlz872B8iEsoNrZVVuyqtFybDQ/K9r6tlmMpEKNTF/mcL6aFa/yJku55AG1HhowLqNELxHAlxDp+o3vo/8Eg==
+arc-authentication-results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nccm.ca; dmarc=pass action=none header.from=nccm.ca; dkim=pass
+ header.d=nccm.ca; arc=none
+dkim-signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=nccmcnmc.onmicrosoft.com; s=selector2-nccmcnmc-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lNMPVWXHPVab3xnIurgk+hZMN21mHG8/bhpJARoWR/s=;
+ b=FAaz62o7wfWisex+KT5rYn+m5Vhs0zkeytrlXtViqmVv0YMY1T21Sr9KJiWnUJKcKrRZwTWcmVLfzUGMcBEJGcXRnDKnkARiO2JaK8DWjZMsPmTI5y2TToUAJwBNVeqWsk9O258V1yMmwNme31TGsEmvjf7oiBuuU2SUgmKDz0s=
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT1PR01MB3034:EE_|QB1PPFC131A8E6F:EE_
+x-ms-office365-filtering-correlation-id: 7cecb091-4950-41d3-72d9-08dd340094a8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|8096899003|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?kQAASMupkBoVm1bfh59W8dQ+SXh25nwbjQbN3nnpcj3rFvM7QgkGv90ZNp?=
+ =?iso-8859-1?Q?HZJnmaXSO/LJf/CkKqI4FEw2O823z8Ai98zJmyvHlmWFUl5RM9S70eDFDf?=
+ =?iso-8859-1?Q?Dqn7FGAPUIXrHqk+PhNBjd2f0dYxqW+J2XRuixo7FfP3w+Ei0H19yZ35GL?=
+ =?iso-8859-1?Q?A8fUQTjKH2OubLdAGuXhFB35Yxqb6HtztcLDQG5/qo3xbdJPbhSxPdruOG?=
+ =?iso-8859-1?Q?FNWwP6miR7VNvCr3PT0isqIh0m7Z1G+XI8lAlHLTzrjlbtAcN9xX45ljO8?=
+ =?iso-8859-1?Q?NMSx7wENnhZ1aH55t7elBujiVB1cvk6lhQk15T6HVpzHKO70EWFbnCignh?=
+ =?iso-8859-1?Q?/j+DYo4ApnlaB7EjzLc9XCTMdKIzk7PJjJXvL306ynotyDksUgssdgwM/9?=
+ =?iso-8859-1?Q?6J/fQafOJihAZ+cj/JdOMXwmj2Ele1mVmDirC2nJmNpF+HwUATYe8n09Uo?=
+ =?iso-8859-1?Q?EsJarh+c8maT2mIWM9et0cHddmxAeph+58uxvWbgo1Qz3pJPDcKR+GYkdU?=
+ =?iso-8859-1?Q?iT39HNoKehI6CUBSx0ykfJyg1gYF1DIHvrMMack4mzHNIzgZDo4OnglITF?=
+ =?iso-8859-1?Q?A+ssm8RBVtzb+JXWNUZALWhunSb4Fd6n9D2JfQR1QWRQ/bCOpu9uazQ7hB?=
+ =?iso-8859-1?Q?d0m4dYaj/OZXms3F9DUfIW1KpI+Hqa4PG3EKcgprH5Uqi37CqxwqYB3Ha/?=
+ =?iso-8859-1?Q?b34UGVNoBtGee/EBDcAMpkTNW9UsSs/qt4Bb/DLPjpGVs3hxpz5zq0JK3T?=
+ =?iso-8859-1?Q?hgEsQ5wkRbRPYepkHn7mp3RFLLV/Mciv4BGLK+Y/RC5In2ecRQceVVgPjn?=
+ =?iso-8859-1?Q?JSPOIa26zXL5fLVC0LK2u8ALvQxyzZI57+nfcaz9x2KTdV32kIIkTxg+1T?=
+ =?iso-8859-1?Q?bxu3LoCrZr1pIDUq/xcyc25GqM+lg1TpnR5p7n2kJeiMJ2kb4X/0VcC3oE?=
+ =?iso-8859-1?Q?Q0Et6OaIlyX43S6ZepQFzOtKL2qM8dh2QwFdNZEru0Heuy08pdRndLGkMG?=
+ =?iso-8859-1?Q?de2BEUZ4t1eZpRm7RoI9G6fW2k5YTwubnkKvV3VoqweCkLlrT8MeBtfnSl?=
+ =?iso-8859-1?Q?NaNEy3WQ3euA7EP5EmuYmO5KHuj6ZwIKkd90ObQp+DDIRY3dIyKPajwQv4?=
+ =?iso-8859-1?Q?La2BV86+sR6YVUvPdBRqr4VifqbzXCBVCVFNeEUt2pXyFbUF+yRU82HbqV?=
+ =?iso-8859-1?Q?uv0I3NXWADgbOJZ6iESuNbQnbQOm0Uwys4TL1+3+TE+VHBv8o1DHsszw4D?=
+ =?iso-8859-1?Q?3ctmpW8mVUMBf/oZ6V5VCHnHme9bBDNYVCEOHI091/x+BXTfWH4RrK3gP6?=
+ =?iso-8859-1?Q?D5+BpHelvcbQGgt2TC8ri/4Th443AoBOlut+6fGmzrI1AUxLR8fcpo0rof?=
+ =?iso-8859-1?Q?lkrDYHPl54o6L2cqdynsbYoe2knu5XUuE3kOzVe26mwOefNvpbLTC+1+bl?=
+ =?iso-8859-1?Q?ST6wZgPYf/waKNIG?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT1PR01MB3034.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(8096899003)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?FqM8qnQPkISLj0z0xWLE2htcuE+oA34ynB9/1A6aJzBV38ZkQ3v2GAaq5r?=
+ =?iso-8859-1?Q?yDH/eFTKh3B9aJBoOK1YA8plcx1iQXCVXduPM8c3AAYhe/eiEEQ+Vr3+xM?=
+ =?iso-8859-1?Q?nmpCZK7HJGBk1XRuw8/Vcb76CZHDmINr9XBVgr2axozLfvheeIbkSflYrj?=
+ =?iso-8859-1?Q?buVD8i1btxyKWpNmzH+6GeRn04TTJEDXzlDeWMEzLOOVFonm6MSOHM4Ja+?=
+ =?iso-8859-1?Q?Bg60BzUWXHKBws4quKaT022DzfS0lYsshOCQDl/Gd1sBanwcu+6S7HaMV5?=
+ =?iso-8859-1?Q?mca0Zm/mM7iBKT429yDeu2wVuyRovt2ujbn767BwOSqG/wXolwlkSogfRS?=
+ =?iso-8859-1?Q?CXU8CYp9tUKDT+i+dR6bouytDeW2QYYKFmsEBk3TFM1xWZzKydtne+AIBo?=
+ =?iso-8859-1?Q?4wWsTiib7bwxty3uzoIXYGa6sKALsz/aFkMUphIWg0cvZEN6P+yf18mgJ9?=
+ =?iso-8859-1?Q?FPNOCdYJypKLaM21ipHZXmwsTr9wlfD0CLCpJ8xs8GVWxEES8hRxMkazXa?=
+ =?iso-8859-1?Q?Cv8y93glxUVTxN0zWNqaIgukV7xF/6x32m+pfAg8vQ1pkF9XVPKOthmqeo?=
+ =?iso-8859-1?Q?ghDy58MqhuKsPg/m+pJ8DJTiAXEWIPH8CzP4GZ3EKsmF2eCE1Gnco+T2fj?=
+ =?iso-8859-1?Q?H+mrBLjb85QJahearVijnjMn0OYCLR7wf/jIyO6qv7V8l7hvxnjikaCjMU?=
+ =?iso-8859-1?Q?5K4tAhMcqkuAv8k3ompHyEg1fOY/rMHMCCXW9v/5dwNwZZgNQrhqgkNkkt?=
+ =?iso-8859-1?Q?4EAGMPCrN/k/txVMBGWuleLs98WK3lDOHJQUotjA6WOEScNuTQWfHCaY2P?=
+ =?iso-8859-1?Q?jg2fI9lUBhHkeAE1FlGvh+ExTSpE77YMOOWKjelfMe7c0zt+HSZ1azw1I6?=
+ =?iso-8859-1?Q?puIpk8cf7ni4gyYqAFg0WBVOklMoaWnx239SMwjldgDFIdbXEcnOE/wTEh?=
+ =?iso-8859-1?Q?G8gbiaarT2UXIctiIqDEWg+PGobdmUBok+7f3PmgIL4/YhO8mrQSbERQc3?=
+ =?iso-8859-1?Q?vDXYslTAPukQftiZWkc5601uSJqW6VZkGb7gL8Ug3MLGaIrM2g1xsNNzL3?=
+ =?iso-8859-1?Q?+la6CyK26Va5uAbJ6nNUzflxbdgsHZRNQZiySGrkYBUAAPlVSC1ZwiSna/?=
+ =?iso-8859-1?Q?teUDVMnLdipRR97Ow87zpdvlD/0exIkM99Vk3IvqfSjP5xY7H/gd0JeEgK?=
+ =?iso-8859-1?Q?7haNoKccAKNYQhncunDVkXK05CA8p7HMInqSnkjQsM5yYeSMV5JBU3u4+a?=
+ =?iso-8859-1?Q?i+IkLE5CHw6ueXOMLIBb2nG4bpUBVIuJfMiz1wWlZJXniPImqOWdmqs7yM?=
+ =?iso-8859-1?Q?DfV69v6EZKSI0nQX11NJ3RDUOh3fW8n9ItrJ87fMGwD9sPKHaT3UMqz5vw?=
+ =?iso-8859-1?Q?PQyrveCvmAc68t2tkIN/dqDhfz9mkNATX4+GClvvQv5zqwKYRtrBgodhCM?=
+ =?iso-8859-1?Q?TtdwwWpIwMcnU6ofTpmwla/X/QhiSSSSLIRP+GBtETeOH+XaQKkNv5UUl5?=
+ =?iso-8859-1?Q?X7W+lHqwxsbZDOgpZhMh9ASlIauusNK8PImfpNAoVVq1WB0Fd9hlmpQ8ta?=
+ =?iso-8859-1?Q?Bdmusx1cU9L5UUfAge0weX3XXtsAL1eojov+55H7vGH+i3A1kLNjkkV5d2?=
+ =?iso-8859-1?Q?7188DZ20x2qQk=3D?=
+x-ms-exchange-crosstenant-authas: Internal
+x-ms-exchange-crosstenant-authsource: YT1PR01MB3034.CANPRD01.PROD.OUTLOOK.COM
+x-ms-exchange-crosstenant-network-message-id: 7cecb091-4950-41d3-72d9-08dd340094a8
+x-ms-exchange-crosstenant-originalarrivaltime: 13 Jan 2025 18:32:05.5024 (UTC)
+x-ms-exchange-crosstenant-fromentityheader: Hosted
+x-ms-exchange-crosstenant-id: c4125480-7b5e-4128-aaed-ad835adec663
+x-ms-exchange-crosstenant-mailboxtype: HOSTED
+x-ms-exchange-crosstenant-userprincipalname: iRf/vs/vG8vBNNCzH9KNur+wKeMp8hACpdvdAvEitKGuDZur9eZYIWE3pc+Ap7RH
+x-ms-exchange-transport-crosstenantheadersstamped: QB1PPFC131A8E6F
+x-ms-exchange-transport-endtoendlatency: 00:00:00.4027197
+x-ms-exchange-processed-by-bccfoldering: 15.01.2507.039
+Resent-From: <mennatullah.siam@ubc.ca>
+x-ms-exchange-parent-message-id: <YT1PR01MB303478E7BC8AEBD460742EDAA11F2@YT1PR01MB3034.CANPRD01.PROD.OUTLOOK.COM>
+auto-submitted: auto-generated
+x-ms-exchange-generated-message-source: Mailbox Rules Agent
+Content-Type: multipart/alternative;
+	boundary="_000_c405a396c3a247bb97c193e577e5a03dEXCHSRV05APeadubcca_"
+MIME-Version: 1.0
+
+--_000_c405a396c3a247bb97c193e577e5a03dEXCHSRV05APeadubcca_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+[CAUTION: Non-UBC Email]
+Salam alaikum Siam,
+
+Thank you for taking the time to meet with us earlier this afternoon. We wi=
+sh you the best of luck with your legal matters.  We apologize for not bein=
+g able to assist you but as we explained, you require a lawyer who has know=
+ledge and experience with labour law matters, especially for your case agai=
+nst Ontario Tech.  With that in mind, we would like to refer you to Champ L=
+aw Office. The referral is for any lawyers at Champ Law.  They are knowledg=
+eable and have a lot of experience.  Below is the link to the law office:
+
+https://champlaw.ca/lawyers/
+
+The other referral is for Daniel-Tucker Simmons at Avant Law LLP.  His emai=
+l is daniel@avantlaw.ca<mailto:daniel@avantlaw.ca>
+
+
+You can also reach out to the Canadian Muslim Lawyers Association.  They ha=
+ve a referral service.  You will need to fill in the blank: (area of practi=
+ce - labour law) and the area (location -Ontario).
+
+https://directory.cmla-acam.ca/
+
+With respect to your case in British Columbia, you can reach out to the CML=
+A (British Columbia Chapter) and do the same exercise.
+
+https://www.cmla-acam.ca/bc-chapter
+
+You can also contact the Arab Canadian Lawyers Association.  The link below=
+ will bring you to a list of lawyers who practice in the area of employment=
+ law.  There is a caveat: the list of lawyers was prepared post October 7, =
+2023 and these are lawyers who will provide their services for employees wh=
+o have been discriminated against for their support of Palestinian human ri=
+ghts.  That said, some of those lawyers may be able to provide you with a f=
+ree 30-minute consultation for your legal issues.
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://static1.squares=
+pace.com/static/61db30d12e169a5c45950345/t/6583c6e9a9722b646b2d117c/1703134=
+953499/Palestine+Support+Legal+Roster.pdf
+
+Please let us know if you require additional referrals.
+
+Thank you and good luck in your future endeavours.
+
+Warmest Regards
+
+Karine
+
+
+Karine Devost | Senior Legal Counsel
+National Council of Canadian Muslims (NCCM)
+705 - 116 Albert St., Ottawa, ON, K1P 5G3
+C: (613) 805-8685 | F: (613) 701-4062
+E:  kdevost@nccm.ca<mailto:kdevost@nccm.ca>
+www.nccm.ca<http://www.nccm.ca/>
+
+This communication (including any attachments) is intended only for the per=
+son(s) to whom it is addressed and may contain information that is privileg=
+ed and/or confidential. If you have received this message in error, please =
+notify the sender immediately and delete this message. Thank you.
+Cette communication est =E0 l'usage exclusif du destinataire indiqu=E9 ci-d=
+essus et peut contenir des informations confidentielles et prot=E9g=E9es pa=
+r le secret professionnel. Si vous avez re=E7u ce message par erreur, veuil=
+lez en informer imm=E9diatement l'exp=E9diteur et supprimez le courriel. Me=
+rci.
+
+
+--_000_c405a396c3a247bb97c193e577e5a03dEXCHSRV05APeadubcca_
+Content-Type: text/html; charset="iso-8859-1"
+Content-ID: <CEC6124F6EC05142ACF6A416CB5B4EC0@ead.ubc.ca>
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Aptos",sans-serif;
+	mso-ligatures:standardcontextual;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#467886;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:11.0pt;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"#467886" vlink=3D"#96607D" style=3D"word-wrap:=
+break-word">
+<table style=3D"border-collapse: collapse; padding-left: 0px;">
+<tbody>
+<tr>
+<td><font style=3D"font-family: Arial, sans-serif; font-size: 12px; font-st=
+yle: normal; font-weight: normal; color: #000000; background-color: #FFECB3=
+; line-height: 1.6; padding: 3px;">[<strong>CAUTION:</strong> Non-UBC Email=
+]</font></td>
+</tr>
+</tbody>
+</table>
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Salam alaikum Siam,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Thank you for taking the time to meet with us earlie=
+r this afternoon. We wish you the best of luck with your legal matters.&nbs=
+p; We apologize for not being able to assist you but as we explained, you r=
+equire a lawyer who has knowledge and experience
+ with labour law matters, especially for your case against Ontario Tech.&nb=
+sp; With that in mind, we would like to refer you to
+<i>Champ Law Office.</i> The referral is for any lawyers at <i>Champ Law.</=
+i>&nbsp; They are knowledgeable and have a lot of experience.&nbsp; Below i=
+s the link to the law office:<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><a href=3D"https://champlaw.ca/lawyers/">https://cha=
+mplaw.ca/lawyers/</a><o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">The other referral is for <span lang=3D"EN-US">Danie=
+l-Tucker Simmons at Avant Law LLP.&nbsp; His email is
+<a href=3D"mailto:daniel@avantlaw.ca">daniel@avantlaw.ca</a><o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">You can also reach out to the <i>Canadian Muslim Law=
+yers Association</i>.&nbsp; They have a referral service.&nbsp; You will ne=
+ed to fill in the blank: (area of practice - labour law) and the area (loca=
+tion -Ontario).<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><a href=3D"https://directory.cmla-acam.ca/">https://=
+directory.cmla-acam.ca/</a><o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">With respect to your case in British Columbia, you c=
+an reach out to the
+<i>CMLA (British Columbia Chapter)</i> and do the same exercise.<o:p></o:p>=
+</p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><a href=3D"https://www.cmla-acam.ca/bc-chapter">http=
+s://www.cmla-acam.ca/bc-chapter</a><o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">You can also contact the <i>Arab Canadian Lawyers As=
+sociation</i>.&nbsp; The link below will bring you to a list of lawyers who=
+ practice in the area of employment law.&nbsp; There is a caveat: the list =
+of lawyers was prepared post October 7, 2023
+ and these are lawyers who will provide their services for employees who ha=
+ve been discriminated against
+<u>for their support of Palestinian human rights</u>.&nbsp; That said, some=
+ of those lawyers may be able to provide you with a free 30-minute consulta=
+tion for your legal issues.&nbsp;
+<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/=
+https://static1.squarespace.com/static/61db30d12e169a5c45950345/t/6583c6e9a=
+9722b646b2d117c/1703134953499/Palestine&#43;Support&#43;Legal&#43;Roster.pd=
+f<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Please let us know if you require additional referra=
+ls.&nbsp; <o:p>
+</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Thank you and good luck in your future endeavours.<o=
+:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Warmest Regards<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Karine<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span lang=3D"EN-US" s=
+tyle=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#26=
+2626;mso-ligatures:none;mso-fareast-language:EN-CA">Karine Devost | Senior =
+Legal Counsel</span></b><span style=3D"font-family:&quot;Calibri&quot;,sans=
+-serif;color:#201F1E;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#C00000;mso-ligatu=
+res:none;mso-fareast-language:EN-CA">National Council of Canadian Muslims (=
+NCCM)</span></b><span style=3D"font-family:&quot;Calibri&quot;,sans-serif;c=
+olor:#201F1E;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span lang=3D"EN-US" styl=
+e=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black;=
+mso-ligatures:none;mso-fareast-language:EN-CA">705 - 116 Albert St., Ottawa=
+, ON, K1P 5G3&nbsp;</span><span style=3D"font-family:&quot;Calibri&quot;,sa=
+ns-serif;color:#201F1E;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p>=
+</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span lang=3D"EN-US" s=
+tyle=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:bla=
+ck;mso-ligatures:none;mso-fareast-language:EN-CA">C:&nbsp;</span></b><span =
+lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black;mso-ligatures:none;mso-fareast-language:EN-CA">(613)
+ 805-8685&nbsp;|&nbsp;<b>F</b>: (613) 701-4062</span><span style=3D"font-fa=
+mily:&quot;Calibri&quot;,sans-serif;color:#201F1E;mso-ligatures:none;mso-fa=
+reast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span lang=3D"EN-US" s=
+tyle=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:bla=
+ck;mso-ligatures:none;mso-fareast-language:EN-CA">E:&nbsp;</span></b><span =
+lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black;mso-ligatures:none;mso-fareast-language:EN-CA">&nbsp;</s=
+pan><span style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-seri=
+f;color:black;mso-ligatures:none;mso-fareast-language:EN-CA"><a href=3D"mai=
+lto:kdevost@nccm.ca" target=3D"_blank"><span style=3D"color:#0563C1">kdevos=
+t@nccm.ca</span></a></span><span style=3D"font-family:&quot;Calibri&quot;,s=
+ans-serif;color:#201F1E;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p=
+></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"font-size:=
+10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black;mso-ligatures:n=
+one;mso-fareast-language:EN-CA"><a href=3D"http://www.nccm.ca/" target=3D"_=
+blank"><span lang=3D"EN-US" style=3D"color:black">www.nccm.ca</span></a></s=
+pan><span style=3D"font-family:&quot;Calibri&quot;,sans-serif;color:#201F1E=
+;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span lang=3D"EN-US" styl=
+e=3D"font-family:&quot;Times New Roman&quot;,serif;color:black;border:none =
+windowtext 1.0pt;padding:0cm;mso-ligatures:none;mso-fareast-language:EN-CA"=
+>&nbsp;</span><span style=3D"font-family:&quot;Calibri&quot;,sans-serif;col=
+or:#201F1E;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p></o:p></span=
+></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span lang=3D"EN-US" styl=
+e=3D"font-size:8.0pt;font-family:&quot;Times New Roman&quot;,serif;color:#5=
+95959;border:none windowtext 1.0pt;padding:0cm;mso-ligatures:none;mso-farea=
+st-language:EN-CA">This communication (including any
+ attachments) is intended only for the person(s) to whom it is addressed an=
+d may contain information that is privileged and/or confidential. If you ha=
+ve received this message in error, please notify the sender immediately and=
+ delete this message.&nbsp;</span><span lang=3D"FR" style=3D"font-size:8.0p=
+t;font-family:&quot;Times New Roman&quot;,serif;color:#595959;border:none w=
+indowtext 1.0pt;padding:0cm;mso-ligatures:none;mso-fareast-language:EN-CA">=
+Thank
+ you.</span><span lang=3D"FR-CA" style=3D"font-family:&quot;Calibri&quot;,s=
+ans-serif;color:#201F1E;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p=
+></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span lang=3D"FR" style=
+=3D"font-size:8.0pt;font-family:&quot;Times New Roman&quot;,serif;color:#59=
+5959;border:none windowtext 1.0pt;padding:0cm;mso-ligatures:none;mso-fareas=
+t-language:EN-CA">Cette communication est =E0 l'usage
+ exclusif du destinataire indiqu=E9 ci-dessus et peut contenir des informat=
+ions confidentielles et prot=E9g=E9es par le secret professionnel. Si vous =
+avez re=E7u ce message par erreur, veuillez en informer imm=E9diatement l'e=
+xp=E9diteur et supprimez le courriel. Merci.</span><span style=3D"font-fami=
+ly:&quot;Calibri&quot;,sans-serif;color:#201F1E;mso-ligatures:none;mso-fare=
+ast-language:EN-CA"><o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_c405a396c3a247bb97c193e577e5a03dEXCHSRV05APeadubcca_--
