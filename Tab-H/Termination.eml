@@ -1,0 +1,3054 @@
+Delivered-To: mennatul@gmx.ualberta.ca
+Received: by 2002:a05:6e04:30c5:b0:35a:b692:9634 with SMTP id n5csp1495322ima;
+        Tue, 27 May 2025 06:08:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCW462psl5HflxckiBEQzgdmgItZI1jDJX4WQ17cBtDE8NO1bl+78Xa8N0vmUdaQZBNpCoSMrUSCJA==@gmx.ualberta.ca
+X-Google-Smtp-Source: AGHT+IG+uq2bHumK1mnV0ojBTertye/k+fyhwEDwHi6laepBBOuQcqI09jVBA8qT0pnfEFy2zdmT
+X-Received: by 2002:a05:6870:8986:b0:2c2:27c8:5865 with SMTP id 586e51a60fabf-2e861e5e21emr6421624fac.9.1748351320545;
+        Tue, 27 May 2025 06:08:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1748351320; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=O0vJB1pT+TPlFRt2VFFod40Mwk2auq71l3HS3ww0vbCkpPEVKpeLDEwr7E3UsoRLle
+         H/jaKZGXi1MwRTRkz61u+SNlYcp31bkfhuMF6dSf8l9tr4GIERXxQT22Vx6E88/5UIUS
+         kkuYLxuVjLRl/dnH2+V0enVhiiJHZ7g4Ayj2ElbtREuVvLPaTGRpgS9BPYAz5sNQdshs
+         7mGPj0/7M1ljc7TrHzbc99qe0Spt8hDMIWa07SI8bQnMD9TIsC0LqoiZYJKGQrl8UoAO
+         c8HfcAv3F/bR6WthOd4M1bpw1aAKiYU2yAfPvJ8oYqmslEPU34zNNTVILe34BQEDuICu
+         QtVQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:msip_labels:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:to:from:dkim-signature:delivered-to;
+        bh=478itJFhVCRj+AXdw0mXAgAfGI8M+xhue7YcwTUOUZw=;
+        fh=hLTbtgnl0GgKtMyoKgNcLvS00RuuuTLEDMTXKCCuYqY=;
+        b=SL9lfQmLKBsV8DfSkDC5KA1nNlp6dv9+4R3bEcqxKHj9QFp5iYb/RI7fWEz6rxjLuA
+         O7Thwn5zS5k6rXFV/WF+t+vwnLdeIyNPGPQVfW38Hv02ODew8Jk8kbcWnZZq3GL0Ljqf
+         WNXaVATYP3GEpmaKS5LexAoI1O7TR/AHJkSE+Z7f6P6KCQAkpKOqopaTW/JA+psVAc0O
+         G69d/6y1KgFRz/UCpFOQaAJ7TxxIdwBTQaVVWJE+1R8Jk4D6txGfwRV1egxtEs99AR0+
+         4komhoH3/g0dxQn08Z5t6TazwZeRU8mQWa4f4MxTQq3/2NBn8+ISkiRNhFvFP8hoOVJx
+         LMQw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@nserc-crsng.gc.ca header.s=selector1 header.b=mou+GyTW;
+       arc=pass (i=1 spf=pass spfdomain=nserc-crsng.gc.ca dkim=pass dkdomain=nserc-crsng.gc.ca dmarc=pass fromdomain=nserc-crsng.gc.ca);
+       spf=pass (google.com: domain of melanie.longpre-lanteigne@nserc-crsng.gc.ca designates 40.107.192.36 as permitted sender) smtp.mailfrom=Melanie.Longpre-Lanteigne@nserc-crsng.gc.ca
+Return-Path: <Melanie.Longpre-Lanteigne@nserc-crsng.gc.ca>
+Received: from mx-05.srv.ualberta.ca (mx-05.srv.ualberta.ca. [129.128.162.15])
+        by mx.google.com with ESMTPS id 3f1490d57ef6-e7d96bed03fsi5472401276.164.2025.05.27.06.08.40
+        for <mennatul@gmx.ualberta.ca>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 May 2025 06:08:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of melanie.longpre-lanteigne@nserc-crsng.gc.ca designates 40.107.192.36 as permitted sender) client-ip=40.107.192.36;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@nserc-crsng.gc.ca header.s=selector1 header.b=mou+GyTW;
+       arc=pass (i=1 spf=pass spfdomain=nserc-crsng.gc.ca dkim=pass dkdomain=nserc-crsng.gc.ca dmarc=pass fromdomain=nserc-crsng.gc.ca);
+       spf=pass (google.com: domain of melanie.longpre-lanteigne@nserc-crsng.gc.ca designates 40.107.192.36 as permitted sender) smtp.mailfrom=Melanie.Longpre-Lanteigne@nserc-crsng.gc.ca
+Received: by mx-05.srv.ualberta.ca (Postfix)
+	id 72896180097A; Tue, 27 May 2025 07:08:39 -0600 (MDT)
+Delivered-To: mennatul@ualberta.ca
+Received: from YT5PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11011036.outbound.protection.outlook.com [40.107.192.36])
+	by mx-05.srv.ualberta.ca (Postfix) with ESMTPS id 1C8051800947
+	for <mennatul@ualberta.ca>; Tue, 27 May 2025 07:08:39 -0600 (MDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xrBrH58IZnjKwXVAsxWpQhK1msM4rtf4ZIRy6QOAjxzVXd7bZbpVagG/Fq2Kjl7TOVU2sOO1ACGIoL8WDGNroo9ZWf2zUhtAsI5EGK+5AYNvcfik3HnRG5ErS5wgu0n2sGX86mOS3lEsVpYJI8vM66Z+47fC1OJoHfPfUdxn20nkC9FUsJ03bC7DAIddkoSi+iykVbG1mZW+UbFdeQY+HQBQEax1lE2lSyR74wi8AYPvaNY8vIxU0AESa+Y7vhHJNIqnptf78LKcGe5tp0AJuhaeUP+v7ryhFlkjtlMG3EcxOabH9fLYbfhRNRIMNmGptjbjdGD8fFSzMr95snllcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=478itJFhVCRj+AXdw0mXAgAfGI8M+xhue7YcwTUOUZw=;
+ b=R5of1XzaNu/g3g9QXaW8vKnZXp/Mfz+RytI6I74aQIHZ6oIvnD+9O3cDviBVw1eOW5+umlc0UXXPeTdDNpYPt0TqQRg6mIlEadt6HS0WTGSJl+JoQlPjaIOFwefWSQBWYnYT2l0AlNDy/Gp8IXhxjTA/MM+ugkOiihoqqQlaAoCUJ7I4A32YvhG1P+mriGliJPycjvAyI3MKf7BAcUh+jGlLUAyc+zFNckkIQXC13Rjh9fE1gzHvRtL2QTDes+tSaSlEMrBLEi5Oo1yltvZCVmgDHD++25UsGlMKK6APT6MqUOm8fsJx90eyVxKrUvbiiYmRYVrxRxnK8XxrxRckhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nserc-crsng.gc.ca; dmarc=pass action=none
+ header.from=nserc-crsng.gc.ca; dkim=pass header.d=nserc-crsng.gc.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nserc-crsng.gc.ca;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=478itJFhVCRj+AXdw0mXAgAfGI8M+xhue7YcwTUOUZw=;
+ b=mou+GyTWo3GrJ7fp4ZUs+yLWY+RBS/zq3X+ev+74V4GnpXKMgqj7cfAsAmMfCBcgsKHlg7uTWwLUkNh/MgxyHxZD4YL/gCidOCF+7pCWqP/+v5kWRhEe8EDJ1tKzX96e208Dzy7n+UvzOFq98uVQotZeQBbBBuJB8vNvMZ+gj6I=
+Received: from YT1PR01MB2458.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:5::13)
+ by QB1PPF80340BAD8.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c08::256) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.29; Tue, 27 May
+ 2025 13:08:31 +0000
+Received: from YT1PR01MB2458.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::ac54:1ce6:5cac:5f86]) by YT1PR01MB2458.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::ac54:1ce6:5cac:5f86%5]) with mapi id 15.20.8769.025; Tue, 27 May 2025
+ 13:08:31 +0000
+From: =?iso-8859-1?Q?Longpr=E9-Lanteigne=2CM=E9lanie?=
+	<Melanie.Longpre-Lanteigne@NSERC-CRSNG.GC.CA>
+To: "Siam, Mennatullah" <mennatullah.siam@ubc.ca>
+CC: "Penaflor,Sonia" <sonia.penaflor@ubc.ca>, menna seyam
+	<menna.seyam@gmail.com>, Mennatullah Siam <mennatul@ualberta.ca>,
+	Z-GrantsAdministration <Z-CSSDFIN@NSERC-CRSNG.GC.CA>, "Liu,Brenda"
+	<Brenda.liu@ors.ubc.ca>, "Pelingon,Krisch"
+	<research.statements@finance.ubc.ca>
+Subject: RE: [Termination] Grants PI Mennatullah Siam  [SRQ1209405]
+Thread-Topic: [Termination] Grants PI Mennatullah Siam  [SRQ1209405]
+Thread-Index: AQHbzwhxFFko7D4S7k6ZAQ/GSga36Q==
+Date: Tue, 27 May 2025 13:08:31 +0000
+Message-ID:
+ <YT1PR01MB24588DF0FC039F0B271D9479AD64A@YT1PR01MB2458.CANPRD01.PROD.OUTLOOK.COM>
+References:
+ <YQBPR0101MB52416535A820D6B34AA0635AFB64A@YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM>
+ <d2fb3ce9-8488-4f77-b9f1-9b680e36d7d5@OTTANEXHYB02.nserc.ca>
+ <YQBPR0101MB52412D27BC078AA60F92821AFB64A@YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM>
+In-Reply-To:
+ <YQBPR0101MB52412D27BC078AA60F92821AFB64A@YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ =?iso-8859-1?Q?MSIP=5FLabel=5Fa3feaad5-e820-4060-90ca-601aaa20a1f0=5FActi?=
+ =?iso-8859-1?Q?onId=3D9296db67-d2d9-4c6e-bfcb-4e8d28ecd219;MSIP=5FLabel?=
+ =?iso-8859-1?Q?=5Fa3feaad5-e820-4060-90ca-601aaa20a1f0=5FContentBits=3D0;?=
+ =?iso-8859-1?Q?MSIP=5FLabel=5Fa3feaad5-e820-4060-90ca-601aaa20a1f0=5FEnab?=
+ =?iso-8859-1?Q?led=3Dtrue;MSIP=5FLabel=5Fa3feaad5-e820-4060-90ca-601aaa20?=
+ =?iso-8859-1?Q?a1f0=5FMethod=3DPrivileged;MSIP=5FLabel=5Fa3feaad5-e820-40?=
+ =?iso-8859-1?Q?60-90ca-601aaa20a1f0=5FName=3DProtected_A_--_Prot=E9g=E9_A?=
+ =?iso-8859-1?Q?;MSIP=5FLabel=5Fa3feaad5-e820-4060-90ca-601aaa20a1f0=5FSet?=
+ =?iso-8859-1?Q?Date=3D2025-05-27T13:08:28Z;MSIP=5FLabel=5Fa3feaad5-e820-4?=
+ =?iso-8859-1?Q?060-90ca-601aaa20a1f0=5FSiteId=3Dfbef0798-20e3-4be7-bdc8-3?=
+ =?iso-8859-1?Q?72032610f65;MSIP=5FLabel=5Fa3feaad5-e820-4060-90ca-601aaa2?=
+ =?iso-8859-1?Q?0a1f0=5FTag=3D10,_0,_1,_1;?=
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=NSERC-CRSNG.GC.CA;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT1PR01MB2458:EE_|QB1PPF80340BAD8:EE_
+x-ms-office365-filtering-correlation-id: ffd9dc52-6d51-4e84-8e7e-08dd9d1f9466
+x-ld-processed: fbef0798-20e3-4be7-bdc8-372032610f65,ExtAddr,ExtFwd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|376014|1800799024|8096899003|19033499003|38070700018;
+x-microsoft-antispam-message-info:
+ =?iso-8859-1?Q?AL8BimASZ8+UKKnC0FHm55AU5FCNASV13dbx4yupZDoNf7jMWrpxB+OM/K?=
+ =?iso-8859-1?Q?5FX3dQe0sPg6cf9+mX914M478xO4v8sfeGwZsZp5yia/s3tQMf+vO2tqwa?=
+ =?iso-8859-1?Q?1F3bOs2rZM4+/8IkEQgQX+A80oCbnE/yQ4RbNNs232GcmJHmTi7ueMZu4C?=
+ =?iso-8859-1?Q?T6LAT7yfcWz795zCegvcKMhPLLCl4WiMHdPV5NBIMTx9tb209eYb6dUAjr?=
+ =?iso-8859-1?Q?eqEsu3QqqmhuI58qUsVrkedhPtA89mHBqGW3sOOL0ljA/NsxrIwdc7ia7u?=
+ =?iso-8859-1?Q?n79XsHwLNdg7Bg5SXQqDHSM6ZPnF2lD6kfMKcJd2YjzYNLAiAopV+0Vlk7?=
+ =?iso-8859-1?Q?2CilQhQQBacHL8D8gFNEsZpswm50hxXeCysLBk/38vzsXXCcCqlc2G5h5y?=
+ =?iso-8859-1?Q?ufdj4A+bRg1etQA0cpv4kIJOsELZXMfolnJOOto2uVxga2NZrMELeV34w7?=
+ =?iso-8859-1?Q?iel6P+DhaTt3xF9TOgAKNfDJLkDt/APh2DB6s+bJWl4DqcWaDLpY8iVN5A?=
+ =?iso-8859-1?Q?HKglMkcbghovPhXKujofEDBe02vkpMJfByBM9W8fx2L1g/laP7pArI8j23?=
+ =?iso-8859-1?Q?WZnpjf59VbQGqWpEahrZfJkjiVI3qxsZRl798a9U8HdBHzNKir/Q3YbYO3?=
+ =?iso-8859-1?Q?1aMxkP00up70O+K5899oPCOwfd3vNWkivOxommIcegLOVGwEQiABqPWAW6?=
+ =?iso-8859-1?Q?Uwuopnw5h39fFep5bTLVwPADezgZE57R8FO0O+2Rj+e2TYcAn+UhG3uoMU?=
+ =?iso-8859-1?Q?IApqNMueYcvbFndRy9H0Uh67Ngofmp3hb6vH/lkDQmT9S4a1M81ovgbbY2?=
+ =?iso-8859-1?Q?wrfVR2hMXEbXSkdOkrLz7JG+uSi734HL1zG4E0MO0yUwUWse210phoz95i?=
+ =?iso-8859-1?Q?N0x6c4Ei2kPByWZmaYVijUrNwpi7VYbGcigU3WHV0FAalszORPnwwW0MwX?=
+ =?iso-8859-1?Q?ZUfJusELRWVvVQR/o90YuCOyxmDLpd5CQyiCBmQ2NEtRJiyxGoq/sQPgUW?=
+ =?iso-8859-1?Q?pa7aJtip4cn52k6zYADc/zsLPB/8HDfK3UZMV5cE1IbkLNNIR2DQN20vfS?=
+ =?iso-8859-1?Q?nzH5eSJ59+Inw/WLpn+lFOnxJDxN0pvDYlpcUA+SikozxQbuQO2asP49m0?=
+ =?iso-8859-1?Q?cgr/yRtfJbmZ8tt4ZAaa8lNpue2LbAa61jzETVugFyEFwS2dKw43MtH1YE?=
+ =?iso-8859-1?Q?AfxTJdqCwSAzmzzceJQwLUdUwuIoCXULo3sFYf9D6a+MXRWhsHA9RQuTOD?=
+ =?iso-8859-1?Q?VFqMJ6de91qc3LFfB3vMP2hhNpVXiJg8P1Z+D5Cr2grFQ+69GV2X9d9/zJ?=
+ =?iso-8859-1?Q?KKFUzy8m/axO2yRHWdm0IAKco52D+KqwZ+pxU1jsGMe4P1Ms3azprO+xAS?=
+ =?iso-8859-1?Q?pEzYe+Xb8FuwZvB3S8Mj82hgL8HcTmJu6A6LFGhUmWB4lDbI78P88ezl5R?=
+ =?iso-8859-1?Q?SQrlmWAeq91FfCiyFG1W//kgfy8JHKaJfpuVIvVWBbLvhJasmhh9hEQnnU?=
+ =?iso-8859-1?Q?wYh/GNS8oE93NA8Ktzt02f8gPoUzpegVauQbmJSDe75g=3D=3D?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT1PR01MB2458.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(8096899003)(19033499003)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?KP/RV6JIImZsCJEgKTBnWSvzqul3vYEztzGxeUxKhaT7GdOwK5XAOQpAGK?=
+ =?iso-8859-1?Q?DtxjGy4IMKTm2GEirJJ05Cpwr8imr8E8K+5r4+Tn7jhdcmvd2Tu39BZqS1?=
+ =?iso-8859-1?Q?uNjGQKo4V2RDvNMxD1BarRo89J8BuWs+bo6Bz7J0HHuOhBXvP+SLbT1O3j?=
+ =?iso-8859-1?Q?GSoGEI3ceKKSTWVj3iVf+IUA/7NGVhJP93L+b5EYyG/Q/7qHucqbudLpJw?=
+ =?iso-8859-1?Q?5r6+fhvi+NFOhuLYohDAoo0LkUZrWyHW9lf0WL1RhN3Rms5pkzbVXr5nzv?=
+ =?iso-8859-1?Q?1RK+Qu01f2opKkZecPcBoRRlHNykE3CZJS0XrWNrP4m8bcPlOEbgKqiw/n?=
+ =?iso-8859-1?Q?MjjVKFNY7M141qv83DU9gmtF7MaIUWR7CMz4RZBP/9Hh4OSMWfCvbVDHMq?=
+ =?iso-8859-1?Q?FS/k1xlCa10C5IO3EWEzJFKzri+QQRinMlmHIUAuFQbB3+RX3Ci8BvbI/e?=
+ =?iso-8859-1?Q?pqmVwxU5r3oloM+xHV9Ej8LWaTLk0Spig0rFoyxEPm4BMVMj3GSec8AJh6?=
+ =?iso-8859-1?Q?VPgPlgBgYHj9iSEVfSLDvpfoFzoHE6qVzKAcRsXHHqB3QzzKMHX3JKQ0Ld?=
+ =?iso-8859-1?Q?k6NjesRI0Xw1zI/Awgn9nwgXtFuwjvchlpyGikGifT56umYOZsl7US/cGw?=
+ =?iso-8859-1?Q?R4LgOBdMWSmDfqm2pa63MpTJR2WQof1ihQaKGElK8fmJYpXrLl49v5vNgq?=
+ =?iso-8859-1?Q?LWpXs0U/6VkkNb1d+tlKR1V88fPwZT63kjEZN/1rFAR6nvXq9jy2P5mfrs?=
+ =?iso-8859-1?Q?sEye0SPMATUEsXr7D7+/4E4JClBhCh/O5kSPDDpA1fcPvvJasUK12Kdmmx?=
+ =?iso-8859-1?Q?TyM8AnvTSlKOWyyB2rFDd2ZstNYyWQfFg7+XC5VvSHZQ/GB9xja0jkZoJF?=
+ =?iso-8859-1?Q?2gSyfpUx7o/nAgocHpLx/sq67GzNXk9D5sO+WBhPHMvJyxCumVhVWUKCCK?=
+ =?iso-8859-1?Q?VIaYQxg+iN4EABjx95N7siIz7gp51eauAjPLLNmZ3ZhOuq1DIt1Ta/tWBF?=
+ =?iso-8859-1?Q?IWn+4pxLmVHF1mvnnBo+PdQ3wMJviasI2Fhf+xHg0EoPbBcwqljWLc0N0w?=
+ =?iso-8859-1?Q?tZt4RFE64MAwb+qem87/r82HJnIXoXlNEM59slZTUbnl59pScnySuTD5Zd?=
+ =?iso-8859-1?Q?sKaA2mmHv3LsZvoj05JMI2tTk5c/OJjRp3zHEEklOXA56lCFtP5KF2dwBC?=
+ =?iso-8859-1?Q?t+jaN9WwDHUA9T9xcOisOn8OLSf8J4ljGpOQ2zjF4XKESIXI14UAS1Jk6Y?=
+ =?iso-8859-1?Q?usk8DYbsBtweSSMxfZWsYuBltpa/spf7PF+W+ycjdk+dS/0Xd7oZowvPJ7?=
+ =?iso-8859-1?Q?CST537RqPQFDzqKlp49AhxgJtCdwYYa/Zlhrw5mM5umeqVGh0tfLbtE7fj?=
+ =?iso-8859-1?Q?rdtNDcR8Hw8rB7wsq+zImIBO/1ljNWi/TXN9rlgDmCtPHhZlj4/W4LpQVW?=
+ =?iso-8859-1?Q?0mc3pTK9nQeRJ8ZtH3Gm7Z/iZrHUQ0azkMyMFQ9qcoNwpbXNjxZRFoyzYx?=
+ =?iso-8859-1?Q?x9scAfvpkB1Bpm9Q3jLdHrrZeSLOWBp4yZ/YDWoxgHPbPEC5yTh6N/hdRq?=
+ =?iso-8859-1?Q?rp0KDlUIq5Wh0TSQiCgD78lTiOImI9ygAOVc+4HIUMSNJskYdukSLMb0IU?=
+ =?iso-8859-1?Q?0KOcoehGkOebx8phB/BCt19ttd7Bx7HXZACrKYNTvCJkixFZVcQ2dZw0Qh?=
+ =?iso-8859-1?Q?6F0Txc3BStUX+P7l4Uk=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT1PR01MB24588DF0FC039F0B271D9479AD64AYT1PR01MB2458CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: nserc-crsng.gc.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT1PR01MB2458.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffd9dc52-6d51-4e84-8e7e-08dd9d1f9466
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 May 2025 13:08:31.5165
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: fbef0798-20e3-4be7-bdc8-372032610f65
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: QF12o62rcJ4Yy1luuTdd7biigimgNYnhTNUz4b89uBGL8Qw7t1IlL188PfdSjUnMR5Px2FPu1zt0W0f1MYns5Q7afHSaW/YHE2Pb0/XPgHx1BJMBpFub9XgFGfI4g5ZACfbwXbqQJsBsnziEFCLEEQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: QB1PPF80340BAD8
+
+--_000_YT1PR01MB24588DF0FC039F0B271D9479AD64AYT1PR01MB2458CANP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Protected A | Prot=E9g=E9 A
+
+Good morning
+
+Thank you for sending the information relating to the termination of your N=
+SERC grants.
+
+I am in the process of verifying the expenses listed as outstanding commitm=
+ents with our use of grants funds team. I will confirm some of them shortly=
+.
+
+However, I would like to point out that the travel expenses for the confere=
+nce June 10-15 for yourself are NOT eligible. Travel and subsistence costs =
+happening after the termination of a grant are ONLY eligible for students o=
+r postdocs, not for the grantee. Therefore, that expense must be removed fr=
+om the F303.
+
+Also note that the termination of your grants will be May 27, 2025 as pre-d=
+efined. However, it is not always possible for institutions to provide sign=
+ed documents to NSERC at that date. Usually, they are submitted in the foll=
+owing month as they reconcile the previous month. Therefore, we must be pat=
+ient with the institution.
+
+Regards
+Melanie
+
+The Awards Administration Team | L'=E9quipe d'administration des octrois
+Finance and Awards Administration Division | Division des finances et de l'=
+administration des octrois
+Natural Sciences and Engineering Research Council of Canada | Conseil de re=
+cherches en sciences naturelles et en g=E9nie du Canada
+Social Sciences and Humanities Research Council of Canada | Conseil de rech=
+erches en sciences humaines du Canada
+125 Zaida Eddy Private, 2nd floor, Ottawa ON  K1R 0E3 | 125, priv=E9 Zaida =
+Eddy, 2e =E9tage, Ottawa ON  K1R 0E3
+
+E | C   grantsadministration@nserc-crsng.gc.ca<mailto:grantsadministration@=
+nserc-crsng.gc.ca> | administrationdessubventions@nserc-crsng.gc.ca<mailto:=
+administrationdessubventions@nserc-crsng.gc.ca>
+E | C   grantsadministration@sshrc-crsh.gc.ca<mailto:grantsadministration@s=
+shrc-crsh.gc.ca> | administrationdessubventions@sshrc-crsh.gc.ca<mailto:adm=
+inistrationdessubventions@sshrc-crsh.gc.ca>
+TEL | T=C9L.  343-552-9123
+
+Please note that we are presently receiving a high volume of requests.  A d=
+elay of more than 2 weeks is expected in processing requests received.   Th=
+ank you for your patience.
+
+Veuillez noter que nous recevons pr=E9sentement un volume =E9lev=E9 de dema=
+ndes. Il pourrait y avoir un d=E9lai de plus de 2 semaines dans le traiteme=
+nt de requ=EAtes re=E7ues. Merci pour votre patience.
+
+
+
+Protected A | Prot=E9g=E9 A
+
+From: Siam, Mennatullah <mennatullah.siam@ubc.ca>
+Sent: May 27, 2025 2:25 AM
+To: Z-GrantsAdministration <Z-CSSDFIN@NSERC-CRSNG.GC.CA>; Longpr=E9-Lanteig=
+ne,M=E9lanie <Melanie.Longpre-Lanteigne@NSERC-CRSNG.GC.CA>
+Cc: Penaflor,Sonia <sonia.penaflor@ubc.ca>; menna seyam <menna.seyam@gmail.=
+com>; Mennatullah Siam <mennatul@ualberta.ca>
+Subject: Fw: [Termination] Grants PI Mennatullah Siam
+
+Hello NSERC administration team and Melanie,
+
+      I am copying UBC ORS on that email. I am requesting the termination o=
+f the grants to be on May 27th, 2025 and I would like to ensure all the doc=
+uments are signed from the Financial officer on UBC side today so I can sig=
+n them and send them to NSERC. I will be printing and signing all the docum=
+ents today by 3 pm PST, regardless of whether ORS have signed them or not. =
+My apologies, but to the best of my knowledge, I think as the grant recipie=
+nt, I have the right to control the date of the termination. I have sent ab=
+out that termination to ORS since before May 1st , so you had ample time to=
+ sort things out.
+
+Note, if not all the documents were signed today from both UBC and me I wil=
+l have to unfortunately add this as part of the discrimination complaint to=
+ the tribunal that I am prevented from terminating my grants, although they=
+ terminated my appointment at UBC. So I hope UBC ORS can cooperate with thi=
+s. Thank you.
+
+My ubc email will be disabled on May 28th , so please for future correspond=
+ence use the gmail and ualberta emails that I copied on this email.
+
+I here attach the following, requesting UBC signature on the ones not signe=
+d yet (grants_termination_docs.zip):
+
+  1.  Grant Amendment forms (ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-202=
+4-00468)
+
+  1.  Form300 FY2024-2025 (ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024-=
+00468)
+
+  1.  Form 300 FY2025-2026 (ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024=
+-00468)
+
+  1.  Form 303 ((ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024-00468)
+Let me know if I have something wrong or missed something.
+
+I am also attaching the following documents to provide reasoning on these i=
+tems (reasoning_docs.zip): (will send in another email since size constrain=
+ts prevented all in one email)
+
+  1.  Additional Excel sheet clarifying how all the expenses were computed.
+
+  1.  Why I am terminating the grants
+
+  1.  Why Faegheh Yeganli was hired as CS Science researcher not postdoc, b=
+ased on a decision from UBC CS staff and advice of the options that only in=
+cluded either a research staff or research associate. Due to the wait time =
+with 30 days for the Ad for research associate I had to resort to hiring Fa=
+egheh part-time as research staff to support the ongoing project with my MS=
+c student already.
+
+  1.  I also attached my postdoc Ad on UBC website and the two candidates t=
+hat I selected to hire that were high quality with top-tier publications bu=
+t I was denied that through either postponing or terminating my appointment=
+.
+
+  1.  I am adding the reasoning on why I resorted to reimburse Omidreza Hei=
+dari (MSc student in Concordia) for 2K as part of being a visiting student =
+to my lab. Since CS department told me the only option was to hire him as s=
+taff and I did not want to resort to that option and waste my grant money. =
+Nonetheless, I needed to continue the project we started on video segmentat=
+ion.
+
+  1.  Similarly, for Leila Cheshmi I am adding the reasoning on why reimbur=
+sing her for 3K as part of being a visiting researcher to my lab as we are =
+continuing our work that she started in her MEng under my supervision at On=
+tario Tech.
+
+Finally, I am adding documentation required to support the requested amount=
+s in F303 (F303_supporting_docs.zip):
+
+  1.  Hotel stay for CVPR 2025 that was already paid to the hotel and attac=
+hing its receipt, I was already reimbursed this amount from UBC, awaiting t=
+o provide the invoice end of June.
+
+  1.  Poster printing for CVPR 2025 that was already paid, and attaching it=
+s receipt.
+
+  1.  3K for Leila from the above point 5
+
+  1.  4K for the Journal publishing fees that I already clarified to both U=
+BC and NSERC
+
+  1.  Faegheh Yeganli outstanding salary for the next 6 months with the ema=
+il from UBC Finance clarifying how her salary is computed.
+
+Awaiting UBC ORS signature on the docs, if you may please ensure all are fi=
+nalized today before 3 pm PST so I can sign and send to NSERC.
+Thank you.
+
+Best regards,
+
+________________________________
+From: postmaster@nserc.ca<mailto:postmaster@nserc.ca> <postmaster@nserc.ca<=
+mailto:postmaster@nserc.ca>>
+Sent: May 27, 2025 9:17 AM
+To: Z-CSSDFIN@NSERC-CRSNG.GC.CA<mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA> <Z-CSSD=
+FIN@NSERC-CRSNG.GC.CA<mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA>>
+Subject: Undeliverable: [Termination] Grants PI Mennatullah Siam
+
+[CAUTION: Non-UBC Email]
+
+Your message wasn't delivered to anyone because it's too large. The limit i=
+s 20 MB. Your message is 24 MB.
+
+Z-CSSDFIN@NSERC-CRSNG.GC.CA<mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA>
+Your message couldn't be sent because it's too large.
+
+
+
+
+
+
+Diagnostic information for administrators:
+
+Generating server: OTTANEXHYB02.nserc.ca
+
+Z-CSSDFIN@NSERC-CRSNG.GC.CA<mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA>
+Remote Server returned '550 5.2.12 RESOLVER.RST.SendSizeLimit.Org; message =
+too large for this organization'
+
+Original message headers:
+
+Received: from OTTANEXHYB02.nserc.ca (172.30.8.26) by OTTANEXHYB02.nserc.ca
+
+ (172.30.8.26) with Microsoft SMTP Server (version=3DTLS1_2,
+
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.986.5; Tue, 27 May=
+ 2025
+
+ 02:17:48 -0400
+
+Received: from YT3PR01CU008.outbound.protection.outlook.com (40.93.18.3) by
+
+ OTTANEXHYB02.nserc.ca (172.30.8.26) with Microsoft SMTP Server
+
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2=
+.986.5
+
+ via Frontend Transport; Tue, 27 May 2025 02:17:48 -0400
+
+ARC-Seal: i=3D3; a=3Drsa-sha256; s=3Darcselector10001; d=3Dmicrosoft.com; c=
+v=3Dpass;
+
+ b=3DbAqRPTUANIOht03IAkKnYWVT850kp+MEx7kUj1L504IDZcjIrMqXqHGWEhEpApCXUHB/jU=
+DtuwHMAzlK8d781vN4KquoioLydgK59HwAvBk4qDkC802ojwKJJNqcRFk7+4dlY6cIJDbGGBhKo=
+pVz0NJkbn6VoivCs3XRkeCAqyEjEtFh9VICKrYcJA1rz15Aj7T9wWujiKtWlTP3o1H9fp9qzGsN=
+SdVaaWeilz27fJQbRoJGALxLKI7f2UpMmHB7YU9q7kIzrxG8CF+AjJYetYDmjtyGqD+KTIT5SbF=
+EvJOl11COkKAt/KHJwH7CUzjl7DncHEx5vorifguX8OCUnQ=3D=3D
+
+ARC-Message-Signature: i=3D3; a=3Drsa-sha256; c=3Drelaxed/relaxed; d=3Dmicr=
+osoft.com;
+
+ s=3Darcselector10001;
+
+ h=3DFrom:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-A=
+ntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Ex=
+change-AntiSpam-MessageData-1;
+
+ bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB5GlQmk=3D;
+
+ b=3DnnhmbpZoiMr0FPrFtSOwrH/VaNEhm+vOg2pJEkZeALH424Gg1FZYcopq0YQdWSe9MDgJxU=
+sHdGVQZKsD2kn02Jb8G8eXraV9/d8T30beQP3sTxbwyDhpywtUt//K9OTeuOYo/Sk2NZoqZrd1O=
+fKeIopnZMjzhG//IuRiVzXX2ixXAgOz880xzaOUnglPXZASH9zCkvWNs2Uwjav52uHEfyd6FG1Y=
+uMA2TjdJUilGut9dEeRQwhyMd6JwsYvDVHKKgJK5RLgvStU1/qBr3HfNW+rnT7tLRihuf+R73Bu=
+CEG0juwkqhUmgmqM2DsE91Pu16+cO2hUSHd1k/NY7gtwOMA=3D=3D
+
+ARC-Authentication-Results: i=3D3; mx.microsoft.com 1; spf=3Dpass (sender i=
+p is
+
+ 142.103.117.135) smtp.rcpttodomain=3Dnserc-crsng.gc.ca smtp.mailfrom=3Dubc=
+.ca;
+
+ dmarc=3Dpass (p=3Dnone sp=3Dnone pct=3D100) action=3Dnone header.from=3Dub=
+c.ca; dkim=3Dpass
+
+ (signature was verified) header.d=3Dubc.ca; dkim=3Dpass (signature was ver=
+ified)
+
+ header.d=3Dubcca.onmicrosoft.com; arc=3Dpass (0 oda=3D1 ltdi=3D1
+
+ spf=3D[1,1,smtp.mailfrom=3Dubc.ca] dkim=3D[1,1,header.d=3Dubc.ca]
+
+ dmarc=3D[1,1,header.from=3Dubc.ca])
+
+Resent-From: <Z-CSSDFIN@NSERC-CRSNG.GC.CA<mailto:Z-CSSDFIN@NSERC-CRSNG.GC.C=
+A>>
+
+ARC-Seal: i=3D2; a=3Drsa-sha256; s=3Darcselector10001; d=3Dmicrosoft.com; c=
+v=3Dpass;
+
+ b=3DKUh2v3Ek4j2gbRRzmyeh991dFVWUrdPvgd1kug1GyaJvXEU1nAtdEoA2yoOJt7/F9d39Kh=
+RnUPpeFBbxYFIRzQVmJbcSUKU+kLPRpp8+MQVlRVLaNF5RSjQ8xHz/MxqZrnVZYfm+/zhOQAR0c=
+Mzp9ZcgrhmLqZcew3QlDqX77PWkgrUV6kxGgnJ2BDx7RPrPgiAAXIfhPNz9Bl4iU9m6DQZ9Hk8g=
+biyJKHaEiga00wS/HHVC/eFxtlEJpGCqYCbPxAVbgQQpBqDWLpoANw9yMz7gk6n9ZjX09sU91Kn=
+tZReuUQCePmkGR99gw7zE/N1qsIUYXc3/rrzd/8jXd1MAdQ=3D=3D
+
+ARC-Message-Signature: i=3D2; a=3Drsa-sha256; c=3Drelaxed/relaxed; d=3Dmicr=
+osoft.com;
+
+ s=3Darcselector10001;
+
+ h=3DFrom:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-A=
+ntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Ex=
+change-AntiSpam-MessageData-1;
+
+ bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB5GlQmk=3D;
+
+ b=3Df4qDjCUi+CtI39ONuWjmPlUZR2obs8tp2DiFHI06dD3ur++ZlD1VCjdKOJMNpu9Dg5FSmx=
+iavqsbyvd5XJ2nLN09IDVh3Ds8VZTPkPTYfywLxVr6/yF2993t3GrezCtiA8Rrxqvyrnf+aYcMO=
+mrUtSeOlmiklCKoomtNJbRVveIfaUUmV0MJF/SV4sxnPuShcm6Hj0yJKJkb3CHlSogM7UUSIS20=
+M6CAybbx3g6kjRXZ3DKwx3teL6DodPn22o3nAFmLmfuPalduEROtT+tg4qz7HJb4ORvSrO0r0rv=
+GfqBG1sc1LRElMvobIeXY6ToVqPu/v3D+wQtsGYbXR4VpIQ=3D=3D
+
+ARC-Authentication-Results: i=3D2; mx.microsoft.com 1; spf=3Dpass (sender i=
+p is
+
+ 142.103.117.135) smtp.rcpttodomain=3Dnserc-crsng.gc.ca smtp.mailfrom=3Dubc=
+.ca;
+
+ dmarc=3Dpass (p=3Dnone sp=3Dnone pct=3D100) action=3Dnone header.from=3Dub=
+c.ca; dkim=3Dpass
+
+ (signature was verified) header.d=3Dubc.ca; dkim=3Dpass (signature was ver=
+ified)
+
+ header.d=3Dubcca.onmicrosoft.com; arc=3Dpass (0 oda=3D1 ltdi=3D1
+
+ spf=3D[1,1,smtp.mailfrom=3Dubc.ca] dkim=3D[1,1,header.d=3Dubc.ca]
+
+ dmarc=3D[1,1,header.from=3Dubc.ca])
+
+Received: from YT3PR01CA0127.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:83::2=
+0)
+
+ by YQBPR01MB10916.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:97::20) with
+
+ Microsoft SMTP Server (version=3DTLS1_2,
+
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Tue, 27 =
+May
+
+ 2025 06:12:54 +0000
+
+Received: from YT2PEPF000001CE.CANPRD01.PROD.OUTLOOK.COM
+
+ (2603:10b6:b01:83:cafe::55) by YT3PR01CA0127.outlook.office365.com
+
+ (2603:10b6:b01:83::20) with Microsoft SMTP Server (version=3DTLS1_3,
+
+ cipher=3DTLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; =
+Tue,
+
+ 27 May 2025 06:12:54 +0000
+
+Authentication-Results: spf=3Dpass (sender IP is 142.103.117.135)
+
+ smtp.mailfrom=3Dubc.ca; dkim=3Dpass (signature was verified)
+
+ header.d=3Dubc.ca;dkim=3Dpass (signature was verified)
+
+ header.d=3Dubcca.onmicrosoft.com;dmarc=3Dpass action=3Dnone
+
+ header.from=3Dubc.ca;compauth=3Dpass reason=3D100
+
+Received-SPF: Pass (protection.outlook.com: domain of ubc.ca designates
+
+ 142.103.117.135 as permitted sender) receiver=3Dprotection.outlook.com;
+
+ client-ip=3D142.103.117.135; helo=3Desvaout5.mail-relay.ubc.ca; pr=3DC
+
+Received: from esvaout5.mail-relay.ubc.ca (142.103.117.135) by
+
+ YT2PEPF000001CE.mail.protection.outlook.com (10.167.241.37) with Microsoft
+
+ SMTP Server (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA=
+384) id
+
+ 15.20.8769.18 via Frontend Transport; Tue, 27 May 2025 06:12:54 +0000
+
+DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Dsimple/simple;
+
+  d=3Dubc.ca; i=3D@ubc.ca<mailto:i=3D@ubc.ca>; q=3Ddns/txt; s=3Ds1; t=3D174=
+8326375;
+
+  x=3D1779862375;
+
+  h=3Dfrom:to:cc:subject:date:message-id:mime-version;
+
+  bh=3DYFBKsFCxJsw16QfOBs4r4yd4s9PjdWcZEKOU9rYm6eI=3D;
+
+  b=3DKuWvs9eu0yftVnbVRNdiYS3xkUewANPD+bo45kWmaPHuIeSqSxwXKzRI
+
+   qUYqYO07Pt4pXSvWSIy8daAEzcSjBKI5dtuXKlhCCqRQ8ly2nkMJeCxyz
+
+   zCPW2mUql4yg7/+bg4BPGwF+m1/DaHULNK7GprGV/35zpJwF7veTt5GnP
+
+   J2vS91Ak+GEdUOCU5IT/KPNAFlDuiP1GsJ3qNxPCBVn98itnkUu++Of2I
+
+   DN7KXtAMI3A2WLz9xVWxfnycPYEfaNd7Vr9eqDG8JSIn4dXS4tbcQr0nY
+
+   0SHgs3AUh9w04i804XK6MSQb8xFcbIIHMg90OgbONCW4tPu/w1hydINsY
+
+   g=3D=3D;
+
+X-CSE-ConnectionGUID: sLMe7WCAQBKzO1jqswxclg=3D=3D
+
+X-CSE-MsgGUID: eq2TCLgqSzGpsw5fy72jJg=3D=3D
+
+X-ExtLoop1: 1
+
+X-SMTPAUTH: FALSE
+
+X-URL-LookUp-ScanningError: 1
+
+IronPort-Data: A9a23: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
+
+IronPort-HdrOrdr: A9a23:ew54r6nlO51xHK3KqGGS45QeYFjpDfOrimdD5ihNYBxZY6Wkfp
+
+ +V8sjzhCWatN9OYh0dcIi7SdO9qXO1z+8Q3WBjB8beYOCGghrkEGgG1+rfKlLbalXDH4JmpM
+
+ VdmstFeZHN5DpB/L3HCWCDer5KqrTmgcOVbI/lvjFQpGpRGsZdBnJCe3+m+zpNNW977PQCZf
+
+ +hz/sCgwDlVWUcb8y9CHVAdfPEvcf3mJXvZgNDLwI76SGV5AnYp4LSIly95FMzQjlPybAt/S
+
+ zuiAri/JiutPm911v1y3LT1ZJLg9Hso+EzSvBky/JlawkEuDzYJ7iJaIfy/gzdZ9vfrWrCpe
+
+ O84yvI+f4Dr085MFvF5icFkDOQrArGo0WStmNwx0GT+PARDQhKevaoie9iA2Xkwltls9dm3K
+
+ 1R2WWF85JREBPbhSz4o8PFThdwiyOP0DIfeEEo/gliuKYlGclsRLYkjQpoOYZFGDi/5JEsEe
+
+ FoAs2Z7PFKcUmCZ3ScumV02tSjUnk6Ax/DGyE5y4ao+ikTmGo8w1oTxcQZkHtF/JUhS4Nc7+
+
+ CBNqhzjrlBQsIfcKo4DuYcRsm8DHDLXHv3QSmvCEWiELtCN2PGqpbx7rlw7Oa2eIYQxJ93g5
+
+ jFWEMwjx9ER6svM7z74HRmyGG+fIzmZ0Wc9ih33ekLhoHB
+
+X-Talos-CUID: =3D?us-ascii?q?9a23=3D3AOt3p72o9AtRvlEk+E4Cwd/XmUdsBV3CC81z5G=
+mW?=3D
+
+ =3D?us-ascii?q?bG0EwSqSOVk+b/Kwxxg=3D3D=3D3D?=3D
+
+X-Talos-MUID: =3D?us-ascii?q?9a23=3D3AIzcTXQxF6O5trBzXrhICofJ2yEmaqKm3Unwmt=
+Zo?=3D
+
+ =3D?us-ascii?q?fgNurLTdvZjmM0261YIByfw=3D3D=3D3D?=3D
+
+Received: from lbpglfsc01gstp01-ents01-f5-vrfglue-float.systems.it.ubc.ca (=
+HELO smtp.mail.ubc.ca) ([10.45.24.97])
+
+  by esvaout5.mail-relay.ubc.ca with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;=
+ 26 May 2025 23:12:44 -0700
+
+Received: from EXCH-EDGE.ead.ubc.ca (10.7.0.16) by EXCH-SRV05BP.ead.ubc.ca
+
+ (10.19.216.59) with Microsoft SMTP Server (version=3DTLS1_2,
+
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Mon, 26 M=
+ay
+
+ 2025 23:12:39 -0700
+
+Received: from EXCH-SRV02BP.ead.ubc.ca (10.19.216.30) by EXCH-EDGE.ead.ubc.=
+ca
+
+ (10.7.0.16) with Microsoft SMTP Server (version=3DTLS1_2,
+
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 M=
+ay
+
+ 2025 23:12:06 -0700
+
+Received: from YQZPR01CU011.outbound.protection.outlook.com (10.19.170.1) b=
+y
+
+ EXCH-SRV02BP.ead.ubc.ca (10.19.216.30) with Microsoft SMTP Server
+
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+
+ 15.1.2507.44 via Frontend Transport; Mon, 26 May 2025 23:12:06 -0700
+
+ARC-Seal: i=3D1; a=3Drsa-sha256; s=3Darcselector10001; d=3Dmicrosoft.com; c=
+v=3Dnone;
+
+ b=3DRJzoClRLAeuXX4DfA42B0NL7uLO8+pByApV9D+VA56gcznqQvCK+zg5dcubmO8jeBVHYaQ=
+hrovYNmFK1tFJOdX0DqjBPkN9W4lKSE+8FAFUqdKb/HTvj9uBYhejHmQ5g1L0zskCCSiu/+ykmu=
+nvsGbqgRpTPsTjzc5jDrhEmwYIv9QMFCW/shdYhHiiESXH8pCZTrwuGituyTCnJQ5ux1b0xNFTr=
+5ucmgd9glgiumCw8lEpac7/w/wZHLgAzMrBsiPMB0SjcF5E/z2Z4LrO8kXPTw5EVaH9Bn70+goQ=
+tR7kckYJxcsX5850lRC1/32yw7MJQNiR7CwXfx3wMP2VDMw=3D=3D
+
+ARC-Message-Signature: i=3D1; a=3Drsa-sha256; c=3Drelaxed/relaxed; d=3Dmicr=
+osoft.com;
+
+ s=3Darcselector10001;
+
+ h=3DFrom:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-A=
+ntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Ex=
+change-AntiSpam-MessageData-1;
+
+ bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB5GlQmk=3D;
+
+ b=3DedLhxWx46MOvZkQgB6jVQMpJFoXxjCKLV7kEl5CVoxwG0GxAdgvr4OzlKVGHfFK5lpmqZP=
+bIJcoKJY7z5EK1g+hNT9L0axdDrTmUvtVm7PElvMdXQsjA/gc5dYrwYLSVvh421mqaneHdHtNXd=
+kY9QugbeNZPsKNZ97SmmuZMJ5SasTFxuDR/+PcXGddhqyvwWBqZLS0im2sNR6ewFkgf1stn0XeQ=
+uk3KkN45oJh0zapMMu/zB58PRaM1ob5Ect9rHyjBEhKZRNLKZTWuIASRLlFklOYcyl8a065OJjH=
+4XVtUIhXf0AdkkTHKwC+fb+3EN+Slc9JrawZPeo1dIuZj3w=3D=3D
+
+ARC-Authentication-Results: i=3D1; mx.microsoft.com 1; spf=3Dpass
+
+ smtp.mailfrom=3Dubc.ca; dmarc=3Dpass action=3Dnone header.from=3Dubc.ca; d=
+kim=3Dpass
+
+ header.d=3Dubc.ca; arc=3Dnone
+
+DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Drelaxed/relaxed; d=3Dubcca.onmic=
+rosoft.com;
+
+ s=3Dselector2-ubcca-onmicrosoft-com;
+
+ h=3DFrom:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-S=
+enderADCheck;
+
+ bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB5GlQmk=3D;
+
+ b=3D2rLsPDXyDz2MIEbNk+Oiiok04iM/q3KLB0pup1AcJ3WdobWWmgYgDndinWOZOlWC0eXIU2=
+CXoRe2BNGzTYeyEwNEoukzTAeTgh2ak5RcXqnwIwqUdj+UoX9n1K9JphzQ/mDy9ci3OfU6MvWyI=
+npb3C9ql3es3hO8mvZhUbL5D9Y=3D
+
+Received: from YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM
+
+ (2603:10b6:c01:44::20) by YQBPR01MB10999.CANPRD01.PROD.OUTLOOK.COM
+
+ (2603:10b6:c01:96::21) with Microsoft SMTP Server (version=3DTLS1_2,
+
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Tue, 27 =
+May
+
+ 2025 06:11:51 +0000
+
+Received: from YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM
+
+ ([fe80::a2b4:345b:84b5:91d6]) by YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM
+
+ ([fe80::a2b4:345b:84b5:91d6%5]) with mapi id 15.20.8769.025; Tue, 27 May 2=
+025
+
+ 06:11:50 +0000
+
+From: "Siam, Mennatullah" <mennatullah.siam@ubc.ca<mailto:mennatullah.siam@=
+ubc.ca>>
+
+To: Z-GrantsAdministration <grantsadministration@nserc-crsng.gc.ca<mailto:g=
+rantsadministration@nserc-crsng.gc.ca>>,
+
+        =3D?iso-8859-1?Q?Longpr=3DE9-Lanteigne=3D2CM=3DE9lanie?=3D
+
+        <melanie.longpre-lanteigne@nserc-crsng.gc.ca<mailto:melanie.longpre=
+-lanteigne@nserc-crsng.gc.ca>>
+
+CC: "Ryabika, Dmitriy" <dmitriy.ryabika@ubc.ca<mailto:dmitriy.ryabika@ubc.c=
+a>>, "Liu, Brenda"
+
+        <brenda.liu@ors.ubc.ca<mailto:brenda.liu@ors.ubc.ca>>, "Penaflor, S=
+onia" <sonia.penaflor@ubc.ca<mailto:sonia.penaflor@ubc.ca>>, "menna
+
+ seyam" <menna.seyam@gmail.com<mailto:menna.seyam@gmail.com>>, "mennatul@ua=
+lberta.ca<mailto:mennatul@ualberta.ca>" <mennatul@ualberta.ca<mailto:mennat=
+ul@ualberta.ca>>
+
+Subject: [Termination] Grants PI Mennatullah Siam
+
+Thread-Topic: [Termination] Grants PI Mennatullah Siam
+
+Thread-Index: AQHbzsZb1WCD2PNV10iqGPMoafy0mQ=3D=3D
+
+Date: Tue, 27 May 2025 06:11:49 +0000
+
+Message-ID: <YQBPR0101MB52416535A820D6B34AA0635AFB64A@YQBPR0101MB5241.CANPR=
+D01.PROD.OUTLOOK.COM<mailto:YQBPR0101MB52416535A820D6B34AA0635AFB64A@YQBPR0=
+101MB5241.CANPRD01.PROD.OUTLOOK.COM>>
+
+Accept-Language: en-CA, en-US
+
+Content-Language: en-CA
+
+X-MS-Has-Attach: yes
+
+X-MS-TNEF-Correlator:
+
+msip_labels:
+
+Authentication-Results-Original: dkim=3Dnone (message not signed)
+
+ header.d=3Dnone;dmarc=3Dnone action=3Dnone header.from=3Dubc.ca;
+
+x-ms-traffictypediagnostic: YQBPR0101MB5241:EE_|YQBPR01MB10999:EE_|YT2PEPF0=
+00001CE:EE_|YQBPR01MB10916:EE_
+
+X-MS-Office365-Filtering-Correlation-Id: 942960e5-22bf-434f-91a9-08dd9ce584=
+c3
+
+x-ld-processed: 2fff08c9-91d4-4fc8-bbdd-dd59b7414ddb,ExtAddr
+
+x-ms-exchange-senderadcheck: 1
+
+x-ms-exchange-antispam-relay: 0
+
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024=
+|8096899003|4053099003|38070700018|19033499003;
+
+X-Microsoft-Antispam-Message-Info-Original: =3D?us-ascii?Q?L06FsPT+qLCeLRFA=
+GabgbA82sgyoFl4aTY1BTC7sQoArfqHDpIJaJttDX9Mq?=3D
+
+ =3D?us-ascii?Q?vpkDC+IOmHLSUHHl6NpnAJx9l0hSEvaSGI3G+TXZgQw5At75Wyc+LSCKsR5=
+E?=3D
+
+ =3D?us-ascii?Q?hNTDWFyX+ah+tSI5kdnf+5o2+1on8bn1jJ6bnvIfoouYRDo35MPsTA9ZRh/=
+s?=3D
+
+ =3D?us-ascii?Q?Xo3Id/XVPhIXaD0jrac42sRIWBx4blshEzHIBbjxhxlrYmjopRgdL7rbf8P=
+D?=3D
+
+ =3D?us-ascii?Q?sX6H9nXfnB0YcIqPoMFQVe98yFKMxhnmBTeHkQaYctH+qRCIfMruqfPj87Z=
+N?=3D
+
+ =3D?us-ascii?Q?3EmLn7B4hJ4TAC0g+iJYAvoqxDebvu0IPpvEirNGBDF91BXkWHQ7z2LOLSb=
+u?=3D
+
+ =3D?us-ascii?Q?zuI9gMtPP7TcNClH1jmR/IwbzUrqi2lDP//mJgPadytBqNYeAGtgIMPO9Hd=
+b?=3D
+
+ =3D?us-ascii?Q?9SjgGn2HsKzBMZIdFFwrP2JHqd9CLTPBuI4U9AX90+razfNEaYfnU0VDb72=
+2?=3D
+
+ =3D?us-ascii?Q?KbvzRhujxMHkahCjeI0n1pz2Ow6KbQZfqomXq5SMhCAoOG8FKgPx0V/vExS=
+8?=3D
+
+ =3D?us-ascii?Q?co+8l1FDgzMttSFMktDlMwXif3Q6Ey5hzg0RuXbsj1cfWzdKidYkzhm141U=
+C?=3D
+
+ =3D?us-ascii?Q?TzPJUxTZQM/u8qtdG0vtwo2NWsRXaI7N8VG7G25/HIM0ALhZZ/mM/BJ+ui8=
+U?=3D
+
+ =3D?us-ascii?Q?O1LSbIAmaLVsaLWfqYCG/zuBp1FDV+yvj0aVTWY//RmCjLZo/KOR5pHeh6Q=
+5?=3D
+
+ =3D?us-ascii?Q?omYlgRfXN0hQhgitr0pGT0IHXjNaezTR2ZuXimhCbH0TuoIZ6ZpaNsWn7Qz=
+/?=3D
+
+ =3D?us-ascii?Q?tveiuBqyLw1NPePyjRBZw8M3Sq1Rxm3+aIExLiWYEoNE2L5xUjushWS0Pdf=
+R?=3D
+
+ =3D?us-ascii?Q?xe+u+AMkteCRaPQjxvWBxkZDJCH+6AHzPx2+/11Q+JFmP+JeOHzMe566rB3=
+5?=3D
+
+ =3D?us-ascii?Q?0qEgtwIKRRPlTM2xzJVNMrzFBkC4110on5bWsuY+plR6HRZs2RO96QSbKla=
+e?=3D
+
+ =3D?us-ascii?Q?b1QzDy/+/0dj+2tfhIMtqRPmI5BBfM8o2v2NoHz3Ey/TIADzywcftH4Ty7f=
+s?=3D
+
+ =3D?us-ascii?Q?enKBIaT3Rfg67iOrZD+PMYjwVV/WgHMyeqIeCcS8f3khvxhAA5Qs5y2e/Fd=
+A?=3D
+
+ =3D?us-ascii?Q?iRjndh0YRRB6NchnqJdNz7ImiIrs1kuZ/iigNlkp6n+Hng2hSBaxP3HU/AO=
+6?=3D
+
+ =3D?us-ascii?Q?y67AEGTVpZfPO04ELQdZ+iRjWKwmRi8iVjMbQUhUOXbjNA9r6Mwv8vIJ8Kw=
+2?=3D
+
+ =3D?us-ascii?Q?WKrNUzihW4eyekzlFSqX+flJunvejZuW7z43oGKpapn5fd8qE4DmMeCt933=
+L?=3D
+
+ =3D?us-ascii?Q?lz/EDz0M+cL6XoQajOJjScQ9hnUdLBWqpbRL03RTjGqaVC4EKXVfCEERkM+=
+I?=3D
+
+ =3D?us-ascii?Q?SwchoOSzz2VjYKOEbi3zUfJZQeNb6qJVXcKJnGz96Y2duqyd+OyGGoZ9N9R=
+S?=3D
+
+ =3D?us-ascii?Q?GwF6Oo5vcpUhNReIieW3a45Q3QgLVHC5onsavIAUB/yZ0Y6KHRdcYWIQB5p=
+h?=3D
+
+ =3D?us-ascii?Q?gc1+wMtZ1Is=3D3D?=3D
+
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SC=
+L:1;SRV:;IPV:NLI;SFV:NSPM;H:YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM;PTR:;=
+CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(8096899003)(4053099003)=
+(38070700018)(19033499003);DIR:OUT;SFP:1102;
+
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+
+X-MS-Exchange-AntiSpam-MessageData-Original-0: =3D?iso-8859-1?Q?KVjbLfUHULI=
+CLrM9TSnylfSVBZm+7qGqK0qA2a1hWwmZbGj4J9Sz9P6+Op?=3D
+
+ =3D?iso-8859-1?Q?klWHSkzHMhRlYEHXq9Cp647ggymIxHUmQlzoXBvOZTdpN8hiV9WolFWOT=
+3?=3D
+
+ =3D?iso-8859-1?Q?A5BGXZPEHP3ngOuVFKtVq2XfGYJe9WGtV6+AHEV/dDkk1NoK7sed/wGZm=
+p?=3D
+
+ =3D?iso-8859-1?Q?lYy/w+tDk9QHz1s8UOfijCKgWvFZIgnSPJFm2qLQr+hHvS0viSW02rKbI=
+r?=3D
+
+ =3D?iso-8859-1?Q?Dg9ckVkthG+FANRmAI0ZzMwJDWK8nTOeZgaiO1pNHUZN7O/ubLm6z9H3+=
+2?=3D
+
+ =3D?iso-8859-1?Q?mX2LFq17IJlX32RCZ75iuhAY5Z05K1WvyrOrouLICyDIZjGEl3APAadLK=
+h?=3D
+
+ =3D?iso-8859-1?Q?92ueMUMxzp9lF8lMjBuR/v6QcgZ1D9jsvShWmu+CfpgBKoJzNbTLJrHtv=
+L?=3D
+
+ =3D?iso-8859-1?Q?9FsaHXng9InpTqylOcLM8t6mCUMmg8MRjj5EUsXxz36so2xlbuvmL9k1l=
+d?=3D
+
+ =3D?iso-8859-1?Q?W2c5WrH//YhjP6qvkZtqVIfbfYseLfvmNMeQ7RPVuf621odUSX1bI7Xhj=
+n?=3D
+
+ =3D?iso-8859-1?Q?t36w7ktKmQzH0wGZQhnfedUylJWHNkaoQx/JjdLwrQlImffWEpwCJhrbT=
+T?=3D
+
+ =3D?iso-8859-1?Q?AGWMfSAGqAAWEIlxlwcTFxR8AWEOLr9DsjMilf5hfKrT2xaPXQ74GnAkg=
+V?=3D
+
+ =3D?iso-8859-1?Q?O72tR8aEfusKFq/d4x0ADoRJm7aUNNBYK8dwk1zcKNwRS+6ibMMBndzl3=
+o?=3D
+
+ =3D?iso-8859-1?Q?vFx9QDaPa//igXF6fxDhNuZkyuHx8nzIazIPoKz44JkdyGLTFrhvo30pq=
+U?=3D
+
+ =3D?iso-8859-1?Q?FgqCp3UgFdVrkElaAkVP3l7pPuVFgjwh6iEl3OXbvYKcEF8roz0n0PPJv=
+H?=3D
+
+ =3D?iso-8859-1?Q?K1h0LleqAk/S11S2okP1PQRc/Y/8E6ueEQiuqbjgdmOplyUtaK9YZF7Mm=
+2?=3D
+
+ =3D?iso-8859-1?Q?W3vsat5S7rryuWpsuL7GG8yEdzyRd0vgpuow/9r3BcXDURwm58llh85n6=
+T?=3D
+
+ =3D?iso-8859-1?Q?282cTGtLV0h+LKAeDVSqR8IKNz2CfR/HNkW/OcaF7puiJUOxwVJ+SkZrH=
+F?=3D
+
+ =3D?iso-8859-1?Q?e+C3zl4LCgbm2M3o7PhkuMKBGTxz7a15ytyjUf6JTkaIKMs7MXAxMQq4Q=
+r?=3D
+
+ =3D?iso-8859-1?Q?NP+ZH3yc8oN4g731YgcjjfFcjGoJmVdaikOFpRA+uPwiRADg/AXkH1kT/=
+v?=3D
+
+ =3D?iso-8859-1?Q?fla3s8cjMdb4JD6+NFBphMFHZdNYJ595AgPkMPgAPP+89B0y0bVlWJm89=
+g?=3D
+
+ =3D?iso-8859-1?Q?mdRAUv2V1tXrXxpmsOkPTQtvXt5CI5z2FUJClFj71LZFKRsc7t1ucF68H=
+k?=3D
+
+ =3D?iso-8859-1?Q?8Ftri4IO0SUnLdGNgvhl8SVd1pv4Upw8XHKtqgC5OrhPysTV3RVHvKe5/=
+D?=3D
+
+ =3D?iso-8859-1?Q?xl+fYq/gDNBeydk1z75/YjJlDZw5zkdJqXV4+HB29m/0xbq7S4xvt+CQv=
+H?=3D
+
+ =3D?iso-8859-1?Q?hKbNDvfiggXq51hF11UNWhH82/C0gnV5vhe3F0GGnhEIWNluEvXtQ9mV0=
+1?=3D
+
+ =3D?iso-8859-1?Q?jrpSKd1r2lhvjBlTCBNExyqVl+gLmJxteK3bdP1LLfRSE50mHAwpEPT42=
+J?=3D
+
+ =3D?iso-8859-1?Q?nPiEy8m/0QNvWhH4dIKc92qOdFWgsu/gl9mBDfpJIQML5ednLjT3X49Qp=
++?=3D
+
+ =3D?iso-8859-1?Q?JTtXN+VsZroLKKXUhNnE64N/cReVt3SeQd9koirYZJR70dvIGcUM7wz4M=
+f?=3D
+
+ =3D?iso-8859-1?Q?QIC3EbcKYn58qJzzJjQGMrdG7r60HMoCxN?=3D
+
+Content-Type: multipart/mixed;
+
+        boundary=3D"_006_YQBPR0101MB52416535A820D6B34AA0635AFB64AYQBPR0101M=
+B5241_"
+
+MIME-Version: 1.0
+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR01MB10999
+
+Return-Path: mennatullah.siam@ubc.ca<mailto:mennatullah.siam@ubc.ca>
+
+X-EOPAttributedMessage: 0
+
+X-EOPTenantAttributedMessage: fbef0798-20e3-4be7-bdc8-372032610f65:0
+
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: YT2PEPF000001CE.CANPRD0=
+1.PROD.OUTLOOK.COM
+
+X-MS-PublicTrafficType: Email
+
+X-MS-Office365-Filtering-Correlation-Id-Prvs: f6479374-1f79-439e-6ccf-08dd9=
+ce55e45
+
+X-LD-Processed: fbef0798-20e3-4be7-bdc8-372032610f65,ExtAddr,ExtFwd
+
+X-MS-Exchange-AtpMessageProperties: SA|SL
+
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|39142699007|3105269900=
+7|4053099003|8096899003;
+
+X-Microsoft-Antispam-Message-Info: =3D?iso-8859-1?Q?BV8hlMGQKmZQyiUcnFbxyA8=
+w6OjQ7mmdAIDU7P0nroyT+oiksdyrzX64bn?=3D
+
+ =3D?iso-8859-1?Q?5pStFnB/7PQ2HtbC1anaQFc0lfg4XZPpf+HPsZctDusipHH4ijLAGl4UR=
+8?=3D
+
+ =3D?iso-8859-1?Q?6vUpQqYBPr7DDtMpQXCL/4tLdAZAk93iAkJo9rQNMbs6te1mv3vwZ7rs1=
+t?=3D
+
+ =3D?iso-8859-1?Q?RPVYfoctvmprayC+mdYlWBc5KAGfmDkopplIeWThFM86SB64g64cAT505=
+d?=3D
+
+ =3D?iso-8859-1?Q?+3NhpEVBRAChbhDlc6IVANN6oGpi0lRBWshXZi2sptm6b5x1uBGdM3Au1=
+F?=3D
+
+ =3D?iso-8859-1?Q?EH6L43wke0QTEfbgW8woO4UWPyVrROUsgXB3bOax3+amh0wXKFCWjQDqR=
+5?=3D
+
+ =3D?iso-8859-1?Q?1wps6aS/LTtrBOIS7pgJrfwAzeeqmt7ZH/WCcjGfFsp3csPeRuqPbPhTy=
+c?=3D
+
+ =3D?iso-8859-1?Q?eaWQOpvNhq2WFVB0hwNPOMRDwjxXC5GUOaxINUJ9twpaDcNTlqGiko90m=
+y?=3D
+
+ =3D?iso-8859-1?Q?EvTDdEJNBjuAw+KhXcqHIawvslV53DBeRi4JA8jEKdZT3E+M/aDm+q+4Z=
+y?=3D
+
+ =3D?iso-8859-1?Q?Dd1vdWafO4FFdth1HHKJPxvhny3ynFwxbkwA23SrnFYpFkAs3OmwICom8=
+l?=3D
+
+ =3D?iso-8859-1?Q?PfVSmrF3Y1WeQvTKVQ3jy7GTyAAxLwxfQK9ZHCrKWU1rYOvrepN3Rnawy=
+g?=3D
+
+ =3D?iso-8859-1?Q?4gPdzPPZldbijySKSYsgMSjEmGRbRjrsEKyXxnkKGdYs2SGFzF3r2xt3/=
+V?=3D
+
+ =3D?iso-8859-1?Q?J56A8pUeGcYUCeJN6PLYIOp6F27lfK6VZRASygv3gNxJx3Uf1q+Aby9TN=
+P?=3D
+
+ =3D?iso-8859-1?Q?E9zAHNzcg4MXd0w9/P5FsLJjbjKo0XOsZiF54YoKnEehVC7UIgChGULLq=
+v?=3D
+
+ =3D?iso-8859-1?Q?EyqErJ3Edf696NW/Gk+kIj0hE3ra0cYYjYgXGx/r/t+e10KO9lmh5Z2o5=
+H?=3D
+
+ =3D?iso-8859-1?Q?2Ni4VjE8aP/Dx/n1CrGQxlFfffzGYdTqbRDN+q4kdiiVsuAnDEf/QD/Mg=
+f?=3D
+
+ =3D?iso-8859-1?Q?w81epTsx9kT3pW4yyn6DOiqVouDbluPFSDnhUR4CC0sFwb9wA4BkFjfPv=
+R?=3D
+
+ =3D?iso-8859-1?Q?8Wjhf/dRUHQea4x3bLvAwxUUnjdo6VgKp9rHRXzcPMbsJldpyqnrV/xd0=
+W?=3D
+
+ =3D?iso-8859-1?Q?RxXmOrtbUWWa8741FToij+r3oG8zsjIG7Jce1Q20+1LB+y24BnbvLGmdX=
+Y?=3D
+
+ =3D?iso-8859-1?Q?YecIAiwXE5ZrQaq6WrOz8dwaX0Q88we/yXldfLlOUCrEXhArU+kYtvp6P=
+I?=3D
+
+ =3D?iso-8859-1?Q?f/ZStiCX/R88vGpgcknz+SwVgyMQBuaWgIunKRlAdxnYeoUkU8ls8r7BA=
+U?=3D
+
+ =3D?iso-8859-1?Q?p8FLnNrkpEgNXJ6sE4oyofomo1rJRaP2eFdDW6WBF7/hSK5VLYIFLSF4h=
+X?=3D
+
+ =3D?iso-8859-1?Q?qzKVPgm9rIzFmoJY1sxsRDPVzh/kZ4Xhb6JER5/8lEPPflp4uXC9NCjPc=
+U?=3D
+
+ =3D?iso-8859-1?Q?5OlF7e34FQUBCunxDRAW2MG/FQ+GneMbbGc92l3fG5ilgn4FmE3EHwLZ0=
+a?=3D
+
+ =3D?iso-8859-1?Q?I4mq1gxHD5BtENg57qQAZnj/cU/26fjZO6NBRIIkh1sPavADr4cWHhPSW=
+e?=3D
+
+ =3D?iso-8859-1?Q?34VJ5LAQCm7FWtj1iY+aOESCBQ+7tUtgkbUjtLhMoL4f20jWq1+beBYPx=
+f?=3D
+
+ =3D?iso-8859-1?Q?+ztU+XqZrxY2NZMyZeGn9CZD8EGQNqQVOqK5AIzRUJk8Le29cGuSAu+gG=
+G?=3D
+
+ =3D?iso-8859-1?Q?RwlpGrogOvi4cOKENLYfXSH2kf0l2mwrfYE6O1YWCK2YvOUDpXuI8TGY1=
+T?=3D
+
+ =3D?iso-8859-1?Q?ZYPArbhzzz2d2rcKOHeJKvlHUr4G2CoGyHRdyEY9hP6DDsprWPLCt4b8y=
+m?=3D
+
+ =3D?iso-8859-1?Q?rDzGRTB6+AK0OYcAriRSWgzoh7VHTbQP1eetmgv5wtfgl86dZ4yyquPF7=
+x?=3D
+
+ =3D?iso-8859-1?Q?741bZh1mixZlQI5Fggxi+gJCC1077mHl9a41P9bTelWXPu8gskok/4flK=
+e?=3D
+
+ =3D?iso-8859-1?Q?jHAJo0BOgm0Un1AvGPVu/5CWaGD9fBVX7oWVcjhac7D/hMt0ZnNwtnC8S=
+n?=3D
+
+ =3D?iso-8859-1?Q?S8U33sjhRnGETh7natEbT/L+bd2ANLqox/qAwy08Z0NOL69ROl0aLmryX=
+Q?=3D
+
+ =3D?iso-8859-1?Q?/lsUXWtGywm6uh8pUfWfYePOBP3v//RY0LHJcf85mG+GFywfpUyraRZat=
+d?=3D
+
+ =3D?iso-8859-1?Q?yhnlyeXXeTDdA4exF+RQcBwmDQeKJeq1310CleA1Gul7jxWi28ixVJ0=
+=3D3D?=3D
+
+X-Forefront-Antispam-Report: CIP:142.103.117.135;CTRY:CA;LANG:en;SCL:1;SRV:=
+;IPV:NLI;SFV:NSPM;H:esvaout5.mail-relay.ubc.ca;PTR:esvaout5.mail-relay.ubc.=
+ca;CAT:NONE;SFS:(13230040)(35042699022)(39142699007)(31052699007)(405309900=
+3)(8096899003);DIR:INB;
+
+X-MS-Exchange-ATPSafeLinks-Stat: 0
+
+X-MS-Exchange-ATPSafeLinks-BitVector: 0:0x0|0x0|0x0|0x0|0x0|0x0;
+
+X-MS-Exchange-ForwardingLoop: Z-CSSDFIN@NSERC-CRSNG.GC.CA;fbef0798-20e3-4be=
+7-bdc8-372032610f65<mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA;fbef0798-20e3-4be7-b=
+dc8-372032610f65>
+
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2025 06:12:54.1724
+
+ (UTC)
+
+X-MS-Exchange-CrossTenant-Network-Message-Id: 942960e5-22bf-434f-91a9-08dd9=
+ce584c3
+
+X-MS-Exchange-CrossTenant-Id: fbef0798-20e3-4be7-bdc8-372032610f65
+
+X-MS-Exchange-CrossTenant-AuthSource: YT2PEPF000001CE.CANPRD01.PROD.OUTLOOK=
+.COM
+
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR01MB10916
+
+X-OrganizationHeadersPreserved: YQBPR01MB10916.CANPRD01.PROD.OUTLOOK.COM
+
+X-CrossPremisesHeadersPromoted: OTTANEXHYB02.nserc.ca
+
+X-CrossPremisesHeadersFiltered: OTTANEXHYB02.nserc.ca
+
+X-OriginatorOrg: nserc-crsng.gc.ca
+
+--_000_YT1PR01MB24588DF0FC039F0B271D9479AD64AYT1PR01MB2458CANP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Aptos;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+pre
+	{mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-priority:99;
+	mso-style-link:"HTML Preformatted";
+	font-family:"Consolas",serif;}
+span.EmailStyle22
+	{mso-style-type:personal-reply;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:96754442;
+	mso-list-template-ids:-1594837390;}
+@list l1
+	{mso-list-id:1395658027;
+	mso-list-template-ids:-1503264312;}
+@list l2
+	{mso-list-id:1405494517;
+	mso-list-template-ids:-311788824;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<p style=3D"font-family:Calibri;font-size:10pt;color:#000000;margin:5pt;fon=
+t-style:normal;font-weight:normal;text-decoration:none;" align=3D"Right">
+Protected A | Prot=E9g=E9 A<br>
+</p>
+<br>
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span lang=3D"FR-CA" style=3D"font-size:11.0pt;mso-f=
+areast-language:EN-US">Good morning<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"FR-CA" style=3D"font-size:11.0pt;mso-f=
+areast-language:EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US">Thank you for sending the information relating to the termination o=
+f your NSERC grants.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US">I am in the process of verifying the expenses listed as outstanding=
+ commitments with our use of grants funds team. I will confirm some of them=
+ shortly.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US">However, I would like to point out that the travel expenses for the=
+ conference June 10-15 for yourself are NOT eligible. Travel and subsistenc=
+e costs happening after the termination
+ of a grant are ONLY eligible for students or postdocs, not for the grantee=
+. Therefore, that expense must be removed from the F303.<o:p></o:p></span><=
+/p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US">Also note that the termination of your grants will be May 27, 2025 =
+as pre-defined. However, it is not always possible for institutions to prov=
+ide signed documents to NSERC at that
+ date. Usually, they are submitted in the following month as they reconcile=
+ the previous month. Therefore, we must be patient with the institution.<o:=
+p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US">Regards<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US">Melanie<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"FR" style=3D"font-size:10.0pt;mso-l=
+igatures:standardcontextual">The Awards Administration Team |
+</span></b><b><span lang=3D"FR-CA" style=3D"font-size:10.0pt;mso-ligatures:=
+standardcontextual">L&#8217;=E9quipe d&#8217;administration des octrois</sp=
+an></b><b><span lang=3D"FR-CA" style=3D"font-size:10.0pt"><o:p></o:p></span=
+></b></p>
+<p class=3D"MsoNormal"><span lang=3D"FR" style=3D"font-size:9.0pt;color:bla=
+ck;mso-ligatures:standardcontextual">Finance and Awards Administration Divi=
+sion |
+</span><span lang=3D"FR-CA" style=3D"font-size:9.0pt;mso-ligatures:standard=
+contextual">Division des finances et de l&#8217;administration des octrois<=
+o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"FR" style=3D"font-size:9.0pt;color:bla=
+ck;mso-ligatures:standardcontextual">Natural Sciences and Engineering Resea=
+rch Council of Canada | Conseil de recherches en sciences naturelles et en =
+g=E9nie du Canada</span><span lang=3D"FR-CA" style=3D"font-size:9.0pt;color=
+:black;mso-ligatures:standardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"FR-CA" style=3D"font-size:9.0pt;color:=
+black;mso-ligatures:standardcontextual">Social Sciences and Humanities Rese=
+arch Council of Canada | Conseil de recherches en sciences humaines du Cana=
+da<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"FR-CA" style=3D"font-size:9.0pt;mso-li=
+gatures:standardcontextual">125 Zaida Eddy Private, 2nd floor, Ottawa ON&nb=
+sp; K1R 0E3 | 125, priv=E9 Zaida Eddy, 2e =E9tage, Ottawa ON&nbsp; K1R 0E3<=
+o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"FR-CA" style=3D"font-size:9.0pt;color:=
+black;mso-ligatures:standardcontextual"><br>
+</span><span lang=3D"FR" style=3D"font-size:9.0pt;mso-ligatures:standardcon=
+textual">E&nbsp;| C&nbsp;&nbsp;
+</span><span style=3D"mso-ligatures:standardcontextual"><a href=3D"mailto:g=
+rantsadministration@nserc-crsng.gc.ca"><span lang=3D"FR" style=3D"font-size=
+:9.0pt">grantsadministration@nserc-crsng.gc.ca</span></a></span><span style=
+=3D"font-size:9.0pt;mso-ligatures:standardcontextual">
+<span lang=3D"FR-CA">| </span></span><span style=3D"mso-ligatures:standardc=
+ontextual"><a href=3D"mailto:administrationdessubventions@nserc-crsng.gc.ca=
+"><span lang=3D"FR-CA" style=3D"font-size:9.0pt">administrationdessubventio=
+ns@nserc-crsng.gc.ca</span></a></span><span lang=3D"FR" style=3D"font-size:=
+9.0pt;color:#1F497D;mso-ligatures:standardcontextual"><o:p></o:p></span></p=
+>
+<p class=3D"MsoNormal"><span lang=3D"FR" style=3D"font-size:9.0pt;mso-ligat=
+ures:standardcontextual">E&nbsp;| C&nbsp;&nbsp;
+</span><span style=3D"mso-ligatures:standardcontextual"><a href=3D"mailto:g=
+rantsadministration@sshrc-crsh.gc.ca"><span lang=3D"FR" style=3D"font-size:=
+9.0pt">grantsadministration@sshrc-crsh.gc.ca</span></a></span><span style=
+=3D"font-size:9.0pt;mso-ligatures:standardcontextual">
+<span lang=3D"FR-CA">| </span></span><span style=3D"mso-ligatures:standardc=
+ontextual"><a href=3D"mailto:administrationdessubventions@sshrc-crsh.gc.ca"=
+><span lang=3D"FR" style=3D"font-size:9.0pt">administrationdessubventions@s=
+shrc-crsh.gc.ca</span></a></span><span lang=3D"FR" style=3D"font-size:9.0pt=
+;mso-ligatures:standardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;mso-ligatures:standar=
+dcontextual">TEL | T=C9L.&nbsp; 343-552-9123</span><span style=3D"font-size=
+:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#595959;mso-ligatur=
+es:standardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-ligatures:standa=
+rdcontextual"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><i><span style=3D"color:b=
+lack;mso-ligatures:standardcontextual">Please note that we are presently re=
+ceiving a high volume of requests.&nbsp; A delay of more than 2 weeks is ex=
+pected in processing requests received.&nbsp;&nbsp;
+</span></i><i><span lang=3D"FR-CA" style=3D"color:black;mso-ligatures:stand=
+ardcontextual">Thank you for your patience.</span></i><i><span lang=3D"FR-C=
+A" style=3D"mso-ligatures:standardcontextual"><o:p></o:p></span></i></p>
+<p class=3D"MsoNormal"><i><span lang=3D"FR-CA" style=3D"mso-ligatures:stand=
+ardcontextual"><o:p>&nbsp;</o:p></span></i></p>
+<p class=3D"MsoNormal" style=3D"background:white"><i><span lang=3D"FR-CA" s=
+tyle=3D"color:black;mso-ligatures:standardcontextual">Veuillez noter que no=
+us recevons pr=E9sentement un volume =E9lev=E9 de demandes. Il pourrait y a=
+voir un d=E9lai de plus de 2 semaines dans le traitement
+ de requ=EAtes re=E7ues. Merci pour votre patience.</span></i><i><span lang=
+=3D"FR-CA" style=3D"mso-ligatures:standardcontextual"><o:p></o:p></span></i=
+></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif"><br>
+</p>
+<p style=3D"font-family:Calibri;font-size:10pt;color:#000000;margin:5pt;fon=
+t-style:normal;font-weight:normal;text-decoration:none;" align=3D"Left">
+Protected A | Prot=E9g=E9 A<br>
+</p>
+From:</span></b><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:=
+&quot;Calibri&quot;,sans-serif"> Siam, Mennatullah &lt;mennatullah.siam@ubc=
+.ca&gt;
+<br>
+<b>Sent:</b> May 27, 2025 2:25 AM<br>
+<b>To:</b> Z-GrantsAdministration &lt;Z-CSSDFIN@NSERC-CRSNG.GC.CA&gt;; Long=
+pr=E9-Lanteigne,M=E9lanie &lt;Melanie.Longpre-Lanteigne@NSERC-CRSNG.GC.CA&g=
+t;<br>
+<b>Cc:</b> Penaflor,Sonia &lt;sonia.penaflor@ubc.ca&gt;; menna seyam &lt;me=
+nna.seyam@gmail.com&gt;; Mennatullah Siam &lt;mennatul@ualberta.ca&gt;<br>
+<b>Subject:</b> Fw: [Termination] Grants PI Mennatullah Siam<o:p></o:p></sp=
+an>
+<p></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Hello NSERC administration team and Melanie,<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">&nbsp; &nbsp; &nbsp; I am copying UBC ORS on that email. I am requesting=
+ the termination of the grants to be on May 27<sup>th</sup>, 2025 and I wou=
+ld like to ensure all the documents are signed from the
+ Financial officer on UBC side today so I can sign them and send them to NS=
+ERC. I will be printing and signing all the documents today by 3 pm PST, re=
+gardless of whether ORS have signed them or not. My apologies, but to the b=
+est of my knowledge, I think as
+ the grant recipient, I have the right to control the date of the terminati=
+on. I have sent about that termination to ORS since before May 1<sup>st</su=
+p>&nbsp;, so you had ample time to sort things out.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Note, if not all the documents were signed today from both UBC and me I =
+will have to unfortunately add this as part of the discrimination complaint=
+ to the tribunal that I am prevented from
+ terminating my grants, although they terminated my appointment at UBC. So =
+I hope UBC ORS can cooperate with this. Thank you.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">My ubc email will be disabled on May 28th , so please for future corresp=
+ondence use the gmail and ualberta emails that I copied on this email.<o:p>=
+</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">I here attach the following, requesting UBC signature on the ones not si=
+gned yet
+<b>(grants_termination_docs.zip)</b>:<o:p></o:p></span></p>
+<div>
+<ol start=3D"1" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l1 level1 lfo1;background:white;list-style-ty=
+pe:&quot;1- &quot;">
+Grant Amendment forms (<b>ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024-0=
+0468)</b><o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"2" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l1 level1 lfo1;background:white;list-style-ty=
+pe:&quot;2- &quot;">
+Form300 FY2024-2025 (<b>ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024-004=
+68)</b><o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"3" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l1 level1 lfo1;background:white;list-style-ty=
+pe:&quot;3- &quot;">
+Form 300 FY2025-2026 (<b>ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024-00=
+468)</b><o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"4" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l1 level1 lfo1;background:white;list-style-ty=
+pe:&quot;4- &quot;">
+Form 303 ((<b>ALLRP 595973 - 24, RGPIN-2024-04100, DGECR-2024-00468)</b><o:=
+p></o:p></li></ol>
+</div>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Let me know if I have something wrong or missed something.<o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">I am also attaching the following documents to provide reasoning on thes=
+e items
+<b>(reasoning_docs.zip)</b>: (will send in another email since size constra=
+ints prevented all in one email)<o:p></o:p></span></p>
+<div>
+<ol start=3D"1" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l0 level1 lfo2;background:white;list-style-ty=
+pe:&quot;1- &quot;">
+Additional Excel sheet clarifying how all the expenses were computed.<o:p><=
+/o:p></li></ol>
+</div>
+<div>
+<ol start=3D"2" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l0 level1 lfo2;background:white;list-style-ty=
+pe:&quot;2- &quot;">
+Why I am terminating the grants<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"3" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l0 level1 lfo2;background:white;list-style-ty=
+pe:&quot;3- &quot;">
+Why Faegheh Yeganli was hired as CS Science researcher not postdoc, based o=
+n a decision from UBC CS staff and advice of the options that only included=
+ either a research staff or research associate. Due to the wait time with 3=
+0 days for the Ad for research associate
+ I had to resort to hiring Faegheh part-time as research staff to support t=
+he ongoing project with my MSc student already.&nbsp;<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"4" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l0 level1 lfo2;background:white;list-style-ty=
+pe:&quot;4- &quot;">
+I also attached my postdoc Ad on UBC website and the two candidates that I =
+selected to hire that were high quality with top-tier publications but I wa=
+s denied that through either postponing or terminating my appointment.<o:p>=
+</o:p></li></ol>
+</div>
+<div>
+<ol start=3D"5" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l0 level1 lfo2;background:white;list-style-ty=
+pe:&quot;5- &quot;">
+I am adding the reasoning on why I resorted to reimburse Omidreza Heidari (=
+MSc student in Concordia) for 2K as part of being a visiting student to my =
+lab. Since CS department told me the only option was to hire him as staff a=
+nd I did not want to resort to that
+ option and waste my grant money. Nonetheless, I needed to continue the pro=
+ject we started on video segmentation.<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"6" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l0 level1 lfo2;background:white;list-style-ty=
+pe:&quot;6- &quot;">
+Similarly, for Leila Cheshmi I am adding the reasoning on why reimbursing h=
+er for 3K as part of being a visiting researcher to my lab as we are contin=
+uing our work that she started in her MEng under my supervision at Ontario =
+Tech.<o:p></o:p></li></ol>
+</div>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Finally, I am adding&nbsp;documentation required to support the requeste=
+d amounts in F303
+<b>(F303_supporting_docs.zip)</b>: &nbsp;&nbsp;<o:p></o:p></span></p>
+<div>
+<ol start=3D"1" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l2 level1 lfo3;background:white;list-style-ty=
+pe:&quot;1- &quot;">
+Hotel stay for CVPR 2025 that was already paid to the hotel and attaching i=
+ts receipt, I was already reimbursed this amount from UBC, awaiting to prov=
+ide the invoice end of June.<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"2" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l2 level1 lfo3;background:white;list-style-ty=
+pe:&quot;2- &quot;">
+Poster printing for CVPR 2025 that was already paid, and attaching its rece=
+ipt.<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"3" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l2 level1 lfo3;background:white;list-style-ty=
+pe:&quot;3- &quot;">
+3K for Leila from the above point 5<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"4" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l2 level1 lfo3;background:white;list-style-ty=
+pe:&quot;4- &quot;">
+4K for the Journal publishing fees that I already clarified to both UBC and=
+ NSERC<o:p></o:p></li></ol>
+</div>
+<div>
+<ol start=3D"5" type=3D"1">
+<li class=3D"MsoNormal" style=3D"color:black;mso-margin-top-alt:auto;mso-ma=
+rgin-bottom-alt:auto;mso-list:l2 level1 lfo3;background:white;list-style-ty=
+pe:&quot;5- &quot;">
+Faegheh Yeganli outstanding salary for the next 6 months with the email fro=
+m UBC Finance clarifying how her salary is computed.<o:p></o:p></li></ol>
+</div>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Awaiting UBC ORS signature on the docs,
+<b>if you may please ensure all are finalized today before 3 pm PST so I ca=
+n sign and send to NSERC.</b><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Thank you.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"color:blac=
+k">Best regards,<o:p></o:p></span></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black"><o:p>&nbsp;</o:p></span>=
+</p>
+</div>
+<div class=3D"MsoNormal" align=3D"center" style=3D"text-align:center">
+<hr size=3D"2" width=3D"98%" align=3D"center">
+</div>
+<div id=3D"divRplyFwdMsg">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif;color:black">From:</span></b><span style=3D"font-=
+size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black">&nbsp;<=
+a href=3D"mailto:postmaster@nserc.ca">postmaster@nserc.ca</a> &lt;<a href=
+=3D"mailto:postmaster@nserc.ca">postmaster@nserc.ca</a>&gt;<br>
+<b>Sent:</b>&nbsp;May 27, 2025 9:17 AM<br>
+<b>To:</b>&nbsp;<a href=3D"mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA">Z-CSSDFIN@NS=
+ERC-CRSNG.GC.CA</a> &lt;<a href=3D"mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA">Z-CS=
+SDFIN@NSERC-CRSNG.GC.CA</a>&gt;<br>
+<b>Subject:</b>&nbsp;Undeliverable: [Termination] Grants PI Mennatullah Sia=
+m</span> <o:p>
+</o:p></p>
+<div>
+<p class=3D"MsoNormal">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"border-collapse:collapse;box-sizing: border-box;border-spac=
+ing: 0px">
+<tbody>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;font-family:&quot;Ari=
+al&quot;,sans-serif;color:black;background:#FFECB3">[<b>CAUTION:</b>&nbsp;N=
+on-UBC Email]</span><span style=3D"font-size:9.0pt;font-family:&quot;Arial&=
+quot;,sans-serif;color:black"><o:p></o:p></span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><b><span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:#000066=
+">Your message wasn't delivered to anyone because it's too large. The limit=
+ is 20 MB. Your message is 24 MB.</span></b><o:p></o:p></p>
+<p style=3D"margin-bottom:12.0pt"><span style=3D"font-size:10.0pt;font-fami=
+ly:&quot;Tahoma&quot;,sans-serif;color:black"><a href=3D"mailto:Z-CSSDFIN@N=
+SERC-CRSNG.GC.CA">Z-CSSDFIN@NSERC-CRSNG.GC.CA</a><br>
+</span><span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:black"=
+>Your message couldn't be sent because it's too large.</span><o:p></o:p></p=
+>
+<div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt"><br>
+<br>
+<br>
+<br>
+<br>
+<o:p></o:p></p>
+</div>
+<p><b><span style=3D"font-size:10.0pt;font-family:&quot;Tahoma&quot;,sans-s=
+erif;color:gray">Diagnostic information for administrators:</span></b><o:p>=
+</o:p></p>
+<p><span style=3D"font-size:10.0pt;font-family:&quot;Tahoma&quot;,sans-seri=
+f;color:gray">Generating server: OTTANEXHYB02.nserc.ca</span><o:p></o:p></p=
+>
+<p><span style=3D"font-size:10.0pt;font-family:&quot;Tahoma&quot;,sans-seri=
+f;color:gray"><a href=3D"mailto:Z-CSSDFIN@NSERC-CRSNG.GC.CA">Z-CSSDFIN@NSER=
+C-CRSNG.GC.CA</a><br>
+Remote Server returned '550 5.2.12 RESOLVER.RST.SendSizeLimit.Org; message =
+too large for this organization'</span><o:p></o:p></p>
+<p><span style=3D"font-size:10.0pt;font-family:&quot;Tahoma&quot;,sans-seri=
+f;color:gray">Original message headers:</span><o:p></o:p></p>
+<div>
+<pre><span style=3D"color:gray">Received: from OTTANEXHYB02.nserc.ca (172.3=
+0.8.26) by OTTANEXHYB02.nserc.ca<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (172.30.8.26) with Microsoft SMTP Server (=
+version=3DTLS1_2,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SH=
+A384) id 15.2.986.5; Tue, 27 May 2025<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 02:17:48 -0400<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Received: from YT3PR01CU008.outbound.protec=
+tion.outlook.com (40.93.18.3) by<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> OTTANEXHYB02.nserc.ca (172.30.8.26) with M=
+icrosoft SMTP Server<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_=
+WITH_AES_256_GCM_SHA384) id 15.2.986.5<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> via Frontend Transport; Tue, 27 May 2025 0=
+2:17:48 -0400<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Seal: i=3D3; a=3Drsa-sha256; s=3Darcsel=
+ector10001; d=3Dmicrosoft.com; cv=3Dpass;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3DbAqRPTUANIOht03IAkKnYWVT850kp+MEx7kUj1=
+L504IDZcjIrMqXqHGWEhEpApCXUHB/jUDtuwHMAzlK8d781vN4KquoioLydgK59HwAvBk4qDkC8=
+02ojwKJJNqcRFk7+4dlY6cIJDbGGBhKopVz0NJkbn6VoivCs3XRkeCAqyEjEtFh9VICKrYcJA1r=
+z15Aj7T9wWujiKtWlTP3o1H9fp9qzGsNSdVaaWeilz27fJQbRoJGALxLKI7f2UpMmHB7YU9q7kI=
+zrxG8CF+AjJYetYDmjtyGqD+KTIT5SbFEvJOl11COkKAt/KHJwH7CUzjl7DncHEx5vorifguX8O=
+CUnQ=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Message-Signature: i=3D3; a=3Drsa-sha25=
+6; c=3Drelaxed/relaxed; d=3Dmicrosoft.com;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> s=3Darcselector10001;<o:p></o:p></span></p=
+re>
+<pre><span style=3D"color:gray"> h=3DFrom:Date:Subject:Message-ID:Content-T=
+ype:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchang=
+e-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray"> bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB=
+5GlQmk=3D;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3DnnhmbpZoiMr0FPrFtSOwrH/VaNEhm+vOg2pJEk=
+ZeALH424Gg1FZYcopq0YQdWSe9MDgJxUsHdGVQZKsD2kn02Jb8G8eXraV9/d8T30beQP3sTxbwy=
+DhpywtUt//K9OTeuOYo/Sk2NZoqZrd1OfKeIopnZMjzhG//IuRiVzXX2ixXAgOz880xzaOUnglP=
+XZASH9zCkvWNs2Uwjav52uHEfyd6FG1YuMA2TjdJUilGut9dEeRQwhyMd6JwsYvDVHKKgJK5RLg=
+vStU1/qBr3HfNW+rnT7tLRihuf+R73BuCEG0juwkqhUmgmqM2DsE91Pu16+cO2hUSHd1k/NY7gt=
+wOMA=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Authentication-Results: i=3D3; mx.micro=
+soft.com 1; spf=3Dpass (sender ip is<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 142.103.117.135) smtp.rcpttodomain=3Dnserc=
+-crsng.gc.ca smtp.mailfrom=3Dubc.ca;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dmarc=3Dpass (p=3Dnone sp=3Dnone pct=3D100=
+) action=3Dnone header.from=3Dubc.ca; dkim=3Dpass<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (signature was verified) header.d=3Dubc.ca=
+; dkim=3Dpass (signature was verified)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.d=3Dubcca.onmicrosoft.com; arc=3Dpa=
+ss (0 oda=3D1 ltdi=3D1<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> spf=3D[1,1,smtp.mailfrom=3Dubc.ca] dkim=3D=
+[1,1,header.d=3Dubc.ca]<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dmarc=3D[1,1,header.from=3Dubc.ca])<o:p></=
+o:p></span></pre>
+<pre><span style=3D"color:gray">Resent-From: &lt;<a href=3D"mailto:Z-CSSDFI=
+N@NSERC-CRSNG.GC.CA">Z-CSSDFIN@NSERC-CRSNG.GC.CA</a>&gt;<o:p></o:p></span><=
+/pre>
+<pre><span style=3D"color:gray">ARC-Seal: i=3D2; a=3Drsa-sha256; s=3Darcsel=
+ector10001; d=3Dmicrosoft.com; cv=3Dpass;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3DKUh2v3Ek4j2gbRRzmyeh991dFVWUrdPvgd1kug=
+1GyaJvXEU1nAtdEoA2yoOJt7/F9d39KhRnUPpeFBbxYFIRzQVmJbcSUKU+kLPRpp8+MQVlRVLaN=
+F5RSjQ8xHz/MxqZrnVZYfm+/zhOQAR0cMzp9ZcgrhmLqZcew3QlDqX77PWkgrUV6kxGgnJ2BDx7=
+RPrPgiAAXIfhPNz9Bl4iU9m6DQZ9Hk8gbiyJKHaEiga00wS/HHVC/eFxtlEJpGCqYCbPxAVbgQQ=
+pBqDWLpoANw9yMz7gk6n9ZjX09sU91KntZReuUQCePmkGR99gw7zE/N1qsIUYXc3/rrzd/8jXd1=
+MAdQ=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Message-Signature: i=3D2; a=3Drsa-sha25=
+6; c=3Drelaxed/relaxed; d=3Dmicrosoft.com;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> s=3Darcselector10001;<o:p></o:p></span></p=
+re>
+<pre><span style=3D"color:gray"> h=3DFrom:Date:Subject:Message-ID:Content-T=
+ype:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchang=
+e-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray"> bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB=
+5GlQmk=3D;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3Df4qDjCUi+CtI39ONuWjmPlUZR2obs8tp2DiFHI=
+06dD3ur++ZlD1VCjdKOJMNpu9Dg5FSmxiavqsbyvd5XJ2nLN09IDVh3Ds8VZTPkPTYfywLxVr6/=
+yF2993t3GrezCtiA8Rrxqvyrnf+aYcMOmrUtSeOlmiklCKoomtNJbRVveIfaUUmV0MJF/SV4sxn=
+PuShcm6Hj0yJKJkb3CHlSogM7UUSIS20M6CAybbx3g6kjRXZ3DKwx3teL6DodPn22o3nAFmLmfu=
+PalduEROtT+tg4qz7HJb4ORvSrO0r0rvGfqBG1sc1LRElMvobIeXY6ToVqPu/v3D+wQtsGYbXR4=
+VpIQ=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Authentication-Results: i=3D2; mx.micro=
+soft.com 1; spf=3Dpass (sender ip is<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 142.103.117.135) smtp.rcpttodomain=3Dnserc=
+-crsng.gc.ca smtp.mailfrom=3Dubc.ca;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dmarc=3Dpass (p=3Dnone sp=3Dnone pct=3D100=
+) action=3Dnone header.from=3Dubc.ca; dkim=3Dpass<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (signature was verified) header.d=3Dubc.ca=
+; dkim=3Dpass (signature was verified)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.d=3Dubcca.onmicrosoft.com; arc=3Dpa=
+ss (0 oda=3D1 ltdi=3D1<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> spf=3D[1,1,smtp.mailfrom=3Dubc.ca] dkim=3D=
+[1,1,header.d=3Dubc.ca]<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dmarc=3D[1,1,header.from=3Dubc.ca])<o:p></=
+o:p></span></pre>
+<pre><span style=3D"color:gray">Received: from YT3PR01CA0127.CANPRD01.PROD.=
+OUTLOOK.COM (2603:10b6:b01:83::20)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> by YQBPR01MB10916.CANPRD01.PROD.OUTLOOK.CO=
+M (2603:10b6:c01:97::20) with<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Microsoft SMTP Server (version=3DTLS1_2,<o=
+:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SH=
+A384) id 15.20.8769.27; Tue, 27 May<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 2025 06:12:54 +0000<o:p></o:p></span></pre=
+>
+<pre><span style=3D"color:gray">Received: from YT2PEPF000001CE.CANPRD01.PRO=
+D.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (2603:10b6:b01:83:cafe::55) by YT3PR01CA01=
+27.outlook.office365.com<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (2603:10b6:b01:83::20) with Microsoft SMTP=
+ Server (version=3DTLS1_3,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cipher=3DTLS_AES_256_GCM_SHA384) id 15.20.=
+8769.18 via Frontend Transport; Tue,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 27 May 2025 06:12:54 +0000<o:p></o:p></spa=
+n></pre>
+<pre><span style=3D"color:gray">Authentication-Results: spf=3Dpass (sender =
+IP is 142.103.117.135)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> smtp.mailfrom=3Dubc.ca; dkim=3Dpass (signa=
+ture was verified)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.d=3Dubc.ca;dkim=3Dpass (signature w=
+as verified)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.d=3Dubcca.onmicrosoft.com;dmarc=3Dp=
+ass action=3Dnone<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.from=3Dubc.ca;compauth=3Dpass reaso=
+n=3D100<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Received-SPF: Pass (protection.outlook.com:=
+ domain of ubc.ca designates<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 142.103.117.135 as permitted sender) recei=
+ver=3Dprotection.outlook.com;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> client-ip=3D142.103.117.135; helo=3Desvaou=
+t5.mail-relay.ubc.ca; pr=3DC<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Received: from esvaout5.mail-relay.ubc.ca (=
+142.103.117.135) by<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> YT2PEPF000001CE.mail.protection.outlook.co=
+m (10.167.241.37) with Microsoft<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> SMTP Server (version=3DTLS1_2, cipher=3DTL=
+S_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 15.20.8769.18 via Frontend Transport; Tue,=
+ 27 May 2025 06:12:54 +0000<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3D=
+simple/simple;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp;d=3Dubc.ca; <a href=3D"mailto:i=3D@u=
+bc.ca">i=3D@ubc.ca</a>; q=3Ddns/txt; s=3Ds1; t=3D1748326375;<o:p></o:p></sp=
+an></pre>
+<pre><span style=3D"color:gray"> &nbsp;x=3D1779862375;<o:p></o:p></span></p=
+re>
+<pre><span style=3D"color:gray"> &nbsp;h=3Dfrom:to:cc:subject:date:message-=
+id:mime-version;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp;bh=3DYFBKsFCxJsw16QfOBs4r4yd4s9PjdWc=
+ZEKOU9rYm6eI=3D;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp;b=3DKuWvs9eu0yftVnbVRNdiYS3xkUewANPD=
++bo45kWmaPHuIeSqSxwXKzRI<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp; qUYqYO07Pt4pXSvWSIy8daAEzcSjBKI5dtu=
+XKlhCCqRQ8ly2nkMJeCxyz<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp; zCPW2mUql4yg7/+bg4BPGwF+m1/DaHULNK7=
+GprGV/35zpJwF7veTt5GnP<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp; J2vS91Ak+GEdUOCU5IT/KPNAFlDuiP1GsJ3=
+qNxPCBVn98itnkUu++Of2I<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp; DN7KXtAMI3A2WLz9xVWxfnycPYEfaNd7Vr9=
+eqDG8JSIn4dXS4tbcQr0nY<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp; 0SHgs3AUh9w04i804XK6MSQb8xFcbIIHMg9=
+0OgbONCW4tPu/w1hydINsY<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp; g=3D=3D;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-CSE-ConnectionGUID: sLMe7WCAQBKzO1jqswxcl=
+g=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-CSE-MsgGUID: eq2TCLgqSzGpsw5fy72jJg=3D=3D=
+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-ExtLoop1: 1<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-SMTPAUTH: FALSE<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-URL-LookUp-ScanningError: 1<o:p></o:p></s=
+pan></pre>
+<pre><span style=3D"color:gray">IronPort-Data: A9a23:QUMNXam1c4c/Rngv/cCgbV=
+/o5gzgCURdPkR7XQ2eYbSJt16W5oAS/<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 9YtKR+FOvzlISe1O4Y0LNTooiVS5sWW0Jw6CDLYnlk=
+wQyMbpJWYDt3AcRf+ZHjLJceeQUhst<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8lCOtXLdJlqEyfXqkz2Y+Xo8yh136vSHeunUOLIa35=
+6FFQ4FS4vghxo8wJVb8MBbf2RW2th7<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> vui/JKEZQLNN0dIGmII97rR71R3uP3utjQCu0cjfeh=
+MpkOYkXAJEYgSY6q2KhPErvJv8ruHq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 5zrkvfgll7x/wsxEoHi1ankbQsMS6LPJwXIgX1THKG=
+/nhhFvDd1yqE/NfEdZFwQgDKPkdF9x<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dNRtJW0SBs4eK3QneB1b/UjKM0rAEE80OGBeBCCmcy=
+P01WUNDzz3OooCkgqIJcVvO1wBCZP8<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> /IfbygXbw6KjPPwwK6+ToFQar8YwJzW0Pk35Dc5pQz=
+xDeo6WcKEBLrV+plDxC0xgM9DB/DXe<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 9cDZHxkaxGHbAUIPU8aDtckkfylj2P0c3pWtVSZpKw=
+4i1Q/tzedgoUBSvKOPITieO1VglqAv<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> TCBuG3kHhEdLseS0ySE+X+3wPTXhyL9V48IErSk6+R=
+nxlaUwyscD1oQTxzsvOW8vVW5RshUJ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> hkS4C0ntow/6FCmVMKzQgG9l3uJsh8BXo9dFuQ77E+=
+Q1q/j6A+cHmEFQTgUc9cnrsIuXjgny<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> kOEhciBOdAUi1HHdJ7n3uzS9VuPESgJMXcZN2hDRww=
+C4Njlr8c4iReIJuqPa5VZo+AZYxmsh<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> WHikQA+m6kLlpxMkK6l5UramHSpt4DTTwgp6gjMXSS=
+j4x8+Y5SpapbvsASAtqgRa8PAJmVtx<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 0Po6PVylshUS8zlqQSNXPkVB+PuoPeDLjrdilMpBIU=
+79iygvXWkeMdRpzh1L1tea+YjYwT2S<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> xHT4AVBy5hyZzyubLF6VLOOLcYm4/jwLvm0R82PYvZ=
+oZ5dhfgmH3Cs2Zly08THRqmUzyKhmA<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> IiqdMqBMUYeCYI9yCa9aMke7YIrxxss91vheJz/9E6=
+niZ6ySWyyZYoUFWeFf8cQtPnc+CfL6<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dN8N5a6nA4KSOGWXsWsymPERG3mV1BnQ8+eluRXavK=
+bOVghX2QoCvuXzrQmdIho2a9Sk6DN9<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 3C5HVIfkB2ohH6Sd13WYCo8ZL3mANhhrH8kaDQwc02=
+l0mIoYdOmZk/RcoA4fLVy8fdsiPAmF<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> qlfJ5nYWawWE2WXoWtFNMGi9MJ5dRGzgVeLJCXgbmp=
+mL8Q8G1SSooa9L1u1q3FXVnXv3ffS2<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> IZMjj43O7JfAVsKMe7WdO631AH2+n0Bg6dpRUbQZN9=
+aZFj2/c5hLCmZshNMGC1ZFPm57mXcj<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> m6rKRcEufHW8chy9cXSwLueop/vFeJiA1BXWWLc6PG=
+9Oiif9GulhopJUeDOZTTQRDT5/PCLP<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> s56lNrCPeVdtglunoZbSJc25PMw+9fxmpxHyTRjB3L=
+iRX7xBbpyL1e9/uB93pGhvYS17DZaI<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> GrRvIAyBJ2JJN/9CwxWYw04cuCE0vJSnTfc7P84Zk7=
+94WguorfYCB8PZ1zd1yFRaecobd9gy<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +p+sYtHulTmhBdyb4ba03xjhGSQMmQbAeJgsYwGBIj=
+siUwsxF9DapGaASjzp6uXcpIUahlxc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> WHE3/ef3u0ClXHLfXMpFCuU9LEF2Lok4FVk4gRTYgi=
+lx/CArK8dglh6qR9qF1oFnz4a/c4bB<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> oQQDKDUTEnWwtsSrJYFBAiRMwFdGAWCqAu20FYCiXf=
+UCUOvUW/MKmJ7MuGIu0se9WxdZD1S4<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> LCfziDoV3Pldofxwi42DkRj/qCzEIcsqFKdxJ7pB86=
+eGIQgajewiaioa10FrhLmBfQ0g0HGq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> /gk5Oxsc6TwNnsdpqQ6D76f3LUWYyytandFXOtq8fY=
+CGmfSTzy30DmKZU6rfcZ6LPvM/3i1D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> sVvIvVTTR211yeIoWVCS6AWJLpDl/kv6u0Pf7rqIVk=
+dtKaFpTc86dza8i/1h2g2X+J1ltsnI<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Y6ELnyMCGuVsnBTnWH6ocxNO26PaMEcf1ilkuWtx+8=
+NEJkAt/xwRkou24yopXyeMzxh+BSjp<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> AnJMqnRydt6w45blZbwDqJFMA60INX8WdOC9wewhN9=
+SZLvz3bz1Wy4oRiPPY0IHVYY5W8hrj<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> a/f95ns0UjYprtwWWfemJiHGO9C4sD1V+1RPMPtKXB=
+GnCyEHsLqphQJvWCkLJgemtUIupn6H<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> FbmN5TsK5ANUcxa2WdeZn1VFBATPKnyZ6bkkia6o/W=
+CG1YF2xDdJdikoHLsZGBfQSoBOpvVN<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ia6oPGz/NtV+Y9LAhEzCvRvAps2LkXkXJwtcNv/gjS=
+dB2istU+Ys7DhlBwvvGiFBGODFfHx5<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> pTLcRX7fRW2j7rP0ctSvtkr8BcTC31+hvQsSVka5sR=
+9hmXjQmAcKuEqOpIABKZZlyXz0Kbxf<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> CnWOTJsDD3KVzBDehb7/cjUVRuWMfAUM9z6ETou+XS=
+MYS3jAoSGN6Nr/BBq/mtqfT3Ux+GuL<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 94TzXf3ORuGyY1gC+gJ4fmMmf1mzf7tzGgF8EPxlNP=
+0Vk9QCLQGgSc5QFMRD2LDGsvAkBDEK<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> G5tHThCWgTiEWXbIMFvdF8JRjgVnRjRwBghSSikwf/=
+ykYCy4f9d4dDRKsje/OcqQehUDZMkA<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> FrabWqkwkqP8105pIINg9Qlov5eEtugN8SbB43Mdw8=
+jmpiv21gkLec+oy8+c+Q+3iFuAXX2z<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> mWduV4+IHugcHEL6eSx5iRQya1PUlcqABrggSfUjAa=
+urfBC9DT0RvTQ5F69ePnNg6j/o11DE<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> nBVc0rI+xuTpSTjvzpyv+VdrVuCRtwbHj7IFSEuVY+=
+1y1v1EzIDU+k6jh92h4oKrCUcgIVIc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> aKdeBlw4cX/BnPUjF60x4pEO7Vt/IwIFA0Ziuyxozs=
+xOoLghMajKPqSb+rlZVpX0EwtcBFdi<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +eKRgeEJVz97FQ5YgFNu9HNU4curfOnyK1+4VcyS8t=
+dv/iT1d8ZkoKl+wS0dR9bXL+KVcHUc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> VnU1u28DAw8LATrcM9ZmXI17pjV4/kg61TksU7pOF6=
+K0v2K/mhpRZVQ1ooT1MSvVXRiNGFy+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> BfyW/3qs9Tp+E6yoV6cw7/LtU52LNXO6thSE3XDN3T=
+0Oj0M/cEtlLyf9PmmrCoQYqw9F5xKq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> FZvI0zpkOrJkWg1QCCdfAwObDfOViSDBbKvNIUzRcu=
+qh8LyKNU+Y8AUvRdaTe1UtXRTrINlN<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> iawV49Csvm+EoC4AaDa8w3afQQxEJ/UNEHP1tW4mCE=
+KNZf6DZ+Ph6bCGbiLlpH0KFubnmi+t<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> e8ZhrRy3W3f3sU8yFtW3wsXncHkpO8T53+dIXKD2w0=
+x3niRf8zNmkbBFet84ob1qXdwzGYFl<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 9PgWEYx1bMpEZeyMHjpLZP6+QXiVTLGSyyy20S+IQo=
+qHni+i3UMrL3GB+jI4M+b1Q+6yehn6<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> U+9beUaLZtlFFoZBCCaFnMG//966qmdDW23Jtp/s2y=
+l51tbmXg44jZi/bC8FepdwmRo8rNn3<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> mAKJ06QFV9SneivyJYt3WqIP1WEwJgwnbQlTeLA7BJ=
+FT7BeRnkiz99pQupyKvIKjeWMlKdC+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 9T7UQUgpHHdSbo/FrStmjEEtjiqcaIirP4AdKsR+zC=
+oUAcC1IptDtmly4M3VZe6/WlZ9hSWY<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Bugx+DdDgdlKMNxTOnzRtZJy8R6xsv2GslXzF4GpEc=
+Q5nuXLDmlE4rcX0FrdmCkvdaW8uSiX<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> znVm6pTY1kKB4ryhfvJVusUvlUXuayLq29I+srskiH=
+EkXEKU1JzQWYJMYep4wSCVZvV4xzy6<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 5mx8h6AwNx/AAEkNefgkPnH8XO/bfPACLyttEKUtpP=
+MmPeTOdnZTL+U3G5WeDPVYeaYuICca<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> S2+uHNBhEEQ03zb2P1eDC2x2E9SeYJtofyJQGwif1C=
+2iyr1dTKrA/K9h1RVh3Npg3OWuvMXi<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> I2TafO4nrvUbWvfneXs4Td+jH9i0MMtcxcCLgGhkv0=
+2fsVntec7KAaml62t5o/PKxobzXo7V<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> TqrOEH85Zu1YLtTdBMkMgws7/S9RoLIECVL2fFKSCu=
+GV8TEO1azm995WV0iIt64dmASf6vpw<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> BqGzrI0hHPQqRtnM+/GBhb5717Pjl7DK8um/tD3TCo=
+y4qTzyOPbD9EhWbow52R8TSD3Au+pC<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cFl8fzuIWmL4btfCh9K3ow97xDJDcDtindI3vblldr=
+kJKTxnFrKiggl1gMgYm4UYfOmTzUyw<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> jSBKBzKvmEVJ8N+E0oNEmaUCDuuLB7praOlf4HSIk1=
+5B/xDScYZrSza829uRA6GmeBwZ8B7l<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> T0guK3mwJs6gm9PsOhAcZ3gwkNE9Axu48/E0eKK4O5=
+EkALeaF0fz05a1MmSieA8KyNWORpz3<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Uo7AVHnNSzITg0kH3MZcQTEUZ6WGfJvBMKHNRqldb4=
+ffWRofdC+Z/BVZ7wO1R0zhGoGom61V<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> eB2UH5MAuTz7+KUmWrN8wHLLa0zE/ZSiVc3IXIIzk7=
+D6oFh5Fs1Pa/f0WErxx3oAMjaoY+M7<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> P9BdLqdK1c4GgHLW6MNWEVDH+/WrLtE4KnwHnoEoXj=
+fz+nh2HI3BHwz9YCdrVKP3LjuEmFZJ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8GcJc5njnOVsCUWkVhvZrVZkm+/8b5czTDr946QTPQ=
+71rovfcjTvhtBnnYb+OBRTcmSTJJTh<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> InqH4RinlhwJ1IkI2dnj6meNyXV1TxyapEWOb8aGHm=
+eOJt73mNAuGMj4lQKjEP+9c5+4u7LH<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> TlN0h8gVx+HnduAVFwyElVJZgTdbE4WjS93R6klplh=
+KNd99Hr6P+ixdF4nLEk8NmwgWU2JuS<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> FEJDa9DTaiDvEAfy0ZwEmEIO3ULIRrXZiGzFc58+QY=
+Khlrc4UDveEyySdJGAUBuEVi5k6YlV<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> SLKFOBUTOpIxjAGo/wyhc12yZXpqFmZA71bSl66Fup=
+bz2QMNxGThKdJBsry3DUsLwkA3lTjR<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ol13aJ1G3RYbl39IxqRqvaaYYVPdk1kUDpWtMyiJTA=
+nhB8TlqQU0Rx6x/8ieT+H6vtkIhldq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1dnw/ceaVuCDPK4Bg58uuTL2s8IKzEATig4JfnMOcg=
+CLMgyv2MKG6x5Sxipm5OvEJ1Zihf7i<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> zUUD5gXZNzbNiVyiwSAsajoSk7abHuQY0Q5o6QVxfw=
+U76Bk5COcmPnxfqTQ1Fic86eoRPJ2m<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> zJbWW2LTAphGqBltuG6uN/CxaBo1HSxxsYfMoC5nG5=
+cq5KBK7toTNvKKn/HJuJjDL9OIWg9i<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> O0UdWyWatfAr6DvHyTZOGpmtfeBNK5oSLjeUTeENYC=
+L2LeZu+I8iM0hio5Xz2Bwb9qjqZ4zE<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 2cVzoy352GBDEqbU45qEQlcgjgcOVRu/n/7qtdqdzE=
+n15slKh8PzL/9SuHUehQXL6uDroOQ5<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> IYGbaaqXToHb+yGl64QqWkEA0HqxDLwV3ozqeHjVqd=
+Zj8OvOwjtpqrfB/G761rXI+ATwhNrI<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8QP+QYsrzKZvbtSnot+GnYB8cL34rjJGoLVWhB1Flr=
+E/CZmjZT8H1Bpz2aJ654JLv3Tu3ORg<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> UEpkBxbFyM25hdUn3lAYDtzAU5LlNUdJP0jjVtBJt4=
+FSTKw7WdF5+TRsNa7mwiO6gnObaLnR<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1Dfew7MAarbwoSSEgXfNkfhV/203NoxOVS18AOBHkq=
+XjwAcsuUpjOeNX7jj793qfaeFoqDlX<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> gbur4rCFm0UBUU11cLZS+hJ9wBlkSUN4evYpxL37Dt=
+GrXqYLHVhukORWpQepY5rOmWHGth4Q<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> mLXngGVh/E0TdOsTVb7X2JWzLvKK4o7fNzZ/GGWDhv=
+QLt7FaSwXlwXp87nrj15WasYp55PTQ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 420kEGd0Y1aXq/wXKA7QEuMQqVz1cEnmAHexCpaVw4=
+3eRev9SXwJI6G46ChHUE+64BZ5ZCtu<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8DI08AaP7OZ2aQ2vNR9H7s6LbixtmNoY57eKrMSTxH=
+TYxe+LzXKFGkSQeZghHRcbs7a0RvQc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> uDjP2wSiXwKhGGP3iZ/3P3RAvO7eu+1U1NDkhyZPh9=
+yTjWuNk6VSNs+rFKwt5kQjIKkJBCZt<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> N68lPjRECUFFdiinSaGhTfgfQ3HbC3ka+da68W7aQz=
+WP7nEetaSNHsfIV99D55nG4eZFDJ5T<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Mscu8C+a2Av6OKhEHVNHXxcYYoG6FD/kkBintd9SJc=
+iqtfAXjR2ZX1jfKk9Zl+HtTv0RngaD<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> XqObq9/ZctwI8Ir4jEdGrWkN4icQOsG1ZFz9G86nPb=
+P5jChgC5dmOVEvkfRrLAERM0E9ML7a<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> DwPkUnGRvwPd3STOLIu40gSgnnafic1C2VowrXabsA=
+QwUVbBf7vlnakFEZgBhv6PdCW3fu/w<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ZlFRGJTUIKJt6JcjCk8uaml9Z7R5TMWGjr58+V7GmC=
+aUXhYyYzPHc0B3t9zIcoXcIC7HV7tM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> aSvB6pJZgAeIjr0Dh/IOoeJ6bfXLAvuqlIo+a/EQ7q=
+ZwvmHoLhGQTVR+wTn+yWV8E/ckQEEt<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> i+HfumN2AGlEoanjx4/GJUiHtFGf3CAoG2Zp+Vb8UL=
+o/6OtoISF81RamA8f1oSkpNqcNE2b5<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 92uVhNsLiQ7OUsZXuzTjYX1f5hEBdT6wpzOy5LYlpl=
+rMLhigqhSzN4aqTWAqVRaj0ey8p30C<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> CvZQDMtUZKI7QzEhXgl52RU+0mLHqLhv2JMMvGAaQ+=
+nxdEoa9KCCvLvrvgyEjzx1Ex5U3wsq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> fJNoZ60IErL4BwcETfojgVhiasZi3LhbZqbkgJi+Aq=
+VmjsYm5y5fQGb4vrkhvRvNUIHAgX16<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1Gs638H9iY2gcysxJ6dq+rf4gd5xAi0wxtgma+htvd=
+GWrpN+el3WmeMYwUjOoOx33xsuDKJK<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> d2NQmUYSpJXrH5SH5511hRnx5nkg2lsoiX3Fq9IQaZ=
+YaRkT0IHXOKqepec1yRN7YHMhZ6NEU<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Z/bqxdJTRm3ojVki/upjNNaSqnLzqRRTrDfY4LBHMN=
+js0N5cz8PmdSDuR2UOVg3VE5QA+UFz<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> t26PR2+1cjLahXiug9GcXp0/dXMeDGD8pJwbPNU/yH=
+CKOloAi+IW8OzvNu70yO0BRyfx0zQ+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> QlQ0YdGgI86B61J3HTUkBtTDhyOj52xjrmzubEpsFo=
+OHh/0ygNK9uVi3B8cppl5v8zLhSqLq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> xT7P1x+hfGMqSSUT2B+NC4KsMfu6YBmoV7+WMhAwB8=
+R4Hb3/w6KLx0e+cyLQkv2Z8hZ5j0LT<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> BBzb9BVt1L+lP+4ydRYN5+EpxjuR7andjhZ6wFYXn8=
+SevAG91deBiSvJsAoLc1G+O/u6QwCr<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> RX8zXshLjceuq4UGVJ7DzZ7yrliA9zmG8SwsKmzWlR=
+MphxDeSa5L/vZrb+WgcqZtd1WQ6X+Y<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> wDtm56fzBreBEWAWjTr9PzaQ7RgnZEgHCb3lh+C3HK=
+Gjoo0AQ3vWJujVH3y1SOjkuMdG4ChH<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> A+F4SzgKi0WT3OvRHRYnxoIrGeJCZASd1ZdSfOl5RO=
+XaaIZMZl1+B2IDhaa72IT2FNxIHjNq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> DttfzKfEge9oc0+vhdyQUedR5oM4RoNDNPusU2NOPg=
+B3qI7w65q6hRDQ/869qhosmXB+KGGP<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> /oQkgPyaAuQY//FssiZDxl5ypmGYFmwRmuIqzX9fLW=
+yvrsrKbZpgpSSU7FEUmC5F09wlWUFc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> rPExJT0VTwEYkokk4nQJOdBcPydLQbBvjPjMODR+ns=
+sFIXODUMdOBTi7/lweZhRyeztshZCr<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1NYiSZGBVwjRz96uYExpXpGQo569LW3VqSrh8m/9q0=
+OpxeNrodhl/NXH5b8zJPHB6rBhwJm5<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Edi5G/yRlSs3Vq7or9g6N3refOuCDEA7ydM8dRH8CW=
+Ix/6ELobF/QAJxJQo6Jhj9VVIwGmlI<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> xUxI1ROFdU+ICjvo2I7rWIWK9sVP4H5ZKKNmJ/GD90=
+yixX2GipkOF6tZWQrL1IoQDUaeUxhR<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> DPrMHc5NcBga0P2chtbz17IPN5n8hLPRfY1PbFKdam=
+d0ChX8YllcOa9hFVB6M3anHl9p77H+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Bz5OHWTmY3V8O5qNRWarXQBdQTH/QBB5Vmcx8avBBF=
+2IQhMoRItyeQTzwGCJFxfifSdSijSC<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> nERbTes5XBlIbAY/sPArE5nlUMYLt9EfR7djVaO389=
+E+WcUjMkwuM+qFztPnXSNIUDOL6SeM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> SuWZpVKGnTJ6SMfm1xyJSCiVrzrwuCp0s2QaYYwUga=
+j1D7kFwXEoyqfXgaSgkWIIMD72cO5d<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Wgsd84cv/b4HFkA8UuK1Wn7PMM7jI4yI5DzuqsEmPC=
+UKH9iiVr2zuyf10Kap+6zlxvitf3Jr<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> MVkEFAktXsjWzn3I8lsB7+DMgCZYM9iDxRgrzC+Z3g=
+5k0DKweV6sD7Jk7akyPOl5l7P5xI8Z<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +Oe9Zf+iKnC6dTe55gb5+Og6SnTTVxS3SeX8qaR1v1=
+iI5Ao0UsuyGxgvM5+ThzAFgcuwuwOi<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Y19RTAAQpIq8mDeTbdoV8CDU64iypAudiEWJOGhD0t=
+QXB/jPO5aU7SgDjIyMD2128J692ISJ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Hf6JEPND2wWlEe/sZEGgSOqDEStFyWs6IEbURYXEYu=
+N1/waQiAzI/Ag/Tf52Ci4u5W62TUfD<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> OKm7akOnbaU6YhnfdFURTulrA7CMAESRsj6Lal7H9f=
+7dpSnNJvQ/mtPE9psxc06erLx99ln4<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> pTeZCWBIJ8IglRfFX1+l+mrxesgyRadU7Uzg/b0RXa=
+eoFuKrNrxyapN0BMlYdk0jCZ0lWADB<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> nfo/Ca/c0g9r0ANTX5UYkAZe5DP8d9qZ1GL19PKw9H=
+beesdmW4G10BvD8acEq02vUqfYpPhp<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> YnZkQeggqKzxR9LGTWY1bsn9TMQCeFJKItFgXSm2ra=
+UPClz+QyFlcLUEnmr/qmgc/itd+gmO<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> /JQuUc2C7FZqXU6qhd4/RjQYfWI0fesrWz5ruAeAtU=
+VZtFdyNrRgusT87bHUrVHC9j0lKZhv<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> DVuTkkKSSwukNUGJRBBgrToYEIOJW3b0tA320uKImb=
+fadhwV9o7zsGDg8yRTOfwP3eq0/LT+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> wZwLpa3bVpxdcAIEjZnBV33PjAtS4fLYgZ3kMSZogC=
+nQKRCRY2LOKzwmu6HAsdEuo345kzwb<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> rX1Sdv4VBfgdVM0cvfL0CEfG8xqwKWbQbgQEE+XUsV=
++7iqqLrwMaY5FEfmc11HZZL8C5xuAw<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> erC+8o2/xcVn03ci2F6VnJvEmpsdrVhgRij5GcKv2l=
+cSk8B17JWeGyjnHpwN4w7c7SdJGzyO<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> J8tc1Coa9LB06BWFGv71P56sTkDAtGx2XS0J2KgvHf=
+UCG14d6die0T5ouhfpPZtEp5v3ddZq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 3Z4SyNrX4OAZ+i3ZvzRNmbAy6LvHmjKI3ygV430CBU=
+aOdtWqbdRW7NSQQKD6FFrpaaZb2hw6<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 55n+ohnCi3v4gc6UBzjNFOUskRHQTJkf9JTxrYF+Q3=
+0qQE1MZ15nuw5lpnLvoedIIIxsrcxc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +Gm2SL1h6I62Negm1MGS1XyJxGYkhnj/AjPWHctTcK=
+Pci2H6zIUQ8+9GlBdtRsf+gEySMUz+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> jcei/h2bnSFXbcqkFkSIe5ewDxhSC5r+6vKBWN006K=
+C1cQeIVdyAeU0L8sQMBu9SuY8wHeAW<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> exQ7EmeIt6aFllCmsZ5PAzjb8HY1VElczypLStnzGw=
+m2bZK6UAeFQROSXag5jW5ZD38X23op<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> hcp0eoiUAC8Bf31ixmoWiwHU0hql5cxJezUXCCMU1Q=
+xZGeiJ+VpNqcTeS1vsse40paOrEUJQ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> pa7M4LbuZrN23YtBPSjDZLqUalF3HKuneVn2rpynHz=
+ZUBkwEzA6FDH3G24b7F3yqpz4J3gNW<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> p8R5KgtHEKk2WLTZehW/WZBpIFk9JPWplBeuweFkoF=
+22daLxR0BLIm2WbTL9a0LKphBVMHKH<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> U2QMp0vX6dXdM9Cc3jcYDHbKcg+bwAAd9k7i6e0SMU=
+W/WQYCBFVqnLEKQAYWDqEvUjYUoPWW<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> LqjuZBScXtRPI2ysFd4kTDW5DbG0kGqYgqwRgiZWaY=
+IJdRyb7qTpyVpdA5/Lvdw0fov+C0eC<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> JnAujzBH3CtnPqrwiuUs0bUUdMEeo38QlW2lCq2VUI=
+kEnQV9uRs3ySNfjBQ2esb47FpdT+te<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8k9JAuLJ/EyJ2JUErtDAneqh1bpkymirl+A5ngNF+9=
+0mll11hUSQUve7iFKpZH1xe1tLddQY<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1Fy17riQLAWEfWCxYLR9/qm5o2vSqdfiNO2QMgyn3F=
+2BQnsc6T6nTq021BkbEP040H2t1pV6<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8F0I/r9Kq/RapPYIEpVj1V0G40Tn5Zl00SFgfcYKHv=
+M2ARhT79jw1lBur0CfJa6VCQ3g93TK<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> xUSBM0vjPobDyfyiUTQ5a72ZoHlkjTedtNqFbWwmbE=
+pM5rw/j8IFXuT5mjkqASDT2nTO973g<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ewDo4yOP+Jnac6sv5NqqHERkhJQPfAsOv/CxK8nQJX=
+vALJUQfbtkzXs6gE8h4tTnHpDdwUXU<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> erxf1NKFzerKx7XgvD+dSGYwPs0N4mFXZ38IhqM4Iv=
+ToUEj/SHXrOw6nN6uckLiKt3r/wDfP<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> TawC4dTsHk+4Cjs6QDBiW7TShQhDbyfDrIQDReGj2e=
+hSvhUdsk5q5ufnU0RX0cW7G85lSp9B<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Fne1UF95wsYNffWHX0+3gnfe7nR0EozNBXDOinFXDO=
+71OJVAGcpQO56nZrb7/Gab+oUSHoj8<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Abpcwga3/L1NyFO2TRSAeJM92HhMBWczD5aBsxzi4N=
+mH/hds28jTrqvOPUgNXSJVOiVS9PKU<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> JI/Vq88OelTdWLisPGHFcKnp7qkGmX0fyMFDY+RE26=
+mAzh6n8GVbsz+cJpURGHdCPAK1XfDB<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> M2SzXVH8fW/UDDvKdgNch3c7AmXSuQuE/VaxRE3RK3=
+aeWaKQCTvc3Ylzp1mMHUvQGoZZ6ay4<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> O0V62Zp8npTEmNAycpjY9Mj5MM8H5SpEG30oBp1FQr=
+ogBDB65M+3KcS5JrX1/tEY1OHuX6ME<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 934LvbWHUS5pG52v3Q81Ebp2BX2W0WigoLAr3sHsqJ=
+8rYQzbywzpIUyYqPuSoYFH7mASYZXQ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> YYxtu+MR48aiQNTxdJuZbk8bBb5lZQOU2uJx802Yt1=
+1Q8oVb6+Xn3f0U8VBFv8Jn7PSANjPy<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 6/7iqlS4AsFyTtQeQcivoC6adXVg24jLJwpx1AfLgc=
+9+GiLfJoM8LnN8zFF+uuiistY6POTp<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> FNC2+9TGPxffNr/muDIbVAbNbiu7f8TngVWScURXmm=
+qh+s8ZO9VYfHMjWxDASmgyNSbYzsBq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> LoUZ5U+57V2guY5NQPrpazhZzcMj6GJYmmMuuFzBZ1=
+idpitzr3cTZCYBpUK/86G7gbJnCe+R<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> AHSMnEhVyxH+Wz931U1OHtwgMDuFmAC9F8eCzeasjZ=
+spJrxvsGjwKG+UBxgpsXOvBfsiDP/r<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> MxCzS2X8s4ImuBkGzrtsHN0SNw0tG+0jL7FXmgcVEM=
+TsrLFyKylITL/j9OKEfFRe5/5C9YGg<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> W4HHbK5abjtfuTbxCiZfV3ijc0qsAyqcxFUwvDSCI1=
+r7iWXJEhDOaGSR6qEFtSOWhtPt/2sy<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> HsN+4gAz7Wl8Z7OQKna7kdU8RJ2LHmBJEnCysh+odc=
+u1HnmJfenYJFtvKLrO0GLOCExLbqtX<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> oFYzCaQ3IPr8L/kmmvlVgT6B6KpEXDvQ0rZJbAKcvj=
+go4XRpuRuE3YxsMLoFKYmx/MjktUyt<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> AaDmoeVSqlSf+KIFuDw3xrkdPF/+QCddbHjg2Jv9xY=
+UVmIp4xKpx9mS8kVwxZBCl3iWQTdM4<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b0odsl2WtEMKhqLGVfK/EsNK2QAzzZIPIjuzMcMaBT=
+7qkO0LOY3eSMVDAWO1IyUiq92HDoRq<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1X8WIEYhYtnjM87u4xw334iwTu33RnvSgN9oTRaUj4=
+M34PFbJTqfvH3a1+DY7gGpEK+2zBvg<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cNv7zT3NtbgAkiT8u+UK2K2e2NUJGqFwnWvWjd7c0j=
+d0repJ912ZE4sOOkXadwux/8Yc9Wl9<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 95mF+0jvRTknBKqtunmjwBfKtovBO1uc2fhD5D1nPM=
+DaPF2Fxnb1toa8i6uy3RHkq2I82Cok<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> yh6vWl32HzsLDfZL1BVeuH3BnFwHEj7RFmLYipEpbE=
+14H66vs6KMiPgqE42rebZ4Yo/KMhhU<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> LRXA1N24YPlzNcV/+o1YTANGo6vpDkD2fbrK1av5Hx=
+4sDyKklR/MX1iQIcg5V1hB3n8GBclP<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> BhWojvK66cPoNs0Hk71NLjmcXPGPPmVQ4C63aPg7RQ=
+syvpAZRV6eWqp/rN69h4tgUSCRunmK<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ZcE5dOP4Kpnj2blNGAyxGJLE1H2IvX+tal3Lj4gaBm=
+aRYWkeKS+87DTKICxoG3BHWB1oGCxA<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> qiv2OV1k4uItd/RJmzDq+v/4KanQF2IKJIEJ/nIS3Q=
+DDqlFGbYUE0HnT6m2EmwwIxeJ1AcUz<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> WocAn7o0I7YXI5WNc91+vWpdYdQUoInTQIXkKUyucH=
+oR2ilg/jWDhN2tbwYGWZKHSOXBq2bb<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> V8mGpxIcuLjyNwOfnMK3fOrK4S5mXo3ukn+UudsaeO=
+i8309jrKAEHzz9unEoKVL+QQBN6+9j<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +e5e2gvXDXisylXz+f75P92QhahnCzGGJQYrgwfnbB=
+Ux1mBb/XJgOXjUSzAoHhlr5qje2Z6n<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 39nJQvJSFC93ab+axTm9duabwl4s20/F3QyG7uPhMk=
+r3aLTx8KTKkl+M3XIz4UevsCNwaNNJ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> dhfWu1wZ6iI5Ncp7TkVtEz6ZNvfLUimXlEXbo0pmhi=
+W7Tju9dSwTaOKt/4YgGGE3ODgXdYBM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Z6d/7Dp1Xvy59qbZa6ujEXYkKZVpE3aGbjnpvhoV+T=
+HYQ/rH/yhfEFLchLDFnr71IZV2+ydt<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> fXtgKztoavAPCkp+T/g3nBW487RCpJBU9vwIm0OzNc=
+FBRLqvv6KaPPUkAJkICmM4fD3BjnoA<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 8uw7OsigL/l9wC1SW8jrXoAtqXQ1cFUlF/uyUzCpHp=
+F/yCu8WUX3xrQcLaiB6hoblZRGOBqv<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> QwIXlbI0Tkp7rHAlUVUiqp8z+5R2U7ZderXzcYFKL9=
+njSWoVeBJWHdJBn4Gd66Wa9pLthzqu<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ezh1woA5C5rthDuJY/wT9p3FkhKaWjYf6uULOYjTx6=
+oChlnK65+uifKQVXCMBru1k0g1KqK0<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> j51MlX7lrS3e6puOGl4G6qs6EZObD4FCCLQkRdpncA=
+0lbF6XmhV+UFemMH9oU8mNuiFheOMQ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> pv6YApDB9eJwuxebfc8d/YPjQN5tjEYKJxIUyK6rAQ=
+TJ3nLyFt8rnmZ/YKkWzvtiYrhF7wiG<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> wtrqv6fA/QW66pkbtYm/GvuBXmjbtAiAWsH74+jRwu=
+5pwCJxckEsMoUHDVEKgcOL8Mo7dHwz<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 7SxfyUg8EM0RFaBqw3n6ljfy5y/E5AzdJoDxi+hGHy=
+LN0LRWkMVJTcNFdEcc3aRHVVYvdI++<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> quXMurq9pzsAWtFwctNDFFeLH62UX73i6lHI8zkxKc=
+l4/6VSQDUxClhRXRCUTg4S3rM6zMxt<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> bkqvQAbXL5cxHJLqTfYrN/tBizsxZY0T/uiJ9XiB/3=
+jdVRDtO84WRfelpVpbv2FMLF7DqfNE<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Teblv9TYQoczIi3ovVYPyZel15U+s/ciwULhJNxZtR=
+wS5MVoxx8MzB++3LWt3WpgVccTpSd7<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> MifAGDpq2Qou+B2MX9X0BkogLh6s/z0lzTEY+F7Gl4=
+3OylC5hUiarr66DsbxJtWglsycQs17<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> oSzWyKQwsjk/pAbaZ632VtZaUqfaqjndzW6RPzmhIv=
+NyaeON9yjiUQW9M6N1OktUwub46b9T<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> EyVZ6+af6XUmMmxhIcpfcARKfmgH+VJF4t8vq8Ho1t=
+Z5WSO5h9k+HJNvA/rxuJweloMD3+LM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 74iHvs9CRffmpBiAffGsq2OdMTBVNkHpeIYzn3BFiv=
+JNcJchv8kRRqDZZ5rJ3fMvyypEcW1v<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> fQd6Aeg3NYNsXhQt5dfJEYWPh66m1GduvvavZxTGcq=
+jPCGRGjurYW309bxvTba6rIMLzMwqn<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> Apy6tfqjdHctFa1eMpuXriniW45w5uLZZADBvXmYI0=
+P4jsvgQ+xf2UtZuGZHGCzOeQXPnE3j<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> nT5fjRR0Qv1sDb8+kCVfPxTzdSS4UvUfbNujcKY8jU=
+RYPBDv0uxH6KArHQi9QnqRWvHj4Sk6<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> NKaQPpe82qycSOkEh+SiS45+mKthI2kwHg8Dd+zQfK=
+B8N6NKWJy9ohqgcsqnbLzzXdBNUX41<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> smY+CuLFAgBgELXPsqYizwCUx4x0qIM0+xaA9KNXwW=
+/dzy7ze9uNT1lYNfgY9k9zlmpg5kMJ<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> K959xo1opq2jGfliNnLanu9P33rLZUlasxMbXpZGQq=
+pSQwlzfMriB+ZndseGyX5GIaylYrDR<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ltiMlBnNqfb1G0y8ZdST20ZSI/vT3vhgQgVkRiMFI4=
+5D654z9Ubf++oXpxh9TBQ/PzFBDFwk<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> vr6iqkLSdKEDMg5TdbUCGv/BXeWwkSJ9PZAZxkKYRc=
+pBg8OphCnHLpd0KF0kNzccKSbBmox9<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> qUeIXoJ/d3zpxvhO1jGwMmwox8EehyhDhL/xfhItxP=
+MNn9VDVM2VMor59sIAVEXAX3URVapc<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> LfTuOqINtx5HtPEgcbY8cLif8yaz53JChPn8AMWp4c=
+N5epOCrobMxnqbwBo5+eWHpHCOA3VL<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> i3+B0PSHWEVg+AXyuB0DqTkrtxtwZkte01WW+DJNMq=
+OVSgUsFY0DoQyh2+cnpJo9Q3jgmvLH<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> lQw9SzycpLt3ihDz8F+pwhxYiijwVa/zc9zcr+R01i=
+s1TAof/gDskQhbWJ8zEKLvtW6Uq6Ru<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> WT+icpwBG+t5l5rxoqXjhYZ/hMnjFZxsE5wE2LfDBQ=
+imevwT4cWsS9lvhPOURJDpspbxz9dE<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> NdoQsbhm0+OuICYCxKy7AyQEVQlZbM0/+GRiNJCwL3=
+JllVNxSfdlp9hP+gSZhvXiQDlqpeZs<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> KABX2GibHbxC//b6o0IidaSMBnAiIqeapPYYJ7EQuw=
+xkvouW6GEqEgnAEQFl+5v/+XnSEN9X<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> NbqfigGX4vtMcLMZ8ocABnUrwyxKFIBBKuM0Y5G2Il=
+ifECYMGNspw2DQR+2MoX5P1Zn/Vfy2<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> pWmzX6pmvxiPN8C4H9aq+bY0cjMBBSeEbj8qgEqL+5=
+GJ7d/ulx7maVuUEaSLSHLQvhj<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">IronPort-HdrOrdr: A9a23:ew54r6nlO51xHK3KqGG=
+S45QeYFjpDfOrimdD5ihNYBxZY6Wkfp<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +V8sjzhCWatN9OYh0dcIi7SdO9qXO1z+8Q3WBjB8be=
+YOCGghrkEGgG1+rfKlLbalXDH4JmpM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> VdmstFeZHN5DpB/L3HCWCDer5KqrTmgcOVbI/lvjFQ=
+pGpRGsZdBnJCe3+m+zpNNW977PQCZf<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> +hz/sCgwDlVWUcb8y9CHVAdfPEvcf3mJXvZgNDLwI7=
+6SGV5AnYp4LSIly95FMzQjlPybAt/S<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> zuiAri/JiutPm911v1y3LT1ZJLg9Hso+EzSvBky/Jl=
+awkEuDzYJ7iJaIfy/gzdZ9vfrWrCpe<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> O84yvI+f4Dr085MFvF5icFkDOQrArGo0WStmNwx0GT=
++PARDQhKevaoie9iA2Xkwltls9dm3K<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 1R2WWF85JREBPbhSz4o8PFThdwiyOP0DIfeEEo/gli=
+uKYlGclsRLYkjQpoOYZFGDi/5JEsEe<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> FoAs2Z7PFKcUmCZ3ScumV02tSjUnk6Ax/DGyE5y4ao=
++ikTmGo8w1oTxcQZkHtF/JUhS4Nc7+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> CBNqhzjrlBQsIfcKo4DuYcRsm8DHDLXHv3QSmvCEWi=
+ELtCN2PGqpbx7rlw7Oa2eIYQxJ93g5<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> jFWEMwjx9ER6svM7z74HRmyGG+fIzmZ0Wc9ih33ekL=
+hoHB<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-Talos-CUID: =3D?us-ascii?q?9a23=3D3AOt3p7=
+2o9AtRvlEk+E4Cwd/XmUdsBV3CC81z5GmW?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?q?bG0EwSqSOVk+b/Kwxxg=3D3D=3D=
+3D?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-Talos-MUID: =3D?us-ascii?q?9a23=3D3AIzcTX=
+QxF6O5trBzXrhICofJ2yEmaqKm3UnwmtZo?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?q?fgNurLTdvZjmM0261YIByfw=3D3=
+D=3D3D?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Received: from lbpglfsc01gstp01-ents01-f5-v=
+rfglue-float.systems.it.ubc.ca (HELO smtp.mail.ubc.ca) ([10.45.24.97])<o:p>=
+</o:p></span></pre>
+<pre><span style=3D"color:gray"> &nbsp;by esvaout5.mail-relay.ubc.ca with E=
+SMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 May 2025 23:12:44 -0700<o:p></o:p>=
+</span></pre>
+<pre><span style=3D"color:gray">Received: from EXCH-EDGE.ead.ubc.ca (10.7.0=
+.16) by EXCH-SRV05BP.ead.ubc.ca<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (10.19.216.59) with Microsoft SMTP Server =
+(version=3DTLS1_2,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SH=
+A256) id 15.1.2507.44; Mon, 26 May<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 2025 23:12:39 -0700<o:p></o:p></span></pre=
+>
+<pre><span style=3D"color:gray">Received: from EXCH-SRV02BP.ead.ubc.ca (10.=
+19.216.30) by EXCH-EDGE.ead.ubc.ca<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (10.7.0.16) with Microsoft SMTP Server (ve=
+rsion=3DTLS1_2,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SH=
+A256) id 15.1.2507.39; Mon, 26 May<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 2025 23:12:06 -0700<o:p></o:p></span></pre=
+>
+<pre><span style=3D"color:gray">Received: from YQZPR01CU011.outbound.protec=
+tion.outlook.com (10.19.170.1) by<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> EXCH-SRV02BP.ead.ubc.ca (10.19.216.30) wit=
+h Microsoft SMTP Server<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_=
+WITH_AES_128_GCM_SHA256) id<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 15.1.2507.44 via Frontend Transport; Mon, =
+26 May 2025 23:12:06 -0700<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Seal: i=3D1; a=3Drsa-sha256; s=3Darcsel=
+ector10001; d=3Dmicrosoft.com; cv=3Dnone;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3DRJzoClRLAeuXX4DfA42B0NL7uLO8+pByApV9D+=
+VA56gcznqQvCK+zg5dcubmO8jeBVHYaQhrovYNmFK1tFJOdX0DqjBPkN9W4lKSE+8FAFUqdKb/H=
+Tvj9uBYhejHmQ5g1L0zskCCSiu/+ykmunvsGbqgRpTPsTjzc5jDrhEmwYIv9QMFCW/shdYhHiiE=
+SXH8pCZTrwuGituyTCnJQ5ux1b0xNFTr5ucmgd9glgiumCw8lEpac7/w/wZHLgAzMrBsiPMB0Sj=
+cF5E/z2Z4LrO8kXPTw5EVaH9Bn70+goQtR7kckYJxcsX5850lRC1/32yw7MJQNiR7CwXfx3wMP2=
+VDMw=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Message-Signature: i=3D1; a=3Drsa-sha25=
+6; c=3Drelaxed/relaxed; d=3Dmicrosoft.com;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> s=3Darcselector10001;<o:p></o:p></span></p=
+re>
+<pre><span style=3D"color:gray"> h=3DFrom:Date:Subject:Message-ID:Content-T=
+ype:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchang=
+e-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray"> bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB=
+5GlQmk=3D;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3DedLhxWx46MOvZkQgB6jVQMpJFoXxjCKLV7kEl5=
+CVoxwG0GxAdgvr4OzlKVGHfFK5lpmqZPbIJcoKJY7z5EK1g+hNT9L0axdDrTmUvtVm7PElvMdXQ=
+sjA/gc5dYrwYLSVvh421mqaneHdHtNXdkY9QugbeNZPsKNZ97SmmuZMJ5SasTFxuDR/+PcXGddh=
+qyvwWBqZLS0im2sNR6ewFkgf1stn0XeQuk3KkN45oJh0zapMMu/zB58PRaM1ob5Ect9rHyjBEhK=
+ZRNLKZTWuIASRLlFklOYcyl8a065OJjH4XVtUIhXf0AdkkTHKwC+fb+3EN+Slc9JrawZPeo1dIu=
+Zj3w=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">ARC-Authentication-Results: i=3D1; mx.micro=
+soft.com 1; spf=3Dpass<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> smtp.mailfrom=3Dubc.ca; dmarc=3Dpass actio=
+n=3Dnone header.from=3Dubc.ca; dkim=3Dpass<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.d=3Dubc.ca; arc=3Dnone<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray">DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3D=
+relaxed/relaxed; d=3Dubcca.onmicrosoft.com;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> s=3Dselector2-ubcca-onmicrosoft-com;<o:p><=
+/o:p></span></pre>
+<pre><span style=3D"color:gray"> h=3DFrom:Date:Subject:Message-ID:Content-T=
+ype:MIME-Version:X-MS-Exchange-SenderADCheck;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> bh=3DGnTCOjZ+zD0rHl4f67Ops52v8jppRd5RgdDEB=
+5GlQmk=3D;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> b=3D2rLsPDXyDz2MIEbNk+Oiiok04iM/q3KLB0pup1=
+AcJ3WdobWWmgYgDndinWOZOlWC0eXIU2CXoRe2BNGzTYeyEwNEoukzTAeTgh2ak5RcXqnwIwqUd=
+j+UoX9n1K9JphzQ/mDy9ci3OfU6MvWyInpb3C9ql3es3hO8mvZhUbL5D9Y=3D<o:p></o:p></s=
+pan></pre>
+<pre><span style=3D"color:gray">Received: from YQBPR0101MB5241.CANPRD01.PRO=
+D.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (2603:10b6:c01:44::20) by YQBPR01MB10999.C=
+ANPRD01.PROD.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (2603:10b6:c01:96::21) with Microsoft SMTP=
+ Server (version=3DTLS1_2,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SH=
+A384) id 15.20.8769.27; Tue, 27 May<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 2025 06:11:51 +0000<o:p></o:p></span></pre=
+>
+<pre><span style=3D"color:gray">Received: from YQBPR0101MB5241.CANPRD01.PRO=
+D.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ([fe80::a2b4:345b:84b5:91d6]) by YQBPR0101=
+MB5241.CANPRD01.PROD.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> ([fe80::a2b4:345b:84b5:91d6%5]) with mapi =
+id 15.20.8769.025; Tue, 27 May 2025<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> 06:11:50 +0000<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">From: &quot;Siam, Mennatullah&quot; &lt;<a =
+href=3D"mailto:mennatullah.siam@ubc.ca">mennatullah.siam@ubc.ca</a>&gt;<o:p=
+></o:p></span></pre>
+<pre><span style=3D"color:gray">To: Z-GrantsAdministration &lt;<a href=3D"m=
+ailto:grantsadministration@nserc-crsng.gc.ca">grantsadministration@nserc-cr=
+sng.gc.ca</a>&gt;,<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+=3D?iso-8859-1?Q?Longpr=3DE9-Lanteigne=3D2CM=3DE9lanie?=3D<o:p></o:p></span=
+></pre>
+<pre><span style=3D"color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+&lt;<a href=3D"mailto:melanie.longpre-lanteigne@nserc-crsng.gc.ca">melanie.=
+longpre-lanteigne@nserc-crsng.gc.ca</a>&gt;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">CC: &quot;Ryabika, Dmitriy&quot; &lt;<a hre=
+f=3D"mailto:dmitriy.ryabika@ubc.ca">dmitriy.ryabika@ubc.ca</a>&gt;, &quot;L=
+iu, Brenda&quot;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+&lt;<a href=3D"mailto:brenda.liu@ors.ubc.ca">brenda.liu@ors.ubc.ca</a>&gt;,=
+ &quot;Penaflor, Sonia&quot; &lt;<a href=3D"mailto:sonia.penaflor@ubc.ca">s=
+onia.penaflor@ubc.ca</a>&gt;, &quot;menna<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> seyam&quot; &lt;<a href=3D"mailto:menna.se=
+yam@gmail.com">menna.seyam@gmail.com</a>&gt;, &quot;<a href=3D"mailto:menna=
+tul@ualberta.ca">mennatul@ualberta.ca</a>&quot; &lt;<a href=3D"mailto:menna=
+tul@ualberta.ca">mennatul@ualberta.ca</a>&gt;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Subject: [Termination] Grants PI Mennatulla=
+h Siam<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Thread-Topic: [Termination] Grants PI Menna=
+tullah Siam<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Thread-Index: AQHbzsZb1WCD2PNV10iqGPMoafy0m=
+Q=3D=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Date: Tue, 27 May 2025 06:11:49 +0000<o:p><=
+/o:p></span></pre>
+<pre><span style=3D"color:gray">Message-ID: &lt;<a href=3D"mailto:YQBPR0101=
+MB52416535A820D6B34AA0635AFB64A@YQBPR0101MB5241.CANPRD01.PROD.OUTLOOK.COM">=
+YQBPR0101MB52416535A820D6B34AA0635AFB64A@YQBPR0101MB5241.CANPRD01.PROD.OUTL=
+OOK.COM</a>&gt;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Accept-Language: en-CA, en-US<o:p></o:p></s=
+pan></pre>
+<pre><span style=3D"color:gray">Content-Language: en-CA<o:p></o:p></span></=
+pre>
+<pre><span style=3D"color:gray">X-MS-Has-Attach: yes<o:p></o:p></span></pre=
+>
+<pre><span style=3D"color:gray">X-MS-TNEF-Correlator:<o:p></o:p></span></pr=
+e>
+<pre><span style=3D"color:gray">msip_labels:<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Authentication-Results-Original: dkim=3Dnon=
+e (message not signed)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> header.d=3Dnone;dmarc=3Dnone action=3Dnone=
+ header.from=3Dubc.ca;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">x-ms-traffictypediagnostic: YQBPR0101MB5241=
+:EE_|YQBPR01MB10999:EE_|YT2PEPF000001CE:EE_|YQBPR01MB10916:EE_<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray">X-MS-Office365-Filtering-Correlation-Id: 94=
+2960e5-22bf-434f-91a9-08dd9ce584c3<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">x-ld-processed: 2fff08c9-91d4-4fc8-bbdd-dd5=
+9b7414ddb,ExtAddr<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">x-ms-exchange-senderadcheck: 1<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray">x-ms-exchange-antispam-relay: 0<o:p></o:p><=
+/span></pre>
+<pre><span style=3D"color:gray">X-Microsoft-Antispam-Untrusted: BCL:0;ARA:1=
+3230040|366016|376014|1800799024|8096899003|4053099003|38070700018|19033499=
+003;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-Microsoft-Antispam-Message-Info-Original:=
+ =3D?us-ascii?Q?L06FsPT+qLCeLRFAGabgbA82sgyoFl4aTY1BTC7sQoArfqHDpIJaJttDX9M=
+q?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?vpkDC+IOmHLSUHHl6NpnAJx9l0h=
+SEvaSGI3G+TXZgQw5At75Wyc+LSCKsR5E?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?hNTDWFyX+ah+tSI5kdnf+5o2+1o=
+n8bn1jJ6bnvIfoouYRDo35MPsTA9ZRh/s?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?Xo3Id/XVPhIXaD0jrac42sRIWBx=
+4blshEzHIBbjxhxlrYmjopRgdL7rbf8PD?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?sX6H9nXfnB0YcIqPoMFQVe98yFK=
+MxhnmBTeHkQaYctH+qRCIfMruqfPj87ZN?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?3EmLn7B4hJ4TAC0g+iJYAvoqxDe=
+bvu0IPpvEirNGBDF91BXkWHQ7z2LOLSbu?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?zuI9gMtPP7TcNClH1jmR/IwbzUr=
+qi2lDP//mJgPadytBqNYeAGtgIMPO9Hdb?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?9SjgGn2HsKzBMZIdFFwrP2JHqd9=
+CLTPBuI4U9AX90+razfNEaYfnU0VDb722?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?KbvzRhujxMHkahCjeI0n1pz2Ow6=
+KbQZfqomXq5SMhCAoOG8FKgPx0V/vExS8?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?co+8l1FDgzMttSFMktDlMwXif3Q=
+6Ey5hzg0RuXbsj1cfWzdKidYkzhm141UC?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?TzPJUxTZQM/u8qtdG0vtwo2NWsR=
+XaI7N8VG7G25/HIM0ALhZZ/mM/BJ+ui8U?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?O1LSbIAmaLVsaLWfqYCG/zuBp1F=
+DV+yvj0aVTWY//RmCjLZo/KOR5pHeh6Q5?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?omYlgRfXN0hQhgitr0pGT0IHXjN=
+aezTR2ZuXimhCbH0TuoIZ6ZpaNsWn7Qz/?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?tveiuBqyLw1NPePyjRBZw8M3Sq1=
+Rxm3+aIExLiWYEoNE2L5xUjushWS0PdfR?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?xe+u+AMkteCRaPQjxvWBxkZDJCH=
++6AHzPx2+/11Q+JFmP+JeOHzMe566rB35?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?0qEgtwIKRRPlTM2xzJVNMrzFBkC=
+4110on5bWsuY+plR6HRZs2RO96QSbKlae?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?b1QzDy/+/0dj+2tfhIMtqRPmI5B=
+BfM8o2v2NoHz3Ey/TIADzywcftH4Ty7fs?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?enKBIaT3Rfg67iOrZD+PMYjwVV/=
+WgHMyeqIeCcS8f3khvxhAA5Qs5y2e/FdA?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?iRjndh0YRRB6NchnqJdNz7ImiIr=
+s1kuZ/iigNlkp6n+Hng2hSBaxP3HU/AO6?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?y67AEGTVpZfPO04ELQdZ+iRjWKw=
+mRi8iVjMbQUhUOXbjNA9r6Mwv8vIJ8Kw2?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?WKrNUzihW4eyekzlFSqX+flJunv=
+ejZuW7z43oGKpapn5fd8qE4DmMeCt933L?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?lz/EDz0M+cL6XoQajOJjScQ9hnU=
+dLBWqpbRL03RTjGqaVC4EKXVfCEERkM+I?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?SwchoOSzz2VjYKOEbi3zUfJZQeN=
+b6qJVXcKJnGz96Y2duqyd+OyGGoZ9N9RS?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?GwF6Oo5vcpUhNReIieW3a45Q3Qg=
+LVHC5onsavIAUB/yZ0Y6KHRdcYWIQB5ph?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?us-ascii?Q?gc1+wMtZ1Is=3D3D?=3D<o:p></=
+o:p></span></pre>
+<pre><span style=3D"color:gray">X-Forefront-Antispam-Report-Untrusted: CIP:=
+255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YQBPR0101MB5241=
+.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(180=
+0799024)(8096899003)(4053099003)(38070700018)(19033499003);DIR:OUT;SFP:1102=
+;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-AntiSpam-MessageData-Original=
+-ChunkCount: 1<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-AntiSpam-MessageData-Original=
+-0: =3D?iso-8859-1?Q?KVjbLfUHULICLrM9TSnylfSVBZm+7qGqK0qA2a1hWwmZbGj4J9Sz9P=
+6+Op?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?klWHSkzHMhRlYEHXq9Cp647gg=
+ymIxHUmQlzoXBvOZTdpN8hiV9WolFWOT3?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?A5BGXZPEHP3ngOuVFKtVq2XfG=
+YJe9WGtV6+AHEV/dDkk1NoK7sed/wGZmp?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?lYy/w+tDk9QHz1s8UOfijCKgW=
+vFZIgnSPJFm2qLQr+hHvS0viSW02rKbIr?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?Dg9ckVkthG+FANRmAI0ZzMwJD=
+WK8nTOeZgaiO1pNHUZN7O/ubLm6z9H3+2?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?mX2LFq17IJlX32RCZ75iuhAY5=
+Z05K1WvyrOrouLICyDIZjGEl3APAadLKh?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?92ueMUMxzp9lF8lMjBuR/v6Qc=
+gZ1D9jsvShWmu+CfpgBKoJzNbTLJrHtvL?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?9FsaHXng9InpTqylOcLM8t6mC=
+UMmg8MRjj5EUsXxz36so2xlbuvmL9k1ld?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?W2c5WrH//YhjP6qvkZtqVIfbf=
+YseLfvmNMeQ7RPVuf621odUSX1bI7Xhjn?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?t36w7ktKmQzH0wGZQhnfedUyl=
+JWHNkaoQx/JjdLwrQlImffWEpwCJhrbTT?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?AGWMfSAGqAAWEIlxlwcTFxR8A=
+WEOLr9DsjMilf5hfKrT2xaPXQ74GnAkgV?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?O72tR8aEfusKFq/d4x0ADoRJm=
+7aUNNBYK8dwk1zcKNwRS+6ibMMBndzl3o?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?vFx9QDaPa//igXF6fxDhNuZky=
+uHx8nzIazIPoKz44JkdyGLTFrhvo30pqU?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?FgqCp3UgFdVrkElaAkVP3l7pP=
+uVFgjwh6iEl3OXbvYKcEF8roz0n0PPJvH?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?K1h0LleqAk/S11S2okP1PQRc/=
+Y/8E6ueEQiuqbjgdmOplyUtaK9YZF7Mm2?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?W3vsat5S7rryuWpsuL7GG8yEd=
+zyRd0vgpuow/9r3BcXDURwm58llh85n6T?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?282cTGtLV0h+LKAeDVSqR8IKN=
+z2CfR/HNkW/OcaF7puiJUOxwVJ+SkZrHF?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?e+C3zl4LCgbm2M3o7PhkuMKBG=
+Txz7a15ytyjUf6JTkaIKMs7MXAxMQq4Qr?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?NP+ZH3yc8oN4g731YgcjjfFcj=
+GoJmVdaikOFpRA+uPwiRADg/AXkH1kT/v?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?fla3s8cjMdb4JD6+NFBphMFHZ=
+dNYJ595AgPkMPgAPP+89B0y0bVlWJm89g?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?mdRAUv2V1tXrXxpmsOkPTQtvX=
+t5CI5z2FUJClFj71LZFKRsc7t1ucF68Hk?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?8Ftri4IO0SUnLdGNgvhl8SVd1=
+pv4Upw8XHKtqgC5OrhPysTV3RVHvKe5/D?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?xl+fYq/gDNBeydk1z75/YjJlD=
+Zw5zkdJqXV4+HB29m/0xbq7S4xvt+CQvH?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?hKbNDvfiggXq51hF11UNWhH82=
+/C0gnV5vhe3F0GGnhEIWNluEvXtQ9mV01?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?jrpSKd1r2lhvjBlTCBNExyqVl=
++gLmJxteK3bdP1LLfRSE50mHAwpEPT42J?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?nPiEy8m/0QNvWhH4dIKc92qOd=
+FWgsu/gl9mBDfpJIQML5ednLjT3X49Qp+?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?JTtXN+VsZroLKKXUhNnE64N/c=
+ReVt3SeQd9koirYZJR70dvIGcUM7wz4Mf?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?QIC3EbcKYn58qJzzJjQGMrdG7=
+r60HMoCxN?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Content-Type: multipart/mixed;<o:p></o:p></=
+span></pre>
+<pre><span style=3D"color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+boundary=3D&quot;_006_YQBPR0101MB52416535A820D6B34AA0635AFB64AYQBPR0101MB52=
+41_&quot;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">MIME-Version: 1.0<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-Transport-CrossTenantHeadersS=
+tamped: YQBPR01MB10999<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">Return-Path: <a href=3D"mailto:mennatullah.=
+siam@ubc.ca">mennatullah.siam@ubc.ca</a><o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-EOPAttributedMessage: 0<o:p></o:p></span>=
+</pre>
+<pre><span style=3D"color:gray">X-EOPTenantAttributedMessage: fbef0798-20e3=
+-4be7-bdc8-372032610f65:0<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-Transport-CrossTenantHeadersS=
+tripped: YT2PEPF000001CE.CANPRD01.PROD.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-PublicTrafficType: Email<o:p></o:p></s=
+pan></pre>
+<pre><span style=3D"color:gray">X-MS-Office365-Filtering-Correlation-Id-Prv=
+s: f6479374-1f79-439e-6ccf-08dd9ce55e45<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-LD-Processed: fbef0798-20e3-4be7-bdc8-372=
+032610f65,ExtAddr,ExtFwd<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-AtpMessageProperties: SA|SL<o=
+:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-Microsoft-Antispam: BCL:0;ARA:13230040|35=
+042699022|39142699007|31052699007|4053099003|8096899003;<o:p></o:p></span><=
+/pre>
+<pre><span style=3D"color:gray">X-Microsoft-Antispam-Message-Info: =3D?iso-=
+8859-1?Q?BV8hlMGQKmZQyiUcnFbxyA8w6OjQ7mmdAIDU7P0nroyT+oiksdyrzX64bn?=3D<o:p=
+></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?5pStFnB/7PQ2HtbC1anaQFc0l=
+fg4XZPpf+HPsZctDusipHH4ijLAGl4UR8?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?6vUpQqYBPr7DDtMpQXCL/4tLd=
+AZAk93iAkJo9rQNMbs6te1mv3vwZ7rs1t?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?RPVYfoctvmprayC+mdYlWBc5K=
+AGfmDkopplIeWThFM86SB64g64cAT505d?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?+3NhpEVBRAChbhDlc6IVANN6o=
+Gpi0lRBWshXZi2sptm6b5x1uBGdM3Au1F?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?EH6L43wke0QTEfbgW8woO4UWP=
+yVrROUsgXB3bOax3+amh0wXKFCWjQDqR5?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?1wps6aS/LTtrBOIS7pgJrfwAz=
+eeqmt7ZH/WCcjGfFsp3csPeRuqPbPhTyc?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?eaWQOpvNhq2WFVB0hwNPOMRDw=
+jxXC5GUOaxINUJ9twpaDcNTlqGiko90my?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?EvTDdEJNBjuAw+KhXcqHIawvs=
+lV53DBeRi4JA8jEKdZT3E+M/aDm+q+4Zy?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?Dd1vdWafO4FFdth1HHKJPxvhn=
+y3ynFwxbkwA23SrnFYpFkAs3OmwICom8l?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?PfVSmrF3Y1WeQvTKVQ3jy7GTy=
+AAxLwxfQK9ZHCrKWU1rYOvrepN3Rnawyg?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?4gPdzPPZldbijySKSYsgMSjEm=
+GRbRjrsEKyXxnkKGdYs2SGFzF3r2xt3/V?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?J56A8pUeGcYUCeJN6PLYIOp6F=
+27lfK6VZRASygv3gNxJx3Uf1q+Aby9TNP?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?E9zAHNzcg4MXd0w9/P5FsLJjb=
+jKo0XOsZiF54YoKnEehVC7UIgChGULLqv?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?EyqErJ3Edf696NW/Gk+kIj0hE=
+3ra0cYYjYgXGx/r/t+e10KO9lmh5Z2o5H?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?2Ni4VjE8aP/Dx/n1CrGQxlFff=
+fzGYdTqbRDN+q4kdiiVsuAnDEf/QD/Mgf?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?w81epTsx9kT3pW4yyn6DOiqVo=
+uDbluPFSDnhUR4CC0sFwb9wA4BkFjfPvR?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?8Wjhf/dRUHQea4x3bLvAwxUUn=
+jdo6VgKp9rHRXzcPMbsJldpyqnrV/xd0W?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?RxXmOrtbUWWa8741FToij+r3o=
+G8zsjIG7Jce1Q20+1LB+y24BnbvLGmdXY?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?YecIAiwXE5ZrQaq6WrOz8dwaX=
+0Q88we/yXldfLlOUCrEXhArU+kYtvp6PI?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?f/ZStiCX/R88vGpgcknz+SwVg=
+yMQBuaWgIunKRlAdxnYeoUkU8ls8r7BAU?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?p8FLnNrkpEgNXJ6sE4oyofomo=
+1rJRaP2eFdDW6WBF7/hSK5VLYIFLSF4hX?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?qzKVPgm9rIzFmoJY1sxsRDPVz=
+h/kZ4Xhb6JER5/8lEPPflp4uXC9NCjPcU?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?5OlF7e34FQUBCunxDRAW2MG/F=
+Q+GneMbbGc92l3fG5ilgn4FmE3EHwLZ0a?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?I4mq1gxHD5BtENg57qQAZnj/c=
+U/26fjZO6NBRIIkh1sPavADr4cWHhPSWe?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?34VJ5LAQCm7FWtj1iY+aOESCB=
+Q+7tUtgkbUjtLhMoL4f20jWq1+beBYPxf?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?+ztU+XqZrxY2NZMyZeGn9CZD8=
+EGQNqQVOqK5AIzRUJk8Le29cGuSAu+gGG?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?RwlpGrogOvi4cOKENLYfXSH2k=
+f0l2mwrfYE6O1YWCK2YvOUDpXuI8TGY1T?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?ZYPArbhzzz2d2rcKOHeJKvlHU=
+r4G2CoGyHRdyEY9hP6DDsprWPLCt4b8ym?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?rDzGRTB6+AK0OYcAriRSWgzoh=
+7VHTbQP1eetmgv5wtfgl86dZ4yyquPF7x?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?741bZh1mixZlQI5Fggxi+gJCC=
+1077mHl9a41P9bTelWXPu8gskok/4flKe?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?jHAJo0BOgm0Un1AvGPVu/5CWa=
+GD9fBVX7oWVcjhac7D/hMt0ZnNwtnC8Sn?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?S8U33sjhRnGETh7natEbT/L+b=
+d2ANLqox/qAwy08Z0NOL69ROl0aLmryXQ?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?/lsUXWtGywm6uh8pUfWfYePOB=
+P3v//RY0LHJcf85mG+GFywfpUyraRZatd?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> =3D?iso-8859-1?Q?yhnlyeXXeTDdA4exF+RQcBwmD=
+QeKJeq1310CleA1Gul7jxWi28ixVJ0=3D3D?=3D<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-Forefront-Antispam-Report: CIP:142.103.11=
+7.135;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:esvaout5.mail-relay.ubc=
+.ca;PTR:esvaout5.mail-relay.ubc.ca;CAT:NONE;SFS:(13230040)(35042699022)(391=
+42699007)(31052699007)(4053099003)(8096899003);DIR:INB;<o:p></o:p></span></=
+pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-ATPSafeLinks-Stat: 0<o:p></o:=
+p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-ATPSafeLinks-BitVector: 0:0x0=
+|0x0|0x0|0x0|0x0|0x0;<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-ForwardingLoop: <a href=3D"ma=
+ilto:Z-CSSDFIN@NSERC-CRSNG.GC.CA;fbef0798-20e3-4be7-bdc8-372032610f65">Z-CS=
+SDFIN@NSERC-CRSNG.GC.CA;fbef0798-20e3-4be7-bdc8-372032610f65</a><o:p></o:p>=
+</span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-CrossTenant-OriginalArrivalTi=
+me: 27 May 2025 06:12:54.1724<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray"> (UTC)<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-CrossTenant-Network-Message-I=
+d: 942960e5-22bf-434f-91a9-08dd9ce584c3<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-CrossTenant-Id: fbef0798-20e3=
+-4be7-bdc8-372032610f65<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-CrossTenant-AuthSource: YT2PE=
+PF000001CE.CANPRD01.PROD.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-CrossTenant-AuthAs: Anonymous=
+<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-CrossTenant-FromEntityHeader:=
+ Internet<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-MS-Exchange-Transport-CrossTenantHeadersS=
+tamped: YQBPR01MB10916<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-OrganizationHeadersPreserved: YQBPR01MB10=
+916.CANPRD01.PROD.OUTLOOK.COM<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-CrossPremisesHeadersPromoted: OTTANEXHYB0=
+2.nserc.ca<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-CrossPremisesHeadersFiltered: OTTANEXHYB0=
+2.nserc.ca<o:p></o:p></span></pre>
+<pre><span style=3D"color:gray">X-OriginatorOrg: nserc-crsng.gc.ca<o:p></o:=
+p></span></pre>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT1PR01MB24588DF0FC039F0B271D9479AD64AYT1PR01MB2458CANP_--
