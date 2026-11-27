@@ -61,7 +61,7 @@ handles these, not as a fake debt on the PI!*
 
 :arrow_right: I did an ATIP request in late 2025 for my grants to confirm it is terminated properly; as
 expected, I found they did not submit the F303 outstanding documents. This is video of ATIP
-response requesting these missing F303 documents, which still had (no F303s](https://www.youtube.com/watch?v=4VG0LnlFdbU). 
+response requesting these missing F303 documents, which still had [no F303s](https://www.youtube.com/watch?v=4VG0LnlFdbU). 
 
 :arrow_right: I also confirmed with UBC through FOI that indeed they did not provide F303 documents [TabH-F303sMissing](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/F303sMissing.eml). Note the NSERC document header states this clearly! Its their procedures publicly available on Government of Canada website! 
 
