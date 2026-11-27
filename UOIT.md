@@ -28,6 +28,6 @@ I received around 115K initially a year as an assistant professor, that increase
 were at 140-160K CAD, especially male ones. My research experience, metrics, grants, my credentials and my teaching are better than some of these by a considerable margin. Salary should be commensurate to experience!
 
 <div align="center">
-<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/c8367acefdd41bd6078ca2f18c6f4b16f53184a0/imgs/ONSalaryPublicDisclosure.png" width="70%" height="70%"><br><br>
+<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/2d1fc843b3e880425973934d7a4a69873cecafea/imgs/ONSalaryPublicDisclosure.png" width="70%" height="70%"><br><br>
 </div>
 
