@@ -3,8 +3,8 @@
 ## NSERC rejected outstanding salary for research personnel in my lab
 
 :arrow_right: I closed the three grants with a request on May 1st for an effective date on May 27th, 2025
-[TabH-Termination](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/Termination.eml). I closed these grants without the properly defined HQP, yet I had reported
-the CS Science Researcher and multiple visiting students. 
+[TabH-Termination](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/Termination.eml). I closed these grants without sufficient HQP, yet I had reported
+the CS Science Researcher, MSc students and multiple visiting students. 
 
 :arrow_right: UBC requested the part-time CS Science
 researcher in my lab to resign without my consent [TabH-RSTermination-X](https://github.com/MSiam/OnDiscrimination-Canada/tree/main/Tab-H). 
@@ -61,7 +61,7 @@ handles these, not as a fake debt on the PI!*
 
 :arrow_right: I did an ATIP request in late 2025 for my grants to confirm it is terminated properly; as
 expected, I found they did not submit the F303 outstanding documents. This is video of ATIP
-response requesting these missing F303 documents, which still had (no F303s](https://www.youtube.com/watch?v=4VG0LnlFdbU). 
+response requesting these missing F303 documents, which still had [no F303s](https://www.youtube.com/watch?v=RXgGjvu2n8Q). 
 
 :arrow_right: I also confirmed with UBC through FOI that indeed they did not provide F303 documents [TabH-F303sMissing](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/F303sMissing.eml). Note the NSERC document header states this clearly! Its their procedures publicly available on Government of Canada website! 
 
@@ -74,5 +74,5 @@ money stays where - not sure, UBC or UOIT or NSERC or floating around, God knows
 the aforementioned was conveyed to the NSERC secretariat as part of a complaint that was
 dismissed, stating they followed standard procedures.
 
-:arrow_right: I also did another ATIP request to see if they were crazy enough to add this as an irresponsible conduct incident in NSERC, but
+:arrow_right: I also did another ATIP request to see if they added this as an irresponsible conduct incident in NSERC, but
 thankfully they didn’t [TabH-RCR](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/RCR.pdf).
