@@ -87,7 +87,7 @@ assistant/affiliate professor. I am the only woman on this supervisory committee
 student is male. 
 
 <div align="center">
-<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-G/RayatThesis.png" width="40%" height="40%"><br><br>
+<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-G/RayatThesis.png" width="60%" height="60%"><br><br>
 </div>
 
 
