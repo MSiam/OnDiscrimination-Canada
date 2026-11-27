@@ -3,8 +3,8 @@
 ## NSERC rejected outstanding salary for research personnel in my lab
 
 :arrow_right: I closed the three grants with a request on May 1st for an effective date on May 27th, 2025
-[TabH-Termination](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/Termination.eml). I closed these grants without the properly defined HQP, yet I had reported
-the CS Science Researcher and multiple visiting students. 
+[TabH-Termination](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/Termination.eml). I closed these grants without sufficient HQP, yet I had reported
+the CS Science Researcher, MSc students and multiple visiting students. 
 
 :arrow_right: UBC requested the part-time CS Science
 researcher in my lab to resign without my consent [TabH-RSTermination-X](https://github.com/MSiam/OnDiscrimination-Canada/tree/main/Tab-H). 
