@@ -1,6 +1,6 @@
 # University of Victoria
 
-## Not acknlwedging my PhD/PEng which resulted in my rejection as an assistant professor candidate
+## Not acknlwedging my PhD/PEng which resulted in my faculty application rejection
 
 I applied for a physical AI assistant professor position at UVIC. I was shocked that I was not even shortlisted for the first round of interviews for that position, and I
 was notified of that by the Mechanical Engineering department chair assistant [TabJ-Rejection](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/Rejection.eml).
@@ -13,15 +13,15 @@ evaluations from the UVIC Privacy Office [TabJ-UVICFOI-X](https://github.com/MSi
 * Forget the extreme scores they provided for teaching/research which is clearly not true, but at least these are subjective. The above was clearer to me they were UNFAIR.
 
 <div align="center">
-<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/error_failqualifications.png" width="70%" height="70%"><br><br>
-<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/error_norefs.png" width="70%" height="70%"><br><br>
+<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/error_failqualifications.png" width="100%" height="70%"><br><br>
+<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/error_norefs.png" width="100%" height="70%"><br><br>
 </div>
 
 
 According to the UVIC criteria they provided in the FOI, it was only the PhD and the PEng. 
 
 <div align="center">
-<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/criteria.png" width="70%" height="70%"><br><br>
+<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-J/criteria.png" width="100%" height="70%"><br><br>
 </div>
 
 My PhD is in CS; However, I also have PEng with EGBC; 
