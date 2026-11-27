@@ -11,7 +11,7 @@ I alo love NSERC and I believe its a good funding agency but its currently infes
 
 I only focus here on sexism that happened in my story. I am declaring that from 2024 I started to feel *UNSAFE* in Canada, Egypt and the AI field generally speaking, after I held grants with NSERC and other funding agencies.
 <div align="center">
-<img src="https://github.com/MSiam/PixFoundation/" width="70%" height="70%"><br><br>
+<img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/c8367acefdd41bd6078ca2f18c6f4b16f53184a0/imgs/SlidesLive.png" width="70%" height="70%"><br><br>
 </div>
 
 The above is part of my NeurIPS 2026 ED Track poster video on Slides Live soon. It is referring to my homepage which will refer to this repository for details.
@@ -38,6 +38,8 @@ Similarly for discrimination on the basis of reprisal/retaliation:
 * **Adverse action or threat:** The respondent took a negative action against you, or threatened to do so (for example, termination, demotion, reduced hours, eviction, or harassment).
 * **Intentional link:** The respondent's negative action or threat was intended as retaliation for your protected action. It does not need to be the sole motive, so long as retaliation was one of the factors behind the decision.
 
+Now some lawyers and adjudicators in the Human Rights Tribunals, like to refer to what they call as GENERAL UNFAIRNESS. It's interesting but although it is unfair they still somehow use this trap to escape the above. Except, if they are destroying a citizen and stalking him/her too much with such GENERAL UNFAIRNESS, it still is unfair and with adverse impact. I wonder if it went to the provincial ombuds what will happen though!
+
 ## Summary of Adverse Impact
 
 TL;DR. Pay gender gap; My grants were stolen; Fired researchers in my lab without my consent
@@ -48,35 +50,15 @@ At zero income for almost two years; I received sexual harassment and death thre
 Denied from my safety nets in Canada; A Canadian university denied me my publicly available PhD
 and PEng credentials as such rejected my assistant prof. application; My talk was cancelled upon my request that I talk about resurgent sexism and my story; 
 My birth Mom name was mysteriously changed in Egyptian records!!!!!! It’s true, no joke!; Invited as a supervisory committee member to a UBC
-PhD student’s defence without affiliations or salary; I lost my car & around 15K with it; I am about to be 40 years old, and I missed my tenure & promotion to associate professor.
+PhD student’s defence without affiliations or salary; I lost my car & around 15K with it; I am about to be 40 years old, and I missed my tenure & promotion to associate professor; I am still at zero monetary compensation with all of the aofrementioned happening.
 
 ## Details
 
-On Oct. 4th, 2024, I Quit with Just Cause [Tab-B]() from UOIT with an effective date of
-Oct. 31st, 2024. I initially was not aware that providing email resignation is official resignation btw, I was under the impression I have to sign a letter or the least attend the offboarding, but at least according to FA it is sufficient.
-While I can’t detail the events that occurred at UOIT and the UOITFA here, I
-have filed two active human rights discrimination complaints against both, which are under
-review. The active complaints’ file numbers with ON HRTO are 2025-62342-I, 2026-67748-I. I
-have also filed a complaint against NSERC in parallel with the CHRC, reference number
-100021410, that hasn’t been processed yet. In addition to submitting a complaint against UBC
-in the BCHRTO, case number CS-017504, which I withdrew because they showed clear signs
-of CORRUPTION.
-
-While I have experienced severe harm in the aftermath of these events, I am still at zero
-monetary compensation. I have been at zero income since Nov. 2024, beyond unsalaried affiliations. My only current source of income is an
-unlocked LIRA withdrawal that should have been left for my pension, and it is an extremely
-small amount. I missed my tenure and/or promotion to an associate professor in 2026. I am also evading what I refer to as an Unknown Stalker; that’s hunting me down!
-
-
-* I report here the gender pay gap and discrimination in relation to my Hijab and my sex at UOIT
-that is publicly disclosed as part of [ON public institutions in 2024](https://www.ontario.ca/public-sector-salary-disclosure/2024/all-sectors-and-seconded-employees/). I received around 110K initially a year as an assistant professor, that increased to 120K near the last 4 months. This is the least in that disclosed list, while other assistant professors
-were at 140-160K CAD, especially male ones. My research experience, metrics, grants, my
-credentials and my teaching are better than some of these by a considerable margin. Salary should be commensurate to experience!
-
-* [University of British Columbia]()
-* [NSERC]()
-* [Threats & Stalking]()
-* [Humboldt Foundation]()
-* [University of Victor, Canada]()
-* [Amii]()
-* [NeurIPS & WiML]()
+* [UOIT](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/UOIT.md)
+* [University of British Columbia](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/UBC.md)
+* [NSERC](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/NSERC.md)
+* [Threats & Stalking](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/STALKER.md)
+* [Humboldt Foundation](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/HUMBOLDT.md)
+* [University of Victor, Canada](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/UVIC.md)
+* [Amii](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/AMII.md)
+* [NeurIPS & WiML](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/NEURIPS.md)
