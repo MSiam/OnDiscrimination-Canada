@@ -24,7 +24,7 @@ The above is part of my NeurIPS 2026 ED Track poster video on Slides Live soon. 
 * :trophy: Please nominate me to this [Prize](https://cfe.torontomu.ca/awards/peter-bryce-prize-whistleblowing). Deadline is **December 31st**. At a time where right wing and even worse extrimists support is increasing, freedom of expression will be taken away. If we can't even talk about corruption and discrimination, even when providing strong evidence then its going to be an Orwellian ending. 
 * :briefcase: If you are a lawyer please volunteer to help me in my legal proceedings.
 * :x: Fight against sexism, its resurging in a vicious way.
-* :woman_curly_haired: If you know of a woman with strong research profile and/or teaching profile in AI that hasn't landed a job yet, she is the priority especially if she is Canadian. Dont help me, help me and others like me.
+* :curly_haired_woman: If you know of a woman with strong research profile and/or teaching profile in AI that hasn't landed a job yet, she is the priority especially if she is Canadian. Dont help me, help me and others like me.
 
 ---
 
