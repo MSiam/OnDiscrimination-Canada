@@ -15,7 +15,7 @@ of CORRUPTION.
 monetary compensation. I have been at zero income since Nov. 2024, beyond unsalaried affiliations. 
 
 :arrow_right: My only current source of income is an
-unlocked LIRA withdrawal that should have been left for my pension, and it is an extremely
+unlocked LIRA withdrawal that should have been left for my retirement, and it is an extremely
 small amount. 
 
 :arrow_right: I missed my tenure and/or promotion to an associate professor in 2026. 
