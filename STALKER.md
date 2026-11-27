@@ -20,7 +20,7 @@ It became even worse during the Fall 2024 semester, as I was forced to teach 3 d
 I used my bike for even short distances at that point, except that during my second follow-up,
 they refused to allow me to undergo an examination. 
 
-:arrow_right: I requested to reschedule, and when I showed up the third time without my bike, they brought the police for no reason; refer to (this video](https://www.youtube.com/watch?v=4VG0LnlFdbU), and I was denied the breast examination again. I had never dealt with police in Canada, where I lived for 10 years, but the police told me they won’t take this incident into any records. 
+:arrow_right: I requested to reschedule, and when I showed up the third time without my bike, they brought the police for no reason; refer to [this video](https://www.youtube.com/watch?v=4VG0LnlFdbU), and I was denied the breast examination again. I had never dealt with police in Canada, where I lived for 10 years, but the police told me they won’t take this incident into any records. 
 
 *Great because I didnt do anything wrong to begin with, they prevented me from my appointment! But more importantly, they made me realize that even police can accept such unreasonable behaviour and blame me when I am the victim.*
 
