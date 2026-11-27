@@ -83,6 +83,6 @@ Now some lawyers and adjudicators in the Human Rights Tribunals, like to refer t
 * [NSERC](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/NSERC.md)
 * [Threats & Stalking](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/STALKER.md)
 * [Humboldt Foundation](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/HUMBOLDT.md)
-* [University of Victor, Canada](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/UVIC.md)
+* [University of Victoria, Canada](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/UVIC.md)
 * [Amii](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/AMII.md)
 * [NeurIPS & WiML](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/NEURIPS.md)
