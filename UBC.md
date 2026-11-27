@@ -76,15 +76,18 @@ had active grants, active papers being reviewed, was on the supervisory committe
 student and had already hired the part-time CS Science researcher who worked for around two
 months only. 
 
+:arrow_right: That CS Science Researcher (research scientist) was requested to resign for no real reason without my consent [with a notice period](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/RSTermination-1.eml).
+
 My term appointment with UBC should be till June, 2027. Legally, to the
 best of my knowledge, termination is not viable and has multiple procedural issues aside
-from its blatant discrimination and reprisal nature. 
+from its blatant discrimination and reprisal nature. Except UBC-FA told me they can not help with this, and I had no lawyer to consult how to revert the decision. 
 
-:arrow_right: Oct. 2025, I was part of that PhD student's committee, and I was listed on his thesis as part of the supervisory committee
+:arrow_right: Oct. 2025, I was part of the PhD student's committee in his defense, and I was listed on his thesis as part of the supervisory committee
 [TabG-RayatCommittee](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-G/RayatCommittee.pdf). However, I was listed as an independent researcher instead of an
 affiliate professor without my consent. I approved being written up as an
-assistant/affiliate professor. I am the only woman on this supervisory committee, and the
-student is male. 
+assistant/affiliate professor. I am the only woman on this supervisory committee. 
+
+:arrow_right: Worse I think there should be at least 1 supervisory committee member in addition to the supervisors in the defense. So I was the only one there, others were supervisors, examiners and the external. They jeoperdized that student PhD, because my affiliation with UBC was at that point crucial to ensure his PhD is valid.
 
 <div align="center">
 <img src="https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-G/RayatThesis.png" width="60%" height="60%"><br><br>
