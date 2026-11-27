@@ -74,5 +74,5 @@ money stays where - not sure, UBC or UOIT or NSERC or floating around, God knows
 the aforementioned was conveyed to the NSERC secretariat as part of a complaint that was
 dismissed, stating they followed standard procedures.
 
-:arrow_right: I also did another ATIP request to see if they were crazy enough to add this as an irresponsible conduct incident in NSERC, but
+:arrow_right: I also did another ATIP request to see if they added this as an irresponsible conduct incident in NSERC, but
 thankfully they didn’t [TabH-RCR](https://github.com/MSiam/OnDiscrimination-Canada/blob/main/Tab-H/RCR.pdf).
